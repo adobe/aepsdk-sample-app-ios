@@ -3,21 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6E6D3CE88716D67ABA67F63A /* Pods_AEPSampleAppObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC395757C585E760C2C13BB2 /* Pods_AEPSampleAppObjC.framework */; };
 		7802512924E3356F003244B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512824E3356F003244B1 /* AppDelegate.m */; };
 		7802512C24E3356F003244B1 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512B24E3356F003244B1 /* SceneDelegate.m */; };
-		7802512F24E3356F003244B1 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512E24E3356F003244B1 /* FirstViewController.m */; };
-		7802513224E3356F003244B1 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802513124E3356F003244B1 /* SecondViewController.m */; };
-		7802513524E3356F003244B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7802513324E3356F003244B1 /* Main.storyboard */; };
+		7802512F24E3356F003244B1 /* GriffonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512E24E3356F003244B1 /* GriffonViewController.m */; };
+		7802513224E3356F003244B1 /* AnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802513124E3356F003244B1 /* AnalyticsViewController.m */; };
 		7802513724E33571003244B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7802513624E33570003244B1 /* Assets.xcassets */; };
 		7802513A24E33571003244B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7802513824E33571003244B1 /* LaunchScreen.storyboard */; };
 		7802513D24E33571003244B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802513C24E33571003244B1 /* main.m */; };
 		7802514724E33571003244B1 /* AEPSampleAppObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802514624E33571003244B1 /* AEPSampleAppObjCTests.m */; };
 		7802515224E33571003244B1 /* AEPSampleAppObjCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802515124E33571003244B1 /* AEPSampleAppObjCUITests.m */; };
+		7802516024E33761003244B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7802515F24E33761003244B1 /* Main.storyboard */; };
+		7802516324E33904003244B1 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516224E33904003244B1 /* PlacesViewController.m */; };
+		7802516624E33977003244B1 /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516524E33977003244B1 /* MediaViewController.m */; };
+		7802516924E33990003244B1 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516824E33990003244B1 /* MessageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +47,10 @@
 		7802512824E3356F003244B1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7802512A24E3356F003244B1 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		7802512B24E3356F003244B1 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		7802512D24E3356F003244B1 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		7802512E24E3356F003244B1 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		7802513024E3356F003244B1 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		7802513124E3356F003244B1 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		7802513424E3356F003244B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7802512D24E3356F003244B1 /* GriffonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GriffonViewController.h; sourceTree = "<group>"; };
+		7802512E24E3356F003244B1 /* GriffonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GriffonViewController.m; sourceTree = "<group>"; };
+		7802513024E3356F003244B1 /* AnalyticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalyticsViewController.h; sourceTree = "<group>"; };
+		7802513124E3356F003244B1 /* AnalyticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalyticsViewController.m; sourceTree = "<group>"; };
 		7802513624E33570003244B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7802513924E33571003244B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7802513B24E33571003244B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +61,13 @@
 		7802514D24E33571003244B1 /* AEPSampleAppObjCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AEPSampleAppObjCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7802515124E33571003244B1 /* AEPSampleAppObjCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AEPSampleAppObjCUITests.m; sourceTree = "<group>"; };
 		7802515324E33571003244B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7802515F24E33761003244B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7802516124E33904003244B1 /* PlacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlacesViewController.h; sourceTree = "<group>"; };
+		7802516224E33904003244B1 /* PlacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
+		7802516424E33977003244B1 /* MediaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaViewController.h; sourceTree = "<group>"; };
+		7802516524E33977003244B1 /* MediaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaViewController.m; sourceTree = "<group>"; };
+		7802516724E33990003244B1 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		7802516824E33990003244B1 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		C4118B31FA4A054757105CD5 /* Pods-AEPSampleAppObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleAppObjC.debug.xcconfig"; path = "Target Support Files/Pods-AEPSampleAppObjC/Pods-AEPSampleAppObjC.debug.xcconfig"; sourceTree = "<group>"; };
 		EC395757C585E760C2C13BB2 /* Pods_AEPSampleAppObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPSampleAppObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -118,11 +127,17 @@
 				7802512824E3356F003244B1 /* AppDelegate.m */,
 				7802512A24E3356F003244B1 /* SceneDelegate.h */,
 				7802512B24E3356F003244B1 /* SceneDelegate.m */,
-				7802512D24E3356F003244B1 /* FirstViewController.h */,
-				7802512E24E3356F003244B1 /* FirstViewController.m */,
-				7802513024E3356F003244B1 /* SecondViewController.h */,
-				7802513124E3356F003244B1 /* SecondViewController.m */,
-				7802513324E3356F003244B1 /* Main.storyboard */,
+				7802512D24E3356F003244B1 /* GriffonViewController.h */,
+				7802512E24E3356F003244B1 /* GriffonViewController.m */,
+				7802513024E3356F003244B1 /* AnalyticsViewController.h */,
+				7802513124E3356F003244B1 /* AnalyticsViewController.m */,
+				7802516124E33904003244B1 /* PlacesViewController.h */,
+				7802516224E33904003244B1 /* PlacesViewController.m */,
+				7802516424E33977003244B1 /* MediaViewController.h */,
+				7802516524E33977003244B1 /* MediaViewController.m */,
+				7802516724E33990003244B1 /* MessageViewController.h */,
+				7802516824E33990003244B1 /* MessageViewController.m */,
+				7802515F24E33761003244B1 /* Main.storyboard */,
 				7802513624E33570003244B1 /* Assets.xcassets */,
 				7802513824E33571003244B1 /* LaunchScreen.storyboard */,
 				7802513B24E33571003244B1 /* Info.plist */,
@@ -155,7 +170,6 @@
 				C4118B31FA4A054757105CD5 /* Pods-AEPSampleAppObjC.debug.xcconfig */,
 				59409BC4D9DD0A11CD7B2295 /* Pods-AEPSampleAppObjC.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -274,7 +288,7 @@
 			files = (
 				7802513A24E33571003244B1 /* LaunchScreen.storyboard in Resources */,
 				7802513724E33571003244B1 /* Assets.xcassets in Resources */,
-				7802513524E3356F003244B1 /* Main.storyboard in Resources */,
+				7802516024E33761003244B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,10 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7802516324E33904003244B1 /* PlacesViewController.m in Sources */,
 				7802513D24E33571003244B1 /* main.m in Sources */,
-				7802513224E3356F003244B1 /* SecondViewController.m in Sources */,
+				7802513224E3356F003244B1 /* AnalyticsViewController.m in Sources */,
+				7802516624E33977003244B1 /* MediaViewController.m in Sources */,
 				7802512924E3356F003244B1 /* AppDelegate.m in Sources */,
-				7802512F24E3356F003244B1 /* FirstViewController.m in Sources */,
+				7802512F24E3356F003244B1 /* GriffonViewController.m in Sources */,
+				7802516924E33990003244B1 /* MessageViewController.m in Sources */,
 				7802512C24E3356F003244B1 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,14 +398,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7802513324E3356F003244B1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7802513424E3356F003244B1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7802513824E33571003244B1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

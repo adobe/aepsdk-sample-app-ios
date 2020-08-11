@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  MediaViewController.h
 //  AEPSampleAppObjC
 //
 //  Created by Christopher Hoffman on 8/11/20.
@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface MediaViewController : UIViewController
+
+- (IBAction)playVideoButtonTapped:(id)sender;
 
 @end
 
+NS_ASSUME_NONNULL_END
