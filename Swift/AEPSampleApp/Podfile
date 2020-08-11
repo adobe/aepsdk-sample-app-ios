@@ -1,0 +1,10 @@
+platform :ios, '10.0'
+
+use_frameworks!
+target 'AEPSampleApp' do
+    pod 'AEPServices', :git => 'git@github.com:shalehaha/aepsdk-core-ios.git', :branch => 'build'
+    pod 'AEPCore', :git => 'git@github.com:shalehaha/aepsdk-core-ios.git', :branch => 'build'
+    pod 'AEPLifecycle', :git => 'git@github.com:shalehaha/aepsdk-core-ios.git', :branch => 'build'
+    pod 'AEPIdentity', :git => 'git@github.com:shalehaha/aepsdk-core-ios.git', :branch => 'build'
+    pod 'SwiftRulesEngine', :git => 'git@github.com:adobe/aepsdk-rulesengine-ios.git', :branch => 'dev'
+end
