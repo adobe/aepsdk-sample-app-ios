@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [AEPCore setLogLevel: AEPLogLevelTrace];
     NSArray *extensionsToRegister = @[AEPIdentity.class, AEPLifecycle.class];
     [AEPCore registerExtensions:extensionsToRegister completion:^{
         [AEPCore lifecycleStart:nil];

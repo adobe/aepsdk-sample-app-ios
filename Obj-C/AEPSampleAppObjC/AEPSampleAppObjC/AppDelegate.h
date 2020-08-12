@@ -10,6 +10,7 @@
 @import AEPCore;
 @import AEPLifecycle;
 @import AEPIdentity;
+@import AEPServices;
 @import AdSupport;
 @import AVKit;
 
