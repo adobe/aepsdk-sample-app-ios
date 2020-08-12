@@ -43,7 +43,6 @@ struct GriffonView: View {
                         .font(.caption)
                 }.cornerRadius(5)
             }
-        Spacer()
         }.padding()
     }
 }

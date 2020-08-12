@@ -52,7 +52,7 @@ struct PlacesView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
                 Button(action: {
 //                    ACPPlacesMonitor.stop(true)
                     self.monitoringType = "Monitoring Stopped"
@@ -116,7 +116,6 @@ struct PlacesView: View {
                         .font(.caption)
                 }.cornerRadius(5)
             }
-        Spacer()
         }.padding()
     }
 }

@@ -30,7 +30,7 @@ class MainTabBarController: UITabBarController {
         let mediaVC = MediaViewController()
         mediaVC.tabBarItem = UITabBarItem(title: "Media", image: nil, selectedImage: nil)
         
-        let messagesVC = MessagesViewController()
+        let messagesVC = MessagesViewController(rootView: MessagesView())
         messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: nil, selectedImage: nil)
         
         viewControllers = [griffonVC, analyticsVC, placesVC, mediaVC, messagesVC]
