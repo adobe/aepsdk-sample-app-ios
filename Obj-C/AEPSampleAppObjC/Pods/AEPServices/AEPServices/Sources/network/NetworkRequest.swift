@@ -1,29 +1,29 @@
 /*
-Copyright 2020 Adobe. All rights reserved.
-This file is licensed to you under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License. You may obtain a copy
-of the License at http://www.apache.org/licenses/LICENSE-2.0
+ Copyright 2020 Adobe. All rights reserved.
+ This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License. You may obtain a copy
+ of the License at http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software distributed under
-the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
-OF ANY KIND, either express or implied. See the License for the specific language
-governing permissions and limitations under the License.
-*/
+ Unless required by applicable law or agreed to in writing, software distributed under
+ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ OF ANY KIND, either express or implied. See the License for the specific language
+ governing permissions and limitations under the License.
+ */
 
 import Foundation
 
 /// NetworkRequest struct to be used by the NetworkService and the HttpConnectionPerformer when initiating network calls
-@objc public class NetworkRequest: NSObject {
+@objc(AEPNetworkRequest) public class NetworkRequest: NSObject {
     private static let REQUEST_HEADER_KEY_USER_AGENT = "User-Agent"
     private static let REQUEST_HEADER_KEY_LANGUAGE = "Accept-Language"
-    
+
     public let url: URL
     public let httpMethod: HttpMethod
     public let connectPayload: String
     public let httpHeaders: [String: String]
     public let connectTimeout: TimeInterval
     public let readTimeout: TimeInterval
-    
+
     /// Initialize the `NetworkRequest`
     /// - Parameters:
     ///   - url: URL used to initiate the network connection, should use https scheme
@@ -37,12 +37,12 @@ import Foundation
         self.url = url
         self.httpMethod = httpMethod
         self.connectPayload = connectPayload
-        
-        let systemInfoService = AEPServiceProvider.shared.systemInfoService
+
+        let systemInfoService = ServiceProvider.shared.systemInfoService
         let defaultHeaders = [NetworkRequest.REQUEST_HEADER_KEY_USER_AGENT: systemInfoService.getDefaultUserAgent(),
                               NetworkRequest.REQUEST_HEADER_KEY_LANGUAGE: systemInfoService.getActiveLocaleName()]
-        self.httpHeaders = defaultHeaders.merging(httpHeaders) { (_, new) in new } // add in default headers and apply `httpHeaders` on top
-        
+        self.httpHeaders = defaultHeaders.merging(httpHeaders) { _, new in new } // add in default headers and apply `httpHeaders` on top
+
         self.connectTimeout = connectTimeout
         self.readTimeout = readTimeout
     }

@@ -14,7 +14,7 @@ import Foundation
 @_implementationOnly import SwiftRulesEngine
 
 class JSONRulesParser {
-    private static let LOG_LABEL = "JSONRulesParser"
+    fileprivate static let LOG_LABEL = "JSONRulesParser"
 
     /// Parses the json rules to objects
     /// - Parameter data: data of json rules
@@ -43,7 +43,13 @@ struct JSONRuleRoot: Codable {
         var result = [LaunchRule]()
         for launchRule in rules {
             if let conditionExpression = launchRule.condition.convert() {
-                let rule = LaunchRule(condition: conditionExpression)
+                var consequences = [Consequence]()
+                for consequence in launchRule.consequences {
+                    if let id = consequence.id, let type = consequence.type, let dict = consequence.detailDict {
+                        consequences.append(Consequence(id: id, type: type, detailDict: dict))
+                    }
+                }
+                let rule = LaunchRule(condition: conditionExpression, consequences: consequences)
                 result.append(rule)
             }
         }
@@ -62,6 +68,19 @@ enum ConditionType: String, Codable {
 }
 
 class JSONCondition: Codable {
+    static let matcherMapping = ["eq": "equals",
+                                 "ne": "notEquals",
+                                 "gt": "greaterThan",
+                                 "ge": "greaterEqual",
+                                 "lt": "lessThan",
+                                 "le": "lessEqual",
+                                 "co": "contains",
+                                 "nc": "notContains",
+                                 "sw": "startsWith",
+                                 "ew": "endsWith",
+                                 "ex": "exists",
+                                 "nx": "notExists"]
+
     var type: ConditionType
     var definition: JSONDefinition
     func convert() -> Evaluable? {
@@ -97,24 +116,32 @@ class JSONCondition: Codable {
     }
 
     func convert(key: String, matcher: String, anyCodable: AnyCodable) -> Evaluable? {
+        guard let matcher = JSONCondition.matcherMapping[matcher] else {
+            return nil
+        }
+        let key = "{{\(key)}}"
         if let value = anyCodable.value {
             switch value {
             case is String:
                 if let stringValue = anyCodable.value as? String {
-                    return ComparisonExpression<MustacheToken, String>(lhs: Operand(mustache: key), operationName: matcher, rhs: Operand(stringLiteral: stringValue))
+                    return ComparisonExpression(lhs: Operand<String>(mustache: key), operationName: matcher, rhs: Operand(stringLiteral: stringValue))
                 }
             case is Int:
                 if let intValue = anyCodable.value as? Int {
-                    return ComparisonExpression<MustacheToken, Int>(lhs: Operand(mustache: key), operationName: matcher, rhs: Operand(integerLiteral: intValue))
+                    return ComparisonExpression(lhs: Operand<Int>(mustache: key), operationName: matcher, rhs: Operand(integerLiteral: intValue))
                 }
             case is Double:
                 if let doubleValue = anyCodable.value as? Double {
-                    return ComparisonExpression<MustacheToken, Double>(lhs: Operand(mustache: key), operationName: matcher, rhs: Operand(floatLiteral: doubleValue))
+                    return ComparisonExpression(lhs: Operand<Double>(mustache: key), operationName: matcher, rhs: Operand(floatLiteral: doubleValue))
+                }
+            case is Bool:
+                if let boolValue = anyCodable.value as? Bool {
+                    return ComparisonExpression(lhs: Operand<Bool>(mustache: key), operationName: matcher, rhs: Operand(booleanLiteral: boolValue))
                 }
             /// rules engine doesn't accept `Float` type, so convert it to `Double` object here.
             case is Float:
-                if let floadValue = anyCodable.value as? Float {
-                    return ComparisonExpression<MustacheToken, Double>(lhs: Operand(mustache: key), operationName: matcher, rhs: Operand(floatLiteral: Double(floadValue)))
+                if let floatValue = anyCodable.value as? Float {
+                    return ComparisonExpression(lhs: Operand<Float>(mustache: key), operationName: matcher, rhs: Operand(floatLiteral: Double(floatValue)))
                 }
             default:
                 return nil
@@ -132,19 +159,31 @@ struct JSONDefinition: Codable {
     let values: [AnyCodable]?
 }
 
-enum ConsequenceType: String, Codable {
-    case url
-    case add
-    case mod
-}
-
 struct JSONDetail: Codable {
     let url: String?
 }
 
 struct JSONConsequence: Codable {
-    let id: String
-    let type: ConsequenceType
-    // TODO: make the detail property an `AnyCodable` for now, the rules engine hasn't decided how to handle consequence yet, we will change it later.
-    let detail: AnyCodable
+    let id: String?
+    let type: String?
+    let detail: AnyCodable?
+    let detailDict: [String: Any]?
+    enum CodingKeys: CodingKey {
+        case id
+        case type
+        case detail
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try? container.decode(String.self, forKey: .id)
+        type = try? container.decode(String.self, forKey: .type)
+        detail = try? container.decode(AnyCodable.self, forKey: .detail)
+
+        if let detailDictionaryValue = detail?.dictionaryValue {
+            detailDict = detailDictionaryValue
+        } else {
+            detailDict = nil
+        }
+    }
 }

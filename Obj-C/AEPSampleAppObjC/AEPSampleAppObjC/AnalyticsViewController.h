@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AnalyticsViewController: UIViewController
+@interface AnalyticsViewController: UIViewController<UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UILabel *eventQueueLengthLabel;
 @property (nonatomic, weak) IBOutlet UILabel *minBatchSizeLabel;
@@ -18,6 +18,8 @@
 @property (nonatomic, weak) IBOutlet UITextField *visitorIdentifierTextField;
 @property (nonatomic, weak) IBOutlet UITextField *batchQueueLimitTextField;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) NSArray *optingOptions;
+@property (nonatomic, strong) NSString *currentOptingChoice;
 
 - (IBAction)sendQueuedHitsButtonTapped:(id)sender;
 - (IBAction)clearQueueButtonTapped:(id)sender;
