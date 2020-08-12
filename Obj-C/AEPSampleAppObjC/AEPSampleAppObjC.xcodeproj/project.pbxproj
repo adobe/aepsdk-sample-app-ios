@@ -21,6 +21,7 @@
 		7802516324E33904003244B1 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516224E33904003244B1 /* PlacesViewController.m */; };
 		7802516624E33977003244B1 /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516524E33977003244B1 /* MediaViewController.m */; };
 		7802516924E33990003244B1 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516824E33990003244B1 /* MessageViewController.m */; };
+		7802516C24E49550003244B1 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516B24E49550003244B1 /* MainTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		7802516524E33977003244B1 /* MediaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaViewController.m; sourceTree = "<group>"; };
 		7802516724E33990003244B1 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		7802516824E33990003244B1 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		7802516A24E49550003244B1 /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		7802516B24E49550003244B1 /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		C4118B31FA4A054757105CD5 /* Pods-AEPSampleAppObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleAppObjC.debug.xcconfig"; path = "Target Support Files/Pods-AEPSampleAppObjC/Pods-AEPSampleAppObjC.debug.xcconfig"; sourceTree = "<group>"; };
 		EC395757C585E760C2C13BB2 /* Pods_AEPSampleAppObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPSampleAppObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 				7802512824E3356F003244B1 /* AppDelegate.m */,
 				7802512A24E3356F003244B1 /* SceneDelegate.h */,
 				7802512B24E3356F003244B1 /* SceneDelegate.m */,
+				7802516A24E49550003244B1 /* MainTabBarController.h */,
+				7802516B24E49550003244B1 /* MainTabBarController.m */,
 				7802512D24E3356F003244B1 /* GriffonViewController.h */,
 				7802512E24E3356F003244B1 /* GriffonViewController.m */,
 				7802513024E3356F003244B1 /* AnalyticsViewController.h */,
@@ -357,6 +362,7 @@
 			files = (
 				7802516324E33904003244B1 /* PlacesViewController.m in Sources */,
 				7802513D24E33571003244B1 /* main.m in Sources */,
+				7802516C24E49550003244B1 /* MainTabBarController.m in Sources */,
 				7802513224E3356F003244B1 /* AnalyticsViewController.m in Sources */,
 				7802516624E33977003244B1 /* MediaViewController.m in Sources */,
 				7802512924E3356F003244B1 /* AppDelegate.m in Sources */,
