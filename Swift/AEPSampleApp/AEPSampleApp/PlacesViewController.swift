@@ -64,7 +64,7 @@ struct PlacesView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
             }
             HStack {
                 Button(action: {
@@ -78,7 +78,7 @@ struct PlacesView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
                 Button(action: {
 //                    ACPPlacesMonitor.setRequestAuthorizationLevel(.monitorRequestAuthorizationLevelWhenInUse)
                     self.monitoringType = "Monitor while using"
@@ -90,7 +90,7 @@ struct PlacesView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
             }
             HStack {
                 Button(action: {
@@ -114,7 +114,7 @@ struct PlacesView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
             }
         Spacer()
         }.padding()

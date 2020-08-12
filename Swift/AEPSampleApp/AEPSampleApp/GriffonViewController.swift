@@ -31,7 +31,7 @@ struct GriffonView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
                 Button(action: {
                     //ACPGriffon.endSession()
                 }) {
@@ -41,7 +41,7 @@ struct GriffonView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
             }
         Spacer()
         }.padding()

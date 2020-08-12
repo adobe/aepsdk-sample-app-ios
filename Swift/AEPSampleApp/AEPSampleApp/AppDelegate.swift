@@ -34,8 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobileCore.updateConfigurationWith(configDict: updatedConfig)
         
         // MARK: - Identity API examples
-//        let identityExtensionVersion = Identity.version
-//        print("Identity extension version: \(identityExtensionVersion)")
+        let identityExtensionVersion = Identity.version()
+        print("Identity extension version: \(identityExtensionVersion)")
+        
         /**
          Typical mobile web implementations use the same standard analytics s_code.js or AppMeasurement.js that is used in desktop sites. The JavaScript libraries have their own methods of generating unique visitor IDs, which causes a different visitor ID to be generated when you open mobile web content from your app.
          To use the same visitor ID in the app and mobile web and pass the visitor ID to the mobile web in the URL, complete the following steps:
@@ -77,13 +78,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          This getIdentifiers API returns all customer identifiers that were previously synced with the Adobe Experience Cloud.
          */
         Identity.getIdentifiers(completion: { identifiers, error in
-            if let error = error {
-                // Handle Error
+            guard let identifiers = identifiers else {
+                // If identifiers is nil, handle the error
                 print("Get identifiers error: \(error)")
-            } else {
-                guard let identifiers = identifiers else { return }
-                print("Identifiers: \(identifiers)")
+                return
             }
+            print("Identifiers: \(identifiers)")
         })
         
         /**
@@ -128,13 +128,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          */
         Identity.syncIdentifier(identifierType: "idType", identifier: "idValue", authenticationState: .unknown)
         
-        let identifiers = ["idType1": "idValue1", "idType2": "idValue2"]
         /**
          This API is an overloaded version, which does not include the parameter for the authentication state and it assumes a default value of MobileVisitorAuthenticationState.unknown
          
          The identifiers dictionary contains identifiers, and each identifier contains an identifier type as the key and an identifier as the value.
          If any of the identifier pairs contains an empty or null value as the identifier type, then it will be ignored.
          */
+        let identifiers = ["idType1": "idValue1", "idType2": "idValue2"]
         Identity.syncIdentifiers(identifiers: identifiers)
         /**
          Same as above except you can indicate the authentication state of the user
@@ -156,6 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print("Setting category to AVAudioSessionCategoryPlayback failed")
         }
+        
         return true
     }
 

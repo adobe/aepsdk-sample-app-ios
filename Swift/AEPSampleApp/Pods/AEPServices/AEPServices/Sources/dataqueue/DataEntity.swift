@@ -13,10 +13,23 @@
 import Foundation
 
 /// Represents an entity type which can be stored in `DataQueue`
-@objc public class DataEntity: NSObject {
+@objc(AEPDataEntity)
+public class DataEntity: NSObject {
     public let uniqueIdentifier: String
     public let timestamp: Date
     public let data: Data?
+
+    /// Generates a new `DataEntity`
+    ///
+    /// This init method automatically assigns a random `UUID` to `uniqueIdentifier` and sets `timestamp` to `Date()`
+    ///
+    /// - Parameters:
+    ///   - data: a JSON-encoded representation for `DataEntity`
+    public init(data: Data?) {
+        uniqueIdentifier = UUID().uuidString
+        timestamp = Date()
+        self.data = data
+    }
 
     /// Generates a new `DataEntity`
     /// - Parameters:

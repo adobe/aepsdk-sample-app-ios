@@ -31,7 +31,7 @@ var body: some View {
                     .background(Color.gray)
                     .foregroundColor(.white)
                     .font(.caption)
-            }
+            }.cornerRadius(5)
             Button(action: {
 //                let eventName = "alertMessage"
 //                let additionalContextData = ["campaign": "alertMessage"]
@@ -43,7 +43,7 @@ var body: some View {
                     .background(Color.gray)
                     .foregroundColor(.white)
                     .font(.caption)
-            }
+            }.cornerRadius(5)
         }
         HStack {
             Button(action: {
@@ -57,7 +57,7 @@ var body: some View {
                     .background(Color.gray)
                     .foregroundColor(.white)
                     .font(.caption)
-            }
+            }.cornerRadius(5)
             Button(action: {
 //                let eventName = "smallModalMessage"
 //                let additionalContextData = ["campaign": "smallModalMessage"]
@@ -69,7 +69,7 @@ var body: some View {
                     .background(Color.gray)
                     .foregroundColor(.white)
                     .font(.caption)
-            }
+            }.cornerRadius(5)
         }
         
         Button(action: {
@@ -83,7 +83,7 @@ var body: some View {
                 .background(Color.gray)
                 .foregroundColor(.white)
                 .font(.caption)
-        }
+        }.cornerRadius(5)
     }
 }
 

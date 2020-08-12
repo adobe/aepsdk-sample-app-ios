@@ -87,7 +87,7 @@ class MediaViewController: UIViewController {
             let oldStatus = AVPlayer.TimeControlStatus(rawValue: oldValue)
             let newStatus = AVPlayer.TimeControlStatus(rawValue: newValue)
             if newStatus != oldStatus {
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async { 
                     // Handle the status change here
                     if newStatus == AVPlayer.TimeControlStatus.paused {
 //                        self?.mediaTracker?.trackPause()

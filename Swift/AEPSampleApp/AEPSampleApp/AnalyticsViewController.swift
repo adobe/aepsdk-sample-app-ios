@@ -80,7 +80,7 @@ struct AnalyticsView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
                 Button(action: {
 //                    ACPAnalytics.clearQueue()
                 }) {
@@ -90,7 +90,7 @@ struct AnalyticsView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
             }
             HStack {
                 Button(action: {
@@ -102,7 +102,7 @@ struct AnalyticsView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
                 Button(action: {
 //                    ACPCore.trackState("sampleState", data: ["exampleKey": "exampleValue"])
                 }) {
@@ -112,7 +112,7 @@ struct AnalyticsView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .font(.caption)
-                }
+                }.cornerRadius(5)
             }
         }
     }
@@ -154,7 +154,7 @@ struct AnalyticsView: View {
                     .background(Color.gray)
                     .foregroundColor(.white)
                     .font(.caption)
-            }
+            }.cornerRadius(5)
         }
     }
 }
