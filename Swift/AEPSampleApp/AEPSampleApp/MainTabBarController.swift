@@ -43,7 +43,7 @@ class MainTabBarController: UITabBarController {
     
     private func sampleCoreAPICalls() {
         // MARK: - Identity API examples
-        let identityExtensionVersion = Identity.version()
+        let identityExtensionVersion = Identity.extensionVersion
         print("Identity extension version: \(identityExtensionVersion)")
         
         /**

@@ -1,11 +1,3 @@
-//
-//  MainTabBarController.m
-//  AEPSampleAppObjC
-//
-//  Created by Christopher Hoffman on 8/12/20.
-//  Copyright © 2020 Christopher Hoffman. All rights reserved.
-//
-
 #import "MainTabBarController.h"
 
 @interface MainTabBarController ()
@@ -22,8 +14,8 @@
 
 - (void) sampleCoreAPICalls {
    // MARK: - Identity API examples
-    NSInteger identityVersion = [AEPIdentity version];
-    NSLog(@"Identity version %ld", (long)identityVersion);
+    NSString *identityVersion = [AEPIdentity extensionVersion];
+    NSLog(@"Identity version %@", identityVersion);
     
     /**
      Typical mobile web implementations use the same standard analytics s_code.js or AppMeasurement.js that is used in desktop sites. The JavaScript libraries have their own methods of generating unique visitor IDs, which causes a different visitor ID to be generated when you open mobile web content from your app.
