@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E6D3CE88716D67ABA67F63A /* Pods_AEPSampleAppObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC395757C585E760C2C13BB2 /* Pods_AEPSampleAppObjC.framework */; };
+		7802512924E3356F003244B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512824E3356F003244B1 /* AppDelegate.m */; };
+		7802512C24E3356F003244B1 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512B24E3356F003244B1 /* SceneDelegate.m */; };
+		7802512F24E3356F003244B1 /* GriffonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512E24E3356F003244B1 /* GriffonViewController.m */; };
+		7802513224E3356F003244B1 /* AnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802513124E3356F003244B1 /* AnalyticsViewController.m */; };
+		7802513724E33571003244B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7802513624E33570003244B1 /* Assets.xcassets */; };
+		7802513A24E33571003244B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7802513824E33571003244B1 /* LaunchScreen.storyboard */; };
+		7802513D24E33571003244B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802513C24E33571003244B1 /* main.m */; };
+		7802514724E33571003244B1 /* AEPSampleAppObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802514624E33571003244B1 /* AEPSampleAppObjCTests.m */; };
+		7802515224E33571003244B1 /* AEPSampleAppObjCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802515124E33571003244B1 /* AEPSampleAppObjCUITests.m */; };
+		7802516024E33761003244B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7802515F24E33761003244B1 /* Main.storyboard */; };
+		7802516324E33904003244B1 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516224E33904003244B1 /* PlacesViewController.m */; };
+		7802516624E33977003244B1 /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516524E33977003244B1 /* MediaViewController.m */; };
+		7802516924E33990003244B1 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516824E33990003244B1 /* MessageViewController.m */; };
+		7802516C24E49550003244B1 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516B24E49550003244B1 /* MainTabBarController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7802514324E33571003244B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7802511C24E3356F003244B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7802512324E3356F003244B1;
+			remoteInfo = AEPSampleAppObjC;
+		};
+		7802514E24E33571003244B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7802511C24E3356F003244B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7802512324E3356F003244B1;
+			remoteInfo = AEPSampleAppObjC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		59409BC4D9DD0A11CD7B2295 /* Pods-AEPSampleAppObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleAppObjC.release.xcconfig"; path = "Target Support Files/Pods-AEPSampleAppObjC/Pods-AEPSampleAppObjC.release.xcconfig"; sourceTree = "<group>"; };
+		7802512424E3356F003244B1 /* AEPSampleAppObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AEPSampleAppObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7802512724E3356F003244B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7802512824E3356F003244B1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7802512A24E3356F003244B1 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		7802512B24E3356F003244B1 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		7802512D24E3356F003244B1 /* GriffonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GriffonViewController.h; sourceTree = "<group>"; };
+		7802512E24E3356F003244B1 /* GriffonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GriffonViewController.m; sourceTree = "<group>"; };
+		7802513024E3356F003244B1 /* AnalyticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalyticsViewController.h; sourceTree = "<group>"; };
+		7802513124E3356F003244B1 /* AnalyticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalyticsViewController.m; sourceTree = "<group>"; };
+		7802513624E33570003244B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7802513924E33571003244B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7802513B24E33571003244B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7802513C24E33571003244B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7802514224E33571003244B1 /* AEPSampleAppObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AEPSampleAppObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7802514624E33571003244B1 /* AEPSampleAppObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AEPSampleAppObjCTests.m; sourceTree = "<group>"; };
+		7802514824E33571003244B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7802514D24E33571003244B1 /* AEPSampleAppObjCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AEPSampleAppObjCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7802515124E33571003244B1 /* AEPSampleAppObjCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AEPSampleAppObjCUITests.m; sourceTree = "<group>"; };
+		7802515324E33571003244B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7802515F24E33761003244B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7802516124E33904003244B1 /* PlacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlacesViewController.h; sourceTree = "<group>"; };
+		7802516224E33904003244B1 /* PlacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
+		7802516424E33977003244B1 /* MediaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaViewController.h; sourceTree = "<group>"; };
+		7802516524E33977003244B1 /* MediaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaViewController.m; sourceTree = "<group>"; };
+		7802516724E33990003244B1 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		7802516824E33990003244B1 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		7802516A24E49550003244B1 /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		7802516B24E49550003244B1 /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		C4118B31FA4A054757105CD5 /* Pods-AEPSampleAppObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleAppObjC.debug.xcconfig"; path = "Target Support Files/Pods-AEPSampleAppObjC/Pods-AEPSampleAppObjC.debug.xcconfig"; sourceTree = "<group>"; };
+		EC395757C585E760C2C13BB2 /* Pods_AEPSampleAppObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPSampleAppObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7802512124E3356F003244B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E6D3CE88716D67ABA67F63A /* Pods_AEPSampleAppObjC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7802513F24E33571003244B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7802514A24E33571003244B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7802511B24E3356F003244B1 = {
+			isa = PBXGroup;
+			children = (
+				7802512624E3356F003244B1 /* AEPSampleAppObjC */,
+				7802514524E33571003244B1 /* AEPSampleAppObjCTests */,
+				7802515024E33571003244B1 /* AEPSampleAppObjCUITests */,
+				7802512524E3356F003244B1 /* Products */,
+				E80BDB2885BE10AF4BB1C8E0 /* Pods */,
+				ECFD974D00467210BA0F35E1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7802512524E3356F003244B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7802512424E3356F003244B1 /* AEPSampleAppObjC.app */,
+				7802514224E33571003244B1 /* AEPSampleAppObjCTests.xctest */,
+				7802514D24E33571003244B1 /* AEPSampleAppObjCUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7802512624E3356F003244B1 /* AEPSampleAppObjC */ = {
+			isa = PBXGroup;
+			children = (
+				7802512724E3356F003244B1 /* AppDelegate.h */,
+				7802512824E3356F003244B1 /* AppDelegate.m */,
+				7802512A24E3356F003244B1 /* SceneDelegate.h */,
+				7802512B24E3356F003244B1 /* SceneDelegate.m */,
+				7802516A24E49550003244B1 /* MainTabBarController.h */,
+				7802516B24E49550003244B1 /* MainTabBarController.m */,
+				7802512D24E3356F003244B1 /* GriffonViewController.h */,
+				7802512E24E3356F003244B1 /* GriffonViewController.m */,
+				7802513024E3356F003244B1 /* AnalyticsViewController.h */,
+				7802513124E3356F003244B1 /* AnalyticsViewController.m */,
+				7802516124E33904003244B1 /* PlacesViewController.h */,
+				7802516224E33904003244B1 /* PlacesViewController.m */,
+				7802516424E33977003244B1 /* MediaViewController.h */,
+				7802516524E33977003244B1 /* MediaViewController.m */,
+				7802516724E33990003244B1 /* MessageViewController.h */,
+				7802516824E33990003244B1 /* MessageViewController.m */,
+				7802515F24E33761003244B1 /* Main.storyboard */,
+				7802513624E33570003244B1 /* Assets.xcassets */,
+				7802513824E33571003244B1 /* LaunchScreen.storyboard */,
+				7802513B24E33571003244B1 /* Info.plist */,
+				7802513C24E33571003244B1 /* main.m */,
+			);
+			path = AEPSampleAppObjC;
+			sourceTree = "<group>";
+		};
+		7802514524E33571003244B1 /* AEPSampleAppObjCTests */ = {
+			isa = PBXGroup;
+			children = (
+				7802514624E33571003244B1 /* AEPSampleAppObjCTests.m */,
+				7802514824E33571003244B1 /* Info.plist */,
+			);
+			path = AEPSampleAppObjCTests;
+			sourceTree = "<group>";
+		};
+		7802515024E33571003244B1 /* AEPSampleAppObjCUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7802515124E33571003244B1 /* AEPSampleAppObjCUITests.m */,
+				7802515324E33571003244B1 /* Info.plist */,
+			);
+			path = AEPSampleAppObjCUITests;
+			sourceTree = "<group>";
+		};
+		E80BDB2885BE10AF4BB1C8E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4118B31FA4A054757105CD5 /* Pods-AEPSampleAppObjC.debug.xcconfig */,
+				59409BC4D9DD0A11CD7B2295 /* Pods-AEPSampleAppObjC.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ECFD974D00467210BA0F35E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC395757C585E760C2C13BB2 /* Pods_AEPSampleAppObjC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7802512324E3356F003244B1 /* AEPSampleAppObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7802515624E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjC" */;
+			buildPhases = (
+				6653FBA3E94C770CE039AB22 /* [CP] Check Pods Manifest.lock */,
+				7802512024E3356F003244B1 /* Sources */,
+				7802512124E3356F003244B1 /* Frameworks */,
+				7802512224E3356F003244B1 /* Resources */,
+				1AD64A84962B44FCD3BF6F42 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AEPSampleAppObjC;
+			productName = AEPSampleAppObjC;
+			productReference = 7802512424E3356F003244B1 /* AEPSampleAppObjC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7802514124E33571003244B1 /* AEPSampleAppObjCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7802515924E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjCTests" */;
+			buildPhases = (
+				7802513E24E33571003244B1 /* Sources */,
+				7802513F24E33571003244B1 /* Frameworks */,
+				7802514024E33571003244B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7802514424E33571003244B1 /* PBXTargetDependency */,
+			);
+			name = AEPSampleAppObjCTests;
+			productName = AEPSampleAppObjCTests;
+			productReference = 7802514224E33571003244B1 /* AEPSampleAppObjCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7802514C24E33571003244B1 /* AEPSampleAppObjCUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7802515C24E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjCUITests" */;
+			buildPhases = (
+				7802514924E33571003244B1 /* Sources */,
+				7802514A24E33571003244B1 /* Frameworks */,
+				7802514B24E33571003244B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7802514F24E33571003244B1 /* PBXTargetDependency */,
+			);
+			name = AEPSampleAppObjCUITests;
+			productName = AEPSampleAppObjCUITests;
+			productReference = 7802514D24E33571003244B1 /* AEPSampleAppObjCUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7802511C24E3356F003244B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Christopher Hoffman";
+				TargetAttributes = {
+					7802512324E3356F003244B1 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					7802514124E33571003244B1 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 7802512324E3356F003244B1;
+					};
+					7802514C24E33571003244B1 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 7802512324E3356F003244B1;
+					};
+				};
+			};
+			buildConfigurationList = 7802511F24E3356F003244B1 /* Build configuration list for PBXProject "AEPSampleAppObjC" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7802511B24E3356F003244B1;
+			productRefGroup = 7802512524E3356F003244B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7802512324E3356F003244B1 /* AEPSampleAppObjC */,
+				7802514124E33571003244B1 /* AEPSampleAppObjCTests */,
+				7802514C24E33571003244B1 /* AEPSampleAppObjCUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7802512224E3356F003244B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7802513A24E33571003244B1 /* LaunchScreen.storyboard in Resources */,
+				7802513724E33571003244B1 /* Assets.xcassets in Resources */,
+				7802516024E33761003244B1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7802514024E33571003244B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7802514B24E33571003244B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1AD64A84962B44FCD3BF6F42 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AEPSampleAppObjC/Pods-AEPSampleAppObjC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AEPSampleAppObjC/Pods-AEPSampleAppObjC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AEPSampleAppObjC/Pods-AEPSampleAppObjC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6653FBA3E94C770CE039AB22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AEPSampleAppObjC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7802512024E3356F003244B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7802516324E33904003244B1 /* PlacesViewController.m in Sources */,
+				7802513D24E33571003244B1 /* main.m in Sources */,
+				7802516C24E49550003244B1 /* MainTabBarController.m in Sources */,
+				7802513224E3356F003244B1 /* AnalyticsViewController.m in Sources */,
+				7802516624E33977003244B1 /* MediaViewController.m in Sources */,
+				7802512924E3356F003244B1 /* AppDelegate.m in Sources */,
+				7802512F24E3356F003244B1 /* GriffonViewController.m in Sources */,
+				7802516924E33990003244B1 /* MessageViewController.m in Sources */,
+				7802512C24E3356F003244B1 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7802513E24E33571003244B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7802514724E33571003244B1 /* AEPSampleAppObjCTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7802514924E33571003244B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7802515224E33571003244B1 /* AEPSampleAppObjCUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7802514424E33571003244B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7802512324E3356F003244B1 /* AEPSampleAppObjC */;
+			targetProxy = 7802514324E33571003244B1 /* PBXContainerItemProxy */;
+		};
+		7802514F24E33571003244B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7802512324E3356F003244B1 /* AEPSampleAppObjC */;
+			targetProxy = 7802514E24E33571003244B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7802513824E33571003244B1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7802513924E33571003244B1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7802515424E33571003244B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7802515524E33571003244B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7802515724E33571003244B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4118B31FA4A054757105CD5 /* Pods-AEPSampleAppObjC.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				INFOPLIST_FILE = AEPSampleAppObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7802515824E33571003244B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59409BC4D9DD0A11CD7B2295 /* Pods-AEPSampleAppObjC.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				INFOPLIST_FILE = AEPSampleAppObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7802515A24E33571003244B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				INFOPLIST_FILE = AEPSampleAppObjCTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AEPSampleAppObjC.app/AEPSampleAppObjC";
+			};
+			name = Debug;
+		};
+		7802515B24E33571003244B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				INFOPLIST_FILE = AEPSampleAppObjCTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AEPSampleAppObjC.app/AEPSampleAppObjC";
+			};
+			name = Release;
+		};
+		7802515D24E33571003244B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				INFOPLIST_FILE = AEPSampleAppObjCUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjCUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AEPSampleAppObjC;
+			};
+			name = Debug;
+		};
+		7802515E24E33571003244B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				INFOPLIST_FILE = AEPSampleAppObjCUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjCUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AEPSampleAppObjC;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7802511F24E3356F003244B1 /* Build configuration list for PBXProject "AEPSampleAppObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7802515424E33571003244B1 /* Debug */,
+				7802515524E33571003244B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7802515624E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7802515724E33571003244B1 /* Debug */,
+				7802515824E33571003244B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7802515924E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7802515A24E33571003244B1 /* Debug */,
+				7802515B24E33571003244B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7802515C24E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjCUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7802515D24E33571003244B1 /* Debug */,
+				7802515E24E33571003244B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7802511C24E3356F003244B1 /* Project object */;
+}

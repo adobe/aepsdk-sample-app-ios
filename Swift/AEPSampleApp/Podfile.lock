@@ -1,0 +1,62 @@
+PODS:
+  - AEPCore (0.0.1):
+    - AEPServices
+    - SwiftRulesEngine
+  - AEPIdentity (0.0.1):
+    - AEPCore
+  - AEPLifecycle (0.0.1):
+    - AEPCore
+  - AEPServices (0.0.1)
+  - SwiftRulesEngine (0.0.1)
+
+DEPENDENCIES:
+  - "AEPCore (from `git@github.com:adobe/aepsdk-core-ios.git`, branch `main`)"
+  - "AEPIdentity (from `git@github.com:adobe/aepsdk-core-ios.git`, branch `main`)"
+  - "AEPLifecycle (from `git@github.com:adobe/aepsdk-core-ios.git`, branch `main`)"
+  - "AEPServices (from `git@github.com:adobe/aepsdk-core-ios.git`, branch `main`)"
+  - "SwiftRulesEngine (from `git@github.com:adobe/aepsdk-rulesengine-ios.git`, branch `dev`)"
+
+EXTERNAL SOURCES:
+  AEPCore:
+    :branch: main
+    :git: "git@github.com:adobe/aepsdk-core-ios.git"
+  AEPIdentity:
+    :branch: main
+    :git: "git@github.com:adobe/aepsdk-core-ios.git"
+  AEPLifecycle:
+    :branch: main
+    :git: "git@github.com:adobe/aepsdk-core-ios.git"
+  AEPServices:
+    :branch: main
+    :git: "git@github.com:adobe/aepsdk-core-ios.git"
+  SwiftRulesEngine:
+    :branch: dev
+    :git: "git@github.com:adobe/aepsdk-rulesengine-ios.git"
+
+CHECKOUT OPTIONS:
+  AEPCore:
+    :commit: 0b884db6cc4f815b410c4b71ca7afbbdf546d850
+    :git: "git@github.com:adobe/aepsdk-core-ios.git"
+  AEPIdentity:
+    :commit: 0b884db6cc4f815b410c4b71ca7afbbdf546d850
+    :git: "git@github.com:adobe/aepsdk-core-ios.git"
+  AEPLifecycle:
+    :commit: 0b884db6cc4f815b410c4b71ca7afbbdf546d850
+    :git: "git@github.com:adobe/aepsdk-core-ios.git"
+  AEPServices:
+    :commit: 0b884db6cc4f815b410c4b71ca7afbbdf546d850
+    :git: "git@github.com:adobe/aepsdk-core-ios.git"
+  SwiftRulesEngine:
+    :commit: df4dd8d0112eed11972649ff28b8e07f17125507
+    :git: "git@github.com:adobe/aepsdk-rulesengine-ios.git"
+
+SPEC CHECKSUMS:
+  AEPCore: 7a49a854b024ebe50f60f4370919304fc48bcf24
+  AEPIdentity: f46a1b34363243f8d417a8143bfb876a36809104
+  AEPLifecycle: 9e63cf6a8085161f95706ddbffef20dd1d748c3e
+  AEPServices: ad642c76cede1c7babb61e6804198ded4317d74f
+  SwiftRulesEngine: 5b6727f221618ef9a2c84705d563d321451da0cc
+
+PODFILE CHECKSUM: 374c1d160d6d340ac859a255f72eb01c7dd3fe72
+
+COCOAPODS: 1.8.4
