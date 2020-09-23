@@ -15,6 +15,7 @@
 @import AEPLifecycle;
 @import AEPIdentity;
 @import AEPServices;
+@import AEPSignal;
 @import AdSupport;
 @import AVKit;
 

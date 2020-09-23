@@ -14,6 +14,7 @@ import UIKit
 import AEPCore
 import AEPLifecycle
 import AEPIdentity
+import AEPSignal
 import AVKit
 import AdSupport
 
@@ -24,9 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Register all extensions here
+        
         MobileCore.setLogLevel(level: .trace)
-        MobileCore.registerExtensions([Lifecycle.self, Identity.self])
-        MobileCore.lifecycleStart(additionalContextData: nil)
+        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self], {
+            MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
+        })
+
         // Use the App id assigned to this application via Adobe Launch
         MobileCore.configureWith(appId: "")
         
@@ -42,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print("Setting category to AVAudioSessionCategoryPlayback failed")
         }
-        
+
         return true
     }
 
