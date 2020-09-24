@@ -15,31 +15,12 @@
 		7802513724E33571003244B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7802513624E33570003244B1 /* Assets.xcassets */; };
 		7802513A24E33571003244B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7802513824E33571003244B1 /* LaunchScreen.storyboard */; };
 		7802513D24E33571003244B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802513C24E33571003244B1 /* main.m */; };
-		7802514724E33571003244B1 /* AEPSampleAppObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802514624E33571003244B1 /* AEPSampleAppObjCTests.m */; };
-		7802515224E33571003244B1 /* AEPSampleAppObjCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802515124E33571003244B1 /* AEPSampleAppObjCUITests.m */; };
 		7802516024E33761003244B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7802515F24E33761003244B1 /* Main.storyboard */; };
 		7802516324E33904003244B1 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516224E33904003244B1 /* PlacesViewController.m */; };
 		7802516624E33977003244B1 /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516524E33977003244B1 /* MediaViewController.m */; };
 		7802516924E33990003244B1 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516824E33990003244B1 /* MessageViewController.m */; };
 		7802516C24E49550003244B1 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516B24E49550003244B1 /* MainTabBarController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7802514324E33571003244B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7802511C24E3356F003244B1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7802512324E3356F003244B1;
-			remoteInfo = AEPSampleAppObjC;
-		};
-		7802514E24E33571003244B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7802511C24E3356F003244B1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7802512324E3356F003244B1;
-			remoteInfo = AEPSampleAppObjC;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		59409BC4D9DD0A11CD7B2295 /* Pods-AEPSampleAppObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleAppObjC.release.xcconfig"; path = "Target Support Files/Pods-AEPSampleAppObjC/Pods-AEPSampleAppObjC.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,12 +37,6 @@
 		7802513924E33571003244B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7802513B24E33571003244B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7802513C24E33571003244B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7802514224E33571003244B1 /* AEPSampleAppObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AEPSampleAppObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7802514624E33571003244B1 /* AEPSampleAppObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AEPSampleAppObjCTests.m; sourceTree = "<group>"; };
-		7802514824E33571003244B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7802514D24E33571003244B1 /* AEPSampleAppObjCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AEPSampleAppObjCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7802515124E33571003244B1 /* AEPSampleAppObjCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AEPSampleAppObjCUITests.m; sourceTree = "<group>"; };
-		7802515324E33571003244B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7802515F24E33761003244B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7802516124E33904003244B1 /* PlacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlacesViewController.h; sourceTree = "<group>"; };
 		7802516224E33904003244B1 /* PlacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
@@ -84,20 +59,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7802513F24E33571003244B1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7802514A24E33571003244B1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -105,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				7802512624E3356F003244B1 /* AEPSampleAppObjC */,
-				7802514524E33571003244B1 /* AEPSampleAppObjCTests */,
-				7802515024E33571003244B1 /* AEPSampleAppObjCUITests */,
 				7802512524E3356F003244B1 /* Products */,
 				E80BDB2885BE10AF4BB1C8E0 /* Pods */,
 				ECFD974D00467210BA0F35E1 /* Frameworks */,
@@ -117,8 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				7802512424E3356F003244B1 /* AEPSampleAppObjC.app */,
-				7802514224E33571003244B1 /* AEPSampleAppObjCTests.xctest */,
-				7802514D24E33571003244B1 /* AEPSampleAppObjCUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,24 +106,6 @@
 				7802513C24E33571003244B1 /* main.m */,
 			);
 			path = AEPSampleAppObjC;
-			sourceTree = "<group>";
-		};
-		7802514524E33571003244B1 /* AEPSampleAppObjCTests */ = {
-			isa = PBXGroup;
-			children = (
-				7802514624E33571003244B1 /* AEPSampleAppObjCTests.m */,
-				7802514824E33571003244B1 /* Info.plist */,
-			);
-			path = AEPSampleAppObjCTests;
-			sourceTree = "<group>";
-		};
-		7802515024E33571003244B1 /* AEPSampleAppObjCUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7802515124E33571003244B1 /* AEPSampleAppObjCUITests.m */,
-				7802515324E33571003244B1 /* Info.plist */,
-			);
-			path = AEPSampleAppObjCUITests;
 			sourceTree = "<group>";
 		};
 		E80BDB2885BE10AF4BB1C8E0 /* Pods */ = {
@@ -208,42 +147,6 @@
 			productReference = 7802512424E3356F003244B1 /* AEPSampleAppObjC.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7802514124E33571003244B1 /* AEPSampleAppObjCTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7802515924E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjCTests" */;
-			buildPhases = (
-				7802513E24E33571003244B1 /* Sources */,
-				7802513F24E33571003244B1 /* Frameworks */,
-				7802514024E33571003244B1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7802514424E33571003244B1 /* PBXTargetDependency */,
-			);
-			name = AEPSampleAppObjCTests;
-			productName = AEPSampleAppObjCTests;
-			productReference = 7802514224E33571003244B1 /* AEPSampleAppObjCTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		7802514C24E33571003244B1 /* AEPSampleAppObjCUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7802515C24E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjCUITests" */;
-			buildPhases = (
-				7802514924E33571003244B1 /* Sources */,
-				7802514A24E33571003244B1 /* Frameworks */,
-				7802514B24E33571003244B1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7802514F24E33571003244B1 /* PBXTargetDependency */,
-			);
-			name = AEPSampleAppObjCUITests;
-			productName = AEPSampleAppObjCUITests;
-			productReference = 7802514D24E33571003244B1 /* AEPSampleAppObjCUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -255,14 +158,6 @@
 				TargetAttributes = {
 					7802512324E3356F003244B1 = {
 						CreatedOnToolsVersion = 11.3;
-					};
-					7802514124E33571003244B1 = {
-						CreatedOnToolsVersion = 11.3;
-						TestTargetID = 7802512324E3356F003244B1;
-					};
-					7802514C24E33571003244B1 = {
-						CreatedOnToolsVersion = 11.3;
-						TestTargetID = 7802512324E3356F003244B1;
 					};
 				};
 			};
@@ -280,8 +175,6 @@
 			projectRoot = "";
 			targets = (
 				7802512324E3356F003244B1 /* AEPSampleAppObjC */,
-				7802514124E33571003244B1 /* AEPSampleAppObjCTests */,
-				7802514C24E33571003244B1 /* AEPSampleAppObjCUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -294,20 +187,6 @@
 				7802513A24E33571003244B1 /* LaunchScreen.storyboard in Resources */,
 				7802513724E33571003244B1 /* Assets.xcassets in Resources */,
 				7802516024E33761003244B1 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7802514024E33571003244B1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7802514B24E33571003244B1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,36 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7802513E24E33571003244B1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7802514724E33571003244B1 /* AEPSampleAppObjCTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7802514924E33571003244B1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7802515224E33571003244B1 /* AEPSampleAppObjCUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7802514424E33571003244B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7802512324E3356F003244B1 /* AEPSampleAppObjC */;
-			targetProxy = 7802514324E33571003244B1 /* PBXContainerItemProxy */;
-		};
-		7802514F24E33571003244B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7802512324E3356F003244B1 /* AEPSampleAppObjC */;
-			targetProxy = 7802514E24E33571003244B1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7802513824E33571003244B1 /* LaunchScreen.storyboard */ = {
@@ -561,82 +411,6 @@
 			};
 			name = Release;
 		};
-		7802515A24E33571003244B1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FKGEE875K4;
-				INFOPLIST_FILE = AEPSampleAppObjCTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjCTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AEPSampleAppObjC.app/AEPSampleAppObjC";
-			};
-			name = Debug;
-		};
-		7802515B24E33571003244B1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FKGEE875K4;
-				INFOPLIST_FILE = AEPSampleAppObjCTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjCTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AEPSampleAppObjC.app/AEPSampleAppObjC";
-			};
-			name = Release;
-		};
-		7802515D24E33571003244B1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FKGEE875K4;
-				INFOPLIST_FILE = AEPSampleAppObjCUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjCUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AEPSampleAppObjC;
-			};
-			name = Debug;
-		};
-		7802515E24E33571003244B1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FKGEE875K4;
-				INFOPLIST_FILE = AEPSampleAppObjCUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleAppObjCUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AEPSampleAppObjC;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -654,24 +428,6 @@
 			buildConfigurations = (
 				7802515724E33571003244B1 /* Debug */,
 				7802515824E33571003244B1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7802515924E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjCTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7802515A24E33571003244B1 /* Debug */,
-				7802515B24E33571003244B1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7802515C24E33571003244B1 /* Build configuration list for PBXNativeTarget "AEPSampleAppObjCUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7802515D24E33571003244B1 /* Debug */,
-				7802515E24E33571003244B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

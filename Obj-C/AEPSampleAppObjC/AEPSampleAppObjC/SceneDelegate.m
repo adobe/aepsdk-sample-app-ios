@@ -1,12 +1,16 @@
+/*
+ Copyright 2020 Adobe
+ All Rights Reserved.
+ 
+ NOTICE: Adobe permits you to use, modify, and distribute this file in
+ accordance with the terms of the Adobe license agreement accompanying
+ it.
+ */
+
 #import "SceneDelegate.h"
 @import AEPCore;
 
-@interface SceneDelegate ()
-
-@end
-
 @implementation SceneDelegate
-
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
