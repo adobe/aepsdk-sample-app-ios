@@ -14,7 +14,7 @@
 
 - (void) sampleCoreAPICalls {
    // MARK: - Identity API examples
-    NSString *identityVersion = [AEPIdentity extensionVersion];
+    NSString *identityVersion = [AEPMobileIdentity extensionVersion];
     NSLog(@"Identity version %@", identityVersion);
     
     /**
@@ -24,12 +24,12 @@
 
     /// To append visitor information to the URL that is being used to open the web view, call
     NSURL *sampleUrl = [NSURL URLWithString:@"https://adobe.com"];
-    [AEPIdentity appendToUrl:sampleUrl completion:^(NSURL * _Nullable url, enum AEPError error) {
+    [AEPMobileIdentity appendToUrl:sampleUrl completion:^(NSURL * _Nullable url, enum AEPError error) {
         // Handle url or error
     }];
 
     /// Alternately, you can call getUrlVariables and build your own URL:
-    [AEPIdentity getUrlVariables:^(NSString * _Nullable variables, enum AEPError error) {
+    [AEPMobileIdentity getUrlVariables:^(NSString * _Nullable variables, enum AEPError error) {
         NSString *sampleURLString = @"https://adobe.com";
         if (variables == nil) {
             // Handle variables being nil
@@ -44,7 +44,7 @@
      This API retrieves the ECID that was generated when the app was initially launched and is stored in the ECID Service.
      This ID is preserved between app upgrades, is saved and restored during the standard application backup process, and is removed at uninstall. The values are returned via the callback.
      */
-    [AEPIdentity getExperienceCloudId:^(NSString * _Nullable ecid) {
+    [AEPMobileIdentity getExperienceCloudId:^(NSString * _Nullable ecid) {
         if (ecid == nil) {
             // Handle nil ecid
             return;
@@ -56,7 +56,7 @@
     /**
      This getIdentifiers API returns all customer identifiers that were previously synced with the Adobe Experience Cloud.
      */
-    [AEPIdentity getIdentifiers:^(NSArray<id<AEPIdentifiable>> * _Nullable identifiers, enum AEPError error) {
+    [AEPMobileIdentity getIdentifiers:^(NSArray<id<AEPIdentifiable>> * _Nullable identifiers, enum AEPError error) {
         if (identifiers == nil) {
             NSLog(@"Error getting identifiers: %ld", (long)error);
             return;
@@ -80,14 +80,14 @@
         NSLog(@"Advertising Tracking is disabled by the user, cannot process the advertising identifier");
     }
     
-    [AEPCore setAdvertisingIdentifier:idfa];
+    [AEPMobileCore setAdvertisingIdentifier:idfa];
     
     /**
      This API sets the device token for push notifications in the SDK. If the current SDK privacy status is optedout, the push identifier is not set.
      */
     // Use the push token assigned via APNS
     NSData *pushToken = [[NSData alloc] init];
-    [AEPCore setPushIdentifier:pushToken];
+    [AEPMobileCore setPushIdentifier:pushToken];
     
     
     /**
@@ -109,7 +109,7 @@
      MobileVisitorAuthenticationState.unknown
      */
     NSDictionary *identifierDict = @{@"idType": @"idValue"};
-    [AEPIdentity syncIdentifiers:identifierDict authenticationState: AEPMobileVisitorAuthStateUnknown];
+    [AEPMobileIdentity syncIdentifiers:identifierDict authenticationState: AEPMobileVisitorAuthStateUnknown];
     
     /**
      This API is an overloaded version, which does not include the parameter for the authentication state and it assumes a default value of MobileVisitorAuthenticationState.unknown
@@ -118,7 +118,7 @@
      If any of the identifier pairs contains an empty or null value as the identifier type, then it will be ignored.
      */
     NSDictionary *identifiersDictMult = @{@"idType1": @"idValue1", @"idType2": @"idValue2"};
-    [AEPIdentity syncIdentifiers:identifiersDictMult];
+    [AEPMobileIdentity syncIdentifiers:identifiersDictMult];
 }
 
 /*

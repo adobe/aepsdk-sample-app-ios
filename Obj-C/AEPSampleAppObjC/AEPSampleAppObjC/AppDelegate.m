@@ -9,27 +9,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [AEPCore setLogLevel: AEPLogLevelTrace];
-    NSArray *extensionsToRegister = @[AEPIdentity.class, AEPLifecycle.class];
-    [AEPCore registerExtensions:extensionsToRegister completion:^{
-        [AEPCore lifecycleStart:nil];
+    [AEPMobileCore setLogLevel: AEPLogLevelTrace];
+    NSArray *extensionsToRegister = @[AEPMobileIdentity.class, AEPMobileLifecycle.class, AEPMobileSignal.class];
+    [AEPMobileCore registerExtensions:extensionsToRegister completion:^{
+        [AEPMobileCore lifecycleStart:@{@"contextDataKey": @"contextDataVal"}];
     }];
-    
+
     // Use the App id assigned to this application via Adobe Launch
-    [AEPCore configureWithAppId: @""];
+    [AEPMobileCore configureWithAppId: @""];
     
     NSDictionary *updatedConfig = @{ @"analytics.rsids": @"mobile5mob40541autoapp11490299390559"};
-    [AEPCore updateConfiguration:updatedConfig];
-    
-    
-    
+    [AEPMobileCore updateConfiguration:updatedConfig];
+
     /// AudioSession for use with the Media Tab
     @try {
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback mode:AVAudioSessionModeMoviePlayback options:AVAudioSessionCategoryOptionDuckOthers error:nil];
     } @catch (NSException *exception) {
         NSLog(@"Setting category to AVAudioSessionCategoryPlayback failed");
     }
-    
+
     return YES;
 }
 
