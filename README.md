@@ -1,49 +1,53 @@
 # AEP SDK Sample App for iOS
 
-This repository contains templates for project documentation, ensuring necessary
-legal and contributor documentation is explicit. All sections below in this `README.md`
-should be considered a template for a typical project `README.md`.
+## About this Project
 
-## PROJECT NAME
+This repository contains iOS sample apps for the AEP SDK. Examples are provided for both Objective-c and Swift implementation.
 
-A short description of what this project does.
+## Requirements
 
-## Goals
+- Xcode 11.0 or newer
+- Swift 5.1 or newer (Swift project only)
+- Cocoapods 1.6 or newer
 
-It is a good idea to provide a mission statement for your project, enshrining
-what the project wants to accomplish so that as more people join your project
-everyone can work in alignment.
+## Installation
 
-## Non-Goals
+#### Swift
 
-It is also a good idea to declare what are _not_ goals of the project to prevent
-potential feature creep.
+- Navigate to the `Swift` directory, and run the following command from terminal:
 
-### Installation
+  ```
+pod install
+  ```
 
-Instructions for how to download/install the code onto your machine.
+- After the above command finishes, open the Xcode workspace:
 
-Example:
-```
-npm install myProject --save
-```
+  ```
+open AEPSampleApp.xcworkspace
+  ```
 
-### Usage
+- Run the `AEPSampleApp` target on the simulator of your choice.
 
-Usage instructions for your code.
+#### Objective-c
 
-Example:
+- Navigate to the `Obj-C` directory, and run the following command from terminal:
 
-```
-var myMod = require('mymodule');
+  ```
+pod install
+  ```
 
-myMod.foo('hi');
-```
+- After the above command finishes, open the Xcode workspace:
 
-### Contributing
+  ```
+open AEPSampleAppObjC.xcworkspace
+  ```
+
+- Run the `AEPSampleAppObjC` target on the simulator of your choice.
+
+## Contributing
 
 Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
 
-### Licensing
+## Licensing
 
-This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for more information.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
