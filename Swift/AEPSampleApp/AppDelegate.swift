@@ -9,11 +9,13 @@
 
 import UIKit
 import AEPCore
+import ACPCore
 import AEPLifecycle
 import AEPIdentity
 import AEPSignal
 import AVKit
 import AdSupport
+import ACPGriffon
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,16 +26,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register all extensions here
         
         MobileCore.setLogLevel(level: .trace)
+        
         MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self], {
+            MobileCore.configureWith(appId: "94f571f308d5/66c427df16aa/launch-5f644611e053-development")
             MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
         })
-
+        
+        ACPGriffon.registerExtension()
+        ACPCore.start {
+            
+        }
         // Use the App id assigned to this application via Adobe Launch
         MobileCore.configureWith(appId: "")
         
        // Example of how you would update the configuration
-        let updatedConfig = ["analytics.rsids": "mobile5mob40541autoapp11490299390559"]
-        MobileCore.updateConfigurationWith(configDict: updatedConfig)
+//        let updatedConfig = ["analytics.rsids": "mobile5mob40541autoapp11490299390559"]
+//        MobileCore.updateConfigurationWith(configDict: updatedConfig)
         
        /// AudioSession for use with the Media Tab
         let audioSession = AVAudioSession.sharedInstance()
@@ -44,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Setting category to AVAudioSessionCategoryPlayback failed")
         }
 
+        
         return true
     }
 
