@@ -9,6 +9,7 @@
 
 import UIKit
 import AEPCore
+import ACPGriffon
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -56,6 +57,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         MobileCore.lifecyclePause()
     }
 
-
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+            ACPGriffon.startSession((URLContexts.first!).url)
+    }
 }
 

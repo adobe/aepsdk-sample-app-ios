@@ -9,6 +9,7 @@
 
 import UIKit
 import SwiftUI
+import ACPGriffon
 
 class GriffonViewController: UIHostingController<GriffonView> {}
 
@@ -16,23 +17,14 @@ struct GriffonView: View {
     @State private var griffonSessionUrl = ""
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: HorizontalAlignment.leading, spacing: 12) {
             TextField("Griffon Session URL:", text: $griffonSessionUrl)
             HStack {
                 Button(action: {
-                    //ACPGriffon.startSession($griffonSessionUrl)
+                    let url = URL(string: "testurl://test")!
+                    ACPGriffon.startSession(url)
                 }){
                     Text("Connect")
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .background(Color.gray)
-                        .foregroundColor(.white)
-                        .font(.caption)
-                }.cornerRadius(5)
-                Button(action: {
-                    //ACPGriffon.endSession()
-                }) {
-                    Text("Disconnect")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding()
                         .background(Color.gray)
