@@ -17,13 +17,13 @@ This repository contains iOS sample apps for the AEP SDK. Examples are provided 
 - Navigate to the `Swift` directory, and run the following command from terminal:
 
   ```
-pod install
+  pod install
   ```
 
 - After the above command finishes, open the Xcode workspace:
 
   ```
-open AEPSampleApp.xcworkspace
+  open AEPSampleApp.xcworkspace
   ```
 
 - Run the `AEPSampleApp` target on the simulator of your choice.
@@ -33,13 +33,13 @@ open AEPSampleApp.xcworkspace
 - Navigate to the `Obj-C` directory, and run the following command from terminal:
 
   ```
-pod install
+  pod install
   ```
 
 - After the above command finishes, open the Xcode workspace:
 
   ```
-open AEPSampleAppObjC.xcworkspace
+  open AEPSampleAppObjC.xcworkspace
   ```
 
 - Run the `AEPSampleAppObjC` target on the simulator of your choice.
