@@ -24,7 +24,7 @@ PODS:
     - AEPCore
 
 DEPENDENCIES:
-  - "ACPCore (from `git@github.com:adobe/aepsdk-compatibility-ios.git`, branch `rule`)"
+  - "ACPCore (from `git@github.com:adobe/aepsdk-compatibility-ios.git`, branch `main`)"
   - ACPGriffon
   - "AEPCore (from `git@github.com:adobe/aepsdk-core-ios.git`, branch `main`)"
   - "AEPIdentity (from `git@github.com:adobe/aepsdk-core-ios.git`, branch `main`)"
@@ -39,7 +39,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   ACPCore:
-    :branch: rule
+    :branch: main
     :git: "git@github.com:adobe/aepsdk-compatibility-ios.git"
   AEPCore:
     :branch: main
@@ -62,25 +62,25 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ACPCore:
-    :commit: 21a1c813d51d7f5821305533f80d1dd97f3c7138
+    :commit: 498afc446f43e8ca4a8c144fa2a8a7cbee9c85b7
     :git: "git@github.com:adobe/aepsdk-compatibility-ios.git"
   AEPCore:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: fe6ea7b92d2affa6d8b84d1981a6a6c37f191e47
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
   AEPIdentity:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: fe6ea7b92d2affa6d8b84d1981a6a6c37f191e47
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
   AEPLifecycle:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: fe6ea7b92d2affa6d8b84d1981a6a6c37f191e47
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
   AEPRulesEngine:
     :commit: b7e2b7d778b07be8fccd6641e8119767bfc26b1f
     :git: "git@github.com:adobe/aepsdk-rulesengine-ios.git"
   AEPServices:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: fe6ea7b92d2affa6d8b84d1981a6a6c37f191e47
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
   AEPSignal:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: fe6ea7b92d2affa6d8b84d1981a6a6c37f191e47
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
 
 SPEC CHECKSUMS:
@@ -93,6 +93,6 @@ SPEC CHECKSUMS:
   AEPServices: ad642c76cede1c7babb61e6804198ded4317d74f
   AEPSignal: b6473f4543d2b876c124d162228b49d53a31a552
 
-PODFILE CHECKSUM: 24951e3143a3e393402f018231cbf3e8131360a7
+PODFILE CHECKSUM: b8e0e7c0567d4a8c8adc7c4dc975ed0a1f392b5a
 
 COCOAPODS: 1.9.3

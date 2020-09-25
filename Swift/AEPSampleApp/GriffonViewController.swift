@@ -21,6 +21,7 @@ struct GriffonView: View {
             TextField("Griffon Session URL:", text: $griffonSessionUrl)
             HStack {
                 Button(action: {
+                    // replace the url with the valid one generated on Griffon UI
                     let url = URL(string: "testurl://test")!
                     ACPGriffon.startSession(url)
                 }){
