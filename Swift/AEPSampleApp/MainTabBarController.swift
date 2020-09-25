@@ -24,16 +24,16 @@ class MainTabBarController: UITabBarController {
         let analyticsVC = AnalyticsViewController(rootView: AnalyticsView())
         analyticsVC.tabBarItem = UITabBarItem(title: "Analytics", image: nil, selectedImage: nil)
         
-        let placesVC = PlacesViewController(rootView: PlacesView())
-        placesVC.tabBarItem = UITabBarItem(title: "Places", image: nil, selectedImage: nil)
+//        let placesVC = PlacesViewController(rootView: PlacesView())
+//        placesVC.tabBarItem = UITabBarItem(title: "Places", image: nil, selectedImage: nil)
+//
+//        let mediaVC = MediaViewController()
+//        mediaVC.tabBarItem = UITabBarItem(title: "Media", image: nil, selectedImage: nil)
+//
+//        let messagesVC = MessagesViewController(rootView: MessagesView())
+//        messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: nil, selectedImage: nil)
         
-        let mediaVC = MediaViewController()
-        mediaVC.tabBarItem = UITabBarItem(title: "Media", image: nil, selectedImage: nil)
-        
-        let messagesVC = MessagesViewController(rootView: MessagesView())
-        messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: nil, selectedImage: nil)
-        
-        viewControllers = [griffonVC, analyticsVC, placesVC, mediaVC, messagesVC]
+        viewControllers = [griffonVC, analyticsVC/*, placesVC, mediaVC, messagesVC*/]
         
         // sampleCoreAPICalls
     }
