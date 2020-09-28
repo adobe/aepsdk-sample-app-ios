@@ -16,6 +16,7 @@ import AEPSignal
 import AVKit
 import AdSupport
 import ACPGriffon
+import AEPSampleExtensionSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         MobileCore.setLogLevel(level: .trace)
         
-        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self], {
+        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, SampleExtension.self], {
             MobileCore.configureWith(appId: "94f571f308d5/66c427df16aa/launch-5f644611e053-development")
             MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
         })
