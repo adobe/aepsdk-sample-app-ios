@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobileCore.setLogLevel(level: .trace)
         let appState = application.applicationState;
         
-        // Register all extensions
         MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, SampleExtension.self], {
+
             // Use the App id assigned to this application via Adobe Launch
             MobileCore.configureWith(appId: "94f571f308d5/66c427df16aa/launch-5f644611e053-development")
             if appState != .background {
