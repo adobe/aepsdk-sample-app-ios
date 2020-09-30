@@ -36,9 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
             }
 
+            // register griffon
             ACPGriffon.registerExtension()
+            // need to call `ACPCore.start` in order to get ACP* extensions registered to AEPCore
             ACPCore.start {
-                
             }
         })
         
