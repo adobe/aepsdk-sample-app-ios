@@ -24,35 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Register all extensions here
-        
         MobileCore.setLogLevel(level: .trace)
+        let appState = application.applicationState;
         
+        // Register all extensions
         MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, SampleExtension.self], {
+            // Use the App id assigned to this application via Adobe Launch
             MobileCore.configureWith(appId: "94f571f308d5/66c427df16aa/launch-5f644611e053-development")
-            MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
-        })
-        
-        ACPGriffon.registerExtension()
-        ACPCore.start {
-            
-        }
-        // Use the App id assigned to this application via Adobe Launch
-        MobileCore.configureWith(appId: "")
-        
-       // Example of how you would update the configuration
-//        let updatedConfig = ["analytics.rsids": "mobile5mob40541autoapp11490299390559"]
-//        MobileCore.updateConfigurationWith(configDict: updatedConfig)
-        
-       /// AudioSession for use with the Media Tab
-        let audioSession = AVAudioSession.sharedInstance()
-        
-        do {
-            try audioSession.setCategory(.playback, mode: .moviePlayback)
-        } catch {
-            print("Setting category to AVAudioSessionCategoryPlayback failed")
-        }
+            if appState != .background {
+                // only start lifecycle if the application is not in the background
+                MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
+            }
 
+            ACPGriffon.registerExtension()
+            ACPCore.start {
+                
+            }
+        })
         
         return true
     }

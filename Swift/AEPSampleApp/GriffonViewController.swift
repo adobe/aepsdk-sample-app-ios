@@ -18,11 +18,11 @@ struct GriffonView: View {
     
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 12) {
-            TextField("Griffon Session URL:", text: $griffonSessionUrl)
+            TextField("Copy Assurance Session URL to here", text: $griffonSessionUrl)
             HStack {
                 Button(action: {
                     // replace the url with the valid one generated on Griffon UI
-                    let url = URL(string: "testurl://test")!
+                    let url = URL(string: self.griffonSessionUrl)!
                     ACPGriffon.startSession(url)
                 }){
                     Text("Connect")

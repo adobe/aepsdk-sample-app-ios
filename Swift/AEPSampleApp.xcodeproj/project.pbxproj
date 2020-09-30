@@ -7,22 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FEEA0E12523DBB5007EC317 /* CoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA0E02523DBB4007EC317 /* CoreViewController.swift */; };
+		3FEEA0E32524DA4A007EC317 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */; };
 		782B982124D9BA89009C5902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982024D9BA89009C5902 /* AppDelegate.swift */; };
 		782B982324D9BA89009C5902 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982224D9BA89009C5902 /* SceneDelegate.swift */; };
 		782B982524D9BA89009C5902 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982424D9BA89009C5902 /* MainTabBarController.swift */; };
 		782B982A24D9BA8C009C5902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782B982924D9BA8C009C5902 /* Assets.xcassets */; };
 		782B982D24D9BA8C009C5902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */; };
 		7876121124DC601B001CABB5 /* GriffonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121024DC601B001CABB5 /* GriffonViewController.swift */; };
-		7876121324DC6031001CABB5 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121224DC6031001CABB5 /* AnalyticsViewController.swift */; };
-		7876121524DC6042001CABB5 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121424DC6042001CABB5 /* PlacesViewController.swift */; };
-		7876121724DC6051001CABB5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121624DC6051001CABB5 /* MediaViewController.swift */; };
-		7876121924DC6076001CABB5 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121824DC6076001CABB5 /* MessagesViewController.swift */; };
-		7876121D24E2FF8E001CABB5 /* testVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7876121C24E2FF8E001CABB5 /* testVideo.mp4 */; };
 		E2A10BF51831EE0E3E20E75A /* Pods_AEPSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE42E2D85C13BE9E7B790EF /* Pods_AEPSampleApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C8E98C2B3C891BEAE9372E3 /* Pods-AEPSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleApp.release.xcconfig"; path = "Target Support Files/Pods-AEPSampleApp/Pods-AEPSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		3FEEA0E02523DBB4007EC317 /* CoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreViewController.swift; sourceTree = "<group>"; };
+		3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		782B981D24D9BA89009C5902 /* AEPSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AEPSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		782B982024D9BA89009C5902 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		782B982224D9BA89009C5902 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,11 +30,6 @@
 		782B982C24D9BA8C009C5902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		782B982E24D9BA8C009C5902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7876121024DC601B001CABB5 /* GriffonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GriffonViewController.swift; sourceTree = "<group>"; };
-		7876121224DC6031001CABB5 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
-		7876121424DC6042001CABB5 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
-		7876121624DC6051001CABB5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
-		7876121824DC6076001CABB5 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		7876121C24E2FF8E001CABB5 /* testVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = testVideo.mp4; sourceTree = "<group>"; };
 		7FE42E2D85C13BE9E7B790EF /* Pods_AEPSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB83E156154D650BCB0FEB85 /* Pods-AEPSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-AEPSampleApp/Pods-AEPSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,16 +69,13 @@
 			children = (
 				782B982024D9BA89009C5902 /* AppDelegate.swift */,
 				782B982224D9BA89009C5902 /* SceneDelegate.swift */,
+				3FEEA0E02523DBB4007EC317 /* CoreViewController.swift */,
 				782B982424D9BA89009C5902 /* MainTabBarController.swift */,
 				7876121024DC601B001CABB5 /* GriffonViewController.swift */,
-				7876121224DC6031001CABB5 /* AnalyticsViewController.swift */,
-				7876121424DC6042001CABB5 /* PlacesViewController.swift */,
-				7876121624DC6051001CABB5 /* MediaViewController.swift */,
-				7876121824DC6076001CABB5 /* MessagesViewController.swift */,
+				3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */,
 				782B982924D9BA8C009C5902 /* Assets.xcassets */,
 				782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */,
 				782B982E24D9BA8C009C5902 /* Info.plist */,
-				7876121C24E2FF8E001CABB5 /* testVideo.mp4 */,
 			);
 			path = AEPSampleApp;
 			sourceTree = "<group>";
@@ -168,7 +159,6 @@
 			files = (
 				782B982D24D9BA8C009C5902 /* LaunchScreen.storyboard in Resources */,
 				782B982A24D9BA8C009C5902 /* Assets.xcassets in Resources */,
-				7876121D24E2FF8E001CABB5 /* testVideo.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7876121524DC6042001CABB5 /* PlacesViewController.swift in Sources */,
-				7876121724DC6051001CABB5 /* MediaViewController.swift in Sources */,
 				7876121124DC601B001CABB5 /* GriffonViewController.swift in Sources */,
+				3FEEA0E32524DA4A007EC317 /* ButtonStyle.swift in Sources */,
 				782B982524D9BA89009C5902 /* MainTabBarController.swift in Sources */,
-				7876121324DC6031001CABB5 /* AnalyticsViewController.swift in Sources */,
 				782B982124D9BA89009C5902 /* AppDelegate.swift in Sources */,
-				7876121924DC6076001CABB5 /* MessagesViewController.swift in Sources */,
 				782B982324D9BA89009C5902 /* SceneDelegate.swift in Sources */,
+				3FEEA0E12523DBB5007EC317 /* CoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
