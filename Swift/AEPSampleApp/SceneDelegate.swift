@@ -58,7 +58,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-            ACPGriffon.startSession((URLContexts.first!).url)
+        ACPGriffon.startSession((URLContexts.first!).url)
     }
 }
 
