@@ -20,7 +20,11 @@ import AdSupport
 import ACPCore
 import ACPGriffon
 // step-assurance-end
+
+
+//step-extension-start
 import AEPSampleExtensionSwift
+//step-extension-end
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,7 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobileCore.setLogLevel(level: .trace)
         let appState = application.applicationState;
         
-        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, SampleExtension.self], {
+        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self
+            //step-extension-start
+            , SampleExtension.self
+            //step-extension-end
+            ], {
 
             // Use the App id assigned to this application via Adobe Launch
             MobileCore.configureWith(appId: "94f571f308d5/66c427df16aa/launch-5f644611e053-development")

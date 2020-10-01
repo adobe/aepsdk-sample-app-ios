@@ -3,6 +3,7 @@ archive:
 	mkdir ../steps
 	zip  -rX ../steps/final.zip ./ -x "*Pods*"
 
+	$(call generate_step,extension)
 	$(call generate_step,assurance)
 	$(call generate_step,identity)
 	$(call generate_step,event)
