@@ -8,13 +8,15 @@
  */
 
 import UIKit
+// step1-start
 import AEPCore
-import ACPCore
 import AEPLifecycle
 import AEPIdentity
 import AEPSignal
+// step1-end
 import AVKit
 import AdSupport
+import ACPCore
 import ACPGriffon
 import AEPSampleExtensionSwift
 
@@ -24,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        // step1-start
         MobileCore.setLogLevel(level: .trace)
         let appState = application.applicationState;
         
@@ -41,7 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // need to call `ACPCore.start` in order to get ACP* extensions registered to AEPCore
             ACPCore.start {
             }
+            
         })
+        // step1-end
         
         return true
     }
