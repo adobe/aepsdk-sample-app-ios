@@ -123,14 +123,12 @@ struct CoreView: View {
             }.buttonStyle(CustomButtonStyle())
             
             Button(action: {
-                
                 // step-event-start
                 let event = Event(name: "Sample Event", type: "type", source: "source", data: ["platform" : "ios"])
                 MobileCore.dispatch(event: event) { event in
                     
                 }
                 // step-event-end
-                
             }) {
                 Text("Dispatch Custom Event with response callback")
             }.buttonStyle(CustomButtonStyle())
