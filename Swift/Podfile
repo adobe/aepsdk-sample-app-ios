@@ -3,18 +3,6 @@ platform :ios, '10.0'
 use_frameworks!
 target 'AEPSampleApp' do
 
-  # step-init-start
-  pod 'AEPServices', :git => 'git@github.com:adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPCore', :git => 'git@github.com:adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPLifecycle', :git => 'git@github.com:adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPIdentity', :git => 'git@github.com:adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPSignal', :git => 'git@github.com:adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPRulesEngine', :git => 'git@github.com:adobe/aepsdk-rulesengine-ios.git', :branch => 'main'
-  # step-init-end
   pod 'AEPSampleExtensionSwift', :git => 'git@github.com:adobe/aepsdk-sample-extension-ios.git', :branch => 'main'
   
-  # step-assurance-start
-  pod 'ACPCore', :git => 'git@github.com:adobe/aepsdk-compatibility-ios.git', :branch => 'main'
-  pod 'ACPGriffon'
-  # step-assurance-end
 end
