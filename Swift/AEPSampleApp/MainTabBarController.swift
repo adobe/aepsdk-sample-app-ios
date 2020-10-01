@@ -14,14 +14,17 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let coreVC = CoreViewController(rootView: CoreView())
         coreVC.tabBarItem = UITabBarItem(title: "Core", image: nil, selectedImage: nil)
-        
+
+         let experiencePlatformVC = ExperiencePlatformViewController(rootView: ExperiencePlatformView())
+         experiencePlatformVC.tabBarItem = UITabBarItem(title: "AEP Edge", image: nil, selectedImage: nil)
+
         let griffonVC = GriffonViewController(rootView: GriffonView())
         griffonVC.tabBarItem = UITabBarItem(title: "Griffon", image: nil, selectedImage: nil)
-        viewControllers = [coreVC, griffonVC]
-        
+        viewControllers = [coreVC, experiencePlatformVC, griffonVC]
+
     }
 }
 

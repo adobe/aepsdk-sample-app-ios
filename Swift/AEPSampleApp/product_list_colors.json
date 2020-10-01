@@ -1,0 +1,33 @@
+[
+    {
+        "SKU": "625–740",
+        "name": "Red",
+        "priceTotal": 9.95,
+        "currencyCode": "USD"
+    },
+    {
+        "SKU": "450-495",
+        "name": "Blue",
+        "priceTotal": 12.98,
+        "currencyCode": "USD"
+    },
+    {
+        "SKU": "495–570",
+        "name": "Green",
+        "priceTotal": 10.95,
+        "currencyCode": "USD"
+    },
+    {
+        "SKU": "570–590",
+        "name": "Yellow",
+        "priceTotal": 5.99,
+        "currencyCode": "USD"
+    },
+    {
+        "SKU": "590-625",
+        "name": "Orange",
+        "priceTotal": 11.98,
+        "currencyCode": "USD"
+    }
+]
+
