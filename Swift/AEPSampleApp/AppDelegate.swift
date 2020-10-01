@@ -16,8 +16,10 @@ import AEPSignal
 // step-init-end
 import AVKit
 import AdSupport
+// step-assurance-start
 import ACPCore
 import ACPGriffon
+// step-assurance-end
 import AEPSampleExtensionSwift
 
 @UIApplicationMain
@@ -40,11 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
             }
 
+            // step-assurance-start
             // register griffon
             ACPGriffon.registerExtension()
             // need to call `ACPCore.start` in order to get ACP* extensions registered to AEPCore
             ACPCore.start {
             }
+            // step-assurance-end
             
         })
         // step-init-end

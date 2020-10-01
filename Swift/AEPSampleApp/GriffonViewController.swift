@@ -9,7 +9,9 @@
 
 import UIKit
 import SwiftUI
+// step-assurance-start
 import ACPGriffon
+// step-assurance-end
 
 class GriffonViewController: UIHostingController<GriffonView> {}
 
@@ -21,9 +23,11 @@ struct GriffonView: View {
             TextField("Copy Assurance Session URL to here", text: $griffonSessionUrl)
             HStack {
                 Button(action: {
+                    // step-assurance-start
                     // replace the url with the valid one generated on Griffon UI
                     let url = URL(string: self.griffonSessionUrl)!
                     ACPGriffon.startSession(url)
+                    // step-assurance-end
                 }){
                     Text("Connect")
                         .frame(minWidth: 0, maxWidth: .infinity)
