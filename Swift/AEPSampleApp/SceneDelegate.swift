@@ -8,8 +8,14 @@
  */
 
 import UIKit
+// step-init-start
 import AEPCore
+// step-init-end
+
+
+// step-assurance-start
 import ACPGriffon
+// step-assurance-end
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -45,20 +51,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
+        // step-init-start
         MobileCore.lifecycleStart(additionalContextData: nil)
+        // step-init-end
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
+        // step-init-start
         MobileCore.lifecyclePause()
+        // step-init-end
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        // step-assurance-start
         ACPGriffon.startSession((URLContexts.first!).url)
+        // step-assurance-end
     }
 }
 

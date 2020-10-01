@@ -8,9 +8,6 @@
  */
 
 import UIKit
-import AEPCore
-import AEPIdentity
-import AEPLifecycle
 import AdSupport
 
 class MainTabBarController: UITabBarController {
