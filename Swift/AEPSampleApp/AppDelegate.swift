@@ -8,8 +8,18 @@
  */
 
 import UIKit
+// step-init-start
+import AEPCore
+import AEPLifecycle
+import AEPIdentity
+import AEPSignal
+// step-init-end
 import AVKit
 import AdSupport
+// step-assurance-start
+import ACPCore
+import ACPGriffon
+// step-assurance-end
 import AEPSampleExtensionSwift
 
 @UIApplicationMain
@@ -19,6 +29,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        // step-init-start
+        MobileCore.setLogLevel(level: .trace)
+        let appState = application.applicationState;
+        
+        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, SampleExtension.self], {
+
+            // Use the App id assigned to this application via Adobe Launch
+            MobileCore.configureWith(appId: "94f571f308d5/66c427df16aa/launch-5f644611e053-development")
+            if appState != .background {
+                // only start lifecycle if the application is not in the background
+                MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
+            }
+
+            // step-assurance-start
+            // register griffon
+            ACPGriffon.registerExtension()
+            // need to call `ACPCore.start` in order to get ACP* extensions registered to AEPCore
+            ACPCore.start {
+            }
+            // step-assurance-end
+            
+        })
+        // step-init-end
         
         return true
     }
