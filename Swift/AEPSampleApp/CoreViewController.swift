@@ -9,8 +9,14 @@
 
 import UIKit
 import SwiftUI
+
+// step-config-start
 import AEPCore
+// step-config-end
+
+// step-identity-start
 import AEPIdentity
+// step-identity-end
 
 class CoreViewController: UIHostingController<CoreView> {}
 
