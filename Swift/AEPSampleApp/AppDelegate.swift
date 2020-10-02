@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobileCore.setLogLevel(level: .trace)
         let appState = application.applicationState;
 
-        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, SampleExtension.self, ExperiencePlatform.self,
+        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, ExperiencePlatform.self
             //step-extension-start
             , SampleExtension.self
             //step-extension-end
