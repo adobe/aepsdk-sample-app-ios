@@ -154,46 +154,6 @@ struct ExperiencePlatformView: View {
         }
     }
     
-    /// Creates and sends a cart purchase event to the Adobe Experience Edge.
-    /// This method should be called when a final purchase is made for the shopping cart.
-    func sendPurchaseXdmEvent() {
-        guard !shoppingCart.items.isEmpty else {
-            print("Cannot create purchase event because no items were found in cart.")
-            return
-        }
-        
-        print("Sending purchase XDM event")
-
-        /// Create PaymentItem which details the method of payment
-        var paymentsItem = PaymentsItem()
-        paymentsItem.paymentAmount = shoppingCart.total
-        paymentsItem.paymentType = "Credit card"
-
-        /// Create the Order
-        var order = Order()
-        order.priceTotal = shoppingCart.total
-        order.payments = [paymentsItem]
-
-        /// Create Purchases action
-        var purchases = Purchases()
-        purchases.value = 1
-
-        /// Create Commerce and add Purchases action and Order details
-        var commerce = Commerce()
-        commerce.order = order
-        commerce.purchases = purchases
-
-        // Compose the XDM Schema object and set the event name
-        var xdmData = MobileSDKCommerceSchema()
-        xdmData.eventType = Constants.AEP.COMMERCE_PURCHASE_EVENT
-        xdmData.commerce = commerce
-        xdmData.productListItems = shoppingCart.items
-
-        // Create an Experience Event with the built schema and send it using the Platform extension
-        let event = ExperiencePlatformEvent(xdm: xdmData)
-        ExperiencePlatform.sendEvent(experiencePlatformEvent: event)
-    }
-    
     /// Creates and sends an add to cart commerce event to the Adobe Experience Edge.
     /// This method should be called when a product is selected (added to the cart).
     func sendAddToCartXDMEvent(color: String) {
@@ -247,6 +207,46 @@ struct ExperiencePlatformView: View {
         xdmData.commerce = commerce
         xdmData.productListItems = [product]
         
+        // Create an Experience Event with the built schema and send it using the Platform extension
+        let event = ExperiencePlatformEvent(xdm: xdmData)
+        ExperiencePlatform.sendEvent(experiencePlatformEvent: event)
+    }
+    
+    /// Creates and sends a cart purchase event to the Adobe Experience Edge.
+    /// This method should be called when a final purchase is made for the shopping cart.
+    func sendPurchaseXdmEvent() {
+        guard !shoppingCart.items.isEmpty else {
+            print("Cannot create purchase event because no items were found in cart.")
+            return
+        }
+        
+        print("Sending purchase XDM event")
+
+        /// Create PaymentItem which details the method of payment
+        var paymentsItem = PaymentsItem()
+        paymentsItem.paymentAmount = shoppingCart.total
+        paymentsItem.paymentType = "Credit card"
+
+        /// Create the Order
+        var order = Order()
+        order.priceTotal = shoppingCart.total
+        order.payments = [paymentsItem]
+
+        /// Create Purchases action
+        var purchases = Purchases()
+        purchases.value = 1
+
+        /// Create Commerce and add Purchases action and Order details
+        var commerce = Commerce()
+        commerce.order = order
+        commerce.purchases = purchases
+
+        // Compose the XDM Schema object and set the event name
+        var xdmData = MobileSDKCommerceSchema()
+        xdmData.eventType = Constants.AEP.COMMERCE_PURCHASE_EVENT
+        xdmData.commerce = commerce
+        xdmData.productListItems = shoppingCart.items
+
         // Create an Experience Event with the built schema and send it using the Platform extension
         let event = ExperiencePlatformEvent(xdm: xdmData)
         ExperiencePlatform.sendEvent(experiencePlatformEvent: event)
