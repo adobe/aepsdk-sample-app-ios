@@ -18,7 +18,7 @@ import AVKit
 import AdSupport
 // step-assurance-start
 import ACPCore
-import ACPGriffon
+import AEPAssurance
 // step-assurance-end
 
 
@@ -51,8 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
 
             // step-assurance-start
-            // register griffon
-            ACPGriffon.registerExtension()
+            // register AEPAssurance
+            AEPAssurance.registerExtension()
             // need to call `ACPCore.start` in order to get ACP* extensions registered to AEPCore
             ACPCore.start {
             }
