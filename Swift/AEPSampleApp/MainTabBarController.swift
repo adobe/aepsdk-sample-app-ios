@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
         coreVC.tabBarItem = UITabBarItem(title: "Core", image: nil, selectedImage: nil)
 
          let experiencePlatformVC = ExperiencePlatformViewController(rootView: ExperiencePlatformView())
-         experiencePlatformVC.tabBarItem = UITabBarItem(title: "AEP Edge", image: nil, selectedImage: nil)
+         experiencePlatformVC.tabBarItem = UITabBarItem(title: "AEP", image: nil, selectedImage: nil)
 
         let griffonVC = GriffonViewController(rootView: GriffonView())
         griffonVC.tabBarItem = UITabBarItem(title: "Griffon", image: nil, selectedImage: nil)

@@ -14,14 +14,8 @@ import AEPExperiencePlatform
 class ExperiencePlatformViewController: UIHostingController<ExperiencePlatformView> {}
 
 struct ExperiencePlatformView: View {
-    @State private var redSelected = false
-    @State private var blueSelected = false
-    @State private var orangeSelected = false
-    @State private var greenSelected = false
-    @State private var yellowSelected = false
-    @State private var shoppingCart = ShoppingCart()
-    
-    let productDataLoader = ProductDataLoader()
+    @State private var showAddToCartNotImplemented = false
+    @State private var showPurchaseMessage = false
     
     var body: some View {
         ScrollView {
@@ -29,89 +23,42 @@ struct ExperiencePlatformView: View {
                 // Commerce section
                 commerceExampleSection
             }.padding()
+            Divider()
         }
     }
     
     var commerceExampleSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Commerce example").bold()
-            Text("Select some colorful circles")
-            HStack {
-                Button(action: {
-                    self.redSelected = !self.redSelected
-                    if self.redSelected {
-                        addToCart(color: "red")
-                    } else {
-                        removeFromCart(color: "red")
-                    }
-                }){
-                    Circle()
-                        .fill(self.redSelected ? Color.red : Color.gray)
-                        .frame(width: 50.0, height: 50.0)
-                }
-                Button(action: {
-                    self.blueSelected = !self.blueSelected
-                    if self.blueSelected {
-                        addToCart(color: "blue")
-                    } else {
-                        removeFromCart(color: "blue")
-                    }
-                }){
-                    Circle()
-                        .fill(self.blueSelected ? Color.blue : Color.gray)
-                        .frame(width: 50.0, height: 50.0)
-                }
-                Button(action: {
-                    self.orangeSelected = !self.orangeSelected
-                    if self.orangeSelected {
-                        addToCart(color: "orange")
-                    } else {
-                        removeFromCart(color: "orange")
-                    }
-                }){
-                    Circle()
-                        .fill(self.orangeSelected ? Color.orange : Color.gray)
-                        .frame(width: 50.0, height: 50.0)
-                }
-                Button(action: {
-                    self.greenSelected = !self.greenSelected
-                    if self.greenSelected {
-                        addToCart(color: "green")
-                    } else {
-                        removeFromCart(color: "green")
-                    }
-                }){
-                    Circle()
-                        .fill(self.greenSelected ? Color.green : Color.gray)
-                        .frame(width: 50.0, height: 50.0)
-                }
-                Button(action: {
-                    self.yellowSelected = !self.yellowSelected
-                    if self.yellowSelected {
-                        addToCart(color: "yellow")
-                    } else {
-                        removeFromCart(color: "yellow")
-                    }
-                }){
-                    Circle()
-                        .fill(self.yellowSelected ? Color.yellow : Color.gray)
-                        .frame(width: 50.0, height: 50.0)
-                }
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Total:")
-                    Text(String(format: "$%.2f", shoppingCart.total))
-                }
-            }
+            Text("XDM Commerce Example").bold()
             
             HStack {
                 Button(action: {
-                    sendPurchaseXdmEvent()
-                    shoppingCart.clearCart()
-                    resetState()
-                    print("Colors purchased")
+                    sendAddToCartXDMEvent()
                 }){
                     HStack {
                         Image(systemName: "cart")
+                            .font(.caption)
+                        Text("Add to cart")
+                            .font(.caption)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .background(Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(5)
+                }
+            }
+            .alert(isPresented: $showAddToCartNotImplemented) {
+                        Alert(title: Text("Add to cart"), message: Text("This method is not implemented yet"), dismissButton: .default(Text("OK")))
+                    }
+            
+            
+            HStack {
+                Button(action: {
+                    sendPurchaseXDMEvent()
+                }){
+                    HStack {
+                        Image(systemName: "bag")
                             .font(.caption)
                         Text("Purchase")
                             .font(.caption)
@@ -123,133 +70,76 @@ struct ExperiencePlatformView: View {
                     .cornerRadius(5)
                 }
             }
+            .alert(isPresented: $showPurchaseMessage) {
+                        Alert(title: Text("Purchase"), message: Text("Thank you for your purchase!"), dismissButton: .default(Text("OK")))
+                    }
         }
-    }
-    
-    func resetState() {
-        self.blueSelected = false
-        self.redSelected = false
-        self.orangeSelected = false
-        self.greenSelected = false
-        self.yellowSelected = false
-    }
-    
-    func addToCart(color: String) {
-        if var product = productDataLoader.findItem(withName: color) {
-            product.quantity = 1
-            shoppingCart.add(product: product)
-            print("Color \(color) added to cart")
-            sendAddToCartXDMEvent(color: color)
-        } else {
-            print("Color \(color) not found in the known products list")
-        }
-    }
-    
-    func removeFromCart(color: String) {
-        if shoppingCart.remove(colorWithName: color) {
-            sendRemoveFromCartXDMEvent(color: color)
-            print("Color \(color) removed from cart")
-        } else {
-            print("Color \(color) not found in the cart")
-        }
+        
     }
     
     /// Creates and sends an add to cart commerce event to the Adobe Experience Edge.
-    /// This method should be called when a product is selected (added to the cart).
-    func sendAddToCartXDMEvent(color: String) {
-        guard var product = productDataLoader.findItem(withName: color) else {
-            print("Color \(color) not found in the known products list")
-            return
-        }
-        
-        product.quantity = 1
-        
-        // Mark this event as a productListAdds one
-        var productListAdds = ProductListAdds()
-        productListAdds.value = 1
-        
-        // Attach the product list added
-        var commerce = Commerce()
-        commerce.productListAdds = productListAdds
-        
-        // Compose the XDM Schema object and set the event name
-        var xdmData = MobileSDKCommerceSchema()
-        xdmData.eventType = Constants.AEP.COMMERCE_ADD_TO_CART_EVENT
-        xdmData.commerce = commerce
-        xdmData.productListItems = [product]
-        
-        // Create an Experience Event with the built schema and send it using the Platform extension
-        let event = ExperiencePlatformEvent(xdm: xdmData)
-        ExperiencePlatform.sendEvent(experiencePlatformEvent: event)
-    }
-    
-    /// Creates and sends a remove from cart commerce event to the Adobe Experience Edge.
-    /// This method should be called when a product is deselected (removed from the cart).
-    func sendRemoveFromCartXDMEvent(color: String) {
-        guard var product = productDataLoader.findItem(withName: color) else {
-            print("Color \(color) not found in the known products list")
-            return
-        }
-        
-        product.quantity = 1
-        
-        // Mark this event as a productListRemovals one
-        var productListRemovals = ProductListRemovals()
-        productListRemovals.value = 1
-        
-        // Attach the products list removed
-        var commerce = Commerce()
-        commerce.productListRemovals = productListRemovals
-        
-        // Compose the XDM Schema object and set the event name
-        var xdmData = MobileSDKCommerceSchema()
-        xdmData.eventType = Constants.AEP.COMMERCE_REMOVED_FROM_CART_EVENT
-        xdmData.commerce = commerce
-        xdmData.productListItems = [product]
-        
-        // Create an Experience Event with the built schema and send it using the Platform extension
-        let event = ExperiencePlatformEvent(xdm: xdmData)
-        ExperiencePlatform.sendEvent(experiencePlatformEvent: event)
+    func sendAddToCartXDMEvent() {
+        // TODO: to be implemented
+        self.showAddToCartNotImplemented = true // remove this line when this method is fully implemented
     }
     
     /// Creates and sends a cart purchase event to the Adobe Experience Edge.
-    /// This method should be called when a final purchase is made for the shopping cart.
-    func sendPurchaseXdmEvent() {
-        guard !shoppingCart.items.isEmpty else {
-            print("Cannot create purchase event because no items were found in cart.")
-            return
-        }
+    func sendPurchaseXDMEvent() {
+        print("Sending XDM commerce purchase event")
         
-        print("Sending purchase XDM event")
-
+        /// Create list with the purchased items
+        var product1 = ProductListItemsItem()
+        product1.name = "Shoes"
+        product1.priceTotal = 34.76
+        product1.sKU = "SHOES123"
+        product1.quantity = 1
+        product1.currencyCode = "USD"
+        
+        var product2 = ProductListItemsItem()
+        product2.name = "Hat"
+        product2.priceTotal = 30.6
+        product2.sKU = "HAT567"
+        product2.quantity = 2
+        product2.currencyCode = "USD"
+        let purchasedItems: [ProductListItemsItem] = [product1, product2]
+        
+        var orderTotal: Double = 0
+        for item in purchasedItems {
+            if let price = item.priceTotal {
+                orderTotal += price
+            }
+        }
         /// Create PaymentItem which details the method of payment
         var paymentsItem = PaymentsItem()
-        paymentsItem.paymentAmount = shoppingCart.total
+        paymentsItem.paymentAmount = orderTotal
         paymentsItem.paymentType = "Credit card"
-
-        /// Create the Order
+        
+        /// Set the Order information
         var order = Order()
-        order.priceTotal = shoppingCart.total
+        order.priceTotal = orderTotal
         order.payments = [paymentsItem]
+        order.currencyCode = "USD"
 
         /// Create Purchases action
         var purchases = Purchases()
         purchases.value = 1
 
-        /// Create Commerce and add Purchases action and Order details
+        /// Create Commerce object and add Purchases action and Order details
         var commerce = Commerce()
         commerce.order = order
         commerce.purchases = purchases
-
+        
         // Compose the XDM Schema object and set the event name
         var xdmData = MobileSDKCommerceSchema()
-        xdmData.eventType = Constants.AEP.COMMERCE_PURCHASE_EVENT
+        xdmData.eventType = "commerce.purchases"
         xdmData.commerce = commerce
-        xdmData.productListItems = shoppingCart.items
+        xdmData.productListItems = purchasedItems
 
         // Create an Experience Event with the built schema and send it using the Platform extension
         let event = ExperiencePlatformEvent(xdm: xdmData)
         ExperiencePlatform.sendEvent(experiencePlatformEvent: event)
+        
+        self.showPurchaseMessage = true
     }
 }
 
