@@ -14,7 +14,7 @@ import AEPCore
 
 
 // step-assurance-start
-import ACPGriffon
+import AEPAssurance
 // step-assurance-end
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -64,7 +64,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         // step-assurance-start
-        ACPGriffon.startSession((URLContexts.first!).url)
+        AEPAssurance.startSession((URLContexts.first!).url)
         // step-assurance-end
     }
 }

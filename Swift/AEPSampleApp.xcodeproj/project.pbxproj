@@ -14,7 +14,7 @@
 		782B982524D9BA89009C5902 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982424D9BA89009C5902 /* MainTabBarController.swift */; };
 		782B982A24D9BA8C009C5902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782B982924D9BA8C009C5902 /* Assets.xcassets */; };
 		782B982D24D9BA8C009C5902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */; };
-		7876121124DC601B001CABB5 /* GriffonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121024DC601B001CABB5 /* GriffonViewController.swift */; };
+		7876121124DC601B001CABB5 /* AssuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121024DC601B001CABB5 /* AssuranceViewController.swift */; };
 		E2A10BF51831EE0E3E20E75A /* Pods_AEPSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE42E2D85C13BE9E7B790EF /* Pods_AEPSampleApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 		782B982924D9BA8C009C5902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		782B982C24D9BA8C009C5902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		782B982E24D9BA8C009C5902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7876121024DC601B001CABB5 /* GriffonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GriffonViewController.swift; sourceTree = "<group>"; };
+		7876121024DC601B001CABB5 /* AssuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssuranceViewController.swift; sourceTree = "<group>"; };
 		7FE42E2D85C13BE9E7B790EF /* Pods_AEPSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB83E156154D650BCB0FEB85 /* Pods-AEPSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-AEPSampleApp/Pods-AEPSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +71,7 @@
 				782B982224D9BA89009C5902 /* SceneDelegate.swift */,
 				3FEEA0E02523DBB4007EC317 /* CoreViewController.swift */,
 				782B982424D9BA89009C5902 /* MainTabBarController.swift */,
-				7876121024DC601B001CABB5 /* GriffonViewController.swift */,
+				7876121024DC601B001CABB5 /* AssuranceViewController.swift */,
 				3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */,
 				782B982924D9BA8C009C5902 /* Assets.xcassets */,
 				782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */,
@@ -211,7 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7876121124DC601B001CABB5 /* GriffonViewController.swift in Sources */,
+				7876121124DC601B001CABB5 /* AssuranceViewController.swift in Sources */,
 				3FEEA0E32524DA4A007EC317 /* ButtonStyle.swift in Sources */,
 				782B982524D9BA89009C5902 /* MainTabBarController.swift in Sources */,
 				782B982124D9BA89009C5902 /* AppDelegate.swift in Sources */,

@@ -18,9 +18,9 @@ class MainTabBarController: UITabBarController {
         let coreVC = CoreViewController(rootView: CoreView())
         coreVC.tabBarItem = UITabBarItem(title: "Core", image: nil, selectedImage: nil)
         
-        let griffonVC = GriffonViewController(rootView: GriffonView())
-        griffonVC.tabBarItem = UITabBarItem(title: "Griffon", image: nil, selectedImage: nil)
-        viewControllers = [coreVC, griffonVC]
+        let assuranceVC = AssuranceViewController(rootView: AssuranceView())
+        assuranceVC.tabBarItem = UITabBarItem(title: "Assurance", image: nil, selectedImage: nil)
+        viewControllers = [coreVC, assuranceVC]
         
     }
 }
