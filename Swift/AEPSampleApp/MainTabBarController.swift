@@ -21,9 +21,9 @@ class MainTabBarController: UITabBarController {
          let experiencePlatformVC = ExperiencePlatformViewController(rootView: ExperiencePlatformView())
          experiencePlatformVC.tabBarItem = UITabBarItem(title: "AEP", image: nil, selectedImage: nil)
 
-        let griffonVC = GriffonViewController(rootView: GriffonView())
-        griffonVC.tabBarItem = UITabBarItem(title: "Griffon", image: nil, selectedImage: nil)
-        viewControllers = [coreVC, experiencePlatformVC, griffonVC]
+        let assuranceVC = AssuranceViewController(rootView: AssuranceView())
+                assuranceVC.tabBarItem = UITabBarItem(title: "Assurance", image: nil, selectedImage: nil)
+        viewControllers = [coreVC, experiencePlatformVC, assuranceVC]
 
     }
 }

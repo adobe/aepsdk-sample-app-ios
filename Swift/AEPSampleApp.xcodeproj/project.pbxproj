@@ -14,8 +14,8 @@
 		782B982524D9BA89009C5902 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982424D9BA89009C5902 /* MainTabBarController.swift */; };
 		782B982A24D9BA8C009C5902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782B982924D9BA8C009C5902 /* Assets.xcassets */; };
 		782B982D24D9BA8C009C5902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */; };
-		7876121124DC601B001CABB5 /* GriffonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121024DC601B001CABB5 /* GriffonViewController.swift */; };
-		D42BE5C32524569C00782C3C /* ExperiencePlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42BE5C22524569C00782C3C /* ExperiencePlatformViewController.swift */; };
+		7876121124DC601B001CABB5 /* AssuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121024DC601B001CABB5 /* AssuranceViewController.swift */; };
+        D42BE5C32524569C00782C3C /* ExperiencePlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42BE5C22524569C00782C3C /* ExperiencePlatformViewController.swift */; };
 		D4E2FDB2252554E6001FE22D /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD8E252554E6001FE22D /* Purchases.swift */; };
 		D4E2FDB3252554E6001FE22D /* InStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */; };
 		D4E2FDB4252554E6001FE22D /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD90252554E6001FE22D /* Items.swift */; };
@@ -51,8 +51,8 @@
 		782B982924D9BA8C009C5902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		782B982C24D9BA8C009C5902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		782B982E24D9BA8C009C5902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7876121024DC601B001CABB5 /* GriffonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GriffonViewController.swift; sourceTree = "<group>"; };
-		D42BE5C22524569C00782C3C /* ExperiencePlatformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePlatformViewController.swift; sourceTree = "<group>"; };
+		7876121024DC601B001CABB5 /* AssuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssuranceViewController.swift; sourceTree = "<group>"; };
+        D42BE5C22524569C00782C3C /* ExperiencePlatformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePlatformViewController.swift; sourceTree = "<group>"; };
 		D4E2FD8E252554E6001FE22D /* Purchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Purchases.swift; path = xdmlib/Purchases.swift; sourceTree = "<group>"; };
 		D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InStorePurchase.swift; path = xdmlib/InStorePurchase.swift; sourceTree = "<group>"; };
 		D4E2FD90252554E6001FE22D /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Items.swift; path = xdmlib/Items.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 				782B982224D9BA89009C5902 /* SceneDelegate.swift */,
 				3FEEA0E02523DBB4007EC317 /* CoreViewController.swift */,
 				782B982424D9BA89009C5902 /* MainTabBarController.swift */,
-				7876121024DC601B001CABB5 /* GriffonViewController.swift */,
+				7876121024DC601B001CABB5 /* AssuranceViewController.swift */,
 				D42BE5C22524569C00782C3C /* ExperiencePlatformViewController.swift */,
 				3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */,
 				782B982924D9BA8C009C5902 /* Assets.xcassets */,
@@ -303,7 +303,7 @@
 				D4E2FDD0252554E6001FE22D /* MobileSDKCommerceSchema.swift in Sources */,
 				D4E2FDC1252554E6001FE22D /* ProductListRemovals.swift in Sources */,
 				D42BE5C32524569C00782C3C /* ExperiencePlatformViewController.swift in Sources */,
-				7876121124DC601B001CABB5 /* GriffonViewController.swift in Sources */,
+				7876121124DC601B001CABB5 /* AssuranceViewController.swift in Sources */,
 				3FEEA0E32524DA4A007EC317 /* ButtonStyle.swift in Sources */,
 				782B982524D9BA89009C5902 /* MainTabBarController.swift in Sources */,
 				782B982124D9BA89009C5902 /* AppDelegate.swift in Sources */,

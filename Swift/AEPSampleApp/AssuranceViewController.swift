@@ -10,23 +10,24 @@
 import UIKit
 import SwiftUI
 // step-assurance-start
-import ACPGriffon
+import AEPAssurance
 // step-assurance-end
 
-class GriffonViewController: UIHostingController<GriffonView> {}
+class AssuranceViewController: UIHostingController<AssuranceView> {}
 
-struct GriffonView: View {
-    @State private var griffonSessionUrl = ""
+struct AssuranceView: View {
+    @State private var assuranceSessionUrl:String = ""
     
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 12) {
-            TextField("Copy Assurance Session URL to here", text: $griffonSessionUrl)
+            TextField("Copy Assurance Session URL to here", text: $assuranceSessionUrl)
             HStack {
                 Button(action: {
                     // step-assurance-start
-                    // replace the url with the valid one generated on Griffon UI
-                    let url = URL(string: self.griffonSessionUrl)!
-                    ACPGriffon.startSession(url)
+                    // replace the url with the valid one generated on Assurance UI
+                    if let url = URL(string: self.assuranceSessionUrl) {
+                        AEPAssurance.startSession(url)
+                    }
                     // step-assurance-end
                 }){
                     Text("Connect")
