@@ -22,10 +22,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>swiftcore</string>
+			<string>sampleapp</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>swiftcore</string>
+				<string>sampleapp</string>
 			</array>
 		</dict>
 	</array>

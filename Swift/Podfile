@@ -19,6 +19,7 @@ target 'AEPSampleApp' do
   
   # step-assurance-start
   pod 'ACPCore', :git => 'git@github.com:adobe/aepsdk-compatibility-ios.git', :branch => 'main'
+  pod 'AEPExperiencePlatform', :git => 'git@github.com:adobe/aepsdk-platform-ios.git', :branch => 'dev'
   pod 'AEPAssurance'
   # step-assurance-end
 end

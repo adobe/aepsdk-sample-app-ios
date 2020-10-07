@@ -21,30 +21,29 @@ import ACPCore
 import AEPAssurance
 // step-assurance-end
 
-
 //step-extension-start
 import AEPSampleExtensionSwift
 //step-extension-end
+import AEPExperiencePlatform
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    private let LAUNCH_ENVIRONMENT_FILE_ID = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // step-init-start
         MobileCore.setLogLevel(level: .trace)
         let appState = application.applicationState;
-        
-        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self
+
+        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, ExperiencePlatform.self
             //step-extension-start
             , SampleExtension.self
             //step-extension-end
             ], {
 
             // Use the App id assigned to this application via Adobe Launch
-            MobileCore.configureWith(appId: "94f571f308d5/66c427df16aa/launch-5f644611e053-development")
+            MobileCore.configureWith(appId: self.LAUNCH_ENVIRONMENT_FILE_ID)
             if appState != .background {
                 // only start lifecycle if the application is not in the background
                 MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
@@ -57,10 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ACPCore.start {
             }
             // step-assurance-end
-            
+
         })
         // step-init-end
-        
+
         return true
     }
 
