@@ -28,7 +28,7 @@ import AEPExperiencePlatform
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let LAUNCH_ENVIRONMENT_FILE_ID = ""
+    private let LAUNCH_ENVIRONMENT_FILE_ID = "94f571f308d5/31e7b893a5b0/launch-af394867cfc9-development"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
