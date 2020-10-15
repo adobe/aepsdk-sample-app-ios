@@ -18,12 +18,12 @@ class MainTabBarController: UITabBarController {
         let coreVC = CoreViewController(rootView: CoreView())
         coreVC.tabBarItem = UITabBarItem(title: "Core", image: nil, selectedImage: nil)
 
-        let experiencePlatformVC = ExperiencePlatformViewController(rootView: ExperiencePlatformView())
-        experiencePlatformVC.tabBarItem = UITabBarItem(title: "AEP", image: nil, selectedImage: nil)
+        let edgeVC = EdgeViewController(rootView: EdgeView())
+        edgeVC.tabBarItem = UITabBarItem(title: "Edge", image: nil, selectedImage: nil)
 
         let assuranceVC = AssuranceViewController(rootView: AssuranceView())
         assuranceVC.tabBarItem = UITabBarItem(title: "Assurance", image: nil, selectedImage: nil)
-        viewControllers = [coreVC, experiencePlatformVC, assuranceVC]
+        viewControllers = [coreVC, edgeVC, assuranceVC]
     }
 }
 

@@ -9,11 +9,11 @@
 
 import UIKit
 import SwiftUI
-import AEPExperiencePlatform
+import AEPEdge
 
-class ExperiencePlatformViewController: UIHostingController<ExperiencePlatformView> {}
+class EdgeViewController: UIHostingController<EdgeView> {}
 
-struct ExperiencePlatformView: View {
+struct EdgeView: View {
     @State private var showAddToCartNotImplemented = false
     @State private var showPurchaseMessage = false
     
@@ -136,16 +136,15 @@ struct ExperiencePlatformView: View {
         xdmData.productListItems = purchasedItems
 
         // Create an Experience Event with the built schema and send it using the Platform extension
-        let event = ExperiencePlatformEvent(xdm: xdmData)
-        ExperiencePlatform.sendEvent(experiencePlatformEvent: event)
+        let event = ExperienceEvent(xdm: xdmData)
+        Edge.sendEvent(experienceEvent: event)
         
         self.showPurchaseMessage = true
     }
 }
 
-struct ExperiencePlatformViewController_Previews: PreviewProvider {
+struct EdgeViewController_Previews: PreviewProvider {
     static var previews: some View {
-        ExperiencePlatformView()
+        EdgeView()
     }
 }
-
