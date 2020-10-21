@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // step-init-start
-        MobileCore.setLogLevel(level: .trace)
+        MobileCore.setLogLevel(.trace)
         let appState = application.applicationState;
 
         MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, Edge.self
