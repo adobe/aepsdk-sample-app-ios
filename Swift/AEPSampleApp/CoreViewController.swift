@@ -47,7 +47,7 @@ struct CoreView: View {
             Text("Change Privacy Status").bold()
             Button(action: {
                 // step-privacy-start
-                MobileCore.setPrivacy(status: .optedIn)
+                MobileCore.setPrivacyStatus(.optedIn)
                 // step-privacy-end
             }) {
                 Text("Opted In")
@@ -55,7 +55,7 @@ struct CoreView: View {
             
             Button(action: {
                 // step-privacy-start
-                MobileCore.setPrivacy(status: .optedOut)
+                MobileCore.setPrivacyStatus(.optedOut)
                 // step-privacy-end
             }) {
                 Text("Opted Out")
@@ -63,7 +63,7 @@ struct CoreView: View {
             
             Button(action: {
                 // step-privacy-start
-                MobileCore.setPrivacy(status: .unknown)
+                MobileCore.setPrivacyStatus(.unknown)
                 // step-privacy-end
             }) {
                 Text("Unknown")
@@ -93,7 +93,7 @@ struct CoreView: View {
             Text("Collect PII").bold()
             Button(action: {
                 // step-pii-start
-                MobileCore.collectPii(data: ["name":"Adobe Experience Platform"])
+                MobileCore.collectPii(["name":"Adobe Experience Platform"])
                 // step-pii-end
             }){
                 Text("Collect PII")
@@ -146,7 +146,7 @@ struct CoreView: View {
             Text("Identity APIs").bold()
             Button(action: {
                 // step-identity-start
-                MobileCore.setAdvertisingIdentifier(adId: "advertisingIdentifier")
+                MobileCore.setAdvertisingIdentifier("advertisingIdentifier")
                 // step-identity-end
             }) {
                 Text("Set Advertising Identifier")
@@ -154,7 +154,7 @@ struct CoreView: View {
             
             Button(action: {
                 // step-identity-start
-                MobileCore.setPushIdentifier(deviceToken: "9516258b6230afdd93cf0cd07b8dd845".data(using: .utf8))
+                MobileCore.setPushIdentifier("9516258b6230afdd93cf0cd07b8dd845".data(using: .utf8))
                 // step-identity-end
             }) {
                 Text("Set Push Identifier")

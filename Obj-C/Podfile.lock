@@ -1,14 +1,14 @@
 PODS:
-  - AEPCore (0.0.1):
+  - AEPCore (3.0.0-beta.1):
     - AEPRulesEngine
     - AEPServices
-  - AEPIdentity (0.0.1):
+  - AEPIdentity (3.0.0-beta.1):
     - AEPCore
-  - AEPLifecycle (0.0.1):
+  - AEPLifecycle (3.0.0-beta.1):
     - AEPCore
   - AEPRulesEngine (0.0.1)
-  - AEPServices (0.0.1)
-  - AEPSignal (0.0.1):
+  - AEPServices (3.0.0-beta.1)
+  - AEPSignal (3.0.0-beta.1):
     - AEPCore
 
 DEPENDENCIES:
@@ -41,31 +41,31 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AEPCore:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: 3148f94f930bd21c0caabc7b3dc4db53ff9ba281
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
   AEPIdentity:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: 3148f94f930bd21c0caabc7b3dc4db53ff9ba281
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
   AEPLifecycle:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: 3148f94f930bd21c0caabc7b3dc4db53ff9ba281
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
   AEPRulesEngine:
-    :commit: 23bb1679b1d7f02b5a09103578c4402afe8242c3
+    :commit: 61cf5c92fc1e40bf3419cef1ac13928725971f5a
     :git: "git@github.com:adobe/aepsdk-rulesengine-ios.git"
   AEPServices:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: 3148f94f930bd21c0caabc7b3dc4db53ff9ba281
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
   AEPSignal:
-    :commit: 62cfc25533053242ab9863459a6d1e1490c922ff
+    :commit: 3148f94f930bd21c0caabc7b3dc4db53ff9ba281
     :git: "git@github.com:adobe/aepsdk-core-ios.git"
 
 SPEC CHECKSUMS:
-  AEPCore: e8ddaae01a787926fde35cfcc24770b26a765e58
-  AEPIdentity: f46a1b34363243f8d417a8143bfb876a36809104
-  AEPLifecycle: 9e63cf6a8085161f95706ddbffef20dd1d748c3e
+  AEPCore: d4b8b2ac2d5d91ea11c4535bc574bb31e684b83c
+  AEPIdentity: 1b726ffc2fe131f444cd24388eb19aaa5a1e9a6a
+  AEPLifecycle: e416a9017c7d094a925edb5bf4e819019f0d78fe
   AEPRulesEngine: 5742652bd7ab65aa7325f731725d995947e41db8
-  AEPServices: ad642c76cede1c7babb61e6804198ded4317d74f
-  AEPSignal: b6473f4543d2b876c124d162228b49d53a31a552
+  AEPServices: d5c727ccaba06c0e7149b7bf4baebcd5f5c0f7e8
+  AEPSignal: 1e8b5bff111ff975d6f6f3a672a4721675d2a0c7
 
 PODFILE CHECKSUM: 4dea986563045aa14656711ea9543323744f98a3
 
