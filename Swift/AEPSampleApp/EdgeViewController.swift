@@ -33,7 +33,7 @@ struct EdgeView: View {
             
             HStack {
                 Button(action: {
-                    sendAddToCartXDMEvent()
+                    self.sendAddToCartXDMEvent()
                 }){
                     HStack {
                         Image(systemName: "cart")
@@ -55,7 +55,7 @@ struct EdgeView: View {
             
             HStack {
                 Button(action: {
-                    sendPurchaseXDMEvent()
+                    self.sendPurchaseXDMEvent()
                 }){
                     HStack {
                         Image(systemName: "bag")
