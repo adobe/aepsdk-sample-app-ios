@@ -27,7 +27,7 @@ import AEPSampleExtensionSwift
 
 //step-edge-start
 import AEPEdge
-//step-edge-start
+//step-edge-end
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

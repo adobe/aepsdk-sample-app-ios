@@ -18,7 +18,11 @@
 import Foundation
 import AEPEdge
 
-public struct MobileSDKCommerceSchema : XDMSchema {
+public struct MobileSDKCommerceSchema
+//step-edge-start
+: XDMSchema
+//step-edge-end
+{
 	public let schemaVersion = "1.0"
 	public let schemaIdentifier = ""
 	public let datasetIdentifier = ""
