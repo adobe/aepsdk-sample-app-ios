@@ -16,7 +16,10 @@
 */
 
 import Foundation
+
+//step-edge-start
 import AEPEdge
+//step-edge-end
 
 public struct MobileSDKCommerceSchema
 //step-edge-start
