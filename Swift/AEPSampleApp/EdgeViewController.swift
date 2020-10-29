@@ -16,7 +16,7 @@ import AEPEdge
 class EdgeViewController: UIHostingController<EdgeView> {}
 
 struct EdgeView: View {
-    @State private var showAddToCartNotImplemented = false
+    @State private var showAddToCartMessage = false
     @State private var showPurchaseMessage = false
     
     var body: some View {
@@ -50,8 +50,8 @@ struct EdgeView: View {
                     .cornerRadius(5)
                 }
             }
-            .alert(isPresented: $showAddToCartNotImplemented) {
-                        Alert(title: Text("Add to cart"), message: Text("This method is not implemented yet"), dismissButton: .default(Text("OK")))
+            .alert(isPresented: $showAddToCartMessage) {
+                        Alert(title: Text("Add to cart"), message: Text("Your cart has been updated."), dismissButton: .default(Text("OK")))
                     }
             
             
@@ -81,8 +81,39 @@ struct EdgeView: View {
     
     /// Creates and sends an add to cart commerce event to the Adobe Experience Edge.
     func sendAddToCartXDMEvent() {
-        // TODO: to be implemented
-        self.showAddToCartNotImplemented = true // remove this line when this method is fully implemented
+        print("Sending XDM commerce cart add event")
+        
+        /// Create list with the purchased items
+        var product1 = ProductListItemsItem()
+        product1.name = "Shoes"
+        product1.priceTotal = 34.76
+        product1.sKU = "SHOES123"
+        product1.quantity = 1
+        product1.currencyCode = "USD"
+        
+        let purchasedItems: [ProductListItemsItem] = [product1]
+        
+        var productAdd = ProductListAdds()
+        productAdd.value = 1
+
+        /// Create Commerce object and add Purchases action and Order details
+        var commerce = Commerce()
+        commerce.productListAdds = productAdd
+        
+        // Compose the XDM Schema object and set the event name
+        var xdmData = MobileSDKCommerceSchema()
+        xdmData.eventType = "commerce.productListAdds"
+        xdmData.commerce = commerce
+        xdmData.productListItems = purchasedItems
+
+        // Create an Experience Event with the built schema and send it using the Platform extension
+
+        //step-edge-start
+        let event = ExperienceEvent(xdm: xdmData)
+        Edge.sendEvent(experienceEvent: event)
+
+        //step-edge-end
+        self.showAddToCartMessage = true // remove this line when this method is fully implemented
     }
     
     /// Creates and sends a cart purchase event to the Adobe Experience Edge.
