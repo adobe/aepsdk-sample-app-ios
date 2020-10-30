@@ -150,7 +150,7 @@ struct EdgeView: View {
                 self.sendProductReviewXDMEvent()
             }){
                 HStack {
-                    Image(systemName: "cart")
+                    Image(systemName: "pencil")
                         .font(.caption)
                     Text("Submit Review")
                         .font(.caption)
