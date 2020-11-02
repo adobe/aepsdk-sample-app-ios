@@ -197,14 +197,14 @@ struct EdgeView: View {
         xdmData.commerce = commerce
         xdmData.productListItems = productListItems
 
-        // Create an Experience Event with the built schema and send it using the Platform extension
+        // Create an Experience Event with the built schema and send it using the AEP Edge extension
 
         //step-edge-start
         let event = ExperienceEvent(xdm: xdmData)
         Edge.sendEvent(experienceEvent: event)
         //step-edge-end
         
-        self.showAddToCartMessage = true // remove this line when this method is fully implemented
+        self.showAddToCartMessage = true
     }
     
     /// Creates and sends a cart purchase event to the Adobe Experience Edge.
