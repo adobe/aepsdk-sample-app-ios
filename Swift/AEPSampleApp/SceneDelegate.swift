@@ -64,7 +64,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         // step-assurance-start
-        AEPAssurance.startSession((URLContexts.first!).url)
+        guard let urlContexts = URLContexts.first else { return }
+        AEPAssurance.startSession(urlContexts.url)
         // step-assurance-end
     }
 }
