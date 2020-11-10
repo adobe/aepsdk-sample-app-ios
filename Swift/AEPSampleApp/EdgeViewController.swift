@@ -69,7 +69,7 @@ struct EdgeView: View {
                 }
             }
             .labelsHidden()
-            .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 50, idealHeight: 50, maxHeight: 100, alignment: .center)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, idealHeight: 50, maxHeight: 100, alignment: .center)
             .clipped()
         }
     }
@@ -145,7 +145,7 @@ struct EdgeView: View {
                     Text("Fantastic!").tag(5).font(.headline)
                 }
                 .labelsHidden()
-                .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 50, idealHeight: 50, maxHeight: 100, alignment: .center)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, idealHeight: 50, maxHeight: 100, alignment: .center)
                 .clipped()
             }
                         
