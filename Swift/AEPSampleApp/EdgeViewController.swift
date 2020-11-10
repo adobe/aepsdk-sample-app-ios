@@ -40,6 +40,12 @@ struct EdgeView: View {
         ProductItem(sku: "HAT089", name: "Straw Hat", price: 11.85, currencyCode: "USD")
     ]
     
+    // set this property to forward the product reviews to your dataset
+    private let PRODUCT_REVIEW_DATASET_ID = ""
+    
+    // set this property to your org as shown in your custom product reviews schema
+    private let TENANT_ID = ""
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
@@ -269,8 +275,28 @@ struct EdgeView: View {
     /// Remember to tell Edge where the data should land by overriding the dataset ID
     func sendProductReviewXDMEvent() {
         print("Sending XDM product review event")
+        var xdmData : [String: Any] = [:]
 
-        // TODO - Assignment 3
+        // 1. Add Email to the IdentityMap.
+        // Note: this app does not implement a logging system, so authenticatedState ambiguous is used
+        // in this case. The other authenticatedState values are: authenticated, loggedOut
+        xdmData["identityMap"] = ["Email": [["id": reviewerEmail,
+                                             "authenticatedState": "ambiguous"]]]
+
+        // 2. Add product review details in the custom mixin
+        // Note: set the TENANT_ID as specified in the Product Reviews Schema in Adobe Experience Platform
+        xdmData[TENANT_ID] = ["productSku": products[productIndex].sku,
+                              "rating": reviewRating,
+                              "reviewText": reviewText,
+                              "reviewerId": reviewerEmail]
+        
+        // 3. Send the XDM data using the Edge extension, by specifying Product Reviews Dataset identifiers as
+        // shown in Adobe Experience Platform
+        // Note: the Dataset identifier specified at Event level overrises the Experience Event Dataset specified in the
+        // Edge configuration in Adobe Launch
+        xdmData["eventType"] = "product.review"
+        let experienceEvent = ExperienceEvent(xdm: xdmData, datasetIdentifier: PRODUCT_REVIEW_DATASET_ID)
+        Edge.sendEvent(experienceEvent: experienceEvent)
         
         self.showProductReviewMessage = true
     }
