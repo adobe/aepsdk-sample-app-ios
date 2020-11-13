@@ -37,6 +37,7 @@ struct CoreView: View {
                 manualOverridesSection
                 eventsSection
                 identitySection
+                trackSection
             }.padding()
         }
     }
@@ -212,5 +213,25 @@ struct CoreView: View {
         }
     }
     
+    var trackSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Track APIs").bold()
+            Button(action: {
+                // step-analytics-start
+                MobileCore.track(action: "sampleAction", data:["exampleCustomKey" : "exampleValue"])
+                // step-analytics-end
+            }) {
+                Text("Track Action")
+            }.buttonStyle(CustomButtonStyle())
+            
+            Button(action: {
+                // step-analytics-start
+                MobileCore.track(state: "sampleState", data:["exampleCustomKey" : "exampleValue"])
+                // step-analytics-end
+            }) {
+                Text("Track State")
+            }.buttonStyle(CustomButtonStyle())
+        }
+    }
+    
 }
-

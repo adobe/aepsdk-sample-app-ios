@@ -26,4 +26,8 @@ target 'AEPSampleApp' do
   pod 'ACPCore', :git => 'https://github.com/adobe/aepsdk-compatibility-ios.git', :branch => 'main'
   pod 'AEPAssurance'
   # step-assurance-end
+  
+  # step-analytics-start
+  pod 'AEPAnalyticsEdge', :git => 'https://github.com/adobe/aepsdk-analyticsedge-ios', :branch => 'main'
+  # step-analytics-end
 end

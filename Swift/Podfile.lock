@@ -6,6 +6,10 @@ PODS:
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
+  - AEPAnalyticsEdge (1.0.0-beta-1):
+    - AEPCore
+    - AEPEdge
+    - AEPServices
   - AEPAssurance (1.0.0):
     - ACPCore
     - AEPAssurance/iOS (= 1.0.0)
@@ -30,6 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - ACPCore (from `https://github.com/adobe/aepsdk-compatibility-ios.git`, branch `main`)
+  - AEPAnalyticsEdge (from `https://github.com/adobe/aepsdk-analyticsedge-ios`, branch `main`)
   - AEPAssurance
   - AEPCore (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `main`)
   - AEPEdge (from `https://github.com/adobe/aepsdk-edge-ios.git`, branch `main`)
@@ -48,6 +53,9 @@ EXTERNAL SOURCES:
   ACPCore:
     :branch: main
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
+  AEPAnalyticsEdge:
+    :branch: main
+    :git: https://github.com/adobe/aepsdk-analyticsedge-ios
   AEPCore:
     :branch: main
     :git: https://github.com/adobe/aepsdk-core-ios.git
@@ -77,6 +85,9 @@ CHECKOUT OPTIONS:
   ACPCore:
     :commit: 2bcf58bc07f4f3149c777e5daf3142c10eb55050
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
+  AEPAnalyticsEdge:
+    :commit: 29582c2d0b89f9b4ee088087fab6f41ac5a9eff4
+    :git: https://github.com/adobe/aepsdk-analyticsedge-ios
   AEPCore:
     :commit: 51a6bd926c8c0beb526604ac0c2bc01b86158cc8
     :git: https://github.com/adobe/aepsdk-core-ios.git
@@ -104,6 +115,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ACPCore: 67e4b855bf16cfb6a63024a4ddb73d15c0fd30e5
+  AEPAnalyticsEdge: 6f041935e6b90848179f8757a2169705ea596089
   AEPAssurance: 79480081626b89fc37af26bbbf4522af9718e75f
   AEPCore: d4b8b2ac2d5d91ea11c4535bc574bb31e684b83c
   AEPEdge: 159ceb9cf4a85ea6e02f6f824957f594dd4d170d
@@ -114,6 +126,6 @@ SPEC CHECKSUMS:
   AEPServices: d5c727ccaba06c0e7149b7bf4baebcd5f5c0f7e8
   AEPSignal: 1e8b5bff111ff975d6f6f3a672a4721675d2a0c7
 
-PODFILE CHECKSUM: c236071a04edf8571ebf6290c2ef64afc152855d
+PODFILE CHECKSUM: 082d55c811fd7a38ca6d6e519d2de0d1d4c8dde8
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
