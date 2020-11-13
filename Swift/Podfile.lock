@@ -6,7 +6,7 @@ PODS:
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
-  - AEPAnalyticsEdge (1.0.0-beta-1):
+  - AEPAnalyticsEdge (1.0.0-beta.1):
     - AEPCore
     - AEPEdge
     - AEPServices
@@ -86,7 +86,7 @@ CHECKOUT OPTIONS:
     :commit: 2bcf58bc07f4f3149c777e5daf3142c10eb55050
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
   AEPAnalyticsEdge:
-    :commit: 29582c2d0b89f9b4ee088087fab6f41ac5a9eff4
+    :commit: a4ab0adf731aba5192144e1a141827398c5072f1
     :git: https://github.com/adobe/aepsdk-analyticsedge-ios
   AEPCore:
     :commit: 51a6bd926c8c0beb526604ac0c2bc01b86158cc8
@@ -115,7 +115,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ACPCore: 67e4b855bf16cfb6a63024a4ddb73d15c0fd30e5
-  AEPAnalyticsEdge: 6f041935e6b90848179f8757a2169705ea596089
+  AEPAnalyticsEdge: 30d741d10123564c8ac2d527288b695940df8ce7
   AEPAssurance: 79480081626b89fc37af26bbbf4522af9718e75f
   AEPCore: d4b8b2ac2d5d91ea11c4535bc574bb31e684b83c
   AEPEdge: 159ceb9cf4a85ea6e02f6f824957f594dd4d170d
