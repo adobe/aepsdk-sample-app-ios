@@ -29,6 +29,10 @@ import AEPSampleExtensionSwift
 import AEPEdge
 //step-edge-end
 
+//step-analytics-start
+import AEPAnalyticsEdge
+//step-analytics-end
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     private let LAUNCH_ENVIRONMENT_FILE_ID = ""
@@ -43,6 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //step-extension-start
             , SampleExtension.self
             //step-extension-end
+            //step-analytics-start
+            , Analytics.self
+            //step-analytics-end
             ], {
 
             // Use the App id assigned to this application via Adobe Launch

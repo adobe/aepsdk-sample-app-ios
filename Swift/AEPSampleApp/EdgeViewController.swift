@@ -12,6 +12,7 @@ import SwiftUI
 //step-edge-start
 import AEPEdge
 //step-edge-end
+import AEPCore
 
 class EdgeViewController: UIHostingController<EdgeView> {}
 
@@ -56,6 +57,8 @@ struct EdgeView: View {
                 reviewExampleSection
             }.padding()
             Divider()
+        }.onAppear() {
+            MobileCore.track(state: "EdgeView", data:nil)
         }
     }
     

@@ -32,16 +32,39 @@ struct CoreView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
+                trackSection
                 privacySection
                 piiSection
                 manualOverridesSection
                 eventsSection
                 identitySection
             }.padding()
+        }.onAppear() {
+            MobileCore.track(state: "CoreView", data:nil)
         }
     }
     
-    
+    var trackSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Track APIs").bold()
+            Button(action: {
+                // step-analytics-start
+                MobileCore.track(action: "sampleAction", data:["exampleCustomKey" : "exampleValue"])
+                // step-analytics-end
+            }) {
+                Text("Track Action")
+            }.buttonStyle(CustomButtonStyle())
+            
+            Button(action: {
+                // step-analytics-start
+                MobileCore.track(state: "sampleState", data:["exampleCustomKey" : "exampleValue", "evarExample": "valueEvar", "propExample": "valueProp"])
+                // step-analytics-end
+            }) {
+                Text("Track State")
+            }.buttonStyle(CustomButtonStyle())
+        }
+    }
+
     var privacySection: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Change Privacy Status").bold()
@@ -211,6 +234,4 @@ struct CoreView: View {
             }.buttonStyle(CustomButtonStyle())
         }
     }
-    
 }
-
