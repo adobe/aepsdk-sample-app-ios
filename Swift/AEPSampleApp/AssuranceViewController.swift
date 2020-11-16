@@ -12,6 +12,7 @@ import SwiftUI
 // step-assurance-start
 import AEPAssurance
 // step-assurance-end
+import AEPCore
 
 class AssuranceViewController: UIHostingController<AssuranceView> {}
 
@@ -38,6 +39,8 @@ struct AssuranceView: View {
                         .font(.caption)
                 }.cornerRadius(5)
             }
-        }.padding()
+        }.padding().onAppear() {
+            MobileCore.track(state: "AssuranceView", data:nil)
+        }
     }
 }

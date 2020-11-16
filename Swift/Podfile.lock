@@ -86,7 +86,7 @@ CHECKOUT OPTIONS:
     :commit: 2bcf58bc07f4f3149c777e5daf3142c10eb55050
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
   AEPAnalyticsEdge:
-    :commit: a4ab0adf731aba5192144e1a141827398c5072f1
+    :commit: c849ddd205186e2e220af2fb36e69bf95730bd09
     :git: https://github.com/adobe/aepsdk-analyticsedge-ios
   AEPCore:
     :commit: 51a6bd926c8c0beb526604ac0c2bc01b86158cc8
