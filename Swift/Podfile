@@ -28,6 +28,6 @@ target 'AEPSampleApp' do
   # step-assurance-end
   
   # step-analytics-start
-  pod 'AEPAnalyticsEdge', :git => 'https://github.com/adobe/aepsdk-analyticsedge-ios', :branch => 'main'
+  # pod 'AEPAnalyticsEdge', :git => 'https://github.com/adobe/aepsdk-analyticsedge-ios', :branch => 'main'
   # step-analytics-end
 end

@@ -30,12 +30,12 @@ import AEPEdge
 //step-edge-end
 
 //step-analytics-start
-import AEPAnalyticsEdge
+//import AEPAnalyticsEdge
 //step-analytics-end
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let LAUNCH_ENVIRONMENT_FILE_ID = ""
+    private let LAUNCH_ENVIRONMENT_FILE_ID = "3805cb8645dd/315760ade17b/launch-da9fe87710a7-development"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             , SampleExtension.self
             //step-extension-end
             //step-analytics-start
-            , Analytics.self
+            //, Analytics.self
             //step-analytics-end
             ], {
 
