@@ -31,7 +31,7 @@ import AEPEdge
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let LAUNCH_ENVIRONMENT_FILE_ID = ""
+    private let LAUNCH_ENVIRONMENT_FILE_ID = "3805cb8645dd/f5fff4676a8f/launch-521c424dc9df-development"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             // step-assurance-start
             // register AEPAssurance
-            AEPAssurance.registerExtension()
+//            AEPAssurance.registerExtension()
             // need to call `ACPCore.start` in order to get ACP* extensions registered to AEPCore
             ACPCore.start {
             }

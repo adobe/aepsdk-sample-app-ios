@@ -14,7 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [AEPMobileCore setLogLevel: AEPLogLevelTrace];
-    NSArray *extensionsToRegister = @[AEPMobileIdentity.class, AEPMobileLifecycle.class, AEPMobileSignal.class];
+    NSArray *extensionsToRegister = @[AEPMobileIdentity.class, AEPMobileLifecycle.class, AEPMobileSignal.class, AEPMobileEdge.class];
     [AEPMobileCore registerExtensions:extensionsToRegister completion:^{
         [AEPMobileCore lifecycleStart:@{@"contextDataKey": @"contextDataVal"}];
     }];
@@ -31,7 +31,12 @@
     } @catch (NSException *exception) {
         NSLog(@"Setting category to AVAudioSessionCategoryPlayback failed");
     }
-
+    
+    AEPExperienceEvent *event = [[AEPExperienceEvent alloc] initWithXdm:@{} data:@{} datasetIdentifier:@""];
+    [AEPMobileEdge sendEventWithExperienceEvent:event :^(NSArray<AEPEdgeEventHandle *> * _Nonnull handles) {
+        // handles
+    }];
+    
     return YES;
 }
 

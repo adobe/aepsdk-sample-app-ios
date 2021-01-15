@@ -13,6 +13,7 @@
 @import AEPIdentity;
 @import AEPServices;
 @import AEPSignal;
+@import AEPEdge;
 @import AdSupport;
 @import AVKit;
 

@@ -41,7 +41,7 @@ struct EdgeView: View {
     ]
     
     // set this property to forward the product reviews to your dataset
-    private let PRODUCT_REVIEW_DATASET_ID = ""
+    private let PRODUCT_REVIEW_DATASET_ID = "5fa9f5717c9bf3194bfd51c4"
     
     // set this property to your org as shown in your custom product reviews schema
     private let TENANT_ID = ""

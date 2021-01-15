@@ -36,12 +36,12 @@
 
     /// To append visitor information to the URL that is being used to open the web view, call
     NSURL *sampleUrl = [NSURL URLWithString:@"https://adobe.com"];
-    [AEPMobileIdentity appendToUrl:sampleUrl completion:^(NSURL * _Nullable url, enum AEPError error) {
+    [AEPMobileIdentity appendToUrl:sampleUrl completion:^(NSURL * _Nullable url, NSError * _Nullable error) {
         // Handle url or error
     }];
 
     /// Alternately, you can call getUrlVariables and build your own URL:
-    [AEPMobileIdentity getUrlVariables:^(NSString * _Nullable variables, enum AEPError error) {
+    [AEPMobileIdentity getUrlVariables:^(NSString * _Nullable variables, NSError * _Nullable error) {
         NSString *sampleURLString = @"https://adobe.com";
         if (variables == nil) {
             // Handle variables being nil
@@ -68,7 +68,7 @@
     /**
      This getIdentifiers API returns all customer identifiers that were previously synced with the Adobe Experience Cloud.
      */
-    [AEPMobileIdentity getIdentifiers:^(NSArray<id<AEPIdentifiable>> * _Nullable identifiers, enum AEPError error) {
+    [AEPMobileIdentity getIdentifiers:^(NSArray<id<AEPIdentifiable>> * _Nullable identifiers, NSError * _Nullable error) {
         if (identifiers == nil) {
             NSLog(@"Error getting identifiers: %ld", (long)error);
             return;
