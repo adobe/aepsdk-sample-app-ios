@@ -36,12 +36,12 @@
 
     /// To append visitor information to the URL that is being used to open the web view, call
     NSURL *sampleUrl = [NSURL URLWithString:@"https://adobe.com"];
-    [AEPMobileIdentity appendToUrl:sampleUrl completion:^(NSURL * _Nullable url, enum AEPError error) {
+    [AEPMobileIdentity appendToUrl:sampleUrl completion:^(NSURL * _Nullable url, NSError *error) {
         // Handle url or error
     }];
 
     /// Alternately, you can call getUrlVariables and build your own URL:
-    [AEPMobileIdentity getUrlVariables:^(NSString * _Nullable variables, enum AEPError error) {
+    [AEPMobileIdentity getUrlVariables:^(NSString * _Nullable variables, NSError *error) {
         NSString *sampleURLString = @"https://adobe.com";
         if (variables == nil) {
             // Handle variables being nil
@@ -56,9 +56,9 @@
      This API retrieves the ECID that was generated when the app was initially launched and is stored in the ECID Service.
      This ID is preserved between app upgrades, is saved and restored during the standard application backup process, and is removed at uninstall. The values are returned via the callback.
      */
-    [AEPMobileIdentity getExperienceCloudId:^(NSString * _Nullable ecid) {
-        if (ecid == nil) {
-            // Handle nil ecid
+    [AEPMobileIdentity getExperienceCloudId:^(NSString * _Nullable ecid, NSError *error) {
+        if (error != nil) {
+            // Handle error
             return;
         }
         
@@ -68,7 +68,7 @@
     /**
      This getIdentifiers API returns all customer identifiers that were previously synced with the Adobe Experience Cloud.
      */
-    [AEPMobileIdentity getIdentifiers:^(NSArray<id<AEPIdentifiable>> * _Nullable identifiers, enum AEPError error) {
+    [AEPMobileIdentity getIdentifiers:^(NSArray<id<AEPIdentifiable>> * _Nullable identifiers, NSError *error) {
         if (identifiers == nil) {
             NSLog(@"Error getting identifiers: %ld", (long)error);
             return;

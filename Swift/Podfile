@@ -1,32 +1,33 @@
+source 'https://github.com/CocoaPods/Specs.git’
 platform :ios, '10.0'
 
 use_frameworks!
 target 'AEPSampleApp' do
 
   # step-init-start
-  pod 'AEPServices', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPCore', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPLifecycle', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPIdentity', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPSignal', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'main'
-  pod 'AEPRulesEngine', :git => 'https://github.com/adobe/aepsdk-rulesengine-ios.git', :branch => 'main'
+  pod 'AEPServices'
+  pod 'AEPCore'
+  pod 'AEPLifecycle'
+  pod 'AEPIdentity'
+  pod 'AEPSignal'
+  pod 'AEPRulesEngine'
   # step-init-end
 
 
   # step-extension-start
   pod 'AEPSampleExtensionSwift', :git => 'https://github.com/adobe/aepsdk-sample-extension-ios.git', :branch => 'main'
   # step-extension-end
-  
-  
+
+
   # step-edge-start
-  pod 'AEPEdge', :git => 'https://github.com/adobe/aepsdk-edge-ios.git', :branch => 'main'
+  pod 'AEPEdge'
   # step-edge-end
-  
+
   # step-assurance-start
   pod 'ACPCore', :git => 'https://github.com/adobe/aepsdk-compatibility-ios.git', :branch => 'main'
   pod 'AEPAssurance'
   # step-assurance-end
-  
+
   # step-analytics-start
   pod 'AEPAnalyticsEdge', :git => 'https://github.com/adobe/aepsdk-analyticsedge-ios', :branch => 'main'
   # step-analytics-end
