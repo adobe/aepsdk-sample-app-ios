@@ -56,9 +56,9 @@
      This API retrieves the ECID that was generated when the app was initially launched and is stored in the ECID Service.
      This ID is preserved between app upgrades, is saved and restored during the standard application backup process, and is removed at uninstall. The values are returned via the callback.
      */
-    [AEPMobileIdentity getExperienceCloudId:^(NSString * _Nullable ecid) {
-        if (ecid == nil) {
-            // Handle nil ecid
+    [AEPMobileIdentity getExperienceCloudId:^(NSString * _Nullable ecid, NSError * _Nullable error) {
+        if (error != nil) {
+            // Handle error
             return;
         }
         

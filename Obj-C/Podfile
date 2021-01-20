@@ -1,12 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git’
 platform :ios, '10.0'
 
 use_frameworks!
 target 'AEPSampleAppObjC' do
-	pod 'AEPServices', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'dev-v3.0.0'
-	pod 'AEPCore', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'dev-v3.0.0'
-	pod 'AEPLifecycle', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'dev-v3.0.0'
-	pod 'AEPIdentity', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'dev-v3.0.0'
-	pod 'AEPSignal', :git => 'https://github.com/adobe/aepsdk-core-ios.git', :branch => 'dev-v3.0.0'
-	pod 'AEPRulesEngine', :git => 'https://github.com/adobe/aepsdk-rulesengine-ios.git', :branch => '1.0.0-beta.2'
-  pod 'AEPEdge', :git => 'https://github.com/adobe/aepsdk-edge-ios.git', :branch => 'dev'
+	pod 'AEPServices'
+	pod 'AEPCore'
+	pod 'AEPLifecycle'
+	pod 'AEPIdentity'
+	pod 'AEPSignal'
+	pod 'AEPRulesEngine'
+  pod 'AEPEdge'
 end

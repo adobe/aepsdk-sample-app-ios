@@ -170,7 +170,7 @@ struct CoreView: View {
             
             Button(action: {
                 // step-identity-start
-                Identity.getExperienceCloudId { ecid in
+                Identity.getExperienceCloudId { ecid, error  in
                     print(ecid ?? "")
                 }
                 // step-identity-end

@@ -33,9 +33,14 @@
     }
     
     AEPExperienceEvent *event = [[AEPExperienceEvent alloc] initWithXdm:@{} data:@{} datasetIdentifier:@""];
-    [AEPMobileEdge sendEventWithExperienceEvent:event :^(NSArray<AEPEdgeEventHandle *> * _Nonnull handles) {
-        // handles
-    }];
+
+[AEPMobileEdge sendExperienceEvent:event completion:^(NSArray<AEPEdgeEventHandle *> * _Nonnull handles) {
+    AEPEdgeEventHandle *handle = handles.firstObject;
+    NSDictionary *payload = handle.payload;
+    NSString *type = handle.type;
+}];
+    
+
     
     return YES;
 }

@@ -1,83 +1,46 @@
 PODS:
-  - AEPCore (3.0.0-beta.3):
-    - AEPRulesEngine (= 1.0.0-beta.2)
-    - AEPServices (= 3.0.0-beta.3)
+  - AEPCore (3.0.0):
+    - AEPRulesEngine (= 1.0.0)
+    - AEPServices (= 3.0.0)
   - AEPEdge (1.0.0):
     - AEPCore
-    - AEPServices
-  - AEPIdentity (3.0.0-beta.3):
-    - AEPCore (= 3.0.0-beta.3)
-  - AEPLifecycle (3.0.0-beta.3):
-    - AEPCore (= 3.0.0-beta.3)
-  - AEPRulesEngine (1.0.0-beta.2)
-  - AEPServices (3.0.0-beta.3)
-  - AEPSignal (3.0.0-beta.3):
-    - AEPCore (= 3.0.0-beta.3)
+  - AEPIdentity (3.0.0):
+    - AEPCore (= 3.0.0)
+  - AEPLifecycle (3.0.0):
+    - AEPCore (= 3.0.0)
+  - AEPRulesEngine (1.0.0)
+  - AEPServices (3.0.0)
+  - AEPSignal (3.0.0):
+    - AEPCore (= 3.0.0)
 
 DEPENDENCIES:
-  - AEPCore (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `dev-v3.0.0`)
-  - AEPEdge (from `https://github.com/adobe/aepsdk-edge-ios.git`, branch `dev`)
-  - AEPIdentity (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `dev-v3.0.0`)
-  - AEPLifecycle (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `dev-v3.0.0`)
-  - AEPRulesEngine (from `https://github.com/adobe/aepsdk-rulesengine-ios.git`, branch `1.0.0-beta.2`)
-  - AEPServices (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `dev-v3.0.0`)
-  - AEPSignal (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `dev-v3.0.0`)
+  - AEPCore
+  - AEPEdge
+  - AEPIdentity
+  - AEPLifecycle
+  - AEPRulesEngine
+  - AEPServices
+  - AEPSignal
 
-EXTERNAL SOURCES:
-  AEPCore:
-    :branch: dev-v3.0.0
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPEdge:
-    :branch: dev
-    :git: https://github.com/adobe/aepsdk-edge-ios.git
-  AEPIdentity:
-    :branch: dev-v3.0.0
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPLifecycle:
-    :branch: dev-v3.0.0
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPRulesEngine:
-    :branch: 1.0.0-beta.2
-    :git: https://github.com/adobe/aepsdk-rulesengine-ios.git
-  AEPServices:
-    :branch: dev-v3.0.0
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPSignal:
-    :branch: dev-v3.0.0
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-
-CHECKOUT OPTIONS:
-  AEPCore:
-    :commit: 81dab1d159459f04e92010a54d956650b236ee6c
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPEdge:
-    :commit: f96a7bf61a3b4bdbf234989139d8cf9a64004606
-    :git: https://github.com/adobe/aepsdk-edge-ios.git
-  AEPIdentity:
-    :commit: 81dab1d159459f04e92010a54d956650b236ee6c
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPLifecycle:
-    :commit: 81dab1d159459f04e92010a54d956650b236ee6c
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPRulesEngine:
-    :commit: 151df7075de461c492c192a43eefa582cd7311df
-    :git: https://github.com/adobe/aepsdk-rulesengine-ios.git
-  AEPServices:
-    :commit: 81dab1d159459f04e92010a54d956650b236ee6c
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPSignal:
-    :commit: 81dab1d159459f04e92010a54d956650b236ee6c
-    :git: https://github.com/adobe/aepsdk-core-ios.git
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AEPCore
+    - AEPEdge
+    - AEPIdentity
+    - AEPLifecycle
+    - AEPRulesEngine
+    - AEPServices
+    - AEPSignal
 
 SPEC CHECKSUMS:
-  AEPCore: c62d1074c0ebd417ebfbeb9b11d286806790df4f
-  AEPEdge: 701a3b2a937deabe6b0de5634110a75347090747
-  AEPIdentity: c12d43c0d5ee86fda700c8a496cb7f50b07186de
-  AEPLifecycle: ce87995adc8e50c7a49ea50e16064258772331d2
-  AEPRulesEngine: bc77ec533b584fd353b616063601d4d8c9401089
-  AEPServices: 4637295cefaebecfce6b0e7496b6e15a05a245c8
-  AEPSignal: 0a436e2cd255f2bfc360ce2ef8e5095bf30290d1
+  AEPCore: 9ced1f1fddcbfd61517461e548e36aee740bf7c8
+  AEPEdge: 90ccd6aa9901a79be123ddee03e038f0d1837508
+  AEPIdentity: 79c57508bbabc8c2cf7f90e2baed15b03f4e97e6
+  AEPLifecycle: ed9b2fca314eb91da83766986bad8cb914555499
+  AEPRulesEngine: 8bbc694fce6900cd33b2496c7d4b33ee2eeffc46
+  AEPServices: 21ea64149483fdfbd5f88f546b9f5ad7d4987400
+  AEPSignal: b4ac5c8e8c68e8902739426d70c01ed3ce229ac9
 
-PODFILE CHECKSUM: 5aa8a2f2a991ff0ae8a5eed943a5955e14890a8b
+PODFILE CHECKSUM: bba552f74aa6632323acadaed12f08ffab253ed3
 
 COCOAPODS: 1.10.0
