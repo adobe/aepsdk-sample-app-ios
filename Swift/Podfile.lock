@@ -6,7 +6,7 @@ PODS:
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
-  - AEPAnalyticsEdge (1.0.0-beta.1):
+  - AEPAnalyticsEdge (1.0.0-beta.2):
     - AEPCore
     - AEPEdge
     - AEPServices
@@ -33,7 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - ACPCore (from `https://github.com/adobe/aepsdk-compatibility-ios.git`, branch `main`)
-  - AEPAnalyticsEdge (from `https://github.com/adobe/aepsdk-analyticsedge-ios`, branch `main`)
+  - AEPAnalyticsEdge (from `https://github.com/adobe/aepsdk-analyticsedge-ios`, tag `1.0.0-beta.2`)
   - AEPAssurance
   - AEPCore
   - AEPEdge
@@ -60,8 +60,8 @@ EXTERNAL SOURCES:
     :branch: main
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
   AEPAnalyticsEdge:
-    :branch: main
     :git: https://github.com/adobe/aepsdk-analyticsedge-ios
+    :tag: 1.0.0-beta.2
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -71,15 +71,15 @@ CHECKOUT OPTIONS:
     :commit: 9db676f0a42fc19ceba06d56e032c0d13119b031
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
   AEPAnalyticsEdge:
-    :commit: c849ddd205186e2e220af2fb36e69bf95730bd09
     :git: https://github.com/adobe/aepsdk-analyticsedge-ios
+    :tag: 1.0.0-beta.2
   AEPSampleExtensionSwift:
     :commit: a2092b20f2b1d9a513d1112c77852fa7dea3f50f
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
 
 SPEC CHECKSUMS:
   ACPCore: 67e4b855bf16cfb6a63024a4ddb73d15c0fd30e5
-  AEPAnalyticsEdge: 30d741d10123564c8ac2d527288b695940df8ce7
+  AEPAnalyticsEdge: 141c2d0433723a404c774ab12f1e7de1ef3c6c2c
   AEPAssurance: c9c21b7e57bf993db210766631db2ef3732d4fa4
   AEPCore: 9ced1f1fddcbfd61517461e548e36aee740bf7c8
   AEPEdge: 90ccd6aa9901a79be123ddee03e038f0d1837508
@@ -90,6 +90,6 @@ SPEC CHECKSUMS:
   AEPServices: 21ea64149483fdfbd5f88f546b9f5ad7d4987400
   AEPSignal: b4ac5c8e8c68e8902739426d70c01ed3ce229ac9
 
-PODFILE CHECKSUM: 8238a72af286e8ee70567ae3097c1da7ac7c79e0
+PODFILE CHECKSUM: 6b1f55eb351b1bc39768b5c3694255f8b23aea88
 
 COCOAPODS: 1.10.0

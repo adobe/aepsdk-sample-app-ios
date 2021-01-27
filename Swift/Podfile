@@ -1,3 +1,4 @@
+# coding: utf-8
 source 'https://github.com/CocoaPods/Specs.git’
 platform :ios, '10.0'
 
@@ -29,6 +30,6 @@ target 'AEPSampleApp' do
   # step-assurance-end
 
   # step-analytics-start
-  pod 'AEPAnalyticsEdge', :git => 'https://github.com/adobe/aepsdk-analyticsedge-ios', :branch => 'main'
+  pod 'AEPAnalyticsEdge', :git => 'https://github.com/adobe/aepsdk-analyticsedge-ios', :tag => '1.0.0-beta.2'
   # step-analytics-end
 end
