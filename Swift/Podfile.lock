@@ -30,7 +30,7 @@ PODS:
   - AEPServices (3.0.0)
   - AEPSignal (3.0.0):
     - AEPCore (= 3.0.0)
-  - AEPUserProfile (3.0.0-beta.1):
+  - AEPUserProfile (3.0.0):
     - AEPCore
 
 DEPENDENCIES:
@@ -45,7 +45,7 @@ DEPENDENCIES:
   - AEPSampleExtensionSwift (from `https://github.com/adobe/aepsdk-sample-extension-ios.git`, branch `main`)
   - AEPServices
   - AEPSignal
-  - AEPUserProfile (= 3.0.0-beta.1)
+  - AEPUserProfile
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -93,8 +93,8 @@ SPEC CHECKSUMS:
   AEPSampleExtensionSwift: ca5f81b588e6cc07f3d7eb99fa9f283e6a42240b
   AEPServices: 21ea64149483fdfbd5f88f546b9f5ad7d4987400
   AEPSignal: b4ac5c8e8c68e8902739426d70c01ed3ce229ac9
-  AEPUserProfile: 05171cab2cdeb52ffd8f9a95e8866cd6753a1ee2
+  AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
-PODFILE CHECKSUM: 8d732ccbfe3f7b5a6d5e59837b74cc1802e80fab
+PODFILE CHECKSUM: 427bc73da4ea0da2284e0e7b84d5fea32fa8a7f7
 
 COCOAPODS: 1.10.1
