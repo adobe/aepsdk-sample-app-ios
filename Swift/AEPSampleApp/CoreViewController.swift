@@ -18,6 +18,8 @@ import AEPCore
 import AEPIdentity
 // step-identity-end
 
+import AEPUserProfile
+
 class CoreViewController: UIHostingController<CoreView> {}
 
 struct CoreView: View {
@@ -28,6 +30,8 @@ struct CoreView: View {
     @State private var batchQueueLimit: String = ""
     @State private var selectedOptInIndex = 0
     @State private var currentPrivacyStatus: String = ""
+    @State private var showingAlert = false
+    @State private var retrievedAttributes: String = ""
     
     var body: some View {
         ScrollView {
@@ -38,12 +42,40 @@ struct CoreView: View {
                 manualOverridesSection
                 eventsSection
                 identitySection
+                profileSection
             }.padding()
         }.onAppear() {
             MobileCore.track(state: "CoreView", data:nil)
         }
     }
-    
+    var profileSection: some View {
+        
+        VStack(alignment: .leading, spacing: 12) {
+            Text("User Profile").bold()
+            Button(action: {
+                UserProfile.updateUserAttributes(attributeDict: ["user_name":"Will Smith"])
+            }){
+                Text("Update Attributes")
+            }.buttonStyle(CustomButtonStyle())
+            Button(action: {
+                UserProfile.getUserAttributes(attributeNames: ["user_name"]){
+                    attributes, error in
+                        self.showingAlert = true
+                        self.retrievedAttributes = String(describing: attributes)
+                }
+            }){
+                Text("Retrieve Attributes")
+            }.buttonStyle(CustomButtonStyle())
+            .alert(isPresented: $showingAlert){
+                Alert(title: Text("Profile"),message: Text(self.retrievedAttributes),dismissButton: .default(Text("Got it!")))
+            }
+            Button(action: {
+                UserProfile.removeUserAttributes(attributeNames: ["user_name"])
+            }){
+                Text("Remove Attributes")
+            }.buttonStyle(CustomButtonStyle())
+        }
+    }
     var trackSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Track APIs").bold()
@@ -233,5 +265,11 @@ struct CoreView: View {
                 Text("Append Url")
             }.buttonStyle(CustomButtonStyle())
         }
+    }
+}
+
+struct CoreViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        CoreView()
     }
 }

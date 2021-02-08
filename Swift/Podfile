@@ -31,5 +31,8 @@ target 'AEPSampleApp' do
 
   # step-analytics-start
   pod 'AEPAnalyticsEdge', :git => 'https://github.com/adobe/aepsdk-analyticsedge-ios', :tag => '1.0.0-beta.2'
-  # step-analytics-end
+  # step-analytics-
+  
+  pod 'AEPUserProfile'
+
 end
