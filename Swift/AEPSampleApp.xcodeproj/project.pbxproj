@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		218306A72612336900889569 /* ConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218306A62612336900889569 /* ConsentView.swift */; };
 		3FEEA0E12523DBB5007EC317 /* CoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA0E02523DBB4007EC317 /* CoreViewController.swift */; };
 		3FEEA0E32524DA4A007EC317 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */; };
 		782B982124D9BA89009C5902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982024D9BA89009C5902 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		218306A62612336900889569 /* ConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentView.swift; sourceTree = "<group>"; };
 		30701321116461F390347F6A /* Pods-AEPSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-AEPSampleApp/Pods-AEPSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		3978EDF8C1A4AFB0B6F07ED8 /* Pods-AEPSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSampleApp.release.xcconfig"; path = "Target Support Files/Pods-AEPSampleApp/Pods-AEPSampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		3FEEA0E02523DBB4007EC317 /* CoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				782B982424D9BA89009C5902 /* MainTabBarController.swift */,
 				7876121024DC601B001CABB5 /* AssuranceViewController.swift */,
 				D42BE5C22524569C00782C3C /* EdgeViewController.swift */,
+				218306A62612336900889569 /* ConsentView.swift */,
 				3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */,
 				782B982924D9BA8C009C5902 /* Assets.xcassets */,
 				782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */,
@@ -281,6 +284,7 @@
 			files = (
 				D4E2FDB3252554E6001FE22D /* InStorePurchase.swift in Sources */,
 				D4E2FDB4252554E6001FE22D /* Items.swift in Sources */,
+				218306A72612336900889569 /* ConsentView.swift in Sources */,
 				D4E2FDC6252554E6001FE22D /* ProductListReopens.swift in Sources */,
 				D4E2FDB2252554E6001FE22D /* Purchases.swift in Sources */,
 				D4E2FDCE252554E6001FE22D /* Commerce.swift in Sources */,
