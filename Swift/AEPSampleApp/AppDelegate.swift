@@ -26,6 +26,8 @@ import AEPSampleExtensionSwift
 
 //step-edge-start
 import AEPEdge
+import AEPEdgeConsent
+import AEPEdgeIdentity
 //step-edge-end
 
 //step-analytics-start
@@ -44,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobileCore.setLogLevel(.trace)
         let appState = application.applicationState;
 
-        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, Edge.self
+        MobileCore.registerExtensions([Lifecycle.self, AEPIdentity.Identity.self, Signal.self, Edge.self, Consent.self, AEPEdgeIdentity.Identity.self
             //step-extension-start
             , SampleExtension.self
             //step-extension-end

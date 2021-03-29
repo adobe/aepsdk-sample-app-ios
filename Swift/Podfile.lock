@@ -20,6 +20,10 @@ PODS:
     - AEPServices (= 3.0.0)
   - AEPEdge (1.0.0):
     - AEPCore
+  - AEPEdgeConsent (1.0.0-alpha.1):
+    - AEPCore
+  - AEPEdgeIdentity (1.0.0-alpha.1):
+    - AEPCore
   - AEPIdentity (3.0.0):
     - AEPCore (= 3.0.0)
   - AEPLifecycle (3.0.0):
@@ -39,6 +43,8 @@ DEPENDENCIES:
   - AEPAssurance
   - AEPCore
   - AEPEdge
+  - "AEPEdgeConsent (from `git@github.com:adobe/aepsdk-edgeconsent-ios.git`, branch `dev`)"
+  - "AEPEdgeIdentity (from `git@github.com:adobe/aepsdk-edgeidentity-ios.git`, branch `dev`)"
   - AEPIdentity
   - AEPLifecycle
   - AEPRulesEngine
@@ -66,6 +72,12 @@ EXTERNAL SOURCES:
   AEPAnalyticsEdge:
     :git: https://github.com/adobe/aepsdk-analyticsedge-ios
     :tag: 1.0.0-beta.2
+  AEPEdgeConsent:
+    :branch: dev
+    :git: "git@github.com:adobe/aepsdk-edgeconsent-ios.git"
+  AEPEdgeIdentity:
+    :branch: dev
+    :git: "git@github.com:adobe/aepsdk-edgeidentity-ios.git"
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -77,6 +89,12 @@ CHECKOUT OPTIONS:
   AEPAnalyticsEdge:
     :git: https://github.com/adobe/aepsdk-analyticsedge-ios
     :tag: 1.0.0-beta.2
+  AEPEdgeConsent:
+    :commit: 0b6c196af2218818522acb737a83b9dc38eb406b
+    :git: "git@github.com:adobe/aepsdk-edgeconsent-ios.git"
+  AEPEdgeIdentity:
+    :commit: 62e8f8eae65f7802a07b3ddc379818b1bac76c31
+    :git: "git@github.com:adobe/aepsdk-edgeidentity-ios.git"
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -87,6 +105,8 @@ SPEC CHECKSUMS:
   AEPAssurance: c9c21b7e57bf993db210766631db2ef3732d4fa4
   AEPCore: 9ced1f1fddcbfd61517461e548e36aee740bf7c8
   AEPEdge: 90ccd6aa9901a79be123ddee03e038f0d1837508
+  AEPEdgeConsent: e252fc03f4adeb236832a86dc2f030716b38860f
+  AEPEdgeIdentity: f2ad204531f9e9b6494a14ac50338d690c07183b
   AEPIdentity: 79c57508bbabc8c2cf7f90e2baed15b03f4e97e6
   AEPLifecycle: ed9b2fca314eb91da83766986bad8cb914555499
   AEPRulesEngine: 8bbc694fce6900cd33b2496c7d4b33ee2eeffc46
@@ -95,6 +115,6 @@ SPEC CHECKSUMS:
   AEPSignal: b4ac5c8e8c68e8902739426d70c01ed3ce229ac9
   AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
-PODFILE CHECKSUM: 427bc73da4ea0da2284e0e7b84d5fea32fa8a7f7
+PODFILE CHECKSUM: c2195fea07faa5a7a745f83ac55e4691d571628a
 
 COCOAPODS: 1.10.0

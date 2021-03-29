@@ -22,6 +22,8 @@ target 'AEPSampleApp' do
 
   # step-edge-start
   pod 'AEPEdge'
+  pod 'AEPEdgeConsent', :git => 'git@github.com:adobe/aepsdk-edgeconsent-ios.git', :branch => 'dev'
+  pod 'AEPEdgeIdentity', :git => 'git@github.com:adobe/aepsdk-edgeidentity-ios.git', :branch => 'dev'
   # step-edge-end
 
   # step-assurance-start
