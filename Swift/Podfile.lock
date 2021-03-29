@@ -26,7 +26,7 @@ PODS:
     - AEPCore (= 3.0.0)
   - AEPRulesEngine (1.0.0)
   - AEPSampleExtensionSwift (0.0.1):
-    - AEPCore
+    - AEPCore (~> 3.0)
   - AEPServices (3.0.0)
   - AEPSignal (3.0.0):
     - AEPCore (= 3.0.0)
@@ -72,13 +72,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ACPCore:
-    :commit: 748779dd93ae14a9b7241c93fe9fd190abb816a5
+    :commit: deec3800bce117f7f760eb6644af4559489c2aae
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
   AEPAnalyticsEdge:
     :git: https://github.com/adobe/aepsdk-analyticsedge-ios
     :tag: 1.0.0-beta.2
   AEPSampleExtensionSwift:
-    :commit: a2092b20f2b1d9a513d1112c77852fa7dea3f50f
+    :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
 
 SPEC CHECKSUMS:
@@ -90,11 +90,11 @@ SPEC CHECKSUMS:
   AEPIdentity: 79c57508bbabc8c2cf7f90e2baed15b03f4e97e6
   AEPLifecycle: ed9b2fca314eb91da83766986bad8cb914555499
   AEPRulesEngine: 8bbc694fce6900cd33b2496c7d4b33ee2eeffc46
-  AEPSampleExtensionSwift: ca5f81b588e6cc07f3d7eb99fa9f283e6a42240b
+  AEPSampleExtensionSwift: 57f8b73affbf831b274257811a2102805c498538
   AEPServices: 21ea64149483fdfbd5f88f546b9f5ad7d4987400
   AEPSignal: b4ac5c8e8c68e8902739426d70c01ed3ce229ac9
   AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
 PODFILE CHECKSUM: 427bc73da4ea0da2284e0e7b84d5fea32fa8a7f7
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.0

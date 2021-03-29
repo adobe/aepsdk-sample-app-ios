@@ -17,7 +17,6 @@ import AEPSignal
 import AVKit
 import AdSupport
 // step-assurance-start
-import ACPCore
 import AEPAssurance
 // step-assurance-end
 
@@ -53,6 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             , Analytics.self
             //step-analytics-end
             , UserProfile.self
+            // step-assurance-start
+            , AEPAssurance.self
+            // step-assurance-end
             ], {
 
             // Use the App id assigned to this application via Adobe Launch
@@ -61,14 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // only start lifecycle if the application is not in the background
                 MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
             }
-
-            // step-assurance-start
-            // register AEPAssurance
-            AEPAssurance.registerExtension()
-            // need to call `ACPCore.start` in order to get ACP* extensions registered to AEPCore
-            ACPCore.start {
-            }
-            // step-assurance-end
 
         })
         // step-init-end
