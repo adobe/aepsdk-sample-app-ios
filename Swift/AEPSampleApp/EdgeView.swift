@@ -14,8 +14,6 @@ import AEPEdge
 //step-edge-end
 import AEPCore
 
-class EdgeViewController: UIHostingController<EdgeView> {}
-
 struct EdgeView: View {
     /// Index of the product selected from the Picker. Index can be used to retrieve the `ProductItem` from the `products` array.
     @State private var productIndex = 0
