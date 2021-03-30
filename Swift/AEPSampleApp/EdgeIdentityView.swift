@@ -16,47 +16,49 @@ struct EdgeIdentityView: View {
     @State var currentIdentityMap: IdentityMap?
     
     var body: some View {
-        Text("EdgeIdentity APIs").bold()
-        Button(action: {
-            Identity.getExperienceCloudId { ecid, error in
-                currentEcid = ecid ?? ""
-            }
-            
-        }) {
-            Text("Get ExperienceCloudId")
-        }.buttonStyle(CustomButtonStyle())
-        Text("Current ECID:")
-        Text(currentEcid)
-            .lineLimit(1)
-            .minimumScaleFactor(0.5)
-        
-        Button(action: {
-            Identity.getIdentities { identityMap, error in
-                currentIdentityMap = identityMap
-            }
-            
-        }) {
-            Text("Get Identities")
-        }.buttonStyle(CustomButtonStyle())
-        
-        Text("Current Identities:")
-        Text(currentIdentityMap?.jsonString ?? "")
-            .fixedSize(horizontal: false, vertical: true)
-        
-        Button(action: {
-            let updatedIdentities = IdentityMap()
-            updatedIdentities.add(item: IdentityItem(id: "test-id"), withNamespace: "test-namespace")
-            Identity.updateIdentities(with: updatedIdentities)
-        }) {
-            Text("Update Identities with test-namespace")
-        }.buttonStyle(CustomButtonStyle())
-        
-        Button(action: {
-            Identity.removeIdentity(item: IdentityItem(id: "test-id"), withNamespace: "test-namespace")
-        }) {
-            Text("Remove Identities with test-namespace")
-        }.buttonStyle(CustomButtonStyle())
-        .padding(.bottom, 35)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 12) {
+                Button(action: {
+                    Identity.getExperienceCloudId { ecid, error in
+                        currentEcid = ecid ?? ""
+                    }
+                    
+                }) {
+                    Text("Get ExperienceCloudId")
+                }.buttonStyle(CustomButtonStyle())
+                Text("Current ECID:")
+                Text(currentEcid)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                
+                Button(action: {
+                    Identity.getIdentities { identityMap, error in
+                        currentIdentityMap = identityMap
+                    }
+                    
+                }) {
+                    Text("Get Identities")
+                }.buttonStyle(CustomButtonStyle())
+                
+                Text("Current Identities:")
+                Text(currentIdentityMap?.jsonString ?? "")
+                    .fixedSize(horizontal: false, vertical: true)
+                
+                Button(action: {
+                    let updatedIdentities = IdentityMap()
+                    updatedIdentities.add(item: IdentityItem(id: "test-id"), withNamespace: "test-namespace")
+                    Identity.updateIdentities(with: updatedIdentities)
+                }) {
+                    Text("Update Identities with test-namespace")
+                }.buttonStyle(CustomButtonStyle())
+                
+                Button(action: {
+                    Identity.removeIdentity(item: IdentityItem(id: "test-id"), withNamespace: "test-namespace")
+                }) {
+                    Text("Remove Identities with test-namespace")
+                }.buttonStyle(CustomButtonStyle())
+            }.padding()
+        }
         
     }
 }

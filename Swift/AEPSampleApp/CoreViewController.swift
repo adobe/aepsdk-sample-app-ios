@@ -41,6 +41,7 @@ struct CoreView: View {
                 piiSection
                 manualOverridesSection
                 eventsSection
+                identitySection
                 profileSection
             }.padding()
         }.onAppear() {
@@ -195,6 +196,76 @@ struct CoreView: View {
         }
     }
     
+    var identitySection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Identity APIs").bold()
+            Button(action: {
+                // step-identity-start
+                MobileCore.setAdvertisingIdentifier("advertisingIdentifier")
+                // step-identity-end
+            }) {
+                Text("Set Advertising Identifier")
+            }.buttonStyle(CustomButtonStyle())
+            
+            Button(action: {
+                // step-identity-start
+                MobileCore.setPushIdentifier("9516258b6230afdd93cf0cd07b8dd845".data(using: .utf8))
+                // step-identity-end
+            }) {
+                Text("Set Push Identifier")
+            }.buttonStyle(CustomButtonStyle())
+            
+            Button(action: {
+                // step-identity-start
+                Identity.syncIdentifiers(identifiers: ["idType1":"1234567"], authenticationState: .authenticated)
+                // step-identity-end
+            }) {
+                Text("Sync Identifiers")
+            }.buttonStyle(CustomButtonStyle())
+            
+            Button(action: {
+                // step-identity-start
+                Identity.getExperienceCloudId { ecid, error in
+                    print(ecid ?? "")
+                }
+                // step-identity-end
+            }) {
+                Text("Get ExperienceCloudId")
+            }.buttonStyle(CustomButtonStyle())
+            
+            
+            Button(action: {
+                // step-identity-start
+                MobileCore.getSdkIdentities { identities, _ in
+                    print(identities ?? "")
+                }
+                // step-identity-end
+            }) {
+                Text("Get Sdk Identities")
+            }.buttonStyle(CustomButtonStyle())
+            
+            Button(action: {
+                // step-identity-start
+                Identity.getUrlVariables { variables, error in
+                    print(variables ?? "")
+                }
+                // step-identity-end
+            }) {
+                Text("Get Url Variables")
+            }.buttonStyle(CustomButtonStyle())
+            
+            Button(action: {
+                // step-identity-start
+                Identity.appendTo(url: URL(string: "https://example.com")) { url, _ in
+                    
+                    print(url?.absoluteString ?? "")
+                }
+                // step-identity-end
+            }) {
+                Text("Append Url")
+            }.buttonStyle(CustomButtonStyle())
+        }
+    }
 }
 
 struct CoreViewController_Previews: PreviewProvider {
