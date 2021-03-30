@@ -10,8 +10,8 @@
 import UIKit
 // step-init-start
 import AEPCore
-import AEPLifecycle
 import AEPIdentity
+import AEPLifecycle
 import AEPSignal
 // step-init-end
 import AVKit
@@ -26,6 +26,8 @@ import AEPSampleExtensionSwift
 
 //step-edge-start
 import AEPEdge
+import AEPEdgeConsent
+import AEPEdgeIdentity
 //step-edge-end
 
 //step-analytics-start
@@ -43,20 +45,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // step-init-start
         MobileCore.setLogLevel(.trace)
         let appState = application.applicationState;
-
-        MobileCore.registerExtensions([Lifecycle.self, Identity.self, Signal.self, Edge.self
-            //step-extension-start
-            , SampleExtension.self
-            //step-extension-end
-            //step-analytics-start
-            , Analytics.self
-            //step-analytics-end
-            , UserProfile.self
-            // step-assurance-start
-            , AEPAssurance.self
-            // step-assurance-end
-            ], {
-
+        
+        let extensions = [AEPIdentity.Identity.self,
+                          Lifecycle.self,
+                          Signal.self,
+                          Edge.self,
+                          Consent.self,
+                          AEPEdgeIdentity.Identity.self
+                          //step-extension-start
+                          , SampleExtension.self
+                          //step-extension-end
+                          //step-analytics-start
+                          , Analytics.self
+                          //step-analytics-end
+                          , UserProfile.self
+                          // step-assurance-start
+                          , AEPAssurance.self
+                          // step-assurance-end
+                        ]
+        
+        MobileCore.registerExtensions(extensions, {
             // Use the App id assigned to this application via Adobe Launch
             MobileCore.configureWith(appId: self.LAUNCH_ENVIRONMENT_FILE_ID)
             if appState != .background {

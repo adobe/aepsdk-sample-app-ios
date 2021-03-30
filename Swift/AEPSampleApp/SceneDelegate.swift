@@ -17,6 +17,8 @@ import AEPCore
 import AEPAssurance
 // step-assurance-end
 
+import SwiftUI
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -29,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = MenuScreenController()
+        window?.rootViewController = UIHostingController(rootView: MenuView())
         window?.makeKeyAndVisible()
     }
 

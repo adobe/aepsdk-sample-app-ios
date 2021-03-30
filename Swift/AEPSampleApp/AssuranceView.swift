@@ -14,8 +14,6 @@ import AEPAssurance
 // step-assurance-end
 import AEPCore
 
-class AssuranceViewController: UIHostingController<AssuranceView> {}
-
 struct AssuranceView: View {
     @State private var assuranceSessionUrl:String = ""
     

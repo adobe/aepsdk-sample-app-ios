@@ -20,8 +20,6 @@ import AEPIdentity
 
 import AEPUserProfile
 
-class CoreViewController: UIHostingController<CoreView> {}
-
 struct CoreView: View {
     @State private var eventQueueLength: String = ""
     @State private var minBatchSize: String = ""

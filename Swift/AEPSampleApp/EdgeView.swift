@@ -14,8 +14,6 @@ import AEPEdge
 //step-edge-end
 import AEPCore
 
-class EdgeViewController: UIHostingController<EdgeView> {}
-
 struct EdgeView: View {
     /// Index of the product selected from the Picker. Index can be used to retrieve the `ProductItem` from the `products` array.
     @State private var productIndex = 0
@@ -33,7 +31,7 @@ struct EdgeView: View {
     /// Product rating as integer from 1 to 5
     @State private var reviewRating: Int = 5
     
-    /// Sample list of products. Use the `productIndex` to retrive the selected `ProductItem`
+    /// Sample list of products. Use the `productIndex` to retrieve the selected `ProductItem`
     private var products = [
         ProductItem(sku: "SHOES123", name: "Red canvas shoes", price: 34.76, currencyCode: "USD"),
         ProductItem(sku: "SHOES456", name: "Brown leather shoes", price: 52.81, currencyCode: "USD"),
@@ -295,7 +293,7 @@ struct EdgeView: View {
         
         // 3. Send the XDM data using the Edge extension, by specifying Product Reviews Dataset identifiers as
         // shown in Adobe Experience Platform
-        // Note: the Dataset identifier specified at Event level overrises the Experience Event Dataset specified in the
+        // Note: the Dataset identifier specified at Event level overrides the Experience Event Dataset specified in the
         // Edge configuration in Adobe Launch
         xdmData["eventType"] = "product.review"
         let experienceEvent = ExperienceEvent(xdm: xdmData, datasetIdentifier: PRODUCT_REVIEW_DATASET_ID)

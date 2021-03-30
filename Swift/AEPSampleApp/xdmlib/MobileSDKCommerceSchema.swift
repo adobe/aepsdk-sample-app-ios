@@ -19,6 +19,7 @@ import Foundation
 
 //step-edge-start
 import AEPEdge
+import AEPEdgeIdentity
 //step-edge-end
 
 public struct MobileSDKCommerceSchema
