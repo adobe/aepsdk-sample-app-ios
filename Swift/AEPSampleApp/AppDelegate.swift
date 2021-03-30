@@ -66,7 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         })
         // step-init-end
-
         return true
     }
 
