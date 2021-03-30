@@ -11,7 +11,6 @@ import UIKit
 // step-init-start
 import AEPCore
 import AEPLifecycle
-import AEPIdentity
 import AEPSignal
 // step-init-end
 import AVKit
@@ -46,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobileCore.setLogLevel(.trace)
         let appState = application.applicationState;
 
-        MobileCore.registerExtensions([Lifecycle.self, AEPIdentity.Identity.self, Signal.self, Edge.self, Consent.self, AEPEdgeIdentity.Identity.self
+        MobileCore.registerExtensions([Lifecycle.self, Signal.self, Edge.self, Consent.self, Identity.self
             //step-extension-start
             , SampleExtension.self
             //step-extension-end

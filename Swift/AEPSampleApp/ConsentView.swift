@@ -22,31 +22,19 @@ struct ConsentView: View {
             let collectConsent = ["collect": ["val": "y"]]
             let currentConsents = ["consents": collectConsent]
             Consent.update(with: currentConsents)
-        }.frame(minWidth: 0, maxWidth: .infinity)
-        .padding()
-        .background(Color.gray)
-        .foregroundColor(.white)
-        .cornerRadius(5)
+        }.buttonStyle(CustomButtonStyle())
         
         Button("Set Collect Consent - No") {
             let collectConsent = ["collect": ["val": "n"]]
             let currentConsents = ["consents": collectConsent]
             Consent.update(with: currentConsents)
-        }.frame(minWidth: 0, maxWidth: .infinity)
-        .padding()
-        .background(Color.gray)
-        .foregroundColor(.white)
-        .cornerRadius(5)
+        }.buttonStyle(CustomButtonStyle())
         
         Button("Set default collect consent = y") {
             let defaultsConsents = ["collect": ["val": "y"]]
             let defaultConsent = ["consent.default": ["consents": defaultsConsents]]
             MobileCore.updateConfigurationWith(configDict: defaultConsent)
-        }.frame(minWidth: 0, maxWidth: .infinity)
-        .padding()
-        .background(Color.gray)
-        .foregroundColor(.white)
-        .cornerRadius(5)
+        }.buttonStyle(CustomButtonStyle())
         
         Button("Get Consents") {
             Consent.getConsents { consents, error in
@@ -55,16 +43,11 @@ struct ConsentView: View {
                 guard let jsonStr = String(data: jsonData, encoding: .utf8) else { return }
                 currentConsents = jsonStr
             }
-        }.frame(minWidth: 0, maxWidth: .infinity)
-        .padding()
-        .background(Color.gray)
-        .foregroundColor(.white)
-        .cornerRadius(5)
+        }.buttonStyle(CustomButtonStyle())
         
-        Text("Current Consents:").padding()
-        ScrollView {
-            Text(currentConsents).lineLimit(Int.max)
-        }
+        Text("Current Consents:")
+        Text(currentConsents)
+            .fixedSize(horizontal: false, vertical: true)
     }
 }
 

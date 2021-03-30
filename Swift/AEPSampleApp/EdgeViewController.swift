@@ -55,8 +55,10 @@ struct EdgeView: View {
                 commerceExampleSection
                 Spacer()
                 reviewExampleSection
-                Spacer()
+                Divider()
                 ConsentView()
+                Divider()
+                EdgeIdentityView()
             }.padding()
             Divider()
         }.onAppear() {
