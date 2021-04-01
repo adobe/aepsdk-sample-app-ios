@@ -20,7 +20,6 @@
 		D42BE5C32524569C00782C3C /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42BE5C22524569C00782C3C /* EdgeView.swift */; };
 		D4E2FDB2252554E6001FE22D /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD8E252554E6001FE22D /* Purchases.swift */; };
 		D4E2FDB3252554E6001FE22D /* InStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */; };
-		D4E2FDB4252554E6001FE22D /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD90252554E6001FE22D /* Items.swift */; };
 		D4E2FDB6252554E6001FE22D /* SaveForLaters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD92252554E6001FE22D /* SaveForLaters.swift */; };
 		D4E2FDB9252554E6001FE22D /* ProductListOpens.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD95252554E6001FE22D /* ProductListOpens.swift */; };
 		D4E2FDBA252554E6001FE22D /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD96252554E6001FE22D /* Order.swift */; };
@@ -34,7 +33,6 @@
 		D4E2FDCE252554E6001FE22D /* Commerce.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDAA252554E6001FE22D /* Commerce.swift */; };
 		D4E2FDD0252554E6001FE22D /* MobileSDKCommerceSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDAC252554E6001FE22D /* MobileSDKCommerceSchema.swift */; };
 		D4E2FDD3252554E6001FE22D /* ProductListAdds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDAF252554E6001FE22D /* ProductListAdds.swift */; };
-		D4E2FDD4252554E6001FE22D /* AuthenticatedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDB0252554E6001FE22D /* AuthenticatedState.swift */; };
 		D4E2FDD5252554E6001FE22D /* ProductListViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDB1252554E6001FE22D /* ProductListViews.swift */; };
 		E85CDFD29B450F16196D4F79 /* Pods_AEPSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94C7204C94E9F5D9F472F31 /* Pods_AEPSampleApp.framework */; };
 /* End PBXBuildFile section */
@@ -57,7 +55,6 @@
 		D42BE5C22524569C00782C3C /* EdgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
 		D4E2FD8E252554E6001FE22D /* Purchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Purchases.swift; path = xdmlib/Purchases.swift; sourceTree = "<group>"; };
 		D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InStorePurchase.swift; path = xdmlib/InStorePurchase.swift; sourceTree = "<group>"; };
-		D4E2FD90252554E6001FE22D /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Items.swift; path = xdmlib/Items.swift; sourceTree = "<group>"; };
 		D4E2FD92252554E6001FE22D /* SaveForLaters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveForLaters.swift; path = xdmlib/SaveForLaters.swift; sourceTree = "<group>"; };
 		D4E2FD95252554E6001FE22D /* ProductListOpens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductListOpens.swift; path = xdmlib/ProductListOpens.swift; sourceTree = "<group>"; };
 		D4E2FD96252554E6001FE22D /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = xdmlib/Order.swift; sourceTree = "<group>"; };
@@ -71,7 +68,6 @@
 		D4E2FDAA252554E6001FE22D /* Commerce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commerce.swift; path = xdmlib/Commerce.swift; sourceTree = "<group>"; };
 		D4E2FDAC252554E6001FE22D /* MobileSDKCommerceSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MobileSDKCommerceSchema.swift; path = xdmlib/MobileSDKCommerceSchema.swift; sourceTree = "<group>"; };
 		D4E2FDAF252554E6001FE22D /* ProductListAdds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductListAdds.swift; path = xdmlib/ProductListAdds.swift; sourceTree = "<group>"; };
-		D4E2FDB0252554E6001FE22D /* AuthenticatedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticatedState.swift; path = xdmlib/AuthenticatedState.swift; sourceTree = "<group>"; };
 		D4E2FDB1252554E6001FE22D /* ProductListViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductListViews.swift; path = xdmlib/ProductListViews.swift; sourceTree = "<group>"; };
 		D94C7204C94E9F5D9F472F31 /* Pods_AEPSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -146,12 +142,10 @@
 		D4E2FD8D252554D8001FE22D /* xdmlib */ = {
 			isa = PBXGroup;
 			children = (
-				D4E2FDB0252554E6001FE22D /* AuthenticatedState.swift */,
 				D4E2FDA9252554E6001FE22D /* CartAbandons.swift */,
 				D4E2FDA1252554E6001FE22D /* Checkouts.swift */,
 				D4E2FDAA252554E6001FE22D /* Commerce.swift */,
 				D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */,
-				D4E2FD90252554E6001FE22D /* Items.swift */,
 				D4E2FDAC252554E6001FE22D /* MobileSDKCommerceSchema.swift */,
 				D4E2FD96252554E6001FE22D /* Order.swift */,
 				D4E2FDA3252554E6001FE22D /* PaymentsItem.swift */,
@@ -283,7 +277,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E2FDB3252554E6001FE22D /* InStorePurchase.swift in Sources */,
-				D4E2FDB4252554E6001FE22D /* Items.swift in Sources */,
 				218306A72612336900889569 /* ConsentView.swift in Sources */,
 				218306AA26123A3B00889569 /* EdgeIdentityView.swift in Sources */,
 				D4E2FDC6252554E6001FE22D /* ProductListReopens.swift in Sources */,
@@ -297,7 +290,6 @@
 				D4E2FDCD252554E6001FE22D /* CartAbandons.swift in Sources */,
 				D4E2FDC5252554E6001FE22D /* Checkouts.swift in Sources */,
 				D4E2FDC7252554E6001FE22D /* PaymentsItem.swift in Sources */,
-				D4E2FDD4252554E6001FE22D /* AuthenticatedState.swift in Sources */,
 				218306ED26138BBA00889569 /* MenuView.swift in Sources */,
 				D4E2FDBA252554E6001FE22D /* Order.swift in Sources */,
 				D4E2FDD3252554E6001FE22D /* ProductListAdds.swift in Sources */,
