@@ -19,7 +19,6 @@ import Foundation
 
 //step-edge-start
 import AEPEdge
-import AEPEdgeIdentity
 //step-edge-end
 
 public struct MobileSDKCommerceSchema
@@ -36,7 +35,6 @@ public struct MobileSDKCommerceSchema
 	public var commerce: Commerce?
 	public var eventMergeId: String?
 	public var eventType: String?
-	public var identityMap: IdentityMap?
 	public var productListItems: Array<ProductListItemsItem?>?
 	public var timestamp: Date?
 
@@ -44,7 +42,6 @@ public struct MobileSDKCommerceSchema
 		case commerce = "commerce"
 		case eventMergeId = "eventMergeId"
 		case eventType = "eventType"
-		case identityMap = "identityMap"
 		case productListItems = "productListItems"
 		case timestamp = "timestamp"
 	}	
@@ -56,7 +53,6 @@ extension MobileSDKCommerceSchema {
 		if let unwrapped = commerce { try container.encode(unwrapped, forKey: .commerce) }
 		if let unwrapped = eventMergeId { try container.encode(unwrapped, forKey: .eventMergeId) }
 		if let unwrapped = eventType { try container.encode(unwrapped, forKey: .eventType) }
-		if let unwrapped = identityMap { try container.encode(unwrapped, forKey: .identityMap) }
 		if let unwrapped = productListItems { try container.encode(unwrapped, forKey: .productListItems) }
 		if let unwrapped = XDMFormatters.dateToISO8601String(from: timestamp) { try container.encode(unwrapped, forKey: .timestamp) }
 	}

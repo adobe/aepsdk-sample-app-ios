@@ -28,8 +28,8 @@ struct MenuView: View {
                         Text("Consent")
                     }
                     
-                    NavigationLink(destination: EdgeIdentityView().navigationBarTitle("EdgeIdentity")) {
-                        Text("EdgeIdentity")
+                    NavigationLink(destination: EdgeIdentityView().navigationBarTitle("Edge Identity")) {
+                        Text("Edge Identity")
                     }
                 }
                 
