@@ -37,8 +37,6 @@ struct AssuranceView: View {
                         .font(.caption)
                 }.cornerRadius(5)
             }
-        }.padding().onAppear() {
-            MobileCore.track(state: "AssuranceView", data:nil)
-        }
+        }.padding()
     }
 }

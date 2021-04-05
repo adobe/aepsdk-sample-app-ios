@@ -6,10 +6,6 @@ PODS:
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
-  - AEPAnalyticsEdge (1.0.0-beta.2):
-    - AEPCore
-    - AEPEdge
-    - AEPServices
   - AEPAssurance (1.1.0):
     - ACPCore (>= 2.9.0)
     - AEPAssurance/xcframeworks (= 1.1.0)
@@ -40,36 +36,34 @@ PODS:
 
 DEPENDENCIES:
   - ACPCore (from `https://github.com/adobe/aepsdk-compatibility-ios.git`, branch `main`)
-  - AEPAnalyticsEdge (from `https://github.com/adobe/aepsdk-analyticsedge-ios`, tag `1.0.0-beta.2`)
   - AEPAssurance
-  - AEPCore (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `staging`)
+  - AEPCore
   - "AEPEdge (from `git@github.com:adobe/aepsdk-edge-ios.git`, branch `staging`)"
   - "AEPEdgeConsent (from `git@github.com:adobe/aepsdk-edgeconsent-ios.git`, branch `staging`)"
   - "AEPEdgeIdentity (from `git@github.com:adobe/aepsdk-edgeidentity-ios.git`, branch `staging`)"
-  - AEPIdentity (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `staging`)
-  - AEPLifecycle (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `staging`)
+  - AEPIdentity
+  - AEPLifecycle
   - AEPRulesEngine
   - AEPSampleExtensionSwift (from `https://github.com/adobe/aepsdk-sample-extension-ios.git`, branch `main`)
-  - AEPServices (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `staging`)
-  - AEPSignal (from `https://github.com/adobe/aepsdk-core-ios.git`, branch `staging`)
+  - AEPServices
+  - AEPSignal
   - AEPUserProfile
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AEPAssurance
+    - AEPCore
+    - AEPIdentity
+    - AEPLifecycle
     - AEPRulesEngine
+    - AEPServices
+    - AEPSignal
     - AEPUserProfile
 
 EXTERNAL SOURCES:
   ACPCore:
     :branch: main
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
-  AEPAnalyticsEdge:
-    :git: https://github.com/adobe/aepsdk-analyticsedge-ios
-    :tag: 1.0.0-beta.2
-  AEPCore:
-    :branch: staging
-    :git: https://github.com/adobe/aepsdk-core-ios.git
   AEPEdge:
     :branch: staging
     :git: "git@github.com:adobe/aepsdk-edge-ios.git"
@@ -79,32 +73,14 @@ EXTERNAL SOURCES:
   AEPEdgeIdentity:
     :branch: staging
     :git: "git@github.com:adobe/aepsdk-edgeidentity-ios.git"
-  AEPIdentity:
-    :branch: staging
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPLifecycle:
-    :branch: staging
-    :git: https://github.com/adobe/aepsdk-core-ios.git
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
-  AEPServices:
-    :branch: staging
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPSignal:
-    :branch: staging
-    :git: https://github.com/adobe/aepsdk-core-ios.git
 
 CHECKOUT OPTIONS:
   ACPCore:
     :commit: deec3800bce117f7f760eb6644af4559489c2aae
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
-  AEPAnalyticsEdge:
-    :git: https://github.com/adobe/aepsdk-analyticsedge-ios
-    :tag: 1.0.0-beta.2
-  AEPCore:
-    :commit: d311c2936684aac1b0430b1e68e92984255e6d43
-    :git: https://github.com/adobe/aepsdk-core-ios.git
   AEPEdge:
     :commit: 9e9ee3b7449eeea793ae47da45041ffe050e1d23
     :git: "git@github.com:adobe/aepsdk-edge-ios.git"
@@ -114,25 +90,12 @@ CHECKOUT OPTIONS:
   AEPEdgeIdentity:
     :commit: e5bf794635681e81b678559b6bd48ee95a7f1cb2
     :git: "git@github.com:adobe/aepsdk-edgeidentity-ios.git"
-  AEPIdentity:
-    :commit: d311c2936684aac1b0430b1e68e92984255e6d43
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPLifecycle:
-    :commit: d311c2936684aac1b0430b1e68e92984255e6d43
-    :git: https://github.com/adobe/aepsdk-core-ios.git
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
-  AEPServices:
-    :commit: d311c2936684aac1b0430b1e68e92984255e6d43
-    :git: https://github.com/adobe/aepsdk-core-ios.git
-  AEPSignal:
-    :commit: d311c2936684aac1b0430b1e68e92984255e6d43
-    :git: https://github.com/adobe/aepsdk-core-ios.git
 
 SPEC CHECKSUMS:
   ACPCore: 67e4b855bf16cfb6a63024a4ddb73d15c0fd30e5
-  AEPAnalyticsEdge: 141c2d0433723a404c774ab12f1e7de1ef3c6c2c
   AEPAssurance: c9c21b7e57bf993db210766631db2ef3732d4fa4
   AEPCore: 026568b04d8c302ad801a6b4ed6ec3c160817ef6
   AEPEdge: f18d61c16b8eb9524aaddfb94f575217e20768a8
@@ -146,6 +109,6 @@ SPEC CHECKSUMS:
   AEPSignal: 68dce891ed648057d0282b137040a5766a95c963
   AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
-PODFILE CHECKSUM: 9aeab6f4e80aa1a735a03f1fabd2f20f1867630f
+PODFILE CHECKSUM: 28a17d1fbd5bf8f6d9b6b6c935d6ae897c364a4d
 
 COCOAPODS: 1.10.1

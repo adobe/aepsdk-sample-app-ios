@@ -30,10 +30,6 @@ import AEPEdgeConsent
 import AEPEdgeIdentity
 //step-edge-end
 
-//step-analytics-start
-import AEPAnalyticsEdge
-//step-analytics-end
-
 import AEPUserProfile
 
 @UIApplicationMain
@@ -55,9 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                           //step-extension-start
                           , SampleExtension.self
                           //step-extension-end
-                          //step-analytics-start
-                          , Analytics.self
-                          //step-analytics-end
                           , UserProfile.self
                           // step-assurance-start
                           , AEPAssurance.self
