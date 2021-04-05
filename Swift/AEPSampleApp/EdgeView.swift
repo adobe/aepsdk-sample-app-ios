@@ -55,8 +55,6 @@ struct EdgeView: View {
                 reviewExampleSection
             }.padding()
             Divider()
-        }.onAppear() {
-            MobileCore.track(state: "EdgeView", data:nil)
         }
     }
     

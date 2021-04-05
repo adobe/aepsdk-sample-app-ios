@@ -41,8 +41,6 @@ struct CoreView: View {
                 identitySection
                 profileSection
             }.padding()
-        }.onAppear() {
-            MobileCore.track(state: "CoreView", data:nil)
         }
     }
     var profileSection: some View {
