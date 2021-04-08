@@ -40,7 +40,7 @@ DEPENDENCIES:
   - AEPCore
   - "AEPEdge (from `git@github.com:adobe/aepsdk-edge-ios.git`, branch `staging`)"
   - AEPEdgeConsent
-  - "AEPEdgeIdentity (from `git@github.com:adobe/aepsdk-edgeidentity-ios.git`, branch `staging`)"
+  - AEPEdgeIdentity
   - AEPIdentity
   - AEPLifecycle
   - AEPRulesEngine
@@ -54,6 +54,7 @@ SPEC REPOS:
     - AEPAssurance
     - AEPCore
     - AEPEdgeConsent
+    - AEPEdgeIdentity
     - AEPIdentity
     - AEPLifecycle
     - AEPRulesEngine
@@ -68,9 +69,6 @@ EXTERNAL SOURCES:
   AEPEdge:
     :branch: staging
     :git: "git@github.com:adobe/aepsdk-edge-ios.git"
-  AEPEdgeIdentity:
-    :branch: staging
-    :git: "git@github.com:adobe/aepsdk-edgeidentity-ios.git"
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -82,9 +80,6 @@ CHECKOUT OPTIONS:
   AEPEdge:
     :commit: 9e9ee3b7449eeea793ae47da45041ffe050e1d23
     :git: "git@github.com:adobe/aepsdk-edge-ios.git"
-  AEPEdgeIdentity:
-    :commit: 637e642990010a5e56fd8ac9743cd2c9ffcea09c
-    :git: "git@github.com:adobe/aepsdk-edgeidentity-ios.git"
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -104,6 +99,6 @@ SPEC CHECKSUMS:
   AEPSignal: 4259aed43857c9e0ae89590a682c6d12865b7ce3
   AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
-PODFILE CHECKSUM: 79767256d20ca8a87d3b7ee6775367aedbc1a8a1
+PODFILE CHECKSUM: 43fab0ef7cdd3f1a32188ddc09ad575dc33c9902
 
 COCOAPODS: 1.10.0
