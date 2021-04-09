@@ -21,7 +21,7 @@ target 'AEPSampleApp' do
 
 
   # step-edge-start
-  pod 'AEPEdge', :git => 'git@github.com:adobe/aepsdk-edge-ios.git', :branch => 'staging'
+  pod 'AEPEdge'
   pod 'AEPEdgeConsent'
   pod 'AEPEdgeIdentity'
   # step-edge-end
