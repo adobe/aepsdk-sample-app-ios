@@ -15,7 +15,7 @@ PODS:
     - AEPRulesEngine (= 1.0.0)
     - AEPServices (= 3.1.1)
   - AEPEdge (1.1.0):
-    - AEPCore (>= 3.1.0)
+    - AEPCore (>= 3.1.1)
     - AEPEdgeIdentity
   - AEPEdgeConsent (1.0.0):
     - AEPCore (>= 3.1.0)
@@ -31,6 +31,8 @@ PODS:
   - AEPServices (3.1.1)
   - AEPSignal (3.1.1):
     - AEPCore (= 3.1.1)
+  - AEPTarget (3.0.0):
+    - AEPCore (>= 3.1.0)
   - AEPUserProfile (3.0.0):
     - AEPCore
 
@@ -47,6 +49,7 @@ DEPENDENCIES:
   - AEPSampleExtensionSwift (from `https://github.com/adobe/aepsdk-sample-extension-ios.git`, branch `main`)
   - AEPServices
   - AEPSignal
+  - AEPTarget
   - AEPUserProfile
 
 SPEC REPOS:
@@ -60,6 +63,7 @@ SPEC REPOS:
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
+    - AEPTarget
     - AEPUserProfile
 
 EXTERNAL SOURCES:
@@ -78,7 +82,7 @@ CHECKOUT OPTIONS:
     :commit: deec3800bce117f7f760eb6644af4559489c2aae
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
   AEPEdge:
-    :commit: 9e9ee3b7449eeea793ae47da45041ffe050e1d23
+    :commit: cf1d2edaea218806e5bcc08c2bb77f505e354b5f
     :git: "git@github.com:adobe/aepsdk-edge-ios.git"
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
@@ -88,7 +92,7 @@ SPEC CHECKSUMS:
   ACPCore: 67e4b855bf16cfb6a63024a4ddb73d15c0fd30e5
   AEPAssurance: c9c21b7e57bf993db210766631db2ef3732d4fa4
   AEPCore: 46ed4c5ed27ba49490990e397bb7454cf9906601
-  AEPEdge: f18d61c16b8eb9524aaddfb94f575217e20768a8
+  AEPEdge: 818ca6ea6ac1a9e16a876036c78908996033599f
   AEPEdgeConsent: dd46002b0c4bf55443f5441990e799248975713e
   AEPEdgeIdentity: 40d312b4434b710a46c1738ab2a221dda4cfd67e
   AEPIdentity: 017d2ee5e49dd7a7cd29761339c535924e89d968
@@ -97,8 +101,9 @@ SPEC CHECKSUMS:
   AEPSampleExtensionSwift: 57f8b73affbf831b274257811a2102805c498538
   AEPServices: bdd8a78f1d6cda0165f6a58e42cce0d7e9f43ae1
   AEPSignal: 4259aed43857c9e0ae89590a682c6d12865b7ce3
+  AEPTarget: 3411e002f25b5bb4b9718878f3f4aa47ded82fd7
   AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
-PODFILE CHECKSUM: 43fab0ef7cdd3f1a32188ddc09ad575dc33c9902
+PODFILE CHECKSUM: 11f3f4cd2862e2d0556baa1eeb1985c13584e4f9
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

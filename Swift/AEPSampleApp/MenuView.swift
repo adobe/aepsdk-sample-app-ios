@@ -38,6 +38,12 @@ struct MenuView: View {
                         Text("Assurance")
                     }
                 }
+                
+                Section(header: Text("Target")) {
+                    NavigationLink(destination: TargetView().navigationBarTitle("Target")) {
+                        Text("Target")
+                    }
+                }
             }.navigationBarTitle(Text("Extensions"))
         }
     }
