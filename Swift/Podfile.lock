@@ -15,7 +15,7 @@ PODS:
     - AEPRulesEngine (= 1.0.0)
     - AEPServices (= 3.1.1)
   - AEPEdge (1.1.0):
-    - AEPCore (>= 3.1.0)
+    - AEPCore (>= 3.1.1)
     - AEPEdgeIdentity
   - AEPEdgeConsent (1.0.0):
     - AEPCore (>= 3.1.0)
@@ -38,7 +38,7 @@ DEPENDENCIES:
   - ACPCore (from `https://github.com/adobe/aepsdk-compatibility-ios.git`, branch `main`)
   - AEPAssurance
   - AEPCore
-  - "AEPEdge (from `git@github.com:adobe/aepsdk-edge-ios.git`, branch `staging`)"
+  - AEPEdge
   - AEPEdgeConsent
   - AEPEdgeIdentity
   - AEPIdentity
@@ -53,6 +53,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AEPAssurance
     - AEPCore
+    - AEPEdge
     - AEPEdgeConsent
     - AEPEdgeIdentity
     - AEPIdentity
@@ -66,9 +67,6 @@ EXTERNAL SOURCES:
   ACPCore:
     :branch: main
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
-  AEPEdge:
-    :branch: staging
-    :git: "git@github.com:adobe/aepsdk-edge-ios.git"
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -77,9 +75,6 @@ CHECKOUT OPTIONS:
   ACPCore:
     :commit: deec3800bce117f7f760eb6644af4559489c2aae
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
-  AEPEdge:
-    :commit: 9e9ee3b7449eeea793ae47da45041ffe050e1d23
-    :git: "git@github.com:adobe/aepsdk-edge-ios.git"
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -88,7 +83,7 @@ SPEC CHECKSUMS:
   ACPCore: 67e4b855bf16cfb6a63024a4ddb73d15c0fd30e5
   AEPAssurance: c9c21b7e57bf993db210766631db2ef3732d4fa4
   AEPCore: 46ed4c5ed27ba49490990e397bb7454cf9906601
-  AEPEdge: f18d61c16b8eb9524aaddfb94f575217e20768a8
+  AEPEdge: 818ca6ea6ac1a9e16a876036c78908996033599f
   AEPEdgeConsent: dd46002b0c4bf55443f5441990e799248975713e
   AEPEdgeIdentity: 40d312b4434b710a46c1738ab2a221dda4cfd67e
   AEPIdentity: 017d2ee5e49dd7a7cd29761339c535924e89d968
@@ -99,6 +94,6 @@ SPEC CHECKSUMS:
   AEPSignal: 4259aed43857c9e0ae89590a682c6d12865b7ce3
   AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
-PODFILE CHECKSUM: 43fab0ef7cdd3f1a32188ddc09ad575dc33c9902
+PODFILE CHECKSUM: 2531b58b16d1165a54bc73ce2051f99340fd8baf
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
