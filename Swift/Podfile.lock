@@ -40,7 +40,7 @@ DEPENDENCIES:
   - ACPCore (from `https://github.com/adobe/aepsdk-compatibility-ios.git`, branch `main`)
   - AEPAssurance
   - AEPCore
-  - "AEPEdge (from `git@github.com:adobe/aepsdk-edge-ios.git`, branch `staging`)"
+  - AEPEdge
   - AEPEdgeConsent
   - AEPEdgeIdentity
   - AEPIdentity
@@ -56,6 +56,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AEPAssurance
     - AEPCore
+    - AEPEdge
     - AEPEdgeConsent
     - AEPEdgeIdentity
     - AEPIdentity
@@ -70,20 +71,14 @@ EXTERNAL SOURCES:
   ACPCore:
     :branch: main
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
-  AEPEdge:
-    :branch: staging
-    :git: "git@github.com:adobe/aepsdk-edge-ios.git"
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
 
 CHECKOUT OPTIONS:
   ACPCore:
-    :commit: deec3800bce117f7f760eb6644af4559489c2aae
+    :commit: 4a91fb32b9c656251f127c7bf85823a72e51edf7
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
-  AEPEdge:
-    :commit: cf1d2edaea218806e5bcc08c2bb77f505e354b5f
-    :git: "git@github.com:adobe/aepsdk-edge-ios.git"
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -104,6 +99,6 @@ SPEC CHECKSUMS:
   AEPTarget: 3411e002f25b5bb4b9718878f3f4aa47ded82fd7
   AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
-PODFILE CHECKSUM: 11f3f4cd2862e2d0556baa1eeb1985c13584e4f9
+PODFILE CHECKSUM: 1ce65dfc4191bd9305ccca17d15f32758b3b9b6c
 
 COCOAPODS: 1.10.1
