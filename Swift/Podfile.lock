@@ -26,6 +26,10 @@ PODS:
   - AEPLifecycle (3.1.3):
     - AEPCore (= 3.1.3)
   - AEPRulesEngine (1.0.1)
+  - AEPMessaging (1.0.0-alpha-2):
+    - AEPCore
+    - AEPEdge (>= 1.1.0)
+    - AEPServices
   - AEPSampleExtensionSwift (0.0.1):
     - AEPCore (~> 3.0)
   - AEPServices (3.1.3)
@@ -43,6 +47,7 @@ DEPENDENCIES:
   - AEPEdgeIdentity
   - AEPIdentity
   - AEPLifecycle
+  - "AEPMessaging (from `git@github.com:adobe/aepsdk-messaging-ios.git`, branch `dev`)"
   - AEPRulesEngine
   - AEPSampleExtensionSwift (from `https://github.com/adobe/aepsdk-sample-extension-ios.git`, branch `main`)
   - AEPServices
@@ -67,6 +72,9 @@ EXTERNAL SOURCES:
   ACPCore:
     :branch: main
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
+  AEPMessaging:
+    :branch: dev
+    :git: "git@github.com:adobe/aepsdk-messaging-ios.git"
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -75,6 +83,9 @@ CHECKOUT OPTIONS:
   ACPCore:
     :commit: c43675de0c97ee76fd51b005e8c9cdc7515e4a78
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
+  AEPMessaging:
+    :commit: 460a63484f8a6d613f79c261181432ef192946c8
+    :git: "git@github.com:adobe/aepsdk-messaging-ios.git"
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -89,6 +100,7 @@ SPEC CHECKSUMS:
   AEPIdentity: 49e6c742238be0f77d5ae8928c13acfd1d8bec3c
   AEPLifecycle: 9ed7ceabd98cc5c94b13c3b085c9f1eef2c714fe
   AEPRulesEngine: 5075ed294026a12e37bd26fe260f74604d205354
+  AEPMessaging: 40d4ec740588a36af42480fe373d83079f8eef69
   AEPSampleExtensionSwift: 57f8b73affbf831b274257811a2102805c498538
   AEPServices: e032bfacfcb31f3a583b2aa1e87df5d427cca95d
   AEPSignal: c0619814fbf50dbb1dde4e79141d528aa2606e9e
