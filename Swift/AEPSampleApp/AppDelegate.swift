@@ -30,10 +30,15 @@ import AEPEdgeConsent
 import AEPEdgeIdentity
 //step-edge-end
 
+//step-messaging-start
+import AEPMessaging
+import UserNotifications
+//step-messaging-end
+
 import AEPUserProfile
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     private let LAUNCH_ENVIRONMENT_FILE_ID = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -55,11 +60,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                           // step-assurance-start
                           , AEPAssurance.self
                           // step-assurance-end
+                          , Messaging.self
                         ]
         
         MobileCore.registerExtensions(extensions, {
             // Use the App id assigned to this application via Adobe Launch
             MobileCore.configureWith(appId: self.LAUNCH_ENVIRONMENT_FILE_ID)
+            // Use the sandbox configuration to allow the messaging sdk to use apnsSandbox
+            MobileCore.updateConfigurationWith(configDict: ["messaging.useSandbox" : true])
             if appState != .background {
                 // only start lifecycle if the application is not in the background
                 MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
