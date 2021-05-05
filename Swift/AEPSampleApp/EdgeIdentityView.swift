@@ -30,6 +30,13 @@ struct EdgeIdentityView: View {
                 Text(currentEcid)
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
+                    .contextMenu {
+                        Button(action: {
+                            UIPasteboard.general.string = currentEcid
+                        }) {
+                            Text("Copy")
+                            }
+                        }
                 
                 Button(action: {
                     Identity.getIdentities { identityMap, error in
