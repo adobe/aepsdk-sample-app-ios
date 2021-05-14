@@ -44,6 +44,9 @@ This repository contains iOS sample apps for the AEP SDK. Examples are provided 
 
 - Run the `AEPSampleAppObjC` target on the simulator of your choice.
 
+## Documentation
+Follow the [documentation](Documentation/README.md) for enabling messaging in the sample app.
+
 ## Contributing
 
 Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
