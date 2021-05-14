@@ -36,6 +36,8 @@ PODS:
   - AEPServices (3.1.3)
   - AEPSignal (3.1.3):
     - AEPCore (= 3.1.3)
+  - AEPTarget (3.0.0):
+    - AEPCore (>= 3.1.0)
   - AEPUserProfile (3.0.0):
     - AEPCore
 
@@ -105,6 +107,7 @@ SPEC CHECKSUMS:
   AEPSampleExtensionSwift: 57f8b73affbf831b274257811a2102805c498538
   AEPServices: e032bfacfcb31f3a583b2aa1e87df5d427cca95d
   AEPSignal: c0619814fbf50dbb1dde4e79141d528aa2606e9e
+  AEPTarget: 3411e002f25b5bb4b9718878f3f4aa47ded82fd7
   AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
 PODFILE CHECKSUM: 2531b58b16d1165a54bc73ce2051f99340fd8baf

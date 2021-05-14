@@ -39,10 +39,11 @@ import AEPUserProfile
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-    private let LAUNCH_ENVIRONMENT_FILE_ID = "3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
+    private let LAUNCH_ENVIRONMENT_FILE_ID = ""
     
     // messaging
-    static let EMAIL_UPDATE_DATASET = "609eb4fa52702b194880d383"
+    // Update this dataset with an experience event dataset id.
+    static let EMAIL_UPDATE_DATASET = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
