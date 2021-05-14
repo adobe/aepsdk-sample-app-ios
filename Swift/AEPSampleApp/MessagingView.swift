@@ -34,12 +34,6 @@ struct MessagingView: View {
     /// UI elements for the product review example
     var messaging: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Enter the string matching your custom action in CJM").bold()
-
-            TextField("CustomAction", text: $customEvent)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .autocapitalization(.none)
-
             Text("Give an email for personalization").bold()
 
             TextField("", text: $personalisedData)
@@ -65,63 +59,14 @@ struct MessagingView: View {
     func sendProfileData() {
         Identity.getExperienceCloudId { (ecid, err) in
             if ecid == nil {return}
-            let payload = getPayload(ecid: ecid ?? "")
-            guard let dccsUrl = URL(string: AppDelegate.PLATFORM_DCS_URL) else {
-                        Log.warning(label: LOG_PREFIX, "DCCS endpoint is invalid. All requests to sync with profile will fail.")
-                        return
-                    }
-
-            let headers = ["Content-Type": "application/json"]
-            let request = NetworkRequest(url: dccsUrl,
-                                                 httpMethod: .post,
-                                                 connectPayload: payload,
-                                                 httpHeaders: headers,
-                                                 connectTimeout: 5.0,
-                                                 readTimeout: 5.0)
-
-            ServiceProvider.shared.networkService.connectAsync(networkRequest: request) { (connection: HttpConnection) in
-                        if connection.error != nil {
-                            Log.warning(label: LOG_PREFIX, "Error sending profile update \(String(describing: connection.error?.localizedDescription)).")
-                        } else {
-                            Log.trace(label: LOG_PREFIX, "Success in updating profile")
-                        }
-                    }
+            var xdmData : [String: Any] = [:]
+            xdmData["identityMap"] = ["ECID" : [["id" : ecid]], "Email": [["id" : personalisedData]]]
+            let experienceEvent = ExperienceEvent(xdm: xdmData, datasetIdentifier: AppDelegate.EMAIL_UPDATE_DATASET)
+                        
+            Edge.sendEvent(experienceEvent: experienceEvent) { (_: [EdgeEventHandle]) in
+                Log.debug(label: LOG_PREFIX, "Edge call is complete")
+            }
         }
-    }
-
-    func getPayload(ecid: String) -> String {
-        let payload = "{\n" +
-        "    \"header\" : {\n" +
-            "        \"imsOrgId\": \"" + AppDelegate.ORG_ID + "\",\n" +
-        "        \"source\": {\n" +
-        "            \"name\": \"mobile\"\n" +
-        "        },\n" +
-        "         \"datasetId\" : \"%@\"\n" +
-        "    },\n" +
-        "    \"body\": {\n" +
-        "        \"xdmEntity\": {\n" +
-        "            \"identityMap\": {\n" +
-        "                \"ECID\": [\n" +
-        "                    {\n" +
-        "                         \"id\" : \"%@\"\n" +
-        "                    }\n" +
-        "                ],\n" +
-        "                \"Email\": [\n" +
-        "                    {\n" +
-        "                         \"id\" : \"%@\"\n" +
-        "                    }\n" +
-        "                ]\n" +
-        "            },\n" +
-        "      \"testProfile\": true,\n" +
-        "         \"personalEmail\": {\n" +
-        "          \"address\" : \"%@\"\n" +
-        "       }\n" +
-        "      }\n" +
-        "   }\n" +
-        "}"
-
-        let postBodyString = String.init(format: payload, AppDelegate.CUSTOM_PROFILE_DATASET, ecid, personalisedData, personalisedData)
-        return postBodyString
     }
 }
 
