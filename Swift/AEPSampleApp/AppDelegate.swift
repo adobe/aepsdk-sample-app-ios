@@ -72,9 +72,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 // only start lifecycle if the application is not in the background
                 MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
             }
-
         })
         // step-init-end
+        
+        // register push notification
+        registerForPushNotifications(application: application)
+        
         return true
     }
 
@@ -91,5 +94,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    // MARK: Registeration for push notification
+    func registerForPushNotifications(application: UIApplication) {
+          let center = UNUserNotificationCenter.current()
+          center.requestAuthorization(options: [.badge, .sound, .alert]) {
+            [weak self] granted, _ in
+            guard granted else { return }
+
+            center.delegate = self
+
+            DispatchQueue.main.async {
+              application.registerForRemoteNotifications()
+            }
+          }
+        }
+
+        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+            let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+            let token = tokenParts.joined()
+            print("Device Token: \(token)")
+
+            // Send push token to experience platform
+            MobileCore.setPushIdentifier(deviceToken)
+        }
+
+        func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+          print("Failed to register: \(error)")
+        }
+
+        func userNotificationCenter(
+          _ center: UNUserNotificationCenter,
+          willPresent notification: UNNotification,
+          withCompletionHandler completionHandler:
+          @escaping (UNNotificationPresentationOptions) -> Void) {
+
+          completionHandler([.alert, .sound, .badge])
+        }
+
+        func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
+            completionHandler()
+        }
 }
 

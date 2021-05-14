@@ -8,6 +8,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <UserNotifications/UserNotifications.h>
 @import AEPCore;
 @import AEPLifecycle;
 @import AEPIdentity;
@@ -15,6 +16,7 @@
 @import AEPSignal;
 @import AdSupport;
 @import AVKit;
+@import AEPMessaging;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

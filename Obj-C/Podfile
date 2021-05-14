@@ -9,4 +9,5 @@ target 'AEPSampleAppObjC' do
 	pod 'AEPIdentity'
 	pod 'AEPSignal'
 	pod 'AEPRulesEngine'
+	pod 'AEPMessaging', :git => 'git@github.com:adobe/aepsdk-messaging-ios.git', :branch => 'dev'
 end
