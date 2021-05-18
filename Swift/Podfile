@@ -32,6 +32,5 @@ target 'AEPSampleApp' do
   # step-assurance-end
   
   pod 'AEPUserProfile'
-  pod 'AEPTarget'
 
 end

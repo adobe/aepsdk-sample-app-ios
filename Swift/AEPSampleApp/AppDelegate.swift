@@ -28,7 +28,6 @@ import AEPSampleExtensionSwift
 import AEPEdge
 import AEPEdgeConsent
 import AEPEdgeIdentity
-import AEPTarget
 //step-edge-end
 
 import AEPUserProfile
@@ -48,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                           Signal.self,
                           Edge.self,
                           Consent.self,
-                          Target.self,
                           AEPEdgeIdentity.Identity.self
                           //step-extension-start
                           , SampleExtension.self
