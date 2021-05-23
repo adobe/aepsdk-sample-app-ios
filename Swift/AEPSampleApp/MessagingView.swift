@@ -19,7 +19,7 @@ import AEPServices
 class MessagingViewController: UIHostingController<MessagingView> {}
 
 struct MessagingView: View {
-    @State private var personalisedData:String = ""
+    @State private var personalEmail:String = ""
 
     let LOG_PREFIX = "MessagingViewController"
 
@@ -36,7 +36,7 @@ struct MessagingView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Give an email for personalization").bold()
 
-            TextField("", text: $personalisedData)
+            TextField("", text: $personalEmail)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
 
@@ -44,7 +44,7 @@ struct MessagingView: View {
                 self.sendProfileData()
             }){
                 HStack {
-                    Text("Update Name in AEP profile")
+                    Text("Update Email on your AEPProfile")
                         .font(.caption)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
@@ -60,18 +60,12 @@ struct MessagingView: View {
         Identity.getExperienceCloudId { (ecid, err) in
             if ecid == nil {return}
             var xdmData : [String: Any] = [:]
-            xdmData["identityMap"] = ["ECID" : [["id" : ecid]], "Email": [["id" : personalisedData]]]
+            xdmData["identityMap"] = ["ECID" : [["id" : ecid]], "Email": [["id" : personalEmail]]]
             let experienceEvent = ExperienceEvent(xdm: xdmData, datasetIdentifier: AppDelegate.EMAIL_UPDATE_DATASET)
                         
             Edge.sendEvent(experienceEvent: experienceEvent) { (_: [EdgeEventHandle]) in
                 Log.debug(label: LOG_PREFIX, "Edge call is complete")
             }
         }
-    }
-}
-
-struct MessagingViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
