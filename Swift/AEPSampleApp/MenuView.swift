@@ -39,12 +39,6 @@ struct MenuView: View {
                     }
                 }
                 
-                Section(header: Text("Target")) {
-                    NavigationLink(destination: TargetView().navigationBarTitle("Target")) {
-                        Text("Target")
-                    }
-                }
-                
                 Section(header: Text("Messaging")) {
                     NavigationLink(destination: MessagingView().navigationBarTitle("Messaging")) {
                         Text("Messaging")

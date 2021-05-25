@@ -1,31 +1,20 @@
 PODS:
-  - AEPCore (3.1.2):
-    - AEPRulesEngine (= 1.0.0)
-    - AEPServices (= 3.1.2)
-  - AEPEdge (1.1.0):
-    - AEPCore (>= 3.1.1)
-    - AEPEdgeIdentity
-  - AEPEdgeIdentity (1.0.0):
-    - AEPCore (>= 3.1.1)
-  - AEPIdentity (3.1.2):
-    - AEPCore (= 3.1.2)
-  - AEPLifecycle (3.1.2):
-    - AEPCore (= 3.1.2)
-  - AEPMessaging (1.0.0-beta-1):
-    - AEPCore
-    - AEPEdge (>= 1.1.0)
-    - AEPEdgeIdentity (>= 1.0.0)
-    - AEPServices
-  - AEPRulesEngine (1.0.0)
-  - AEPServices (3.1.2)
-  - AEPSignal (3.1.2):
-    - AEPCore (= 3.1.2)
+  - AEPCore (3.1.3):
+    - AEPRulesEngine (= 1.0.1)
+    - AEPServices (= 3.1.3)
+  - AEPIdentity (3.1.3):
+    - AEPCore (= 3.1.3)
+  - AEPLifecycle (3.1.3):
+    - AEPCore (= 3.1.3)
+  - AEPRulesEngine (1.0.1)
+  - AEPServices (3.1.3)
+  - AEPSignal (3.1.3):
+    - AEPCore (= 3.1.3)
 
 DEPENDENCIES:
   - AEPCore
   - AEPIdentity
   - AEPLifecycle
-  - "AEPMessaging (from `git@github.com:adobe/aepsdk-messaging-ios.git`, branch `dev`)"
   - AEPRulesEngine
   - AEPServices
   - AEPSignal
@@ -33,35 +22,20 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AEPCore
-    - AEPEdge
-    - AEPEdgeIdentity
     - AEPIdentity
     - AEPLifecycle
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
 
-EXTERNAL SOURCES:
-  AEPMessaging:
-    :branch: dev
-    :git: "git@github.com:adobe/aepsdk-messaging-ios.git"
-
-CHECKOUT OPTIONS:
-  AEPMessaging:
-    :commit: e1011121b3b9157e856fa1bded808e5e0327f8b3
-    :git: "git@github.com:adobe/aepsdk-messaging-ios.git"
-
 SPEC CHECKSUMS:
-  AEPCore: d85439869b2f9bcb9d84c1662ced049dd5fa9b56
-  AEPEdge: 818ca6ea6ac1a9e16a876036c78908996033599f
-  AEPEdgeIdentity: 40d312b4434b710a46c1738ab2a221dda4cfd67e
-  AEPIdentity: 0102f7e5d0302d5b99cdd34c8ea6c5598ed222d2
-  AEPLifecycle: fdcd802351bec596be0f2365fd21a6f342318a51
-  AEPMessaging: e013381ed392007ab60483ef0a897737381af484
-  AEPRulesEngine: 8bbc694fce6900cd33b2496c7d4b33ee2eeffc46
-  AEPServices: 891fc1fb2e2ecacf02f293d1a7f3c478dc4d338b
-  AEPSignal: c49cdf7e1647fae543c698a8ce1089844543c244
+  AEPCore: 6ec14ec9b1ff45999ea53be112aba85522ad00c4
+  AEPIdentity: 49e6c742238be0f77d5ae8928c13acfd1d8bec3c
+  AEPLifecycle: 9ed7ceabd98cc5c94b13c3b085c9f1eef2c714fe
+  AEPRulesEngine: 5075ed294026a12e37bd26fe260f74604d205354
+  AEPServices: e032bfacfcb31f3a583b2aa1e87df5d427cca95d
+  AEPSignal: c0619814fbf50dbb1dde4e79141d528aa2606e9e
 
-PODFILE CHECKSUM: 0c0d4484ff9cf0d7c8b5648e166b3612986738fb
+PODFILE CHECKSUM: 5f4470767c0c15591fd25b96c34800c4ab0af242
 
 COCOAPODS: 1.10.1

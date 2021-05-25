@@ -14,7 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [AEPMobileCore setLogLevel: AEPLogLevelTrace];
-    NSArray *extensionsToRegister = @[AEPMobileIdentity.class, AEPMobileLifecycle.class, AEPMobileSignal.class, AEPMobileMessaging.class];
+    NSArray *extensionsToRegister = @[AEPMobileIdentity.class, AEPMobileLifecycle.class, AEPMobileSignal.class];
     [AEPMobileCore registerExtensions:extensionsToRegister completion:^{
         [AEPMobileCore lifecycleStart:@{@"contextDataKey": @"contextDataVal"}];
     }];
