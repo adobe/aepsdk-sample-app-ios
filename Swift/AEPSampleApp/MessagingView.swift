@@ -19,10 +19,10 @@ import AEPServices
 class MessagingViewController: UIHostingController<MessagingView> {}
 
 struct MessagingView: View {
-    @State private var personalEmail:String = ""
+    @State private var ecidState:String = ""
 
     let LOG_PREFIX = "MessagingViewController"
-
+    
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 12) {
             messaging
@@ -34,38 +34,18 @@ struct MessagingView: View {
     /// UI elements for the product review example
     var messaging: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Give an email for personalization").bold()
-
-            TextField("", text: $personalEmail)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .autocapitalization(.none)
-
-            Button(action: {
-                self.sendProfileData()
-            }){
-                HStack {
-                    Text("Update Email on your AEPProfile")
-                        .font(.caption)
-                }
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .padding()
-                .background(Color.gray)
-                .foregroundColor(.white)
-                .cornerRadius(5)
-            }
+            Text("Messaging SDK setup is complete with ECID")
+            Text(ecidState)
+            Text("For more details please take a look at the documentation in the github repository.").bold()
+        }.onAppear() {
+            updateEcid()
         }
     }
 
-    func sendProfileData() {
+    func updateEcid() {
         Identity.getExperienceCloudId { (ecid, err) in
             if ecid == nil {return}
-            var xdmData : [String: Any] = [:]
-            xdmData["identityMap"] = ["ECID" : [["id" : ecid]], "Email": [["id" : personalEmail]]]
-            let experienceEvent = ExperienceEvent(xdm: xdmData, datasetIdentifier: AppDelegate.EMAIL_UPDATE_DATASET)
-                        
-            Edge.sendEvent(experienceEvent: experienceEvent) { (_: [EdgeEventHandle]) in
-                Log.debug(label: LOG_PREFIX, "Edge call is complete")
-            }
+            ecidState = ecid ?? ""
         }
     }
 }
