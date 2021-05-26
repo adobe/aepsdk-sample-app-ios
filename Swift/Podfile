@@ -32,5 +32,7 @@ target 'AEPSampleApp' do
   # step-assurance-end
   
   pod 'AEPUserProfile'
+  
+  pod 'AEPMessaging', :git => 'https://github.com/adobe/aepsdk-messaging-ios.git', :branch => 'main'
 
 end

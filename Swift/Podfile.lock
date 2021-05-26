@@ -25,6 +25,11 @@ PODS:
     - AEPCore (= 3.1.3)
   - AEPLifecycle (3.1.3):
     - AEPCore (= 3.1.3)
+  - AEPMessaging (1.0.0-beta-1):
+    - AEPCore
+    - AEPEdge (>= 1.1.0)
+    - AEPEdgeIdentity (>= 1.0.0)
+    - AEPServices
   - AEPRulesEngine (1.0.1)
   - AEPSampleExtensionSwift (0.0.1):
     - AEPCore (~> 3.0)
@@ -43,6 +48,7 @@ DEPENDENCIES:
   - AEPEdgeIdentity
   - AEPIdentity
   - AEPLifecycle
+  - AEPMessaging (from `https://github.com/adobe/aepsdk-messaging-ios.git`, branch `main`)
   - AEPRulesEngine
   - AEPSampleExtensionSwift (from `https://github.com/adobe/aepsdk-sample-extension-ios.git`, branch `main`)
   - AEPServices
@@ -67,6 +73,9 @@ EXTERNAL SOURCES:
   ACPCore:
     :branch: main
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
+  AEPMessaging:
+    :branch: main
+    :git: https://github.com/adobe/aepsdk-messaging-ios.git
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -75,6 +84,9 @@ CHECKOUT OPTIONS:
   ACPCore:
     :commit: c43675de0c97ee76fd51b005e8c9cdc7515e4a78
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
+  AEPMessaging:
+    :commit: 2cbb4c12d33bb611b0ef5df09c70b8e4760d99c0
+    :git: https://github.com/adobe/aepsdk-messaging-ios.git
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -88,12 +100,13 @@ SPEC CHECKSUMS:
   AEPEdgeIdentity: 40d312b4434b710a46c1738ab2a221dda4cfd67e
   AEPIdentity: 49e6c742238be0f77d5ae8928c13acfd1d8bec3c
   AEPLifecycle: 9ed7ceabd98cc5c94b13c3b085c9f1eef2c714fe
+  AEPMessaging: e013381ed392007ab60483ef0a897737381af484
   AEPRulesEngine: 5075ed294026a12e37bd26fe260f74604d205354
   AEPSampleExtensionSwift: 57f8b73affbf831b274257811a2102805c498538
   AEPServices: e032bfacfcb31f3a583b2aa1e87df5d427cca95d
   AEPSignal: c0619814fbf50dbb1dde4e79141d528aa2606e9e
   AEPUserProfile: d8702b2e3fc321febdc3854208db9bb1ad3b61c8
 
-PODFILE CHECKSUM: 2531b58b16d1165a54bc73ce2051f99340fd8baf
+PODFILE CHECKSUM: 46c60c418f01fa7c1c0a36ffd8be1b983fc8ce30
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

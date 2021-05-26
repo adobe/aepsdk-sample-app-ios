@@ -17,6 +17,8 @@
 		782B982A24D9BA8C009C5902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782B982924D9BA8C009C5902 /* Assets.xcassets */; };
 		782B982D24D9BA8C009C5902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */; };
 		7876121124DC601B001CABB5 /* AssuranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121024DC601B001CABB5 /* AssuranceView.swift */; };
+		92430A95263B28D7004FBDCC /* MessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92430A94263B28D7004FBDCC /* MessagingView.swift */; };
+		BBCD4FCB2628B372009AF164 /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCD4FCA2628B372009AF164 /* TargetView.swift */; };
 		D42BE5C32524569C00782C3C /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42BE5C22524569C00782C3C /* EdgeView.swift */; };
 		D4E2FDB2252554E6001FE22D /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD8E252554E6001FE22D /* Purchases.swift */; };
 		D4E2FDB3252554E6001FE22D /* InStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */; };
@@ -52,6 +54,9 @@
 		782B982C24D9BA8C009C5902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		782B982E24D9BA8C009C5902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7876121024DC601B001CABB5 /* AssuranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssuranceView.swift; sourceTree = "<group>"; };
+		92430A90263B2340004FBDCC /* AEPSampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AEPSampleApp.entitlements; sourceTree = "<group>"; };
+		92430A94263B28D7004FBDCC /* MessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
+		BBCD4FCA2628B372009AF164 /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
 		D42BE5C22524569C00782C3C /* EdgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
 		D4E2FD8E252554E6001FE22D /* Purchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Purchases.swift; path = xdmlib/Purchases.swift; sourceTree = "<group>"; };
 		D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InStorePurchase.swift; path = xdmlib/InStorePurchase.swift; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 		782B981F24D9BA89009C5902 /* AEPSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				92430A90263B2340004FBDCC /* AEPSampleApp.entitlements */,
 				D4E2FD8D252554D8001FE22D /* xdmlib */,
 				782B982024D9BA89009C5902 /* AppDelegate.swift */,
 				218306EC26138BBA00889569 /* MenuView.swift */,
@@ -118,6 +124,7 @@
 				782B982924D9BA8C009C5902 /* Assets.xcassets */,
 				782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */,
 				782B982E24D9BA8C009C5902 /* Info.plist */,
+				92430A94263B28D7004FBDCC /* MessagingView.swift */,
 			);
 			path = AEPSampleApp;
 			sourceTree = "<group>";
@@ -288,6 +295,7 @@
 				D4E2FDC9252554E6001FE22D /* ProductViews.swift in Sources */,
 				D4E2FDB9252554E6001FE22D /* ProductListOpens.swift in Sources */,
 				D4E2FDCD252554E6001FE22D /* CartAbandons.swift in Sources */,
+				92430A95263B28D7004FBDCC /* MessagingView.swift in Sources */,
 				D4E2FDC5252554E6001FE22D /* Checkouts.swift in Sources */,
 				D4E2FDC7252554E6001FE22D /* PaymentsItem.swift in Sources */,
 				218306ED26138BBA00889569 /* MenuView.swift in Sources */,
@@ -437,6 +445,7 @@
 			baseConfigurationReference = 30701321116461F390347F6A /* Pods-AEPSampleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AEPSampleApp/AEPSampleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AEPSampleApp/Info.plist;
@@ -445,7 +454,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -457,6 +466,7 @@
 			baseConfigurationReference = 3978EDF8C1A4AFB0B6F07ED8 /* Pods-AEPSampleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AEPSampleApp/AEPSampleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AEPSampleApp/Info.plist;
@@ -465,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AEPSampleApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
