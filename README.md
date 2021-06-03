@@ -45,6 +45,14 @@ This repository contains iOS sample apps for the AEP SDK. Examples are provided 
 - Run the `AEPSampleAppObjC` target on the simulator of your choice.
 
 ## Documentation
+### Launch Edge Extensions Prerequisites
+App needs to be configured with the following edge extensions in Launch before it can be used: 
+- [Edge](https://aep-sdks.gitbook.io/docs/foundation-extensions/experience-platform-extension)
+- [Edge Identity](https://aep-sdks.gitbook.io/docs/foundation-extensions/identity-for-edge-network)
+- [Consent](https://aep-sdks.gitbook.io/docs/foundation-extensions/consent-for-edge-network),
+- [Messaging](https://aep-sdks.gitbook.io/docs/beta/adobe-journey-optimizer#configure-extension-in-launch)
+
+### Messaging
 Follow the [documentation](Documentation/README.md) for enabling messaging in the sample app.
 
 ## Contributing
