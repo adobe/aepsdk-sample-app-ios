@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                           //step-extension-end
                           , UserProfile.self
                           // step-assurance-start
-                          , AEPAssurance.self
+                          , Assurance.self
                           // step-assurance-end
                           , Messaging.self
                         ]

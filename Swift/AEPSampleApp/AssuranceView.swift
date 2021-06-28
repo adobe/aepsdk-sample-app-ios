@@ -25,7 +25,7 @@ struct AssuranceView: View {
                     // step-assurance-start
                     // replace the url with the valid one generated on Assurance UI
                     if let url = URL(string: self.assuranceSessionUrl) {
-                        AEPAssurance.startSession(url)
+                        Assurance.startSession(url: url)
                     }
                     // step-assurance-end
                 }){
