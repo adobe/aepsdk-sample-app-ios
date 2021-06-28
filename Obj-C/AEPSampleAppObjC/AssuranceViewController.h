@@ -8,15 +8,14 @@
  */
 
 #import <UIKit/UIKit.h>
+@import AEPAssurance;
 
 @interface AssuranceViewController: UIViewController
 
-@property (nonatomic, weak) IBOutlet UITextField *griffonSessionUrlField;
+@property (nonatomic, weak) IBOutlet UITextField *assuranceSessionUrlField;
 @property (nonatomic, weak) IBOutlet UIButton *connectButton;
-@property (nonatomic, weak) IBOutlet UIButton *disconnectButton;
 
 - (IBAction)connectButtonTapped:(id)sender;
-- (IBAction)disconnectButtonTapped:(id)sender;
 
 
 @end
