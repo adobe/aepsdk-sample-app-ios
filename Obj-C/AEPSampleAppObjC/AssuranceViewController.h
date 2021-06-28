@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GriffonViewController: UIViewController
+@interface AssuranceViewController: UIViewController
 
 @property (nonatomic, weak) IBOutlet UITextField *griffonSessionUrlField;
 @property (nonatomic, weak) IBOutlet UIButton *connectButton;

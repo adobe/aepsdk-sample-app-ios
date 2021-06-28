@@ -7,9 +7,9 @@
  it.
  */
 
-#import "GriffonViewController.h"
+#import "AssuranceViewController.h"
 
-@implementation GriffonViewController
+@implementation AssuranceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
