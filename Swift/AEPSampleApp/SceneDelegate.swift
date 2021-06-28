@@ -28,6 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        // Called when the app launches with the deep link
+        if let deepLinkURL = connectionOptions.urlContexts.first?.url {
+            Assurance.startSession(url: deepLinkURL)
+        }
+
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
@@ -67,7 +74,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         // step-assurance-start
         guard let urlContexts = URLContexts.first else { return }
-        AEPAssurance.startSession(urlContexts.url)
+        Assurance.startSession(url: urlContexts.url)
         // step-assurance-end
     }
 }
