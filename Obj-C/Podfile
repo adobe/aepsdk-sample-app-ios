@@ -9,4 +9,5 @@ target 'AEPSampleAppObjC' do
 	pod 'AEPIdentity'
 	pod 'AEPSignal'
 	pod 'AEPRulesEngine'
+  pod 'AEPAssurance'
 end

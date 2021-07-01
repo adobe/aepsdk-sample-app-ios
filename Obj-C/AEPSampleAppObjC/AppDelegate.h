@@ -16,6 +16,7 @@
 @import AEPSignal;
 @import AdSupport;
 @import AVKit;
+@import AEPAssurance;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -7,9 +7,9 @@
  it.
  */
 
-#import "GriffonViewController.h"
+#import "AssuranceViewController.h"
 
-@implementation GriffonViewController
+@implementation AssuranceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -17,12 +17,8 @@
 }
 
 - (void)connectButtonTapped:(id)sender {
-//    NSString *griffonUrl = _griffonSessionUrlField.text;
-//    [AEPGriffon startSession: griffonUrl]
-}
-
-- (void)disconnectButtonTapped:(id)sender {
-    // [AEPGriffon endSession]
+    NSString *assuranceUrl = _assuranceSessionUrlField.text;
+    [AEPMobileAssurance startSessionWithUrl:[NSURL URLWithString:assuranceUrl]];
 }
 
 @end
