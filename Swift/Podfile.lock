@@ -38,7 +38,7 @@ DEPENDENCIES:
   - AEPEdgeIdentity
   - AEPIdentity
   - AEPLifecycle
-  - AEPMessaging (from `https://github.com/adobe/aepsdk-messaging-ios.git`, branch `main`)
+  - AEPMessaging
   - AEPRulesEngine
   - AEPSampleExtensionSwift (from `https://github.com/adobe/aepsdk-sample-extension-ios.git`, branch `main`)
   - AEPServices
@@ -54,23 +54,18 @@ SPEC REPOS:
     - AEPEdgeIdentity
     - AEPIdentity
     - AEPLifecycle
+    - AEPMessaging
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
     - AEPUserProfile
 
 EXTERNAL SOURCES:
-  AEPMessaging:
-    :branch: main
-    :git: https://github.com/adobe/aepsdk-messaging-ios.git
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
 
 CHECKOUT OPTIONS:
-  AEPMessaging:
-    :commit: f4a3dd921ae18f696c7b28fef5edd786c19cdbba
-    :git: https://github.com/adobe/aepsdk-messaging-ios.git
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -90,6 +85,6 @@ SPEC CHECKSUMS:
   AEPSignal: 378399354d202a7b835a9abe8d9ad63622c8c52f
   AEPUserProfile: 2ddb5ba8e2c22dd8f942992306b050f4be2c2403
 
-PODFILE CHECKSUM: 4fd738829bbf2fbf215f27757f73dd974bebed09
+PODFILE CHECKSUM: fcd70789ec3f46d9af215ff936af77b10b9b619f
 
 COCOAPODS: 1.11.2
