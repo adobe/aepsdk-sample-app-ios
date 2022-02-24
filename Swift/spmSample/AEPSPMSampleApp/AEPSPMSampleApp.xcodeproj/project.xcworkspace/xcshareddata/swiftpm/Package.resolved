@@ -1,0 +1,79 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AEPAssurance",
+        "repositoryURL": "https://github.com/adobe/aepsdk-assurance-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "06ea89a7f155aa2cc95dbdab9cdf0ab78fb38577",
+          "version": "3.0.1"
+        }
+      },
+      {
+        "package": "AEPCore",
+        "repositoryURL": "https://github.com/adobe/aepsdk-core-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "093c929fbd844284c100d2dff20f3385334af212",
+          "version": "3.4.2"
+        }
+      },
+      {
+        "package": "AEPEdge",
+        "repositoryURL": "https://github.com/adobe/aepsdk-edge-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "c70f73fddd52ba2543d8aac31ade571e72cf9d74",
+          "version": "1.3.0"
+        }
+      },
+      {
+        "package": "AEPEdgeConsent",
+        "repositoryURL": "https://github.com/adobe/aepsdk-edgeconsent-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "8954d8f9e2c56ab51ffd0bd63a846bc1e396923b",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "AEPEdgeIdentity",
+        "repositoryURL": "https://github.com/adobe/aepsdk-edgeidentity-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "9c94a86e579086677a8693abb337413f373198f5",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "AEPMessaging",
+        "repositoryURL": "https://github.com/adobe/aepsdk-messaging-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "b644b9b85c457fbd9edc1b8c84fe957542d7882e",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "AEPRulesEngine",
+        "repositoryURL": "https://github.com/adobe/aepsdk-rulesengine-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "8795703e92570d9744d7f39d59e2c6f44ecb3078",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "AEPUserProfile",
+        "repositoryURL": "https://github.com/adobe/aepsdk-userprofile-ios",
+        "state": {
+          "branch": null,
+          "revision": "5fab4c979bf29d2086a6521969a9f8ad38d69062",
+          "version": "3.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
