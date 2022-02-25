@@ -1,0 +1,11 @@
+framework module AEPServices {
+  umbrella header "AEPServices.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPServices.Swift {
+    header "AEPServices-Swift.h"
+    requires objc
+}

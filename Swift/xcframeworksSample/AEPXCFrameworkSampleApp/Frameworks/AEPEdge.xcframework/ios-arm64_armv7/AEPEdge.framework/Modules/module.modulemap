@@ -1,0 +1,11 @@
+framework module AEPEdge {
+  umbrella header "AEPEdge.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPEdge.Swift {
+    header "AEPEdge-Swift.h"
+    requires objc
+}

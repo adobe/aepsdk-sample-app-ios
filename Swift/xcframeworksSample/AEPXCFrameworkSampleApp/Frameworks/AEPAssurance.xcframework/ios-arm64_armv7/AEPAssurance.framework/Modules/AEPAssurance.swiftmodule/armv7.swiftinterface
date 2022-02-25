@@ -1,0 +1,27 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AEPAssurance
+@_exported import AEPAssurance
+import AEPCore
+import AEPServices
+import CoreLocation
+import Foundation
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+@_hasMissingDesignatedInitializers @objc(AEPMobileAssurance) public class Assurance : ObjectiveC.NSObject, AEPCore.Extension {
+  @objc public var name: Swift.String
+  @objc public var friendlyName: Swift.String
+  @objc public static var extensionVersion: Swift.String
+  @objc public var metadata: [Swift.String : Swift.String]?
+  @objc public var runtime: AEPCore.ExtensionRuntime
+  @objc public func onRegistered()
+  @objc public func onUnregistered()
+  @objc required public init?(runtime: AEPCore.ExtensionRuntime)
+  @objc public func readyForEvent(_ event: AEPCore.Event) -> Swift.Bool
+  @objc deinit
+}
+@objc extension AEPAssurance.Assurance {
+  @objc public static func startSession(url: Foundation.URL?)
+}

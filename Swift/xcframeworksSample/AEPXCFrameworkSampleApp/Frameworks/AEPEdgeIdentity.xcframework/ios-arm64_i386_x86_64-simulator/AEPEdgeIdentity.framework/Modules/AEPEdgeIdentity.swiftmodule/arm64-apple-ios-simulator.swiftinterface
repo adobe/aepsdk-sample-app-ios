@@ -1,0 +1,64 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AEPEdgeIdentity
+import AEPCore
+@_exported import AEPEdgeIdentity
+import AEPServices
+import Foundation
+import Swift
+import _Concurrency
+@objc extension AEPEdgeIdentity.Identity {
+  @objc(getExperienceCloudId:) public static func getExperienceCloudId(completion: @escaping (Swift.String?, Swift.Error?) -> Swift.Void)
+  @objc(getIdentities:) public static func getIdentities(completion: @escaping (AEPEdgeIdentity.IdentityMap?, Swift.Error?) -> Swift.Void)
+  @objc(updateIdentities:) public static func updateIdentities(with map: AEPEdgeIdentity.IdentityMap)
+  @objc(removeIdentityItem:withNamespace:) public static func removeIdentity(item: AEPEdgeIdentity.IdentityItem, withNamespace: Swift.String)
+}
+@objc(AEPMobileEdgeIdentity) public class Identity : ObjectiveC.NSObject, AEPCore.Extension {
+  @objc final public let name: Swift.String
+  @objc final public let friendlyName: Swift.String
+  @objc public static let extensionVersion: Swift.String
+  @objc final public let metadata: [Swift.String : Swift.String]?
+  @objc final public let runtime: AEPCore.ExtensionRuntime
+  @objc required public init?(runtime: AEPCore.ExtensionRuntime)
+  @objc public func onRegistered()
+  @objc public func onUnregistered()
+  @objc public func readyForEvent(_ event: AEPCore.Event) -> Swift.Bool
+  @objc deinit
+}
+@objc(AEPAuthenticatedState) public enum AuthenticatedState : Swift.Int, Swift.RawRepresentable, Swift.Codable {
+  case ambiguous = 0
+  case authenticated = 1
+  case loggedOut = 2
+  public typealias RawValue = Swift.String
+  public var rawValue: AEPEdgeIdentity.AuthenticatedState.RawValue {
+    get
+  }
+  public init?(rawValue: AEPEdgeIdentity.AuthenticatedState.RawValue)
+}
+@_inheritsConvenienceInitializers @objc(AEPIdentityMap) public class IdentityMap : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var isEmpty: Swift.Bool {
+    @objc get
+  }
+  @objc public var namespaces: [Swift.String] {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc(addItem:withNamespace:) public func add(item: AEPEdgeIdentity.IdentityItem, withNamespace: Swift.String)
+  @objc(removeItem:withNamespace:) public func remove(item: AEPEdgeIdentity.IdentityItem, withNamespace: Swift.String)
+  @objc(getItemsWithNamespace:) public func getItems(withNamespace: Swift.String) -> [AEPEdgeIdentity.IdentityItem]?
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@objc(AEPIdentityItem) @objcMembers public class IdentityItem : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let id: Swift.String
+  @objc final public let authenticatedState: AEPEdgeIdentity.AuthenticatedState
+  @objc final public let primary: Swift.Bool
+  @objc public init(id: Swift.String, authenticatedState: AEPEdgeIdentity.AuthenticatedState = .ambiguous, primary: Swift.Bool = false)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension AEPEdgeIdentity.AuthenticatedState : Swift.Equatable {}
+extension AEPEdgeIdentity.AuthenticatedState : Swift.Hashable {}

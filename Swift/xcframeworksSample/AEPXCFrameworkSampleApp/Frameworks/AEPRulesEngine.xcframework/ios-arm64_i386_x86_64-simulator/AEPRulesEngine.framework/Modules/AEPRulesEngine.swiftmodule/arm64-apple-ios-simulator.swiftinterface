@@ -1,0 +1,177 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AEPRulesEngine
+@_exported import AEPRulesEngine
+import Foundation
+import Swift
+import _Concurrency
+public struct ComparisonExpression<A, B> : AEPRulesEngine.Evaluable {
+  public init(lhs: AEPRulesEngine.Operand<A>, operationName: Swift.String, rhs: AEPRulesEngine.Operand<B>)
+  public func evaluate(in context: AEPRulesEngine.Context) -> Swift.Result<Swift.Bool, AEPRulesEngine.RulesFailure>
+}
+@_hasMissingDesignatedInitializers public class ConditionEvaluator : AEPRulesEngine.Evaluating {
+  public func evaluate<A>(operation: Swift.String, lhs: A) -> Swift.Result<Swift.Bool, AEPRulesEngine.RulesFailure>
+  public func evaluate<A, B>(operation: Swift.String, lhs: A, rhs: B) -> Swift.Result<Swift.Bool, AEPRulesEngine.RulesFailure>
+  @objc deinit
+}
+extension AEPRulesEngine.ConditionEvaluator {
+  public func addUnaryOperator<A>(operation: Swift.String, closure: @escaping (A) -> Swift.Bool)
+  public func addComparisonOperator<A, B>(operation: Swift.String, closure: @escaping (A, B) -> Swift.Bool)
+  public func addComparisonOperator<A>(operation: Swift.String, type _: A.Type, closure: @escaping (A, A) -> Swift.Bool)
+}
+extension AEPRulesEngine.ConditionEvaluator {
+  public struct Options : Swift.OptionSet {
+    public let rawValue: Swift.Int
+    public static let defaultOptions: AEPRulesEngine.ConditionEvaluator.Options
+    public static let caseInsensitive: AEPRulesEngine.ConditionEvaluator.Options
+    public init(rawValue: Swift.Int)
+    public typealias ArrayLiteralElement = AEPRulesEngine.ConditionEvaluator.Options
+    public typealias Element = AEPRulesEngine.ConditionEvaluator.Options
+    public typealias RawValue = Swift.Int
+  }
+  convenience public init(options: AEPRulesEngine.ConditionEvaluator.Options)
+}
+public struct Context {
+  public let data: AEPRulesEngine.Traversable
+  public let evaluator: AEPRulesEngine.Evaluating
+  public let transformer: AEPRulesEngine.Transforming
+}
+public protocol Evaluable {
+  func evaluate(in context: AEPRulesEngine.Context) -> Swift.Result<Swift.Bool, AEPRulesEngine.RulesFailure>
+}
+public protocol Evaluating {
+  func evaluate<A, B>(operation: Swift.String, lhs: A, rhs: B) -> Swift.Result<Swift.Bool, AEPRulesEngine.RulesFailure>
+  func evaluate<A>(operation: Swift.String, lhs: A) -> Swift.Result<Swift.Bool, AEPRulesEngine.RulesFailure>
+}
+public enum Log {
+  public static var logging: AEPRulesEngine.Logging?
+}
+public protocol Logging {
+  func log(level: AEPRulesEngine.LogLevel, label: Swift.String, message: Swift.String)
+}
+public struct LogicalExpression : AEPRulesEngine.Evaluable {
+  public let operands: [AEPRulesEngine.Evaluable]
+  public let operationName: Swift.String
+  public init(operationName: Swift.String, operands: AEPRulesEngine.Evaluable...)
+  public init(operationName: Swift.String, operands: [AEPRulesEngine.Evaluable])
+  public func evaluate(in context: AEPRulesEngine.Context) -> Swift.Result<Swift.Bool, AEPRulesEngine.RulesFailure>
+}
+public enum LogLevel : Swift.Int, Swift.Comparable {
+  case error
+  case warning
+  case debug
+  case trace
+  public static func < (lhs: AEPRulesEngine.LogLevel, rhs: AEPRulesEngine.LogLevel) -> Swift.Bool
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct MustacheError : Swift.Error {
+  public let message: Swift.String?
+  public init(message: Swift.String? = nil)
+}
+indirect public enum MustacheToken {
+  case variable(text: Swift.String)
+  case function(content: Swift.String, inner: AEPRulesEngine.MustacheToken)
+  public init(_ tokenString: Swift.String)
+  public func resolve(in transformer: AEPRulesEngine.Transforming, data: AEPRulesEngine.Traversable) -> Any?
+}
+public enum Operand<T> {
+  case none
+  case some(T)
+  case token(AEPRulesEngine.MustacheToken)
+  case function(([Any]?) -> T, _: [Any]? = nil)
+}
+extension AEPRulesEngine.Operand {
+  public init(mustache: Swift.String)
+  public init(function: @escaping ([Any]?) -> T, parameters: [Any]? = nil)
+}
+extension AEPRulesEngine.Operand : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension AEPRulesEngine.Operand : Swift.ExpressibleByBooleanLiteral where T == Swift.Bool {
+  public init(booleanLiteral value: Swift.Bool)
+  public typealias BooleanLiteralType = Swift.Bool
+}
+extension AEPRulesEngine.Operand : Swift.ExpressibleByFloatLiteral where T == Swift.Double {
+  public init(floatLiteral value: Swift.Double)
+  public typealias FloatLiteralType = Swift.Double
+}
+extension AEPRulesEngine.Operand : Swift.ExpressibleByIntegerLiteral where T == Swift.Int {
+  public init(integerLiteral value: Swift.Int)
+  public typealias IntegerLiteralType = Swift.Int
+}
+extension AEPRulesEngine.Operand : Swift.ExpressibleByNilLiteral {
+  public init(nilLiteral _: ())
+}
+extension AEPRulesEngine.Operand : Swift.ExpressibleByUnicodeScalarLiteral where T == Swift.String {
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.String
+}
+extension AEPRulesEngine.Operand : Swift.ExpressibleByExtendedGraphemeClusterLiteral where T == Swift.String {
+  public typealias UnicodeScalarLiteralType = Swift.String
+}
+extension AEPRulesEngine.Operand : Swift.ExpressibleByStringLiteral where T == Swift.String {
+  public init(stringLiteral value: Swift.String)
+  public typealias StringLiteralType = Swift.String
+}
+extension AEPRulesEngine.RulesFailure : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public protocol Rule {
+  var condition: AEPRulesEngine.Evaluable { get }
+}
+public typealias RulesTracer = (Swift.Bool, AEPRulesEngine.Rule, AEPRulesEngine.Context, AEPRulesEngine.RulesFailure?) -> Swift.Void
+public class RulesEngine<T> where T : AEPRulesEngine.Rule {
+  final public let version: Swift.String
+  public init(evaluator: AEPRulesEngine.Evaluating, transformer: AEPRulesEngine.Transforming = Transformer())
+  public func evaluate(data: AEPRulesEngine.Traversable) -> [T]
+  public func addRules(rules: [T])
+  public func clearRules()
+  public func trace(with tracer: @escaping AEPRulesEngine.RulesTracer)
+  @objc deinit
+}
+public enum RulesFailure : Swift.Error {
+  case unknown
+  case conditionNotMatched(message: Swift.String)
+  case typeMismatched(message: Swift.String)
+  case missingOperator(message: Swift.String)
+  indirect case innerFailure(message: Swift.String, error: AEPRulesEngine.RulesFailure)
+  indirect case innerFailures(message: Swift.String, errors: [AEPRulesEngine.RulesFailure])
+}
+public struct Segment {
+}
+public class Template {
+  public init(templateString: Swift.String)
+  public init(templateString: Swift.String, tagDelimiterPair: AEPRulesEngine.DelimiterPair)
+  public func render(data: AEPRulesEngine.Traversable, transformers: AEPRulesEngine.Transforming) -> Swift.String
+  @objc deinit
+}
+public typealias DelimiterPair = (Swift.String, Swift.String)
+public enum TemplateParser {
+}
+public class Transformer : AEPRulesEngine.Transforming {
+  public init()
+  public func register(name: Swift.String, transformation: @escaping AEPRulesEngine.Transformation)
+  public func transform(name: Swift.String, parameter: Any) -> Any
+  @objc deinit
+}
+public typealias Transformation = (Any) -> Any
+public protocol Transforming {
+  func transform(name: Swift.String, parameter: Any) -> Any
+}
+public protocol Traversable {
+  func get(key: Swift.String) -> Any?
+}
+public struct UnaryExpression<A> : AEPRulesEngine.Evaluable {
+  public init(lhs: AEPRulesEngine.Operand<A>, operationName: Swift.String)
+  public func evaluate(in context: AEPRulesEngine.Context) -> Swift.Result<Swift.Bool, AEPRulesEngine.RulesFailure>
+}
+extension AEPRulesEngine.LogLevel : Swift.Hashable {}
+extension AEPRulesEngine.LogLevel : Swift.RawRepresentable {}

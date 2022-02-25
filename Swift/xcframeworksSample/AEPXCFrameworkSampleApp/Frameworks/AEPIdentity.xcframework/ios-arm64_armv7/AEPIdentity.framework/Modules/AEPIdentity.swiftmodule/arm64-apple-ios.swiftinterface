@@ -1,0 +1,49 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AEPIdentity
+import AEPCore
+@_exported import AEPIdentity
+import AEPServices
+import Foundation
+import Swift
+import _Concurrency
+@objc(AEPMobileVisitorAuthState) public enum MobileVisitorAuthenticationState : Swift.Int, Swift.Codable {
+  case unknown = 0
+  case authenticated = 1
+  case loggedOut = 2
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc extension AEPIdentity.Identity {
+  @objc public static func appendTo(url: Foundation.URL?, completion: @escaping (Foundation.URL?, Swift.Error?) -> Swift.Void)
+  @objc(getIdentifiers:) public static func getIdentifiers(completion: @escaping ([AEPIdentity.Identifiable]?, Swift.Error?) -> Swift.Void)
+  @objc(getExperienceCloudId:) public static func getExperienceCloudId(completion: @escaping (Swift.String?, Swift.Error?) -> Swift.Void)
+  @objc(syncIdentifierWithType:identifier:authenticationState:) public static func syncIdentifier(identifierType: Swift.String, identifier: Swift.String, authenticationState: AEPIdentity.MobileVisitorAuthenticationState)
+  @objc(syncIdentifiers:) public static func syncIdentifiers(identifiers: [Swift.String : Swift.String]?)
+  @objc(syncIdentifiers:authenticationState:) public static func syncIdentifiers(identifiers: [Swift.String : Swift.String]?, authenticationState: AEPIdentity.MobileVisitorAuthenticationState)
+  @objc(getUrlVariables:) public static func getUrlVariables(completion: @escaping (Swift.String?, Swift.Error?) -> Swift.Void)
+}
+@objc(AEPMobileIdentity) public class Identity : ObjectiveC.NSObject, AEPCore.Extension {
+  @objc final public let runtime: AEPCore.ExtensionRuntime
+  @objc final public let name: Swift.String
+  @objc final public let friendlyName: Swift.String
+  @objc public static let extensionVersion: Swift.String
+  @objc final public let metadata: [Swift.String : Swift.String]?
+  @objc required public init(runtime: AEPCore.ExtensionRuntime)
+  @objc public func onRegistered()
+  @objc public func onUnregistered()
+  @objc public func readyForEvent(_ event: AEPCore.Event) -> Swift.Bool
+  @objc deinit
+}
+@objc(AEPIdentifiable) public protocol Identifiable {
+  @objc var origin: Swift.String? { get }
+  @objc var type: Swift.String? { get }
+  @objc var identifier: Swift.String? { get }
+  @objc var authenticationState: AEPIdentity.MobileVisitorAuthenticationState { get }
+}
+extension AEPIdentity.MobileVisitorAuthenticationState : Swift.Equatable {}
+extension AEPIdentity.MobileVisitorAuthenticationState : Swift.Hashable {}
+extension AEPIdentity.MobileVisitorAuthenticationState : Swift.RawRepresentable {}

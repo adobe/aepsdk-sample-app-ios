@@ -1,0 +1,733 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AEPServices
+@_exported import AEPServices
+import Compression
+import CoreFoundation
+import CoreTelephony
+import Foundation
+import SQLite3
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import os.log
+import os
+public struct DefaultHeadersFormatter {
+  public static func formatLocale(_ unformattedLocale: Swift.String) -> Swift.String
+}
+extension AEPServices.FullscreenMessage : WebKit.WKNavigationDelegate {
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+}
+@objc(AEPLogging) public protocol Logging {
+  @objc func log(level: AEPServices.LogLevel, label: Swift.String, message: Swift.String)
+}
+@objc(AEPDismissible) public protocol Dismissible {
+  @objc func dismiss()
+}
+@objc(AEPNetworkRequest) public class NetworkRequest : ObjectiveC.NSObject {
+  final public let url: Foundation.URL
+  final public let httpMethod: AEPServices.HttpMethod
+  final public let connectPayload: Foundation.Data
+  final public let httpHeaders: [Swift.String : Swift.String]
+  final public let connectTimeout: Foundation.TimeInterval
+  final public let readTimeout: Foundation.TimeInterval
+  convenience public init(url: Foundation.URL, httpMethod: AEPServices.HttpMethod = HttpMethod.get, connectPayload: Swift.String = "", httpHeaders: [Swift.String : Swift.String] = [:], connectTimeout: Foundation.TimeInterval = 5, readTimeout: Foundation.TimeInterval = 5)
+  public init(url: Foundation.URL, httpMethod: AEPServices.HttpMethod = HttpMethod.get, connectPayloadData: Foundation.Data, httpHeaders: [Swift.String : Swift.String] = [:], connectTimeout: Foundation.TimeInterval = 5, readTimeout: Foundation.TimeInterval = 5)
+  @objc deinit
+}
+public protocol HitProcessing {
+  func retryInterval(for entity: AEPServices.DataEntity) -> Foundation.TimeInterval
+  func processHit(entity: AEPServices.DataEntity, completion: @escaping (Swift.Bool) -> Swift.Void)
+}
+@_hasMissingDesignatedInitializers @objc(AEPFullscreenMessage) public class FullscreenMessage : ObjectiveC.NSObject, AEPServices.FullscreenPresentable {
+  @objc public var settings: AEPServices.MessageSettings?
+  public var webView: UIKit.UIView? {
+    get
+  }
+  public func hide()
+  @objc public func show()
+  @objc public func dismiss()
+  public func handleJavascriptMessage(_ name: Swift.String, withHandler handler: @escaping (Any?) -> Swift.Void)
+  @objc deinit
+}
+final public class ThreadSafeArray<T> {
+  public init(identifier: Swift.String = "com.adobe.threadsafearray.queue")
+  final public func append(_ newElement: T)
+  final public func clear()
+  final public func removeFirst() -> T?
+  final public var isEmpty: Swift.Bool {
+    get
+  }
+  final public var count: Swift.Int {
+    get
+  }
+  final public var shallowCopy: [T] {
+    get
+  }
+  final public subscript(index: Swift.Int) -> T {
+    get
+    set
+  }
+  @objc deinit
+}
+extension AEPServices.ThreadSafeArray where T : Swift.Equatable {
+  final public func filterRemove(_ isIncluded: (T) throws -> Swift.Bool) -> [T]
+}
+@objc(AEPMessagingDelegate) public protocol MessagingDelegate {
+  @objc func onShow(message: AEPServices.Showable)
+  @objc func onDismiss(message: AEPServices.Showable)
+  @objc func shouldShowMessage(message: AEPServices.Showable) -> Swift.Bool
+  @objc optional func urlLoaded(_ url: Foundation.URL, byMessage message: AEPServices.Showable)
+}
+public protocol URLOpening {
+  @discardableResult
+  func openUrl(_ url: Foundation.URL) -> Swift.Bool
+}
+public enum NetworkServiceError : Swift.Error {
+  case invalidUrl
+  public static func == (a: AEPServices.NetworkServiceError, b: AEPServices.NetworkServiceError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum PrettyDictionary {
+  public static func prettify(_ dictionary: [Swift.String : Any?]?) -> Swift.String
+}
+@objc(AEPFloatingButtonDelegate) public protocol FloatingButtonDelegate {
+  @objc func onTapDetected()
+  @objc func onPanDetected()
+  @objc(onShowWithFloatingButton) func onShow()
+  @objc(onDismissWithFloatingButton) func onDismiss()
+}
+@objc(AEPCache) public class Cache : ObjectiveC.NSObject {
+  public init(name: Swift.String)
+  public func set(key: Swift.String, entry: AEPServices.CacheEntry) throws
+  public func get(key: Swift.String) -> AEPServices.CacheEntry?
+  public func remove(key: Swift.String) throws
+  @objc deinit
+}
+public class DataQueueService : AEPServices.DataQueuing {
+  public init()
+  @objc public func getDataQueue(label databaseName: Swift.String) -> AEPServices.DataQueue?
+  @objc deinit
+}
+public class PersistentHitQueue : AEPServices.HitQueuing {
+  final public let processor: AEPServices.HitProcessing
+  public init(dataQueue: AEPServices.DataQueue, processor: AEPServices.HitProcessing)
+  @discardableResult
+  public func queue(entity: AEPServices.DataEntity) -> Swift.Bool
+  public func beginProcessing()
+  public func suspend()
+  public func clear()
+  public func count() -> Swift.Int
+  public func close()
+  @objc deinit
+}
+extension AEPServices.FullscreenMessage : WebKit.WKScriptMessageHandler {
+  @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+}
+public struct NetworkServiceConstants {
+  public static let RECOVERABLE_ERROR_CODES: [Swift.Int]
+  public struct Headers {
+    public static let IF_MODIFIED_SINCE: Swift.String
+    public static let IF_NONE_MATCH: Swift.String
+    public static let LAST_MODIFIED: Swift.String
+    public static let ETAG: Swift.String
+    public static let CONTENT_TYPE: Swift.String
+  }
+  public struct HeaderValues {
+    public static let CONTENT_TYPE_URL_ENCODED: Swift.String
+  }
+}
+public enum CacheExpiry : Swift.Equatable {
+  case never
+  case seconds(Foundation.TimeInterval)
+  case date(Foundation.Date)
+  public var date: Foundation.Date {
+    get
+  }
+  public var isExpired: Swift.Bool {
+    get
+  }
+  public static func == (a: AEPServices.CacheExpiry, b: AEPServices.CacheExpiry) -> Swift.Bool
+}
+public class OperationOrderer<T> {
+  public init(_ tag: Swift.String = "anonymous")
+  public func add(_ item: T)
+  public func setHandler(_ handler: @escaping (T) -> Swift.Bool)
+  public func start()
+  public func start(after: Foundation.TimeInterval)
+  public func stop()
+  public func waitToStop()
+  @objc deinit
+}
+@objc(AEPUIServiceProtocol) public protocol UIService {
+  @objc func createFullscreenMessage(payload: Swift.String, listener: AEPServices.FullscreenMessageDelegate?, isLocalImageUsed: Swift.Bool) -> AEPServices.FullscreenPresentable
+  @objc optional func createFullscreenMessage(payload: Swift.String, listener: AEPServices.FullscreenMessageDelegate?, isLocalImageUsed: Swift.Bool, settings: AEPServices.MessageSettings?) -> AEPServices.FullscreenPresentable
+  @objc func createFloatingButton(listener: AEPServices.FloatingButtonDelegate) -> AEPServices.FloatingButtonPresentable
+}
+@objc(AEPFloatingButtonPresentable) public protocol FloatingButtonPresentable : AEPServices.Dismissible, AEPServices.Showable {
+  @objc func setButtonImage(imageData: Foundation.Data)
+  @objc func setInitial(position: AEPServices.FloatingButtonPosition)
+}
+@_hasMissingDesignatedInitializers @objc(AEPFloatingButton) public class FloatingButton : ObjectiveC.NSObject, AEPServices.FloatingButtonPresentable {
+  @objc public func show()
+  @objc public func dismiss()
+  @objc public func setButtonImage(imageData: Foundation.Data)
+  @objc public func setInitial(position: AEPServices.FloatingButtonPosition)
+  @objc deinit
+}
+public protocol Caching {
+  func set(cacheName: Swift.String, key: Swift.String, entry: AEPServices.CacheEntry) throws
+  func get(cacheName: Swift.String, key: Swift.String) -> AEPServices.CacheEntry?
+  func remove(cacheName: Swift.String, key: Swift.String) throws
+}
+@objc(AEPMessageAlignment) public enum MessageAlignment : Swift.Int {
+  case center = 0
+  case left = 1
+  case right = 2
+  case top = 3
+  case bottom = 4
+  public static func fromString(_ string: Swift.String) -> AEPServices.MessageAlignment
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+final public class ThreadSafeDictionary<K, V> where K : Swift.Hashable {
+  public typealias Element = Swift.Dictionary<K, V>.Element
+  @usableFromInline
+  final internal var dictionary: [K : V]
+  @usableFromInline
+  final internal let queue: Dispatch.DispatchQueue
+  public init(identifier: Swift.String = "com.adobe.threadsafedictionary.queue")
+  final public var count: Swift.Int {
+    get
+  }
+  final public var keys: [K] {
+    get
+  }
+  final public var shallowCopy: [K : V] {
+    get
+  }
+  final public subscript(key: K) -> V? {
+    get
+    set
+  }
+  @inlinable final public func first(where predicate: (AEPServices.ThreadSafeDictionary<K, V>.Element) throws -> Swift.Bool) rethrows -> AEPServices.ThreadSafeDictionary<K, V>.Element? {
+        return queue.sync { return try? self.dictionary.first(where: predicate) }
+    }
+  @inlinable final public func removeValue(forKey key: K) -> V? {
+        return queue.sync {
+            return self.dictionary.removeValue(forKey: key)
+        }
+    }
+  @objc deinit
+}
+public protocol HitQueuing {
+  var processor: AEPServices.HitProcessing { get }
+  @discardableResult
+  func queue(entity: AEPServices.DataEntity) -> Swift.Bool
+  func beginProcessing()
+  func suspend()
+  func clear()
+  func count() -> Swift.Int
+  func close()
+}
+public enum HttpConnectionConstants {
+  public enum ResponseCodes {
+    public static let HTTP_OK: Swift.Int
+    public static let HTTP_NOT_FOUND: Swift.Int
+    public static let HTTP_CLIENT_TIMEOUT: Swift.Int
+    public static let HTTP_REQUESTED_RANGE_NOT_SATISFIABLE: Swift.Int
+    public static let HTTP_GATEWAY_TIMEOUT: Swift.Int
+    public static let HTTP_UNAVAILABLE: Swift.Int
+  }
+  public enum Header {
+    public static let HTTP_HEADER_KEY_CONTENT_TYPE: Swift.String
+    public static let HTTP_HEADER_KEY_ACCEPT_LANGUAGE: Swift.String
+    public static let HTTP_HEADER_KEY_ACCEPT: Swift.String
+    public static let HTTP_HEADER_CONTENT_TYPE_JSON_APPLICATION: Swift.String
+    public static let HTTP_HEADER_CONTENT_TYPE_WWW_FORM_URLENCODED: Swift.String
+    public static let HTTP_HEADER_ACCEPT_TEXT_HTML: Swift.String
+  }
+}
+@objc(AEPMessageGesture) public enum MessageGesture : Swift.Int {
+  case swipeUp = 0
+  case swipeDown = 1
+  case swipeLeft = 2
+  case swipeRight = 3
+  case backgroundTap = 4
+  public static func fromString(_ string: Swift.String) -> AEPServices.MessageGesture?
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(AEPMessageSettings) @objcMembers public class MessageSettings : ObjectiveC.NSObject {
+  @objc final public let parent: Any?
+  public var width: Swift.Int? {
+    get
+  }
+  public var height: Swift.Int? {
+    get
+  }
+  public var verticalAlign: AEPServices.MessageAlignment? {
+    get
+  }
+  public var verticalInset: Swift.Int? {
+    get
+  }
+  public var horizontalAlign: AEPServices.MessageAlignment? {
+    get
+  }
+  public var horizontalInset: Swift.Int? {
+    get
+  }
+  public var uiTakeover: Swift.Bool? {
+    get
+  }
+  public var cornerRadius: CoreGraphics.CGFloat? {
+    get
+  }
+  public var gestures: [AEPServices.MessageGesture : Foundation.URL]? {
+    get
+  }
+  public var dismissAnimation: AEPServices.MessageAnimation? {
+    get
+  }
+  public var displayAnimation: AEPServices.MessageAnimation? {
+    get
+  }
+  @objc public init(parent: Any? = nil)
+  public func getBackgroundColor(opacity: CoreGraphics.CGFloat? = nil) -> UIKit.UIColor
+  @discardableResult
+  public func setWidth(_ width: Swift.Int?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setHeight(_ height: Swift.Int?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setVerticalAlign(_ vAlign: AEPServices.MessageAlignment?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setHorizontalAlign(_ hAlign: AEPServices.MessageAlignment?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setVerticalInset(_ vInset: Swift.Int?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setHorizontalInset(_ hInset: Swift.Int?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setUiTakeover(_ uiTakeover: Swift.Bool?) -> AEPServices.MessageSettings
+  @objc @discardableResult
+  public func setBackdropColor(_ color: Swift.String?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setBackdropOpacity(_ opacity: CoreGraphics.CGFloat?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setCornerRadius(_ radius: CoreGraphics.CGFloat?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setGestures(_ gestures: [AEPServices.MessageGesture : Foundation.URL]?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setDisplayAnimation(_ animation: AEPServices.MessageAnimation?) -> AEPServices.MessageSettings
+  @discardableResult
+  public func setDismissAnimation(_ animation: AEPServices.MessageAnimation?) -> AEPServices.MessageSettings
+  @objc deinit
+}
+public class NamedCollectionDataStore {
+  public init(name: Swift.String)
+  public subscript(key: Swift.String) -> Swift.Int? {
+    get
+    set
+  }
+  public func set(key: Swift.String, value: Swift.Int?)
+  public func getInt(key: Swift.String, fallback: Swift.Int? = nil) -> Swift.Int?
+  public subscript(key: Swift.String) -> Swift.String? {
+    get
+    set
+  }
+  public func set(key: Swift.String, value: Swift.String?)
+  public func getString(key: Swift.String, fallback: Swift.String? = nil) -> Swift.String?
+  public subscript(key: Swift.String) -> Swift.Double? {
+    get
+    set
+  }
+  public func set(key: Swift.String, value: Swift.Double?)
+  public func getDouble(key: Swift.String, fallback: Swift.Double? = nil) -> Swift.Double?
+  public subscript(key: Swift.String) -> Swift.Int64? {
+    get
+    set
+  }
+  public func set(key: Swift.String, value: Swift.Int64?)
+  public func getLong(key: Swift.String, fallback: Swift.Int64? = nil) -> Swift.Int64?
+  public subscript(key: Swift.String) -> Swift.Float? {
+    get
+    set
+  }
+  public func set(key: Swift.String, value: Swift.Float?)
+  public func getFloat(key: Swift.String, fallback: Swift.Float? = nil) -> Swift.Float?
+  public func set(key: Swift.String, value: Swift.Bool?)
+  public subscript(key: Swift.String) -> Swift.Bool? {
+    get
+    set
+  }
+  public func getBool(key: Swift.String, fallback: Swift.Bool? = nil) -> Swift.Bool?
+  public subscript(key: Swift.String) -> [Any]? {
+    get
+    set
+  }
+  public func set(key: Swift.String, value: [Any]?)
+  public func getArray(key: Swift.String, fallback: [Any]? = nil) -> [Any]?
+  public subscript(key: Swift.String) -> [Swift.AnyHashable : Any]? {
+    get
+    set
+  }
+  public func set(key: Swift.String, value: [Swift.AnyHashable : Any]?)
+  public func getDictionary(key: Swift.String, fallback: [Swift.AnyHashable : Any]? = nil) -> [Swift.AnyHashable : Any]?
+  public subscript<T>(key: Swift.String) -> T? where T : Swift.Decodable, T : Swift.Encodable {
+    get
+    set
+  }
+  public func setObject<T>(key: Swift.String, value: T) where T : Swift.Decodable, T : Swift.Encodable
+  public func getObject<T>(key: Swift.String, fallback: T? = nil) -> T? where T : Swift.Decodable, T : Swift.Encodable
+  public func contains(key: Swift.String) -> Swift.Bool
+  public func remove(key: Swift.String)
+  @objc deinit
+}
+public struct CacheEntry : Swift.Equatable {
+  public init(data: Foundation.Data, expiry: AEPServices.CacheExpiry, metadata: [Swift.String : Swift.String]?)
+  public let data: Foundation.Data
+  public let expiry: AEPServices.CacheExpiry
+  public let metadata: [Swift.String : Swift.String]?
+  public static func == (a: AEPServices.CacheEntry, b: AEPServices.CacheEntry) -> Swift.Bool
+}
+final public class AtomicCounter {
+  public init()
+  final public func incrementAndGet() -> Swift.Int
+  @objc deinit
+}
+@objc(AEPFullscreenPresentable) public protocol FullscreenPresentable : AEPServices.Dismissible, AEPServices.Showable {
+}
+public protocol NamedCollectionProcessing {
+  func setAppGroup(_ appGroup: Swift.String?)
+  func getAppGroup() -> Swift.String?
+  func set(collectionName: Swift.String, key: Swift.String, value: Any?)
+  func get(collectionName: Swift.String, key: Swift.String) -> Any?
+  func remove(collectionName: Swift.String, key: Swift.String)
+}
+@objc(AEPFullscreenMessageDelegate) public protocol FullscreenMessageDelegate {
+  @objc(onShowFullscreenMessage:) func onShow(message: AEPServices.FullscreenMessage)
+  @objc(onDismissFullscreenMessage:) func onDismiss(message: AEPServices.FullscreenMessage)
+  @objc(overrideUrlLoadFullscreenMessage:url:) func overrideUrlLoad(message: AEPServices.FullscreenMessage, url: Swift.String?) -> Swift.Bool
+  @objc(webViewDidFinishInitialLoading:) optional func webViewDidFinishInitialLoading(webView: WebKit.WKWebView)
+  @objc func onShowFailure()
+}
+public struct URLEncoder {
+  public static func encode(value: Swift.String) -> Swift.String
+  public static func decode(value: Swift.String) -> Swift.String
+}
+@objc(AEPFloatingButtonPosition) public enum FloatingButtonPosition : Swift.Int {
+  case center
+  case topRight
+  case topLeft
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct AnyCodable : Swift.Codable {
+  public var value: Any? {
+    get
+  }
+  public var stringValue: Swift.String? {
+    get
+  }
+  public var boolValue: Swift.Bool? {
+    get
+  }
+  public var intValue: Swift.Int? {
+    get
+  }
+  public var longValue: Swift.Int64? {
+    get
+  }
+  public var floatValue: Swift.Float? {
+    get
+  }
+  public var doubleValue: Swift.Double? {
+    get
+  }
+  public var arrayValue: [Any]? {
+    get
+  }
+  public var dictionaryValue: [Swift.String : Any]? {
+    get
+  }
+  public var dataValue: Foundation.Data? {
+    get
+  }
+  public init(_ value: Any?)
+  public static func from(dictionary: [Swift.String : Any?]?) -> [Swift.String : AEPServices.AnyCodable]?
+  public static func toAnyDictionary(dictionary: [Swift.String : AEPServices.AnyCodable]?) -> [Swift.String : Any]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension AEPServices.AnyCodable : Swift.ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift.String)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.String
+  public typealias StringLiteralType = Swift.String
+  public typealias UnicodeScalarLiteralType = Swift.String
+}
+extension AEPServices.AnyCodable : Swift.ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift.Bool)
+  public typealias BooleanLiteralType = Swift.Bool
+}
+extension AEPServices.AnyCodable : Swift.ExpressibleByIntegerLiteral {
+  public init(integerLiteral value: Swift.Int)
+  public init(longLiteral value: Swift.Int64)
+  public typealias IntegerLiteralType = Swift.Int
+}
+extension AEPServices.AnyCodable : Swift.ExpressibleByFloatLiteral {
+  public init(floatLiteral value: Swift.Double)
+  public typealias FloatLiteralType = Swift.Double
+}
+extension AEPServices.AnyCodable : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Any...)
+  public typealias ArrayLiteralElement = Any
+}
+extension AEPServices.AnyCodable : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Any)...)
+  public typealias Key = Swift.String
+  public typealias Value = Any
+}
+extension AEPServices.AnyCodable : Swift.ExpressibleByNilLiteral {
+  public init(nilLiteral _: ())
+}
+extension AEPServices.AnyCodable : Swift.Equatable {
+  public static func == (lhs: AEPServices.AnyCodable, rhs: AEPServices.AnyCodable) -> Swift.Bool
+}
+extension Swift.Encodable {
+  public func asDictionary(dateEncodingStrategy: Foundation.JSONEncoder.DateEncodingStrategy = .deferredToDate) -> [Swift.String : Any]?
+}
+public struct HttpConnection {
+  public let data: Foundation.Data?
+  public let response: Foundation.HTTPURLResponse?
+  public let error: Swift.Error?
+  public init(data: Foundation.Data?, response: Foundation.HTTPURLResponse?, error: Swift.Error?)
+}
+extension AEPServices.HttpConnection {
+  public var responseString: Swift.String? {
+    get
+  }
+  public var responseCode: Swift.Int? {
+    get
+  }
+  public var responseMessage: Swift.String? {
+    get
+  }
+  public func responseHttpHeader(forKey: Swift.String) -> Swift.String?
+}
+@objc(AEPDataQueuing) public protocol DataQueuing {
+  @objc func getDataQueue(label: Swift.String) -> AEPServices.DataQueue?
+}
+@objc(AEPMessageAnimation) public enum MessageAnimation : Swift.Int {
+  case none = 0
+  case left = 1
+  case right = 2
+  case top = 3
+  case bottom = 4
+  case center = 5
+  case fade = 6
+  public static func fromString(_ string: Swift.String) -> AEPServices.MessageAnimation
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(AEPLog) public class Log : ObjectiveC.NSObject {
+  @objc public static var logFilter: AEPServices.LogLevel
+  @objc(traceWithLabel:message:) public static func trace(label: Swift.String, _ message: Swift.String)
+  @objc(debugWithLabel:message:) public static func debug(label: Swift.String, _ message: Swift.String)
+  @objc(warningWithLabel:message:) public static func warning(label: Swift.String, _ message: Swift.String)
+  @objc(errorWithLabel:message:) public static func error(label: Swift.String, _ message: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(AEPShowable) public protocol Showable {
+  @objc func show()
+}
+@objc(AEPDataQueue) public protocol DataQueue {
+  @objc @discardableResult
+  func add(dataEntity: AEPServices.DataEntity) -> Swift.Bool
+  @objc func peek() -> AEPServices.DataEntity?
+  @objc func peek(n: Swift.Int) -> [AEPServices.DataEntity]?
+  @objc @discardableResult
+  func remove() -> Swift.Bool
+  @objc @discardableResult
+  func remove(n: Swift.Int) -> Swift.Bool
+  @objc @discardableResult
+  func clear() -> Swift.Bool
+  @objc func count() -> Swift.Int
+  @objc func close()
+}
+public protocol SystemInfoService {
+  func getProperty(for key: Swift.String) -> Swift.String?
+  func getAsset(fileName: Swift.String, fileType: Swift.String) -> Swift.String?
+  func getAsset(fileName: Swift.String, fileType: Swift.String) -> [Swift.UInt8]?
+  func getDeviceName() -> Swift.String
+  func getMobileCarrierName() -> Swift.String?
+  func getRunMode() -> Swift.String
+  func getApplicationName() -> Swift.String?
+  func getApplicationBuildNumber() -> Swift.String?
+  func getApplicationVersionNumber() -> Swift.String?
+  func getOperatingSystemName() -> Swift.String
+  func getOperatingSystemVersion() -> Swift.String
+  func getCanonicalPlatformName() -> Swift.String
+  func getDisplayInformation() -> (width: Swift.Int, height: Swift.Int)
+  func getDefaultUserAgent() -> Swift.String
+  func getActiveLocaleName() -> Swift.String
+  func getDeviceType() -> AEPServices.DeviceType
+  func getApplicationBundleId() -> Swift.String?
+  @available(*, deprecated, renamed: "getApplicationVersionNumber")
+  func getApplicationVersion() -> Swift.String?
+  func getCurrentOrientation() -> AEPServices.DeviceOrientation
+  func getDeviceModelNumber() -> Swift.String
+}
+public enum DeviceType {
+  case PHONE
+  case PAD
+  case TV
+  case CARPLAY
+  case UNKNOWN
+  public static func == (a: AEPServices.DeviceType, b: AEPServices.DeviceType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum DeviceOrientation {
+  case PORTRAIT
+  case LANDSCAPE
+  case UNKNOWN
+  public static func == (a: AEPServices.DeviceOrientation, b: AEPServices.DeviceOrientation) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public class FileUnzipper : AEPServices.Unzipping {
+  public init()
+  public func unzipItem(at sourceURL: Foundation.URL, to destinationURL: Foundation.URL) -> [Swift.String]
+  @objc deinit
+}
+public struct SQLiteWrapper {
+  public static func connect(databaseFilePath: Foundation.FileManager.SearchPathDirectory, databaseName: Swift.String) -> Swift.OpaquePointer?
+  @discardableResult
+  public static func disconnect(database: Swift.OpaquePointer) -> Swift.Bool
+  public static func execute(database: Swift.OpaquePointer, sql: Swift.String) -> Swift.Bool
+  public static func query(database: Swift.OpaquePointer, sql: Swift.String) -> [[Swift.String : Swift.String]]?
+  public static func tableExists(database: Swift.OpaquePointer, tableName: Swift.String) -> Swift.Bool
+  public static func tableIsEmpty(database: Swift.OpaquePointer, tableName: Swift.String) -> Swift.Bool
+}
+@objc(AEPHttpMethod) public enum HttpMethod : Swift.Int {
+  case get
+  case post
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(AEPLogLevel) public enum LogLevel : Swift.Int, Swift.Comparable {
+  case error = 0
+  case warning = 1
+  case debug = 2
+  case trace = 3
+  public static func < (lhs: AEPServices.LogLevel, rhs: AEPServices.LogLevel) -> Swift.Bool
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Foundation.Date {
+  public func getUnixTimeInSeconds() -> Swift.Int64
+  public func getISO8601Date() -> Swift.String
+  public func getISO8601DateNoColon() -> Swift.String
+}
+public protocol Networking {
+  func connectAsync(networkRequest: AEPServices.NetworkRequest, completionHandler: ((AEPServices.HttpConnection) -> Swift.Void)?)
+}
+@objc(AEPDataEntity) public class DataEntity : ObjectiveC.NSObject {
+  final public let uniqueIdentifier: Swift.String
+  final public let timestamp: Foundation.Date
+  final public let data: Foundation.Data?
+  public init(data: Foundation.Data?)
+  public init(uniqueIdentifier: Swift.String, timestamp: Foundation.Date, data: Foundation.Data?)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ServiceProvider {
+  public static let shared: AEPServices.ServiceProvider
+  weak public var messagingDelegate: AEPServices.MessagingDelegate?
+  public var systemInfoService: AEPServices.SystemInfoService {
+    get
+    set
+  }
+  public var namedKeyValueService: AEPServices.NamedCollectionProcessing {
+    get
+    set
+  }
+  public var networkService: AEPServices.Networking {
+    get
+    set
+  }
+  public var dataQueueService: AEPServices.DataQueuing {
+    get
+  }
+  public var cacheService: AEPServices.Caching {
+    get
+    set
+  }
+  public var urlService: AEPServices.URLOpening {
+    get
+    set
+  }
+  public var loggingService: AEPServices.Logging {
+    get
+  }
+  public var uiService: AEPServices.UIService {
+    get
+    set
+  }
+  @objc deinit
+}
+public protocol Unzipping {
+  func unzipItem(at sourceURL: Foundation.URL, to destinationURL: Foundation.URL) -> [Swift.String]
+}
+extension AEPServices.NetworkServiceError : Swift.Equatable {}
+extension AEPServices.NetworkServiceError : Swift.Hashable {}
+extension AEPServices.MessageAlignment : Swift.Equatable {}
+extension AEPServices.MessageAlignment : Swift.Hashable {}
+extension AEPServices.MessageAlignment : Swift.RawRepresentable {}
+extension AEPServices.MessageGesture : Swift.Equatable {}
+extension AEPServices.MessageGesture : Swift.Hashable {}
+extension AEPServices.MessageGesture : Swift.RawRepresentable {}
+extension AEPServices.FloatingButtonPosition : Swift.Equatable {}
+extension AEPServices.FloatingButtonPosition : Swift.Hashable {}
+extension AEPServices.FloatingButtonPosition : Swift.RawRepresentable {}
+extension AEPServices.MessageAnimation : Swift.Equatable {}
+extension AEPServices.MessageAnimation : Swift.Hashable {}
+extension AEPServices.MessageAnimation : Swift.RawRepresentable {}
+extension AEPServices.DeviceType : Swift.Equatable {}
+extension AEPServices.DeviceType : Swift.Hashable {}
+extension AEPServices.DeviceOrientation : Swift.Equatable {}
+extension AEPServices.DeviceOrientation : Swift.Hashable {}
+extension AEPServices.HttpMethod : Swift.Equatable {}
+extension AEPServices.HttpMethod : Swift.Hashable {}
+extension AEPServices.HttpMethod : Swift.RawRepresentable {}
+extension AEPServices.LogLevel : Swift.Hashable {}
+extension AEPServices.LogLevel : Swift.RawRepresentable {}
