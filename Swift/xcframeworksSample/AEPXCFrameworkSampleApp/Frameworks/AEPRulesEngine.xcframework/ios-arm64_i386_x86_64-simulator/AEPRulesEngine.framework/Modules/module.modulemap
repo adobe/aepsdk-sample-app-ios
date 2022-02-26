@@ -1,0 +1,11 @@
+framework module AEPRulesEngine {
+  umbrella header "AEPRulesEngine-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPRulesEngine.Swift {
+    header "AEPRulesEngine-Swift.h"
+    requires objc
+}

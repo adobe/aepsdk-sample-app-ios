@@ -1,0 +1,11 @@
+framework module AEPEdgeConsent {
+  umbrella header "AEPEdgeConsent.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPEdgeConsent.Swift {
+    header "AEPEdgeConsent-Swift.h"
+    requires objc
+}

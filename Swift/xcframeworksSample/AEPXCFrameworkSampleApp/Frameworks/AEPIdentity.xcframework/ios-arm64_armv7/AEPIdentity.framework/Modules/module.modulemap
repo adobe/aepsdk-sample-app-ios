@@ -1,0 +1,11 @@
+framework module AEPIdentity {
+  umbrella header "AEPIdentity.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPIdentity.Swift {
+    header "AEPIdentity-Swift.h"
+    requires objc
+}

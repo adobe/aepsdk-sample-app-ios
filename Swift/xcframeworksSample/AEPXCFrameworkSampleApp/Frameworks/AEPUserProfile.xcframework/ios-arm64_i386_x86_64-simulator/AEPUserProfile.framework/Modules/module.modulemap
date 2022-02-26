@@ -1,0 +1,11 @@
+framework module AEPUserProfile {
+  umbrella header "AEPUserProfile.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPUserProfile.Swift {
+    header "AEPUserProfile-Swift.h"
+    requires objc
+}

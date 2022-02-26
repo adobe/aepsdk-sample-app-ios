@@ -1,0 +1,11 @@
+framework module AEPAssurance {
+  umbrella header "AEPAssurance.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPAssurance.Swift {
+    header "AEPAssurance-Swift.h"
+    requires objc
+}

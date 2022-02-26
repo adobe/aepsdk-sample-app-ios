@@ -1,0 +1,11 @@
+framework module AEPMessaging {
+  umbrella header "AEPMessaging.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPMessaging.Swift {
+    header "AEPMessaging-Swift.h"
+    requires objc
+}

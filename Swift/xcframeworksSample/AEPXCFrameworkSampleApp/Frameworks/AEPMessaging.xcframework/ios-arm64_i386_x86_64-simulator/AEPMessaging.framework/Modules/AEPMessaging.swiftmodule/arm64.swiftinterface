@@ -1,0 +1,145 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AEPMessaging
+import AEPCore
+@_exported import AEPMessaging
+import AEPServices
+import Foundation
+import Swift
+import UserNotifications
+import WebKit
+import _Concurrency
+@objc(AEPProposition) public class Proposition : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let id: Swift.String
+  @objc public var offers: [AEPMessaging.Offer] {
+    @objc get
+    @objc set
+  }
+  @objc final public let scope: Swift.String
+  @objc public var scopeDetails: [Swift.String : Any]
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+extension AEPServices.FullscreenMessage {
+  public var parent: AEPMessaging.Message? {
+    get
+  }
+}
+@objc(AEPOfferType) public enum OfferType : Swift.Int, Swift.Codable {
+  case unknown = 0
+  case json = 1
+  case text = 2
+  case html = 3
+  case image = 4
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc extension AEPMessaging.Offer {
+  @objc dynamic public func generateDisplayInteractionXdm() -> [Swift.String : Any]?
+  @objc dynamic public func generateTapInteractionXdm() -> [Swift.String : Any]?
+  @objc dynamic public func displayed()
+  @objc dynamic public func tapped()
+}
+@objc extension AEPMessaging.Proposition {
+  @objc dynamic public func generateReferenceXdm() -> [Swift.String : Any]
+}
+@objc(AEPDecisionScope) public class DecisionScope : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let name: Swift.String
+  @objc public init(name: Swift.String)
+  @objc convenience public init(activityId: Swift.String, placementId: Swift.String, itemCount: Swift.UInt = 1)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc(AEPMobileOptimize) public class Optimize : ObjectiveC.NSObject, AEPCore.Extension {
+  @objc final public let name: Swift.String
+  @objc final public let friendlyName: Swift.String
+  @objc public static let extensionVersion: Swift.String
+  @objc final public let metadata: [Swift.String : Swift.String]?
+  @objc final public let runtime: AEPCore.ExtensionRuntime
+  @objc required public init?(runtime: AEPCore.ExtensionRuntime)
+  @objc public func onRegistered()
+  @objc public func onUnregistered()
+  @objc public func readyForEvent(_ event: AEPCore.Event) -> Swift.Bool
+  @objc deinit
+}
+@objc(AEPMessagingEdgeEventType) public enum MessagingEdgeEventType : Swift.Int {
+  case inappDismiss = 0
+  case inappInteract = 1
+  case inappTrigger = 2
+  case inappDisplay = 3
+  case pushApplicationOpened = 4
+  case pushCustomAction = 5
+  public func toString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc extension AEPMessaging.Messaging {
+  @objc(handleNotificationResponse:applicationOpened:withCustomActionId:) public static func handleNotificationResponse(_ response: UserNotifications.UNNotificationResponse, applicationOpened: Swift.Bool, customActionId: Swift.String?)
+  @objc public static func refreshInAppMessages()
+}
+@objc(AEPOffer) public class Offer : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let id: Swift.String
+  @objc final public let etag: Swift.String
+  @objc final public let schema: Swift.String
+  @objc final public let type: AEPMessaging.OfferType
+  @objc final public let language: [Swift.String]?
+  @objc final public let content: Swift.String
+  @objc final public let characteristics: [Swift.String : Swift.String]?
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(AEPMessage) public class Message : ObjectiveC.NSObject {
+  @objc public var id: Swift.String
+  @objc public var autoTrack: Swift.Bool
+  @objc public var view: UIKit.UIView? {
+    @objc get
+  }
+  @objc public func show()
+  @objc(dismissSuppressingAutoTrack:) public func dismiss(suppressAutoTrack: Swift.Bool = false)
+  @objc(trackInteraction:withEdgeEventType:) public func track(_ interaction: Swift.String?, withEdgeEventType eventType: AEPMessaging.MessagingEdgeEventType)
+  @objc(handleJavascriptMessage:withHandler:) public func handleJavascriptMessage(_ name: Swift.String, withHandler handler: @escaping (Any?) -> Swift.Void)
+  @objc deinit
+}
+@objc extension AEPMessaging.Optimize {
+  @objc(updatePropositions:withXdm:andData:) public static func updatePropositions(for decisionScopes: [AEPMessaging.DecisionScope], withXdm xdm: [Swift.String : Any]?, andData data: [Swift.String : Any]? = nil)
+  @objc(getPropositions:completion:) public static func getPropositions(for decisionScopes: [AEPMessaging.DecisionScope], _ completion: @escaping ([AEPMessaging.DecisionScope : AEPMessaging.Proposition]?, Swift.Error?) -> Swift.Void)
+  @objc(onPropositionsUpdate:) public static func onPropositionsUpdate(perform action: @escaping ([AEPMessaging.DecisionScope : AEPMessaging.Proposition]) -> Swift.Void)
+  @objc(clearCachedPropositions) public static func clearCachedPropositions()
+}
+extension AEPMessaging.Message : AEPServices.FullscreenMessageDelegate {
+  @objc dynamic public func onShow(message _: AEPServices.FullscreenMessage)
+  @objc dynamic public func onShowFailure()
+  @objc dynamic public func onDismiss(message: AEPServices.FullscreenMessage)
+  @objc dynamic public func overrideUrlLoad(message fullscreenMessage: AEPServices.FullscreenMessage, url: Swift.String?) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers @objc(AEPMobileMessaging) public class Messaging : ObjectiveC.NSObject, AEPCore.Extension {
+  @objc public static var extensionVersion: Swift.String
+  @objc public var name: Swift.String
+  @objc public var friendlyName: Swift.String
+  @objc public var metadata: [Swift.String : Swift.String]?
+  @objc public var runtime: AEPCore.ExtensionRuntime
+  @objc required public init?(runtime: AEPCore.ExtensionRuntime)
+  @objc public func onRegistered()
+  @objc public func onUnregistered()
+  @objc public func readyForEvent(_ event: AEPCore.Event) -> Swift.Bool
+  @objc deinit
+}
+extension AEPMessaging.OfferType : Swift.Equatable {}
+extension AEPMessaging.OfferType : Swift.Hashable {}
+extension AEPMessaging.OfferType : Swift.RawRepresentable {}
+extension AEPMessaging.MessagingEdgeEventType : Swift.Equatable {}
+extension AEPMessaging.MessagingEdgeEventType : Swift.Hashable {}
+extension AEPMessaging.MessagingEdgeEventType : Swift.RawRepresentable {}

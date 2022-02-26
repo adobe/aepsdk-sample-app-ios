@@ -1,0 +1,11 @@
+framework module AEPLifecycle {
+  umbrella header "AEPLifecycle.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPLifecycle.Swift {
+    header "AEPLifecycle-Swift.h"
+    requires objc
+}

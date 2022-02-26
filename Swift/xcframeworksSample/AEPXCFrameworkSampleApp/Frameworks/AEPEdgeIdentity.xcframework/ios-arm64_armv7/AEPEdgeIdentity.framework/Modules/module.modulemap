@@ -1,0 +1,11 @@
+framework module AEPEdgeIdentity {
+  umbrella header "AEPEdgeIdentity.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPEdgeIdentity.Swift {
+    header "AEPEdgeIdentity-Swift.h"
+    requires objc
+}

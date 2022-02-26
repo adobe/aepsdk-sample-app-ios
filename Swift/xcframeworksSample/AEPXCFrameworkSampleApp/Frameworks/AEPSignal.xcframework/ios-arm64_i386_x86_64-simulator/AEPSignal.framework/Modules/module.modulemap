@@ -1,0 +1,11 @@
+framework module AEPSignal {
+  umbrella header "AEPSignal.h"
+
+  export *
+  module * { export * }
+}
+
+module AEPSignal.Swift {
+    header "AEPSignal-Swift.h"
+    requires objc
+}

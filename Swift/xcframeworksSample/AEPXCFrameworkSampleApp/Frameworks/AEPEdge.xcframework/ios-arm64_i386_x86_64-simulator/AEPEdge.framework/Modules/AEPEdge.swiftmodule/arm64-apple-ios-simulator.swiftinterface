@@ -1,0 +1,49 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AEPEdge
+import AEPCore
+@_exported import AEPEdge
+import AEPServices
+import Foundation
+import Swift
+import _Concurrency
+public enum XDMFormatters {
+  public static func dateToISO8601String(from: Foundation.Date?) -> Swift.String?
+  public static func dateToFullDateString(from: Foundation.Date?) -> Swift.String?
+}
+public protocol XDMSchema : Swift.Encodable {
+  var schemaVersion: Swift.String { get }
+  var schemaIdentifier: Swift.String { get }
+  var datasetIdentifier: Swift.String { get }
+}
+extension AEPEdge.Edge {
+  @objc(sendExperienceEvent:completion:) public static func sendEvent(experienceEvent: AEPEdge.ExperienceEvent, _ completion: (([AEPEdge.EdgeEventHandle]) -> Swift.Void)? = nil)
+}
+@objc(AEPExperienceEvent) public class ExperienceEvent : ObjectiveC.NSObject {
+  @objc final public let xdm: [Swift.String : Any]?
+  @objc final public let data: [Swift.String : Any]?
+  @objc public var query: [Swift.String : Any]?
+  @objc final public let datasetIdentifier: Swift.String?
+  @objc public init(xdm: [Swift.String : Any], data: [Swift.String : Any]? = nil, datasetIdentifier: Swift.String? = nil)
+  public init(xdm: AEPEdge.XDMSchema, data: [Swift.String : Any]? = nil)
+  @objc deinit
+}
+@objc(AEPEdgeEventHandle) public class EdgeEventHandle : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let type: Swift.String?
+  @objc final public let payload: [[Swift.String : Any]]?
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@objc(AEPMobileEdge) public class Edge : ObjectiveC.NSObject, AEPCore.Extension {
+  @objc final public let name: Swift.String
+  @objc final public let friendlyName: Swift.String
+  @objc public static let extensionVersion: Swift.String
+  @objc final public let metadata: [Swift.String : Swift.String]?
+  @objc final public let runtime: AEPCore.ExtensionRuntime
+  @objc required public init(runtime: AEPCore.ExtensionRuntime)
+  @objc public func onRegistered()
+  @objc public func onUnregistered()
+  @objc public func readyForEvent(_ event: AEPCore.Event) -> Swift.Bool
+  @objc deinit
+}

@@ -1,0 +1,90 @@
+PODS:
+  - AEPAssurance (3.0.0):
+    - AEPCore (>= 3.1.0)
+    - AEPServices (>= 3.1.0)
+  - AEPCore (3.4.0):
+    - AEPRulesEngine (>= 1.1.0)
+    - AEPServices (>= 3.4.0)
+  - AEPEdge (1.3.0):
+    - AEPCore (>= 3.3.2)
+    - AEPEdgeIdentity
+  - AEPEdgeConsent (1.0.0):
+    - AEPCore (>= 3.1.0)
+  - AEPEdgeIdentity (1.0.0):
+    - AEPCore (>= 3.1.1)
+  - AEPIdentity (3.4.0):
+    - AEPCore (>= 3.4.0)
+  - AEPLifecycle (3.4.0):
+    - AEPCore (>= 3.4.0)
+  - AEPMessaging (1.0.0):
+    - AEPCore
+    - AEPEdge (>= 1.1.0)
+    - AEPEdgeIdentity (>= 1.0.0)
+    - AEPServices
+  - AEPRulesEngine (1.1.0)
+  - AEPSampleExtensionSwift (0.0.1):
+    - AEPCore (~> 3.0)
+  - AEPServices (3.4.0)
+  - AEPSignal (3.4.0):
+    - AEPCore (>= 3.4.0)
+  - AEPUserProfile (3.0.1):
+    - AEPCore
+
+DEPENDENCIES:
+  - AEPAssurance
+  - AEPCore
+  - AEPEdge
+  - AEPEdgeConsent
+  - AEPEdgeIdentity
+  - AEPIdentity
+  - AEPLifecycle
+  - AEPMessaging
+  - AEPRulesEngine
+  - AEPSampleExtensionSwift (from `https://github.com/adobe/aepsdk-sample-extension-ios.git`, branch `main`)
+  - AEPServices
+  - AEPSignal
+  - AEPUserProfile
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AEPAssurance
+    - AEPCore
+    - AEPEdge
+    - AEPEdgeConsent
+    - AEPEdgeIdentity
+    - AEPIdentity
+    - AEPLifecycle
+    - AEPMessaging
+    - AEPRulesEngine
+    - AEPServices
+    - AEPSignal
+    - AEPUserProfile
+
+EXTERNAL SOURCES:
+  AEPSampleExtensionSwift:
+    :branch: main
+    :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
+
+CHECKOUT OPTIONS:
+  AEPSampleExtensionSwift:
+    :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
+    :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
+
+SPEC CHECKSUMS:
+  AEPAssurance: 18068627111e366a851dc2166239f22b665101bd
+  AEPCore: 8f0ce46f06cd2289b42fa2ff4b91dff7ace1b375
+  AEPEdge: 500628aee1319ef2690dfaf5bd950badce6ec3f0
+  AEPEdgeConsent: dd46002b0c4bf55443f5441990e799248975713e
+  AEPEdgeIdentity: 40d312b4434b710a46c1738ab2a221dda4cfd67e
+  AEPIdentity: ca6f0f2830bf6fb14dfffb3fe0e30d1dfc3fe0b2
+  AEPLifecycle: 1115c8c7323ee78d9dff7c4d1667c69da55f7930
+  AEPMessaging: 661cc08435254f3c9cc0899785c20a7952952e95
+  AEPRulesEngine: bb2927ed5501ddf9754c66e97f8d2b1cf8e33b19
+  AEPSampleExtensionSwift: 57f8b73affbf831b274257811a2102805c498538
+  AEPServices: 27030d89e8c2ba5ea48f26fe05c94d73e519de27
+  AEPSignal: 378399354d202a7b835a9abe8d9ad63622c8c52f
+  AEPUserProfile: 2ddb5ba8e2c22dd8f942992306b050f4be2c2403
+
+PODFILE CHECKSUM: fcd70789ec3f46d9af215ff936af77b10b9b619f
+
+COCOAPODS: 1.11.2

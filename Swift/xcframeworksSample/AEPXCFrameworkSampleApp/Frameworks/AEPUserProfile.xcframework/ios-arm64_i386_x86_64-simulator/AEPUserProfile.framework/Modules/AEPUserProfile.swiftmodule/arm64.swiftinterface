@@ -1,0 +1,26 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AEPUserProfile
+import AEPCore
+import AEPServices
+@_exported import AEPUserProfile
+import Foundation
+import Swift
+import _Concurrency
+@objc extension AEPUserProfile.UserProfile {
+  @objc public static func updateUserAttributes(attributeDict: [Swift.String : Any])
+  @objc public static func removeUserAttributes(attributeNames: [Swift.String])
+  @objc public static func getUserAttributes(attributeNames: [Swift.String], completion: @escaping ([Swift.String : Any]?, AEPCore.AEPError) -> Swift.Void)
+}
+@objc(AEPMobileUserProfile) public class UserProfile : ObjectiveC.NSObject, AEPCore.Extension {
+  @objc final public let name: Swift.String
+  @objc final public let friendlyName: Swift.String
+  @objc public static let extensionVersion: Swift.String
+  @objc public var metadata: [Swift.String : Swift.String]?
+  @objc final public let runtime: AEPCore.ExtensionRuntime
+  @objc required public init(runtime: AEPCore.ExtensionRuntime)
+  @objc public func onRegistered()
+  @objc public func onUnregistered()
+  @objc public func readyForEvent(_: AEPCore.Event) -> Swift.Bool
+  @objc deinit
+}
