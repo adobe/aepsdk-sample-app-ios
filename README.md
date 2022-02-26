@@ -4,6 +4,8 @@
 
 This repository contains iOS sample apps for the AEP SDK. Examples are provided for both Objective-c and Swift implementation.
 
+The Swift directory contains 3 sample apps, one for each installation method: Cocoapods, Swift Package Manager, and manual installation of XCFrameworks.
+
 ## Requirements
 
 - Xcode 11.0 or newer
@@ -14,7 +16,7 @@ This repository contains iOS sample apps for the AEP SDK. Examples are provided 
 
 #### Swift
 
-- Navigate to the `Swift` directory, and run the following command from terminal:
+- Navigate to the `Swift` directory, and then to the `Cocoapods` directory, and run the following command from terminal:
 
   ```
   pod install
