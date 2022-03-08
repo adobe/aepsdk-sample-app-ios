@@ -13,6 +13,7 @@
 		3FEEA0E12523DBB5007EC317 /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA0E02523DBB4007EC317 /* CoreView.swift */; };
 		3FEEA0E32524DA4A007EC317 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */; };
 		411747AC27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png in Resources */ = {isa = PBXBuildFile; fileRef = 411747AB27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png */; };
+		4CEC1FD227D71540000724F8 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC1FD127D71540000724F8 /* AppTrackingTransparency.framework */; };
 		782B982124D9BA89009C5902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982024D9BA89009C5902 /* AppDelegate.swift */; };
 		782B982324D9BA89009C5902 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982224D9BA89009C5902 /* SceneDelegate.swift */; };
 		782B982A24D9BA8C009C5902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782B982924D9BA8C009C5902 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		3FEEA0E02523DBB4007EC317 /* CoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreView.swift; sourceTree = "<group>"; };
 		3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		411747AB27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Adobe_Experience_Platform_logo_256px.png; path = ../../Resources/Icons/Adobe_Experience_Platform_logo_256px.png; sourceTree = "<group>"; };
+		4CEC1FD127D71540000724F8 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		782B981D24D9BA89009C5902 /* AEPSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AEPSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		782B982024D9BA89009C5902 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		782B982224D9BA89009C5902 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CEC1FD227D71540000724F8 /* AppTrackingTransparency.framework in Frameworks */,
 				E85CDFD29B450F16196D4F79 /* Pods_AEPSampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,6 +136,7 @@
 		AD49D2DD097EA82A906007CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CEC1FD127D71540000724F8 /* AppTrackingTransparency.framework */,
 				D94C7204C94E9F5D9F472F31 /* Pods_AEPSampleApp.framework */,
 			);
 			name = Frameworks;
