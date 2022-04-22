@@ -78,6 +78,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // register push notification
         registerForPushNotifications(application: application)
         
+        // Request ad ID tracking permissions
+        AdIdUtils.requestTrackingAuthorization()
         return true
     }
 
