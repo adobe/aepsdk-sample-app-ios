@@ -26,7 +26,7 @@ struct EdgeIdentityView: View {
         print("isTrackingAuthorized: \(isTrackingAuthorized)")
         if isTrackingAuthorized {
             self.adID = AdIdUtils.getAdvertisingIdentifierForEnvironment()
-            print("Advertising identifier fetched: \(adID)")
+            print("Advertising identifier fetched: \(String(describing: adID))")
             MobileCore.setAdvertisingIdentifier(self.adID?.uuidString)
         } else {
             MobileCore.setAdvertisingIdentifier("")
@@ -88,7 +88,7 @@ struct EdgeIdentityView: View {
                     Button(action: {
                         updateUsingTrackingAuthorization()
                     }) {
-                        Text("Request Tracking Authorization")
+                        Text("Update ad ID with current IDFA")
                     }.buttonStyle(CustomButtonStyle())
                     Text(trackingAuthorizationResultText)
                     Text("\(adID?.uuidString ?? "")")
@@ -97,9 +97,9 @@ struct EdgeIdentityView: View {
                         Button(action: {
                             MobileCore.setAdvertisingIdentifier(adIdText)
                         }) {
-                            Text("Set AdId")
+                            Text("Set ad ID")
                         }.buttonStyle(CustomButtonStyle())
-                        TextField("Enter Ad ID", text: $adIdText)
+                        TextField("Enter ad ID", text: $adIdText)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .fixedSize()
                             .autocapitalization(.none)
@@ -109,12 +109,17 @@ struct EdgeIdentityView: View {
                         Button(action: {
                             MobileCore.setAdvertisingIdentifier(nil)
                         }) {
-                            Text("Set AdId as nil")
+                            Text("Set ad ID as nil")
                         }.buttonStyle(CustomButtonStyle())
                         Button(action: {
                             MobileCore.setAdvertisingIdentifier("00000000-0000-0000-0000-000000000000")
                         }) {
-                            Text("Set AdId as zeros")
+                            Text("Set ad ID as all-zeros")
+                        }.buttonStyle(CustomButtonStyle())
+                        Button(action: {
+                            MobileCore.setAdvertisingIdentifier("")
+                        }) {
+                            Text("Set ad id as empty string")
                         }.buttonStyle(CustomButtonStyle())
                     }
                 }.padding()
