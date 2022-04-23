@@ -37,7 +37,6 @@ struct EdgeIdentityView: View {
                             Text("Copy")
                             }
                         }
-                
                 Button(action: {
                     Identity.getIdentities { identityMap, error in
                         currentIdentityMap = identityMap
