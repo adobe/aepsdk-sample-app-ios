@@ -7,31 +7,13 @@
  it.
  */
 
-import AEPCore
-import AEPEdgeIdentity
 import Foundation
+import AEPEdgeIdentity
 import SwiftUI
 
 struct EdgeIdentityView: View {
     @State var currentEcid = ""
     @State var currentIdentityMap: IdentityMap?
-    @State var adID: UUID?
-    @State var adIdText: String = ""
-    @State var trackingAuthorizationResultText: String = ""
-    
-    /// Updates view for ad ID related elements
-    func updateUsingTrackingAuthorization() {
-        let isTrackingAuthorized = AdIdUtils.isTrackingAuthorized()
-        trackingAuthorizationResultText = isTrackingAuthorized ? "Tracking allowed" : "Tracking not allowed"
-        print("isTrackingAuthorized: \(isTrackingAuthorized)")
-        if isTrackingAuthorized {
-            self.adID = AdIdUtils.getAdvertisingIdentifierForEnvironment()
-            print("Advertising identifier fetched: \(adID)")
-            MobileCore.setAdvertisingIdentifier(self.adID?.uuidString)
-        } else {
-            MobileCore.setAdvertisingIdentifier("")
-        }
-    }
     
     var body: some View {
         ScrollView {
@@ -54,8 +36,7 @@ struct EdgeIdentityView: View {
                         }) {
                             Text("Copy")
                             }
-                    }
-                
+                        }
                 Button(action: {
                     Identity.getIdentities { identityMap, error in
                         currentIdentityMap = identityMap
@@ -82,43 +63,7 @@ struct EdgeIdentityView: View {
                 }) {
                     Text("Remove Identities with test-namespace")
                 }.buttonStyle(CustomButtonStyle())
-                
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Advertising Identifier:")
-                    Button(action: {
-                        updateUsingTrackingAuthorization()
-                    }) {
-                        Text("Request Tracking Authorization")
-                    }.buttonStyle(CustomButtonStyle())
-                    Text(trackingAuthorizationResultText)
-                    Text("\(adID?.uuidString ?? "")")
-                    
-                    HStack {
-                        Button(action: {
-                            MobileCore.setAdvertisingIdentifier(adIdText)
-                        }) {
-                            Text("Set AdId")
-                        }.buttonStyle(CustomButtonStyle())
-                        TextField("Enter Ad ID", text: $adIdText)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .fixedSize()
-                            .autocapitalization(.none)
-                    }
-                    
-                    HStack {
-                        Button(action: {
-                            MobileCore.setAdvertisingIdentifier(nil)
-                        }) {
-                            Text("Set AdId as nil")
-                        }.buttonStyle(CustomButtonStyle())
-                        Button(action: {
-                            MobileCore.setAdvertisingIdentifier("00000000-0000-0000-0000-000000000000")
-                        }) {
-                            Text("Set AdId as zeros")
-                        }.buttonStyle(CustomButtonStyle())
-                    }
-                }.padding()
-            }
+            }.padding()
         }
     }
 }

@@ -28,12 +28,34 @@ class AdIdUtils {
         return ASIdentifierManager.shared().advertisingIdentifier
     }
     
+    /// Checks if ad ID tracking authorization is provided, if not returns `false`. Handles both iOS 14+ and <= iOS 13,
+    /// using the appropriate APIs for each case
+    ///
+    /// - Returns: `true` if authorized, `false` for any other state
+    static func isTrackingAuthorized() -> Bool {
+        if #available(iOS 14, *) {
+            print("ATTrackingManager.trackingAuthorizationStatus: \(ATTrackingManager.trackingAuthorizationStatus)")
+            return ATTrackingManager.trackingAuthorizationStatus == .authorized
+        } else {
+            // ASIdentifierManager used for iOS <= 13
+            print("""
+                  iOS version <= 13 detected. ATTrackingManager's requestTrackingAuthorization is not available; using ASIdentifierManager and getting IDFA directly.
+                  ASIdentifierManager.shared().isAdvertisingTrackingEnabled: \(ASIdentifierManager.shared().isAdvertisingTrackingEnabled)
+                  Advertising identifier: \(getAdvertisingIdentifierForEnvironment())
+                  """)
+            print("Tracking authorization status is '\(ASIdentifierManager.shared().isAdvertisingTrackingEnabled)'.")
+            return ASIdentifierManager.shared().isAdvertisingTrackingEnabled
+        }
+    }
+    
     /// Requests tracking authorization from the user; prompt will only be shown once per app install, as per Apple rules
     ///
     /// It is possible to change tracking permissions at the Settings app level. Any change in tracking permissions will terminate the app.
     /// It is also possible for system-wide tracking to be off but individual per-app permissions granted.
     /// If "Allow Apps to Request to Track" at the system level was on and is turned off, a system prompt appears asking if previously provided individual per-app tracking permissions should be kept as-is or all turned off
-    static func requestTrackingAuthorization() {
+    /// Note that if another system prompt is already showing, the dialog with not show and auth status will be .notDetermined
+    /// Also the app needs some startup time before trying to show the prompt; otherwise if it's not ready when you call the request, auth status will be .notDetermined
+    static func requestTrackingAuthorization(callbackHandler: @escaping ()->() = {}) {
         // ATTrackingManager only available in iOS 14+
         // Requires Xcode 12 and AppTrackingTransparency framework
         if #available(iOS 14, *) {
