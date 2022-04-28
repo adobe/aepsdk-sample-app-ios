@@ -33,5 +33,8 @@ target 'AEPSampleApp' do
   pod 'AEPUserProfile'
   
   pod 'AEPMessaging'
-
+  
+  # step-optimize-start
+  pod 'AEPOptimize', :git => 'https://github.com/adobe/aepsdk-optimize-ios.git', :branch => 'staging'
+  # step-optimize-end
 end
