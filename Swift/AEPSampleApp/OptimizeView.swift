@@ -297,10 +297,10 @@ struct OptimizeView: View {
 
 
 struct OdSettings {
-    var textEncodedDecisionScope: String = "eyJ4ZG06YWN0aXZpdHlJZCI6Inhjb3JlOm9mZmVyLWFjdGl2aXR5OjEzNGNlY2MyMGU2NjljZWEiLCJ4ZG06cGxhY2VtZW50SWQiOiJ4Y29yZTpvZmZlci1wbGFjZW1lbnQ6MTJiOWEwMDA1NTUwNzM1NyIsInhkbTppdGVtQ291bnQiOjJ9"
-    var imageEncodedDecisionScope: String = "eyJ4ZG06YWN0aXZpdHlJZCI6Inhjb3JlOm9mZmVyLWFjdGl2aXR5OjEzNGNlY2MyMGU2NjljZWEiLCJ4ZG06cGxhY2VtZW50SWQiOiJ4Y29yZTpvZmZlci1wbGFjZW1lbnQ6MTJiOWE0MGVhNjkyOGJmOSJ9"
-    var htmlEncodedDecisionScope: String = "eyJ4ZG06YWN0aXZpdHlJZCI6Inhjb3JlOm9mZmVyLWFjdGl2aXR5OjEzNGNlY2MyMGU2NjljZWEiLCJ4ZG06cGxhY2VtZW50SWQiOiJ4Y29yZTpvZmZlci1wbGFjZW1lbnQ6MTJiOWExNmZiZTUyOGJmMyJ9"
-    var jsonEncodedDecisionScope: String = "eyJ4ZG06YWN0aXZpdHlJZCI6Inhjb3JlOm9mZmVyLWFjdGl2aXR5OjEzNGNlY2MyMGU2NjljZWEiLCJ4ZG06cGxhY2VtZW50SWQiOiJ4Y29yZTpvZmZlci1wbGFjZW1lbnQ6MTJiOWEwMjM4MjUyOGJmMiJ9"
+    var textEncodedDecisionScope: String = ""
+    var imageEncodedDecisionScope: String = ""
+    var htmlEncodedDecisionScope: String = ""
+    var jsonEncodedDecisionScope: String = ""
 }
 
 struct TargetSettings {
