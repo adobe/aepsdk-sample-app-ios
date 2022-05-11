@@ -17,7 +17,7 @@ PODS:
     - AEPCore (>= 3.6.0)
   - AEPLifecycle (3.6.0):
     - AEPCore (>= 3.6.0)
-  - AEPMessaging (1.1.0):
+  - AEPMessaging (1.1.0-beta):
     - AEPCore (>= 3.4.2)
     - AEPEdge (>= 1.1.0)
     - AEPEdgeIdentity (>= 1.0.0)
@@ -77,7 +77,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AEPMessaging:
-    :commit: 3f98244354457f9853892f40933877f4e937a709
+    :commit: 659905f9c0ce66128b5d9ec474ab4c64c0df7854
     :git: https://github.com/adobe/aepsdk-messaging-ios.git
   AEPOptimize:
     :commit: 17d387e286fdee5a7db9e534490ba4b504af471d
@@ -94,7 +94,7 @@ SPEC CHECKSUMS:
   AEPEdgeIdentity: 5c42cef81835851232136a9e1fbbbe33b204ee11
   AEPIdentity: bd5c639f2ddb02e2b15f909c661235ccd86bd98a
   AEPLifecycle: 7c0452a650a8ccaaa2473a3625a7004e8687797e
-  AEPMessaging: f1de5837d813ffe5cffd1cf8d83e300edbcb0058
+  AEPMessaging: 446920d238fe0e1db2948d8eb4e159250136f06d
   AEPOptimize: 7be718a9aaa494cf9bfd367c5f6c008f91dc1edf
   AEPRulesEngine: bb2927ed5501ddf9754c66e97f8d2b1cf8e33b19
   AEPSampleExtensionSwift: 57f8b73affbf831b274257811a2102805c498538

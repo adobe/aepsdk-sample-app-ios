@@ -34,17 +34,38 @@ struct MessagingView: View {
     /// UI elements for the product review example
     var messaging: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Messaging SDK setup is complete with ECID:")
-            Text(ecidState).bold()
-            Spacer()
-            Text("Click a button below to schedule a notification:")
-            Button("Sample notification") {
-                scheduleNotification()
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Push Messaging").font(.title).bold()
+                Text("Messaging SDK setup is complete with ECID:")
+                Text(ecidState).bold()
+                Spacer(minLength: 15)
+                Text("Click a button below to schedule a notification:")
+                Text("(clicking on a notification demonstrates how to handle a notification response)").italic()
+                Button("Sample notification") {
+                    scheduleNotification()
+                }
+                Button("Sample notification with custom actions") {
+                    scheduleNotificationWithCustomAction()
+                }
+                Spacer(minLength: 15)
             }
-            Button("Sample notification with custom actions") {
-                scheduleNotificationWithCustomAction()
+            VStack(alignment: .leading, spacing: 12) {
+                Text("In-App Messaging").font(.title).bold()
+                Text("Click a button below to trigger an in-app message:")
+                Button("Sample fullscreen message") {
+                    MobileCore.track(action: "sampleAppFullscreen", data: nil)
+                }
+                Button("Sample modal message") {
+                    MobileCore.track(action: "sampleAppModal", data: nil)
+                }
+                Button("Sample top banner") {
+                    MobileCore.track(action: "sampleAppBannerTop", data: nil)
+                }
+                Button("Sample bottom banner") {
+                    MobileCore.track(action: "sampleAppBannerBottom", data: nil)
+                }
+                Spacer()
             }
-            Spacer()
         }.onAppear() {
             updateEcid()
         }
