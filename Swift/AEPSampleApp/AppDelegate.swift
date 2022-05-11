@@ -35,6 +35,10 @@ import AEPMessaging
 import UserNotifications
 //step-messaging-end
 
+//step-optimize-start
+import AEPOptimize
+//step-optimize-end
+
 import AEPUserProfile
 
 @UIApplicationMain
@@ -61,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                           , Assurance.self
                           // step-assurance-end
                           , Messaging.self
+                          , Optimize.self
                         ]
         
         MobileCore.registerExtensions(extensions, {
