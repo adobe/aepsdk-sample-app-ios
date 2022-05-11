@@ -19,6 +19,7 @@
 		782B982D24D9BA8C009C5902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */; };
 		7876121124DC601B001CABB5 /* AssuranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876121024DC601B001CABB5 /* AssuranceView.swift */; };
 		92430A95263B28D7004FBDCC /* MessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92430A94263B28D7004FBDCC /* MessagingView.swift */; };
+		C8B33871281A7FF500D64F14 /* OptimizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B33870281A7FF500D64F14 /* OptimizeView.swift */; };
 		D42BE5C32524569C00782C3C /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42BE5C22524569C00782C3C /* EdgeView.swift */; };
 		D4E2FDB2252554E6001FE22D /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD8E252554E6001FE22D /* Purchases.swift */; };
 		D4E2FDB3252554E6001FE22D /* InStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */; };
@@ -57,6 +58,7 @@
 		7876121024DC601B001CABB5 /* AssuranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssuranceView.swift; sourceTree = "<group>"; };
 		92430A90263B2340004FBDCC /* AEPSampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AEPSampleApp.entitlements; sourceTree = "<group>"; };
 		92430A94263B28D7004FBDCC /* MessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
+		C8B33870281A7FF500D64F14 /* OptimizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptimizeView.swift; sourceTree = "<group>"; };
 		D42BE5C22524569C00782C3C /* EdgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
 		D4E2FD8E252554E6001FE22D /* Purchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Purchases.swift; path = xdmlib/Purchases.swift; sourceTree = "<group>"; };
 		D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InStorePurchase.swift; path = xdmlib/InStorePurchase.swift; sourceTree = "<group>"; };
@@ -121,11 +123,12 @@
 				D42BE5C22524569C00782C3C /* EdgeView.swift */,
 				218306EC26138BBA00889569 /* MenuView.swift */,
 				92430A94263B28D7004FBDCC /* MessagingView.swift */,
+                C8B33870281A7FF500D64F14 /* OptimizeView.swift */,
 				782B982224D9BA89009C5902 /* SceneDelegate.swift */,
 				782B982924D9BA8C009C5902 /* Assets.xcassets */,
 				782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */,
 				782B982E24D9BA8C009C5902 /* Info.plist */,
-				411747AB27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png */,
+				411747AB27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png */,				
 			);
 			path = AEPSampleApp;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				D4E2FDB2252554E6001FE22D /* Purchases.swift in Sources */,
 				D4E2FDCE252554E6001FE22D /* Commerce.swift in Sources */,
 				D4E2FDB6252554E6001FE22D /* SaveForLaters.swift in Sources */,
+				C8B33871281A7FF500D64F14 /* OptimizeView.swift in Sources */,
 				D4E2FDD5252554E6001FE22D /* ProductListViews.swift in Sources */,
 				D4E2FDC2252554E6001FE22D /* ProductListItemsItem.swift in Sources */,
 				D4E2FDC9252554E6001FE22D /* ProductViews.swift in Sources */,

@@ -1,7 +1,7 @@
 /*
  Copyright 2020 Adobe
  All Rights Reserved.
- 
+
  NOTICE: Adobe permits you to use, modify, and distribute this file in
  accordance with the terms of the Adobe license agreement accompanying
  it.
@@ -32,18 +32,23 @@ import AEPEdgeIdentity
 
 //step-messaging-start
 import AEPMessaging
-import AEPOptimize
+// AEPOptimize is required for in-app messaging, but is imported below
+// import AEPOptimize
 import UserNotifications    // for local notification demonstration purposes only
 //step-messaging-end
+
+//step-optimize-start
+import AEPOptimize
+//step-optimize-end
 
 import AEPUserProfile
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-    
+
     /// APP ID - EDGE CONFIGURATION
     // private let LAUNCH_ENVIRONMENT_FILE_ID = ""
-    
+
     /// APP ID - MESSAGING CONFIGURATION
     /// AEPSampleApp on AEM Assets Departmental - Campaign
     private let LAUNCH_ENVIRONMENT_FILE_ID = "3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
@@ -53,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // step-init-start
         MobileCore.setLogLevel(.trace)
         let appState = application.applicationState;
-        
+
         let extensions = [
             Lifecycle.self,
             Signal.self,
@@ -71,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             Messaging.self,
             Optimize.self
         ]
-        
+
         MobileCore.registerExtensions(extensions, {
             // Use the App id assigned to this application via Adobe Launch
             MobileCore.configureWith(appId: self.LAUNCH_ENVIRONMENT_FILE_ID)
@@ -83,10 +88,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         })
         // step-init-end
-        
+
         // register push notification
         registerForPushNotifications(application: application)
-        
+
         return true
     }
 
@@ -103,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
+
     // MARK: - Push Token Collection
     func registerForPushNotifications(application: UIApplication) {
         let center = UNUserNotificationCenter.current()
@@ -115,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-    
+
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
@@ -129,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("Failed to register for remote notifications: \(error)")
         MobileCore.setPushIdentifier(nil)
     }
-        
+
     // MARK: - Handle Push Notification Interactions
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
@@ -144,17 +149,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         switch response.actionIdentifier {
         case "ACCEPT_ACTION":
             Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: "ACCEPT_ACTION")
-            
+
         case "DECLINE_ACTION":
             Messaging.handleNotificationResponse(response, applicationOpened: false, customActionId: "DECLINE_ACTION")
-            
+
             // Handle other actions…
         default:
             Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
         }
-        
+
         // Always call the completion handler when done.
         completionHandler()
     }
 }
-

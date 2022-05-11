@@ -50,7 +50,7 @@ struct MessagingView: View {
                 Spacer(minLength: 15)
             }
             VStack(alignment: .leading, spacing: 12) {
-                Text("In-App Messaging").font(.title).bold()
+                Text("In-App Messaging (beta)").font(.title).bold()
                 Text("Click a button below to trigger an in-app message:")
                 Button("Sample fullscreen message") {
                     MobileCore.track(action: "sampleAppFullscreen", data: nil)
