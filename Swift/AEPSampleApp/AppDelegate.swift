@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     
-    // Function to recieve a push token in the callback for function didRegisterForRemoteNotificationsWithDeviceToken
+    // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
             let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
             let token = tokenParts.joined()
@@ -125,12 +125,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             MobileCore.setPushIdentifier(deviceToken)
     }
 
-    // Function to if device failed to register for push notifications
+    // Tells the delegate that the app failed to register with Apple Push Notification service (APNs).
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
           print("Failed to register: \(error)")
     }
 
-    // Function to handle rich push notifications. i.e. messages with images, media etc
+    // Receiving Notifications
+    // Delegate method to handle a notification that arrived while the app was running in the foreground.
     func userNotificationCenter(
           _ center: UNUserNotificationCenter,
           willPresent notification: UNNotification,
@@ -140,7 +141,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
           completionHandler([.alert, .sound, .badge])
     }
 
-    // Function to handle rich push notifications. i.e. messages with custom actions
+    // Handling the Selection of Custom Actions 
+    // Delegate method to process the user's response to a delivered notification.
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
             Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
             completionHandler()
