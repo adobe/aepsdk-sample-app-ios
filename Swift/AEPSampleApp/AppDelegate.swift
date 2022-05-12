@@ -47,11 +47,11 @@ import AEPUserProfile
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     /// APP ID - EDGE CONFIGURATION
-    // private let LAUNCH_ENVIRONMENT_FILE_ID = ""
+    // private let ENVIRONMENT_FILE_ID = ""
 
     /// APP ID - MESSAGING CONFIGURATION
     /// AEPSampleApp on AEM Assets Departmental - Campaign
-    private let LAUNCH_ENVIRONMENT_FILE_ID = "3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
+    private let ENVIRONMENT_FILE_ID = "3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         MobileCore.registerExtensions(extensions, {
             // Use the App id assigned to this application via Adobe Launch
-            MobileCore.configureWith(appId: self.LAUNCH_ENVIRONMENT_FILE_ID)
+            MobileCore.configureWith(appId: self.ENVIRONMENT_FILE_ID)
             // Use the sandbox configuration to allow the messaging sdk to use apnsSandbox
             MobileCore.updateConfigurationWith(configDict: ["messaging.useSandbox" : true])
             if appState != .background {
@@ -109,7 +109,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-    // MARK: - Push Token Collection
+    // MARK: Registration for push notification
+    
+    // Function to register the app for push notification
     func registerForPushNotifications(application: UIApplication) {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge, .sound, .alert]) { [weak self] granted, _ in
@@ -121,6 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
 
+    // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
@@ -130,18 +133,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         MobileCore.setPushIdentifier(deviceToken)
     }
 
+    // Tells the delegate that the app failed to register with Apple Push Notification service (APNs).
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register for remote notifications: \(error)")
         MobileCore.setPushIdentifier(nil)
     }
 
     // MARK: - Handle Push Notification Interactions
+    // Receiving Notifications
+    // Delegate method to handle a notification that arrived while the app was running in the foreground.
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound, .badge])
     }
 
+    // Handling the Selection of Custom Actions
+    // Delegate method to process the user's response to a delivered notification.
     func userNotificationCenter(_: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
