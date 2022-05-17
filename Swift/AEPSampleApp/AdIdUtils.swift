@@ -13,15 +13,17 @@ import Foundation
 
 class AdIdUtils {
     
-    /// Provides the `advertisingIdentifier` for the given environment, assuming tracking authorization is provided
+    /// Provides the `advertisingIdentifier` for the given environment, assuming tracking authorization is provided.
+    /// Use ``requestTrackingAuthorization(callbackHandler:)`` to request authorization.
     ///
-    /// Simulators will never provide a valid UUID, regardless of authorization; use the set ad ID flow to test a specific ad ID.
+    /// Simulators will never provide a valid `UUID`, regardless of authorization; use the set ad ID flow to test a specific ad ID instead.
+    ///
+    /// - Returns: The IDFA in `UUID` format; all-zeros if tracking is not authorized or in simulator environment
     static func getAdvertisingIdentifierForEnvironment() -> UUID {
         #if targetEnvironment(simulator)
         print("""
-            Simulator environment detected. Please note that simulators cannot retrieve valid advertising identifier
-            from the ASIdentifierManager (as specified by Apple); an all-zeros UUID will be retrieved even if
-            authorization is provided. If you want to use a specific ad ID, you can use the set ad ID flow.
+            Simulator environment detected; an all-zeros UUID will be retrieved even if
+            authorization is provided. Use the set ad ID flow to set a specific ad ID value.
             """)
         #endif
         print("Advertising identifier: \(ASIdentifierManager.shared().advertisingIdentifier)")
@@ -34,30 +36,20 @@ class AdIdUtils {
     /// - Returns: `true` if authorized, `false` for any other state
     static func isTrackingAuthorized() -> Bool {
         if #available(iOS 14, *) {
-            print("ATTrackingManager.trackingAuthorizationStatus: \(ATTrackingManager.trackingAuthorizationStatus)")
+            print("Tracking authorization status: \(ATTrackingManager.trackingAuthorizationStatus)")
             return ATTrackingManager.trackingAuthorizationStatus == .authorized
         } else {
-            // ASIdentifierManager used for iOS <= 13
-            print("""
-                  iOS version <= 13 detected. ATTrackingManager's requestTrackingAuthorization is not available; using ASIdentifierManager and getting IDFA directly.
-                  ASIdentifierManager.shared().isAdvertisingTrackingEnabled: \(ASIdentifierManager.shared().isAdvertisingTrackingEnabled)
-                  Advertising identifier: \(getAdvertisingIdentifierForEnvironment())
-                  """)
-            print("Tracking authorization status is '\(ASIdentifierManager.shared().isAdvertisingTrackingEnabled)'.")
+            print("iOS version <= 13 detected; using ASIdentifierManager and getting IDFA directly.")
+            print("Tracking authorization status: \(ASIdentifierManager.shared().isAdvertisingTrackingEnabled)")
             return ASIdentifierManager.shared().isAdvertisingTrackingEnabled
         }
     }
     
     /// Requests tracking authorization from the user; prompt will only be shown once per app install, as per Apple rules
     ///
-    /// It is possible to change tracking permissions at the Settings app level. Any change in tracking permissions will terminate the app.
-    /// It is also possible for system-wide tracking to be off but individual per-app permissions granted.
-    /// If "Allow Apps to Request to Track" at the system level was on and is turned off, a system prompt appears asking if previously provided individual per-app tracking permissions should be kept as-is or all turned off
-    /// Note that if another system prompt is already showing, the dialog with not show and auth status will be .notDetermined
-    /// Also the app needs some startup time before trying to show the prompt; otherwise if it's not ready when you call the request, auth status will be .notDetermined
+    /// - Parameters:
+    ///     - callbackHandler: Called after authorization flow completes, to allow for request chaining
     static func requestTrackingAuthorization(callbackHandler: @escaping ()->() = {}) {
-        // ATTrackingManager only available in iOS 14+
-        // Requires Xcode 12 and AppTrackingTransparency framework
         if #available(iOS 14, *) {
             print("Calling requestTrackingAuthorization. Dialog will only be shown once per app install.")
             ATTrackingManager.requestTrackingAuthorization { status in
@@ -68,38 +60,32 @@ class AdIdUtils {
                 // Tracking authorization dialog was shown and authorization given
                 case .authorized:
                     // IDFA now accessible
-                    print("\(status)")
+                    print("Authorization status: \(status)")
                 // For all cases below (that is, not .authorized), IDFA is all-zeros
                 // Tracking authorization dialog was shown and permission is denied
                 case .denied:
-                    print("\(status)")
+                    print("Authorization status: \(status)")
                 // Tracking authorization dialog has not been shown
                 case .notDetermined:
-                    print("\(status)")
-                // Tracking authorization dialog is not allowed to be shown
+                    print("Authorization status: \(status)")
+                // Tracking authorization dialog is not allowed to be shown; not controlled by the user
                 case .restricted:
-                    print("\(status)")
+                    print("Authorization status: \(status)")
                 @unknown default:
-                    print("\(status)")
+                    print("Authorization status: \(status)")
                 }
+                callbackHandler()
             }
         } else {
-            // ASIdentifierManager used for iOS <= 13
-            print("""
-                  iOS version <= 13 detected. ATTrackingManager's requestTrackingAuthorization is not available; using ASIdentifierManager and getting IDFA directly.
-                  ASIdentifierManager.shared().isAdvertisingTrackingEnabled: \(ASIdentifierManager.shared().isAdvertisingTrackingEnabled)
-                  Advertising identifier: \(getAdvertisingIdentifierForEnvironment())
-                  """)
-            print("Tracking authorization status is '\(ASIdentifierManager.shared().isAdvertisingTrackingEnabled)'.")
+            isTrackingAuthorized()
             if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
-                // IDFA now accessible
-                let adID = getAdvertisingIdentifierForEnvironment()
-                print("Advertising identifier: \(adID)")
+                // Tracking authorized; IDFA now accessible
+                getAdvertisingIdentifierForEnvironment()
             } else {
-                // IDFA is all-zeros
-                let adID = getAdvertisingIdentifierForEnvironment()
-                print("Advertising identifier: \(adID)")
+                // Tracking not authorized; IDFA is all-zeros
+                getAdvertisingIdentifierForEnvironment()
             }
+            callbackHandler()
         }
     }
 }
