@@ -35,11 +35,15 @@ import AEPMessaging
 import UserNotifications
 //step-messaging-end
 
+//step-optimize-start
+import AEPOptimize
+//step-optimize-end
+
 import AEPUserProfile
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-    private let LAUNCH_ENVIRONMENT_FILE_ID = ""
+    private let ENVIRONMENT_FILE_ID = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -61,11 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                           , Assurance.self
                           // step-assurance-end
                           , Messaging.self
+                          , Optimize.self
                         ]
         
         MobileCore.registerExtensions(extensions, {
             // Use the App id assigned to this application via Adobe Launch
-            MobileCore.configureWith(appId: self.LAUNCH_ENVIRONMENT_FILE_ID)
+            MobileCore.configureWith(appId: self.ENVIRONMENT_FILE_ID)
             // Use the sandbox configuration to allow the messaging sdk to use apnsSandbox
             MobileCore.updateConfigurationWith(configDict: ["messaging.useSandbox" : true])
             if appState != .background {
@@ -108,6 +113,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     ///     - completionHandler: called when the registration process is completed, regardless of permissions granted; allows of chaining of requests
     func registerForPushNotifications(application: UIApplication, completionHandler: @escaping ()->() = {}) {
         let center = UNUserNotificationCenter.current()
+      
+        //Ask for user permission
         center.requestAuthorization(options: [.badge, .sound, .alert]) {
             [weak self] granted, _ in
             defer { completionHandler() }
@@ -118,34 +125,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             DispatchQueue.main.async {
                 application.registerForRemoteNotifications()
             }
-        }
+          }
     }
     
+    
+    // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-        let token = tokenParts.joined()
-        print("Device Token: \(token)")
-        
-        // Send push token to experience platform
-        MobileCore.setPushIdentifier(deviceToken)
+            let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+            let token = tokenParts.joined()
+            print("Device Token: \(token)")
+
+            // Send push token to experience platform
+            MobileCore.setPushIdentifier(deviceToken)
     }
-    
+
+    // Tells the delegate that the app failed to register with Apple Push Notification service (APNs).
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
+          print("Failed to register: \(error)")
     }
-    
+
+    // Receiving Notifications
+    // Delegate method to handle a notification that arrived while the app was running in the foreground.
     func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        willPresent notification: UNNotification,
-        withCompletionHandler completionHandler:
-        @escaping (UNNotificationPresentationOptions) -> Void) {
-            
-            completionHandler([.alert, .sound, .badge])
-        }
-    
+          _ center: UNUserNotificationCenter,
+          willPresent notification: UNNotification,
+          withCompletionHandler completionHandler:
+          @escaping (UNNotificationPresentationOptions) -> Void) {
+
+          completionHandler([.alert, .sound, .badge])
+    }
+
+    // Handling the Selection of Custom Actions
+    // Delegate method to process the user's response to a delivered notification.
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
-        completionHandler()
+            Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
+            completionHandler()
     }
 }
 
