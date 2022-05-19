@@ -20,7 +20,7 @@ struct EdgeIdentityView: View {
     @State var trackingAuthorizationResultText: String = ""
     
     /// Updates view for ad ID related elements
-    func updateUsingTrackingAuthorization() {
+    func setDeviceAdvertisingIdentifier() {
         let isTrackingAuthorized = AdIdUtils.isTrackingAuthorized()
         trackingAuthorizationResultText = isTrackingAuthorized ? "Tracking allowed" : "Tracking not allowed"
         print("isTrackingAuthorized: \(isTrackingAuthorized)")
@@ -86,7 +86,7 @@ struct EdgeIdentityView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Advertising Identifier:")
                     Button(action: {
-                        updateUsingTrackingAuthorization()
+                        setDeviceAdvertisingIdentifier()
                     }) {
                         Text("Update ad ID with current IDFA")
                     }.buttonStyle(CustomButtonStyle())
@@ -122,7 +122,7 @@ struct EdgeIdentityView: View {
                             Text("Set ad id as empty string")
                         }.buttonStyle(CustomButtonStyle())
                     }
-                }.padding()
+                }
             }
         }
     }

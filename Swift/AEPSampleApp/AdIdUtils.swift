@@ -16,7 +16,9 @@ class AdIdUtils {
     /// Provides the `advertisingIdentifier` for the given environment, assuming tracking authorization is provided.
     /// Use ``requestTrackingAuthorization(callbackHandler:)`` to request authorization.
     ///
-    /// Simulators will never provide a valid `UUID`, regardless of authorization; use the set ad ID flow to test a specific ad ID instead.
+    /// Simulators may not provide a valid `UUID`, regardless of authorization state; in this case, use the set ad ID flow to test a specific
+    /// ad ID instead. Please see Apple's documentation on `advertisingIdentifier` for more details:
+    /// https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614151-advertisingidentifier
     ///
     /// - Returns: The IDFA in `UUID` format; all-zeros if tracking is not authorized or in simulator environment
     static func getAdvertisingIdentifierForEnvironment() -> UUID {
