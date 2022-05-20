@@ -37,7 +37,6 @@ struct EdgeIdentityView: View {
                             Text("Copy")
                             }
                         }
-                
                 Button(action: {
                     Identity.getIdentities { identityMap, error in
                         currentIdentityMap = identityMap
@@ -66,7 +65,6 @@ struct EdgeIdentityView: View {
                 }.buttonStyle(CustomButtonStyle())
             }.padding()
         }
-        
     }
 }
 

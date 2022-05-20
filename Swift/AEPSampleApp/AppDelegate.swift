@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private let ENVIRONMENT_FILE_ID = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        
         // step-init-start
         MobileCore.setLogLevel(.trace)
         let appState = application.applicationState;
@@ -57,9 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                           Edge.self,
                           Consent.self,
                           AEPEdgeIdentity.Identity.self
-                          //step-extension-start
+                          // step-extension-start
                           , SampleExtension.self
-                          //step-extension-end
+                          // step-extension-end
                           , UserProfile.self
                           // step-assurance-start
                           , Assurance.self
@@ -81,7 +81,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // step-init-end
         
         // register push notification
-        registerForPushNotifications(application: application)
+        registerForPushNotifications(application: application) {
+            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
+                AdIdUtils.requestTrackingAuthorization()
+            }
+        }
         
         return true
     }
@@ -100,21 +104,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    // MARK: Registration for push notification
-
-    // Function to register the app for push notification
-    func registerForPushNotifications(application: UIApplication) {
-          let center = UNUserNotificationCenter.current()
-        
-          //Ask for user permission
-          center.requestAuthorization(options: [.badge, .sound, .alert]) {
+    // MARK: Registeration for push notification
+    
+    /// Requests permissions for remote notifications for the application, and calls the completion handler when the operation is complete in order to allow for request chaining (completion handler is called regardless of authorization status given)
+    ///
+    /// - Parameters:
+    ///     - application: the application instance that notifications will be registered to
+    ///     - completionHandler: called when the registration process is completed, regardless of permissions granted; allows of chaining of requests
+    func registerForPushNotifications(application: UIApplication, completionHandler: @escaping ()->() = {}) {
+        let center = UNUserNotificationCenter.current()
+      
+        //Ask for user permission
+        center.requestAuthorization(options: [.badge, .sound, .alert]) {
             [weak self] granted, _ in
+            defer { completionHandler() }
             guard granted else { return }
-
+            
             center.delegate = self
-
+            
             DispatchQueue.main.async {
-              application.registerForRemoteNotifications()
+                application.registerForRemoteNotifications()
             }
           }
     }
@@ -146,12 +155,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
           completionHandler([.alert, .sound, .badge])
     }
 
-    // Handling the Selection of Custom Actions 
+    // Handling the Selection of Custom Actions
     // Delegate method to process the user's response to a delivered notification.
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
             Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
             completionHandler()
     }
-     
 }
 
