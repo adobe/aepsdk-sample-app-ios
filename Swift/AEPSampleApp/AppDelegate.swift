@@ -32,14 +32,16 @@ import AEPEdgeIdentity
 
 //step-messaging-start
 import AEPMessaging
-// AEPOptimize is required for in-app messaging, but is imported below
-// import AEPOptimize
-import UserNotifications    // for local notification demonstration purposes only
-//step-messaging-end
 
+// AEPOptimize is required for in-app messaging
 //step-optimize-start
 import AEPOptimize
 //step-optimize-end
+
+import UserNotifications    // for local notification demonstration purposes only
+//step-messaging-end
+
+
 
 import AEPUserProfile
 
@@ -54,11 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private let ENVIRONMENT_FILE_ID = "3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        
         // step-init-start
         MobileCore.setLogLevel(.trace)
         let appState = application.applicationState;
-
         let extensions = [
             Lifecycle.self,
             Signal.self,
@@ -90,8 +91,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // step-init-end
 
         // register push notification
-        registerForPushNotifications(application: application)
-
+        registerForPushNotifications(application: application) {
+            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
+                AdIdUtils.requestTrackingAuthorization()
+            }
+        }
+        
         return true
     }
 
@@ -108,15 +113,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
+    
     // MARK: Registration for push notification
     
-    // Function to register the app for push notification
-    func registerForPushNotifications(application: UIApplication) {
+    /// Requests permissions for remote notifications for the application, and calls the completion handler when the operation is complete in order to allow for request chaining (completion handler is called regardless of authorization status given)
+    ///
+    /// - Parameters:
+    ///     - application: the application instance that notifications will be registered to
+    ///     - completionHandler: called when the registration process is completed, regardless of permissions granted; allows of chaining of requests
+    func registerForPushNotifications(application: UIApplication, completionHandler: @escaping ()->() = {}) {
         let center = UNUserNotificationCenter.current()
+      
+        //Ask for user permission
         center.requestAuthorization(options: [.badge, .sound, .alert]) { [weak self] granted, _ in
+            defer { completionHandler() }
             guard granted else { return }
+            
             center.delegate = self
+            
             DispatchQueue.main.async {
                 application.registerForRemoteNotifications()
             }

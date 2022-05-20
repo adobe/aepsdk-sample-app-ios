@@ -33,12 +33,14 @@ target 'AEPSampleApp' do
 
   # step-messaging-start
   pod 'AEPMessaging', :git => 'https://github.com/adobe/aepsdk-messaging-ios.git', :branch => 'staging'
-  # AEPOptimize is required for in-app messaging, but is included in its own section below
-  # pod 'AEPOptimize', :git => 'https://github.com/adobe/aepsdk-optimize-ios.git', :branch => 'staging'
-  # step-messaging-end
-
+  
+  # AEPOptimize is required for in-app messaging
   # step-optimize-start
   pod 'AEPOptimize', :git => 'https://github.com/adobe/aepsdk-optimize-ios.git', :branch => 'staging'
   # step-optimize-end
+  
+  # step-messaging-end
+
+  
 
 end

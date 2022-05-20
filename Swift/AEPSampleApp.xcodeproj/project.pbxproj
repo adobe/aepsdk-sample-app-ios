@@ -13,6 +13,7 @@
 		3FEEA0E12523DBB5007EC317 /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA0E02523DBB4007EC317 /* CoreView.swift */; };
 		3FEEA0E32524DA4A007EC317 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */; };
 		411747AC27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png in Resources */ = {isa = PBXBuildFile; fileRef = 411747AB27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png */; };
+		4C7869AE281356EF00858CEE /* AdIdUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7869AD281356EF00858CEE /* AdIdUtils.swift */; };
 		782B982124D9BA89009C5902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982024D9BA89009C5902 /* AppDelegate.swift */; };
 		782B982324D9BA89009C5902 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B982224D9BA89009C5902 /* SceneDelegate.swift */; };
 		782B982A24D9BA8C009C5902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782B982924D9BA8C009C5902 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		3FEEA0E02523DBB4007EC317 /* CoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreView.swift; sourceTree = "<group>"; };
 		3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		411747AB27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Adobe_Experience_Platform_logo_256px.png; path = ../../Resources/Icons/Adobe_Experience_Platform_logo_256px.png; sourceTree = "<group>"; };
+		4C7869AD281356EF00858CEE /* AdIdUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdIdUtils.swift; sourceTree = "<group>"; };
 		782B981D24D9BA89009C5902 /* AEPSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AEPSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		782B982024D9BA89009C5902 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		782B982224D9BA89009C5902 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				92430A90263B2340004FBDCC /* AEPSampleApp.entitlements */,
 				D4E2FD8D252554D8001FE22D /* xdmlib */,
+				4C7869AD281356EF00858CEE /* AdIdUtils.swift */,
 				782B982024D9BA89009C5902 /* AppDelegate.swift */,
 				7876121024DC601B001CABB5 /* AssuranceView.swift */,
 				3FEEA0E22524DA4A007EC317 /* ButtonStyle.swift */,
@@ -123,12 +126,12 @@
 				D42BE5C22524569C00782C3C /* EdgeView.swift */,
 				218306EC26138BBA00889569 /* MenuView.swift */,
 				92430A94263B28D7004FBDCC /* MessagingView.swift */,
-                C8B33870281A7FF500D64F14 /* OptimizeView.swift */,
+				C8B33870281A7FF500D64F14 /* OptimizeView.swift */,
 				782B982224D9BA89009C5902 /* SceneDelegate.swift */,
 				782B982924D9BA8C009C5902 /* Assets.xcassets */,
 				782B982B24D9BA8C009C5902 /* LaunchScreen.storyboard */,
 				782B982E24D9BA8C009C5902 /* Info.plist */,
-				411747AB27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png */,				
+				411747AB27ACB1DE0025F55A /* Adobe_Experience_Platform_logo_256px.png */,
 			);
 			path = AEPSampleApp;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				782B982124D9BA89009C5902 /* AppDelegate.swift in Sources */,
 				782B982324D9BA89009C5902 /* SceneDelegate.swift in Sources */,
 				3FEEA0E12523DBB5007EC317 /* CoreView.swift in Sources */,
+				4C7869AE281356EF00858CEE /* AdIdUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +457,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AEPSampleApp/AEPSampleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FKGEE875K4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AEPSampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,7 +478,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AEPSampleApp/AEPSampleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FKGEE875K4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AEPSampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
