@@ -22,15 +22,12 @@ struct EdgeIdentityView: View {
     /// Updates view for ad ID related elements
     func setDeviceAdvertisingIdentifier() {
         let isTrackingAuthorized = AdIdUtils.isTrackingAuthorized()
-        trackingAuthorizationResultText = isTrackingAuthorized ? "Tracking allowed" : "Tracking not allowed"
         print("isTrackingAuthorized: \(isTrackingAuthorized)")
-        if isTrackingAuthorized {
-            self.adID = AdIdUtils.getAdvertisingIdentifierForEnvironment()
-            print("Advertising identifier fetched: \(String(describing: adID))")
-            MobileCore.setAdvertisingIdentifier(self.adID?.uuidString)
-        } else {
-            MobileCore.setAdvertisingIdentifier("")
-        }
+        trackingAuthorizationResultText = isTrackingAuthorized ? "Tracking allowed" : "Tracking not allowed"
+        
+        self.adID = AdIdUtils.getAdvertisingIdentifierForEnvironment()
+        print("Advertising identifier fetched: \(String(describing: adID))")
+        MobileCore.setAdvertisingIdentifier(self.adID?.uuidString)
     }
     
     var body: some View {
@@ -119,7 +116,7 @@ struct EdgeIdentityView: View {
                         Button(action: {
                             MobileCore.setAdvertisingIdentifier("")
                         }) {
-                            Text("Set ad id as empty string")
+                            Text("Set ad ID as empty string")
                         }.buttonStyle(CustomButtonStyle())
                     }
                 }
