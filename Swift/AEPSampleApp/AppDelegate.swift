@@ -155,7 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
           completionHandler([.alert, .sound, .badge])
     }
 
-    // Handling the Selection of Custom Actions 
+    // Handling the Selection of Custom Actions
     // Delegate method to process the user's response to a delivered notification.
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
             Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
