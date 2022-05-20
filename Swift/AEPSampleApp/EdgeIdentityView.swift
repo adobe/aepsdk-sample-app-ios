@@ -25,9 +25,15 @@ struct EdgeIdentityView: View {
         print("isTrackingAuthorized: \(isTrackingAuthorized)")
         trackingAuthorizationResultText = isTrackingAuthorized ? "Tracking allowed" : "Tracking not allowed"
         
-        self.adID = AdIdUtils.getAdvertisingIdentifierForEnvironment()
-        print("Advertising identifier fetched: \(String(describing: adID))")
-        MobileCore.setAdvertisingIdentifier(self.adID?.uuidString)
+        if isTrackingAuthorized {
+            self.adID = AdIdUtils.getAdvertisingIdentifierForEnvironment()
+            print("Advertising identifier fetched: \(String(describing: adID))")
+            MobileCore.setAdvertisingIdentifier(self.adID?.uuidString)
+        }
+        else {
+            print("Ad tracking not authorized; setting ad ID to the empty string")
+            MobileCore.setAdvertisingIdentifier("")
+        }
     }
     
     var body: some View {
