@@ -120,7 +120,7 @@ struct EdgeIdentityView: View {
                         }.buttonStyle(CustomButtonStyle())
                     }
                 }
-            }
+            }.padding()
         }
     }
 }
