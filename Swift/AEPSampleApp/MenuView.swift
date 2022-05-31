@@ -45,9 +45,9 @@ struct MenuView: View {
                     }
                 }
                 
-                Section(header: Text("Optimize (beta)")) {
-                    NavigationLink(destination: OptimizeView().navigationBarTitle("Optimize (beta)")) {
-                        Text("Optimize (beta)")
+                Section(header: Text("Optimize")) {
+                    NavigationLink(destination: OptimizeView().navigationBarTitle("Optimize")) {
+                        Text("Optimize")
                     }
                 }
             }.navigationBarTitle(Text("Extensions"))
