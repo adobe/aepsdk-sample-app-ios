@@ -18,6 +18,7 @@ struct EdgeIdentityView: View {
     @State var adID: UUID?
     @State var adIdText: String = ""
     @State var trackingAuthorizationResultText: String = ""
+    @State var urlVariablesText: String = ""
     
     /// Updates view for ad ID related elements
     func setDeviceAdvertisingIdentifier() {
@@ -39,15 +40,16 @@ struct EdgeIdentityView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
+                Text("Current ECID:")
                 Button(action: {
                     Identity.getExperienceCloudId { ecid, error in
                         currentEcid = ecid ?? ""
                     }
                     
                 }) {
+                    
                     Text("Get ExperienceCloudId")
                 }.buttonStyle(CustomButtonStyle())
-                Text("Current ECID:")
                 Text(currentEcid)
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
@@ -59,6 +61,7 @@ struct EdgeIdentityView: View {
                             }
                     }
                 
+                Text("Current Identities:")
                 Button(action: {
                     Identity.getIdentities { identityMap, error in
                         currentIdentityMap = identityMap
@@ -68,7 +71,6 @@ struct EdgeIdentityView: View {
                     Text("Get Identities")
                 }.buttonStyle(CustomButtonStyle())
                 
-                Text("Current Identities:")
                 Text(currentIdentityMap?.jsonString ?? "")
                     .fixedSize(horizontal: false, vertical: true)
                 
@@ -125,6 +127,23 @@ struct EdgeIdentityView: View {
                             Text("Set ad ID as empty string")
                         }.buttonStyle(CustomButtonStyle())
                     }
+                }
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    
+                    Text("Get URLVariables:")
+                    Button(action: {
+                        self.urlVariablesText = ""
+
+                        AEPEdgeIdentity.Identity.getUrlVariables { urlVariablesString, _ in
+                            self.urlVariablesText = urlVariablesString ?? "URLVariables not generated"
+                        }
+                        
+                    }) {
+                        Text("Get URLVariables")
+                    }.buttonStyle(CustomButtonStyle())
+                    
+                    Text(urlVariablesText)
                 }
             }.padding()
         }
