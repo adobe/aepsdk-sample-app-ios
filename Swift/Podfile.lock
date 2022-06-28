@@ -43,7 +43,7 @@ DEPENDENCIES:
   - AEPIdentity
   - AEPLifecycle
   - AEPMessaging (from `https://github.com/adobe/aepsdk-messaging-ios.git`, branch `staging`)
-  - AEPOptimize (from `https://github.com/adobe/aepsdk-optimize-ios.git`, branch `staging`)
+  - AEPOptimize
   - AEPRulesEngine
   - AEPSampleExtensionSwift (from `https://github.com/adobe/aepsdk-sample-extension-ios.git`, branch `main`)
   - AEPServices
@@ -59,6 +59,7 @@ SPEC REPOS:
     - AEPEdgeIdentity
     - AEPIdentity
     - AEPLifecycle
+    - AEPOptimize
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
@@ -68,9 +69,6 @@ EXTERNAL SOURCES:
   AEPMessaging:
     :branch: staging
     :git: https://github.com/adobe/aepsdk-messaging-ios.git
-  AEPOptimize:
-    :branch: staging
-    :git: https://github.com/adobe/aepsdk-optimize-ios.git
   AEPSampleExtensionSwift:
     :branch: main
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -79,9 +77,6 @@ CHECKOUT OPTIONS:
   AEPMessaging:
     :commit: 659905f9c0ce66128b5d9ec474ab4c64c0df7854
     :git: https://github.com/adobe/aepsdk-messaging-ios.git
-  AEPOptimize:
-    :commit: 17d387e286fdee5a7db9e534490ba4b504af471d
-    :git: https://github.com/adobe/aepsdk-optimize-ios.git
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
     :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
@@ -95,13 +90,13 @@ SPEC CHECKSUMS:
   AEPIdentity: bd5c639f2ddb02e2b15f909c661235ccd86bd98a
   AEPLifecycle: 7c0452a650a8ccaaa2473a3625a7004e8687797e
   AEPMessaging: 446920d238fe0e1db2948d8eb4e159250136f06d
-  AEPOptimize: 7be718a9aaa494cf9bfd367c5f6c008f91dc1edf
+  AEPOptimize: 413690f88cb8ae574153a94081331788ca740a91
   AEPRulesEngine: bb2927ed5501ddf9754c66e97f8d2b1cf8e33b19
   AEPSampleExtensionSwift: 57f8b73affbf831b274257811a2102805c498538
   AEPServices: fd41aa2d0eda1e6939ae00a99f8431a57d09e1ca
   AEPSignal: bbdb296030fec8239fb316576f40b230267fcf7c
   AEPUserProfile: 2ddb5ba8e2c22dd8f942992306b050f4be2c2403
 
-PODFILE CHECKSUM: 5556796a5c854029a511abe9361ebea576e261ed
+PODFILE CHECKSUM: eda14a558036cf9e3057fa82e4e4509d5c5fed12
 
 COCOAPODS: 1.11.3
