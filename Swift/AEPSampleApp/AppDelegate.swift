@@ -48,12 +48,28 @@ import AEPUserProfile
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-    /// APP ID - EDGE CONFIGURATION
-    // private let ENVIRONMENT_FILE_ID = ""
+   
 
-    /// APP ID - MESSAGING CONFIGURATION
-    /// AEPSampleApp on AEM Assets Departmental - Campaign
-    private let ENVIRONMENT_FILE_ID = "3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
+    /// APP ID - APP and EDGE CONFIGURATION
+    /// APP ID is also called ENVIRONMENT_FILE_ID in the data-collection UI
+    ///
+    /// Production
+    ///1. Org : "Assets Departmental - Campaign "
+    ///2. Tag Name : AEPSampleApp
+    ///2.a Note the edge configuration in the above tag, it uses sandbox:Prod, Datastream:
+    ///3. Tag - environment_file_id : ""3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
+    ///
+    ///
+    /// Stage
+    /// 1. Org : "CJM-stage"
+    /// 2. Tag Name : AEPSampleAppStageByArchana
+    /// 2.a Note the edge configuration in the above tag, it uses sandbox:'AJO web', Datastream:'ArchanaIAM_DataStream'
+    /// 3. Tag - environment_file_id : "staging/1b50a869c4a2/0f983a6f9f80/launch-c5682c2fe9a1-development"
+    /// 4. If using Stage - please make sure to uncomment the 'cjmStageConfig' present later in this file
+    ///
+    ///
+    /// Please use one of the above environment_file_id
+    private let ENVIRONMENT_FILE_ID = "staging/1b50a869c4a2/0f983a6f9f80/launch-c5682c2fe9a1-development"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -65,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             Signal.self,
             Edge.self,
             Consent.self,
-            AEPIdentity.Identity.self,
+            //AEPIdentity.Identity.self,
             AEPEdgeIdentity.Identity.self,
             UserProfile.self,
             //step-extension-start
@@ -89,6 +105,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         })
         // step-init-end
+        
+        // update config to use cjmstage for int integration
+        let cjmStageConfig = [
+            "edge.environment": "int",
+        ]
+        MobileCore.updateConfigurationWith(configDict: cjmStageConfig)
 
         // register push notification
         registerForPushNotifications(application: application) {

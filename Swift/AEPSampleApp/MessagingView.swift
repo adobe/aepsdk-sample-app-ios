@@ -20,6 +20,9 @@ class MessagingViewController: UIHostingController<MessagingView> {}
 
 struct MessagingView: View {
     @State private var ecidState:String = ""
+    
+    /// custom track action string
+    @State private var myTrackActionString: String = ""
 
     let LOG_PREFIX = "MessagingViewController"
     
@@ -33,7 +36,50 @@ struct MessagingView: View {
 
     /// UI elements for the product review example
     var messaging: some View {
+        
         VStack(alignment: .leading, spacing: 12) {
+
+            // In-App messaging section
+            VStack(alignment: .leading, spacing: 12) {
+                
+                Text("In-App Messaging (beta)").font(.title).bold()
+                TextField("Enter your magic word here", text: $myTrackActionString)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    
+                Button(action: {
+                    self.sendTrackActionEvent()
+                }){
+                    HStack {
+                        Image(systemName: "pencil")
+                            .font(.caption)
+                        Text("Trigger Action")
+                            .font(.caption)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .background(Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(5)
+                }
+                
+                Text("Click a button below to trigger an in-app message:")
+                Button("Sample fullscreen message") {
+                    MobileCore.track(action: "sampleAppFullscreen", data: nil)
+                }
+                Button("Sample modal message") {
+                    MobileCore.track(action: "sampleAppModal", data: nil)
+                }
+                Button("Sample top banner") {
+                    MobileCore.track(action: "sampleAppBannerTop", data: nil)
+                }
+                Button("Sample bottom banner") {
+                    MobileCore.track(action: "sampleAppBannerBottom", data: nil)
+                }
+                
+                Spacer()
+            }
+            // Push messaging section
             VStack(alignment: .leading, spacing: 12) {
                 Text("Push Messaging").font(.title).bold()
                 Text("Messaging SDK setup is complete with ECID:")
@@ -49,28 +95,15 @@ struct MessagingView: View {
                 }
                 Spacer(minLength: 15)
             }
-            VStack(alignment: .leading, spacing: 12) {
-                Text("In-App Messaging (beta)").font(.title).bold()
-                Text("Click a button below to trigger an in-app message:")
-                Button("Sample fullscreen message") {
-                    MobileCore.track(action: "sampleAppFullscreen", data: nil)
-                }
-                Button("Sample modal message") {
-                    MobileCore.track(action: "sampleAppModal", data: nil)
-                }
-                Button("Sample top banner") {
-                    MobileCore.track(action: "sampleAppBannerTop", data: nil)
-                }
-                Button("Sample bottom banner") {
-                    MobileCore.track(action: "sampleAppBannerBottom", data: nil)
-                }
-                Spacer()
-            }
         }.onAppear() {
             updateEcid()
         }
     }
 
+    func sendTrackActionEvent() {
+        MobileCore.track(action: myTrackActionString, data: nil)
+    }
+    
     func updateEcid() {
         Identity.getExperienceCloudId { (ecid, err) in
             if ecid == nil {return}
