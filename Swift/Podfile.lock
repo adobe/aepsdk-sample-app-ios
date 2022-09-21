@@ -75,7 +75,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AEPMessaging:
-    :commit: 026bf5f2f4097003566a03dc289715ee2ed58d9f
+    :commit: 8d692c304c28b2c9369ac4f0353a6e06e1960cc0
     :git: https://github.com/adobe/aepsdk-messaging-ios.git
   AEPSampleExtensionSwift:
     :commit: 23fe9522505774eb602cbfcc6ef4cb9fc4d9db21
