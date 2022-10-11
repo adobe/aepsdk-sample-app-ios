@@ -55,9 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     ///
     /// Production
     ///1. Org : "Assets Departmental - Campaign "
-    ///2. Tag Name : AEPSampleApp
-    ///2.a Note the edge configuration in the above tag, it uses sandbox:Prod, Datastream:
+    ///2. Tag Name : " AEPSampleApp - DO NOT…sample-app-ios"
+    ///2.a Note the edge configuration in the above tag, it uses sandbox:Prod, Datastream: "AEPSampleApp Messaging Datastream"
     ///3. Tag - environment_file_id : ""3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
+    ///
     ///
     ///
     /// Stage
@@ -69,7 +70,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     ///
     ///
     /// Please use one of the above environment_file_id
-    private let ENVIRONMENT_FILE_ID = "staging/1b50a869c4a2/0f983a6f9f80/launch-c5682c2fe9a1-development"
+    private let ENVIRONMENT_FILE_ID = "3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -107,10 +110,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // step-init-end
         
         // update config to use cjmstage for int integration
-        let cjmStageConfig = [
-            "edge.environment": "int",
-        ]
-        MobileCore.updateConfigurationWith(configDict: cjmStageConfig)
+        //let cjmStageConfig = [
+        //    "edge.environment": "int",
+      //  ]
+        //MobileCore.updateConfigurationWith(configDict: cjmStageConfig)
 
         // register push notification
         registerForPushNotifications(application: application) {
