@@ -1,6 +1,6 @@
 # coding: utf-8
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 use_frameworks!
 target 'AEPSampleApp' do
@@ -32,9 +32,8 @@ target 'AEPSampleApp' do
   # step-assurance-end
 
   # step-messaging-start
-  pod 'AEPMessaging', :git => 'https://github.com/adobe/aepsdk-messaging-ios.git', :branch => 'staging'
+  pod 'AEPMessaging'
   
-  # AEPOptimize is required for in-app messaging
   # step-optimize-start
   pod 'AEPOptimize'
   # step-optimize-end
