@@ -20,10 +20,6 @@ import AdSupport
 import AEPAssurance
 // step-assurance-end
 
-//step-extension-start
-import AEPSampleExtensionSwift
-//step-extension-end
-
 //step-edge-start
 import AEPEdge
 import AEPEdgeConsent
@@ -43,7 +39,7 @@ import UserNotifications    // for local notification demonstration purposes onl
 
 
 
-import AEPUserProfile
+//import AEPUserProfile
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -67,10 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             Consent.self,
             AEPIdentity.Identity.self,
             AEPEdgeIdentity.Identity.self,
-            UserProfile.self,
-            //step-extension-start
-            SampleExtension.self,
-            //step-extension-end
+          //  UserProfile.self,
             // step-assurance-start
             Assurance.self,
             // step-assurance-end

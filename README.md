@@ -6,7 +6,7 @@ This repository contains iOS sample apps for the AEP SDK. Examples are provided 
 
 ## Requirements
 
-- Xcode 11.0 or newer
+- Xcode 14.1.0 or newer
 - Swift 5.1 or newer (Swift project only)
 - Cocoapods 1.6 or newer
 
@@ -47,13 +47,13 @@ This repository contains iOS sample apps for the AEP SDK. Examples are provided 
 ## Documentation
 ### Launch Edge Extensions Prerequisites
 App needs to be configured with the following edge extensions in Launch before it can be used: 
-- [Edge](https://aep-sdks.gitbook.io/docs/foundation-extensions/experience-platform-extension)
-- [Edge Identity](https://aep-sdks.gitbook.io/docs/foundation-extensions/identity-for-edge-network)
-- [Consent](https://aep-sdks.gitbook.io/docs/foundation-extensions/consent-for-edge-network),
-- [Messaging](https://aep-sdks.gitbook.io/docs/beta/adobe-journey-optimizer#configure-extension-in-launch)
+- [Edge](https://developer.adobe.com/client-sdks/documentation/edge-network/)
+- [Edge Identity](https://developer.adobe.com/client-sdks/documentation/identity-for-edge-network/)
+- [Consent](https://developer.adobe.com/client-sdks/documentation/consent-for-edge-network/)
+- [Messaging](https://developer.adobe.com/client-sdks/documentation/adobe-journey-optimizer/)
 
 ### Lifecycle for Edge Network 
-Follow the [documentation](https://aep-sdks.gitbook.io/docs/foundation-extensions/lifecycle-for-edge-network) to forward Lifecycle extension metrics to the Adobe Experience Platform.
+Follow the [documentation](https://developer.adobe.com/client-sdks/documentation/lifecycle-for-edge-network/) to forward Lifecycle extension metrics to the Adobe Experience Platform.
 
 ### Messaging
 Follow the [documentation](Documentation/README.md) for enabling messaging in the sample app.

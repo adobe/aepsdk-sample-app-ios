@@ -1,46 +1,21 @@
 # coding: utf-8
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 use_frameworks!
 target 'AEPSampleApp' do
 
-  # step-init-start
   pod 'AEPServices'
   pod 'AEPCore'
   pod 'AEPLifecycle'
   pod 'AEPIdentity'
   pod 'AEPSignal'
   pod 'AEPRulesEngine'
-  pod 'AEPUserProfile'
-  # step-init-end
-
-
-  # step-extension-start
-  pod 'AEPSampleExtensionSwift', :git => 'https://github.com/adobe/aepsdk-sample-extension-ios.git', :branch => 'main'
-  # step-extension-end
-
-
-  # step-edge-start
+ # pod 'AEPUserProfile'
   pod 'AEPEdge'
   pod 'AEPEdgeConsent'
   pod 'AEPEdgeIdentity'
-  # step-edge-end
-
-  # step-assurance-start
   pod 'AEPAssurance'
-  # step-assurance-end
-
-  # step-messaging-start
-  pod 'AEPMessaging', :git => 'https://github.com/adobe/aepsdk-messaging-ios.git', :branch => 'staging'
-  
-  # AEPOptimize is required for in-app messaging
-  # step-optimize-start
+  pod 'AEPMessaging'
   pod 'AEPOptimize'
-  # step-optimize-end
-  
-  # step-messaging-end
-
-  
-
 end
