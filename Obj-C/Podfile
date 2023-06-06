@@ -14,6 +14,5 @@ target 'AEPSampleAppObjC' do
   pod 'AEPAssurance'
   pod 'AEPMessaging'
   pod 'AEPOptimize'
-  pod 'AEPAnalytics'
 
 end
