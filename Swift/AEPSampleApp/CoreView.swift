@@ -18,7 +18,7 @@ import AEPCore
 import AEPIdentity
 // step-identity-end
 
-//import AEPUserProfile
+import AEPUserProfile
 
 struct CoreView: View {
     @State private var eventQueueLength: String = ""
@@ -39,38 +39,38 @@ struct CoreView: View {
                 manualOverridesSection
                 eventsSection
                 identitySection
-               // profileSection
+                profileSection
             }.padding()
         }
     }
-//    var profileSection: some View {
-//        
-//        VStack(alignment: .leading, spacing: 12) {
-//            Text("User Profile").bold()
-//            Button(action: {
-//                UserProfile.updateUserAttributes(attributeDict: ["user_name":"Will Smith"])
-//            }){
-//                Text("Update Attributes")
-//            }.buttonStyle(CustomButtonStyle())
-//            Button(action: {
-//                UserProfile.getUserAttributes(attributeNames: ["user_name"]){
-//                    attributes, error in
-//                        self.showingAlert = true
-//                        self.retrievedAttributes = String(describing: attributes)
-//                }
-//            }){
-//                Text("Retrieve Attributes")
-//            }.buttonStyle(CustomButtonStyle())
-//            .alert(isPresented: $showingAlert){
-//                Alert(title: Text("Profile"),message: Text(self.retrievedAttributes),dismissButton: .default(Text("Got it!")))
-//            }
-//            Button(action: {
-//                UserProfile.removeUserAttributes(attributeNames: ["user_name"])
-//            }){
-//                Text("Remove Attributes")
-//            }.buttonStyle(CustomButtonStyle())
-//        }
-//    }
+    var profileSection: some View {
+        
+        VStack(alignment: .leading, spacing: 12) {
+            Text("User Profile").bold()
+            Button(action: {
+                UserProfile.updateUserAttributes(attributeDict: ["user_name":"Will Smith"])
+            }){
+                Text("Update Attributes")
+            }.buttonStyle(CustomButtonStyle())
+            Button(action: {
+                UserProfile.getUserAttributes(attributeNames: ["user_name"]){
+                    attributes, error in
+                        self.showingAlert = true
+                        self.retrievedAttributes = String(describing: attributes)
+                }
+            }){
+                Text("Retrieve Attributes")
+            }.buttonStyle(CustomButtonStyle())
+            .alert(isPresented: $showingAlert){
+                Alert(title: Text("Profile"),message: Text(self.retrievedAttributes),dismissButton: .default(Text("Got it!")))
+            }
+            Button(action: {
+                UserProfile.removeUserAttributes(attributeNames: ["user_name"])
+            }){
+                Text("Remove Attributes")
+            }.buttonStyle(CustomButtonStyle())
+        }
+    }
 
     var privacySection: some View {
         VStack(alignment: .leading, spacing: 12) {

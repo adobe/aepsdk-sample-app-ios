@@ -39,7 +39,7 @@ import UserNotifications    // for local notification demonstration purposes onl
 
 
 
-//import AEPUserProfile
+import AEPUserProfile
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             Consent.self,
             AEPIdentity.Identity.self,
             AEPEdgeIdentity.Identity.self,
-          //  UserProfile.self,
+            UserProfile.self,
             // step-assurance-start
             Assurance.self,
             // step-assurance-end

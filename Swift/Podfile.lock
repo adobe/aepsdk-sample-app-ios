@@ -29,6 +29,8 @@ PODS:
   - AEPServices (4.0.0)
   - AEPSignal (4.0.0):
     - AEPCore (>= 4.0.0)
+  - AEPUserProfile (4.0.0):
+    - AEPCore
 
 DEPENDENCIES:
   - AEPAssurance
@@ -43,6 +45,7 @@ DEPENDENCIES:
   - AEPRulesEngine
   - AEPServices
   - AEPSignal
+  - AEPUserProfile
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -58,6 +61,7 @@ SPEC REPOS:
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
+    - AEPUserProfile
 
 SPEC CHECKSUMS:
   AEPAssurance: 4fa3138ddd7308c1f9923570f4d2b0b8526a916f
@@ -72,7 +76,8 @@ SPEC CHECKSUMS:
   AEPRulesEngine: 458450a34922823286ead045a0c2bd8c27e224c6
   AEPServices: ca493988df250d84fda050124ff7549bcc43c65f
   AEPSignal: b2b332adf4d8a9af6a1b57f5dd8c2e1ea6d5c112
+  AEPUserProfile: 5c1d90014627cacff99efb193ce9acd287905661
 
-PODFILE CHECKSUM: 0bf10bc199d15290c514b2f7e18611b120989693
+PODFILE CHECKSUM: ee66ae5c3cbf7d1b6d19745629ea6648fb0739a7
 
 COCOAPODS: 1.11.3

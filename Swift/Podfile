@@ -11,7 +11,7 @@ target 'AEPSampleApp' do
   pod 'AEPIdentity'
   pod 'AEPSignal'
   pod 'AEPRulesEngine'
- # pod 'AEPUserProfile'
+  pod 'AEPUserProfile'
   pod 'AEPEdge'
   pod 'AEPEdgeConsent'
   pod 'AEPEdgeIdentity'
