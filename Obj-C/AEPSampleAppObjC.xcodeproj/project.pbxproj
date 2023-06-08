@@ -11,14 +11,10 @@
 		7802512924E3356F003244B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512824E3356F003244B1 /* AppDelegate.m */; };
 		7802512C24E3356F003244B1 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512B24E3356F003244B1 /* SceneDelegate.m */; };
 		7802512F24E3356F003244B1 /* AssuranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802512E24E3356F003244B1 /* AssuranceViewController.m */; };
-		7802513224E3356F003244B1 /* AnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802513124E3356F003244B1 /* AnalyticsViewController.m */; };
 		7802513724E33571003244B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7802513624E33570003244B1 /* Assets.xcassets */; };
 		7802513A24E33571003244B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7802513824E33571003244B1 /* LaunchScreen.storyboard */; };
 		7802513D24E33571003244B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802513C24E33571003244B1 /* main.m */; };
 		7802516024E33761003244B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7802515F24E33761003244B1 /* Main.storyboard */; };
-		7802516324E33904003244B1 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516224E33904003244B1 /* PlacesViewController.m */; };
-		7802516624E33977003244B1 /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516524E33977003244B1 /* MediaViewController.m */; };
-		7802516924E33990003244B1 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516824E33990003244B1 /* MessageViewController.m */; };
 		7802516C24E49550003244B1 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802516B24E49550003244B1 /* MainTabBarController.m */; };
 /* End PBXBuildFile section */
 
@@ -31,19 +27,11 @@
 		7802512B24E3356F003244B1 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		7802512D24E3356F003244B1 /* AssuranceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssuranceViewController.h; sourceTree = "<group>"; };
 		7802512E24E3356F003244B1 /* AssuranceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssuranceViewController.m; sourceTree = "<group>"; };
-		7802513024E3356F003244B1 /* AnalyticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalyticsViewController.h; sourceTree = "<group>"; };
-		7802513124E3356F003244B1 /* AnalyticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalyticsViewController.m; sourceTree = "<group>"; };
 		7802513624E33570003244B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7802513924E33571003244B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7802513B24E33571003244B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7802513C24E33571003244B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7802515F24E33761003244B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		7802516124E33904003244B1 /* PlacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlacesViewController.h; sourceTree = "<group>"; };
-		7802516224E33904003244B1 /* PlacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
-		7802516424E33977003244B1 /* MediaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaViewController.h; sourceTree = "<group>"; };
-		7802516524E33977003244B1 /* MediaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaViewController.m; sourceTree = "<group>"; };
-		7802516724E33990003244B1 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
-		7802516824E33990003244B1 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		7802516A24E49550003244B1 /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		7802516B24E49550003244B1 /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		92AC941C26432C1100B1CE59 /* AEPSampleAppObjC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AEPSampleAppObjC.entitlements; sourceTree = "<group>"; };
@@ -93,14 +81,6 @@
 				7802516B24E49550003244B1 /* MainTabBarController.m */,
 				7802512D24E3356F003244B1 /* AssuranceViewController.h */,
 				7802512E24E3356F003244B1 /* AssuranceViewController.m */,
-				7802513024E3356F003244B1 /* AnalyticsViewController.h */,
-				7802513124E3356F003244B1 /* AnalyticsViewController.m */,
-				7802516124E33904003244B1 /* PlacesViewController.h */,
-				7802516224E33904003244B1 /* PlacesViewController.m */,
-				7802516424E33977003244B1 /* MediaViewController.h */,
-				7802516524E33977003244B1 /* MediaViewController.m */,
-				7802516724E33990003244B1 /* MessageViewController.h */,
-				7802516824E33990003244B1 /* MessageViewController.m */,
 				7802515F24E33761003244B1 /* Main.storyboard */,
 				7802513624E33570003244B1 /* Assets.xcassets */,
 				7802513824E33571003244B1 /* LaunchScreen.storyboard */,
@@ -241,14 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7802516324E33904003244B1 /* PlacesViewController.m in Sources */,
 				7802513D24E33571003244B1 /* main.m in Sources */,
 				7802516C24E49550003244B1 /* MainTabBarController.m in Sources */,
-				7802513224E3356F003244B1 /* AnalyticsViewController.m in Sources */,
-				7802516624E33977003244B1 /* MediaViewController.m in Sources */,
 				7802512924E3356F003244B1 /* AppDelegate.m in Sources */,
 				7802512F24E3356F003244B1 /* AssuranceViewController.m in Sources */,
-				7802516924E33990003244B1 /* MessageViewController.m in Sources */,
 				7802512C24E3356F003244B1 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -42,8 +42,6 @@ DEPENDENCIES:
   - AEPLifecycle
   - AEPMessaging
   - AEPOptimize
-  - AEPRulesEngine
-  - AEPServices
   - AEPSignal
   - AEPUserProfile
 
@@ -78,6 +76,6 @@ SPEC CHECKSUMS:
   AEPSignal: b2b332adf4d8a9af6a1b57f5dd8c2e1ea6d5c112
   AEPUserProfile: 5c1d90014627cacff99efb193ce9acd287905661
 
-PODFILE CHECKSUM: ee66ae5c3cbf7d1b6d19745629ea6648fb0739a7
+PODFILE CHECKSUM: f8974a55bd422da4a40207322d7c6c3d81a90506
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0

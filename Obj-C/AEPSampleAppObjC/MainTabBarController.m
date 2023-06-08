@@ -13,13 +13,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSMutableArray *copyArray = [NSMutableArray arrayWithArray:
-    [self viewControllers]];
-    [copyArray removeObjectAtIndex:4];
-    [copyArray removeObjectAtIndex:3];
-    [copyArray removeObjectAtIndex:2];
-    [self setViewControllers:copyArray animated:false];
 
     [self sampleCoreAPICalls];
 }
