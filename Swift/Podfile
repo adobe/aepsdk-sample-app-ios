@@ -4,13 +4,10 @@ platform :ios, '11.0'
 
 use_frameworks!
 target 'AEPSampleApp' do
-
-  pod 'AEPServices'
   pod 'AEPCore'
   pod 'AEPLifecycle'
   pod 'AEPIdentity'
   pod 'AEPSignal'
-  pod 'AEPRulesEngine'
   pod 'AEPUserProfile'
   pod 'AEPEdge'
   pod 'AEPEdgeConsent'

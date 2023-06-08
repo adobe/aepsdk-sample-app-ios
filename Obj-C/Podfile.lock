@@ -5,23 +5,10 @@ PODS:
   - AEPCore (4.0.0):
     - AEPRulesEngine (>= 4.0.0)
     - AEPServices (>= 4.0.0)
-  - AEPEdge (4.0.0):
-    - AEPCore (>= 4.0.0)
-    - AEPEdgeIdentity (>= 4.0.0)
-  - AEPEdgeIdentity (4.0.0):
-    - AEPCore (>= 4.0.0)
   - AEPIdentity (4.0.0):
     - AEPCore (>= 4.0.0)
   - AEPLifecycle (4.0.0):
     - AEPCore (>= 4.0.0)
-  - AEPMessaging (4.0.0):
-    - AEPCore (>= 4.0.0)
-    - AEPEdge (>= 4.0.0)
-    - AEPEdgeIdentity (>= 4.0.0)
-    - AEPServices (>= 4.0.0)
-  - AEPOptimize (4.0.0):
-    - AEPCore (>= 4.0.0)
-    - AEPEdge (>= 4.0.0)
   - AEPRulesEngine (4.0.0)
   - AEPServices (4.0.0)
   - AEPSignal (4.0.0):
@@ -32,22 +19,14 @@ DEPENDENCIES:
   - AEPCore
   - AEPIdentity
   - AEPLifecycle
-  - AEPMessaging
-  - AEPOptimize
-  - AEPRulesEngine
-  - AEPServices
   - AEPSignal
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AEPAssurance
     - AEPCore
-    - AEPEdge
-    - AEPEdgeIdentity
     - AEPIdentity
     - AEPLifecycle
-    - AEPMessaging
-    - AEPOptimize
     - AEPRulesEngine
     - AEPServices
     - AEPSignal
@@ -55,16 +34,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AEPAssurance: 4fa3138ddd7308c1f9923570f4d2b0b8526a916f
   AEPCore: dd7cd69696c768c610e6adc0307032985a381c7e
-  AEPEdge: ffea1ada1e81c9cb239aac694efa5c8635b50c1f
-  AEPEdgeIdentity: c2396b9119abd6eb530ea11efc58ec019b163bd4
   AEPIdentity: 45ee1c3717e08ff3ca60930caf4a869d60d7bf08
   AEPLifecycle: 59be1b5381d8ec4939ece43516ea7d2de4aaba65
-  AEPMessaging: b5693ae07e7bfb27f375a2d86640b60989b8338f
-  AEPOptimize: 7478b0e3242dcda24246a998a25dcb3604b3c522
   AEPRulesEngine: 458450a34922823286ead045a0c2bd8c27e224c6
   AEPServices: ca493988df250d84fda050124ff7549bcc43c65f
   AEPSignal: b2b332adf4d8a9af6a1b57f5dd8c2e1ea6d5c112
 
-PODFILE CHECKSUM: 12c3ce1aa003574963db2053712c3db4e78e2d12
+PODFILE CHECKSUM: 00bb2cc15b54ee70eca0604a60aa5a61d1179591
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0
