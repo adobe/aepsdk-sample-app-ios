@@ -8,14 +8,8 @@
  */
 
 import UIKit
-// step-init-start
 import AEPCore
-// step-init-end
-
-
-// step-assurance-start
 import AEPAssurance
-// step-assurance-end
 
 import SwiftUI
 
@@ -58,22 +52,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // step-init-start
         MobileCore.lifecycleStart(additionalContextData: nil)
-        // step-init-end
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // step-init-start
         MobileCore.lifecyclePause()
-        // step-init-end
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        // step-assurance-start
         guard let urlContexts = URLContexts.first else { return }
         Assurance.startSession(url: urlContexts.url)
-        // step-assurance-end
     }
 }
 

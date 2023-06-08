@@ -1,6 +1,6 @@
 # coding: utf-8
 source 'https://github.com/CocoaPods/Specs.git’
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 use_frameworks!
 target 'AEPSampleAppObjC' do
@@ -12,8 +12,7 @@ target 'AEPSampleAppObjC' do
   pod 'AEPSignal'
   pod 'AEPRulesEngine'
   pod 'AEPAssurance'
-
-  pod 'AEPMessaging', :git => 'https://github.com/adobe/aepsdk-messaging-ios.git', :branch => 'staging'
-  pod 'AEPOptimize', :git => 'https://github.com/adobe/aepsdk-optimize-ios.git', :branch => 'staging'
+  pod 'AEPMessaging'
+  pod 'AEPOptimize'
 
 end

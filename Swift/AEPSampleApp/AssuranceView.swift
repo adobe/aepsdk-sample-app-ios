@@ -9,9 +9,7 @@
 
 import UIKit
 import SwiftUI
-// step-assurance-start
 import AEPAssurance
-// step-assurance-end
 import AEPCore
 
 struct AssuranceView: View {
@@ -22,12 +20,10 @@ struct AssuranceView: View {
             TextField("Copy Assurance Session URL to here", text: $assuranceSessionUrl)
             HStack {
                 Button(action: {
-                    // step-assurance-start
                     // replace the url with the valid one generated on Assurance UI
                     if let url = URL(string: self.assuranceSessionUrl) {
                         Assurance.startSession(url: url)
                     }
-                    // step-assurance-end
                 }){
                     Text("Connect")
                         .frame(minWidth: 0, maxWidth: .infinity)
