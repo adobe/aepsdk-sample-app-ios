@@ -8,37 +8,19 @@
  */
 
 import UIKit
-// step-init-start
 import AEPCore
 import AEPIdentity
 import AEPLifecycle
 import AEPSignal
-// step-init-end
 import AVKit
 import AdSupport
-// step-assurance-start
 import AEPAssurance
-// step-assurance-end
-
-//step-edge-start
 import AEPEdge
 import AEPEdgeConsent
 import AEPEdgeIdentity
-//step-edge-end
-
-//step-messaging-start
 import AEPMessaging
-
-// AEPOptimize is required for in-app messaging
-//step-optimize-start
-import AEPOptimize
-//step-optimize-end
-
-import UserNotifications    // for local notification demonstration purposes only
-//step-messaging-end
-
-
-
+import AEPOptimize  // AEPOptimize is required for in-app messaging
+import UserNotifications   // for local notification demonstration purposes only
 import AEPUserProfile
 
 @UIApplicationMain
@@ -46,14 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     /// APP ID - EDGE CONFIGURATION
     // private let ENVIRONMENT_FILE_ID = ""
-
-    /// APP ID - MESSAGING CONFIGURATION
+    
+    /// Sample APP ID - MESSAGING CONFIGURATION
     /// AEPSampleApp on AEM Assets Departmental - Campaign
     private let ENVIRONMENT_FILE_ID = "3149c49c3910/6a68c2e19c81/launch-4b2394565377-development"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // step-init-start
         MobileCore.setLogLevel(.trace)
         let appState = application.applicationState;
         let extensions = [
@@ -64,9 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             AEPIdentity.Identity.self,
             AEPEdgeIdentity.Identity.self,
             UserProfile.self,
-            // step-assurance-start
             Assurance.self,
-            // step-assurance-end
             Messaging.self,
             Optimize.self
         ]
@@ -81,8 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
             }
         })
-        // step-init-end
-
+     
         // register push notification
         registerForPushNotifications(application: application) {
             DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {

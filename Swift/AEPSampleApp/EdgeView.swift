@@ -9,9 +9,7 @@
 
 import UIKit
 import SwiftUI
-//step-edge-start
 import AEPEdge
-//step-edge-end
 import AEPCore
 
 struct EdgeView: View {
@@ -204,10 +202,8 @@ struct EdgeView: View {
 
         // Create an Experience Event with the built schema and send it using the AEP Edge extension
 
-        //step-edge-start
         let event = ExperienceEvent(xdm: xdmData)
         Edge.sendEvent(experienceEvent: event)
-        //step-edge-end
         
         self.showAddToCartMessage = true
     }
@@ -262,10 +258,8 @@ struct EdgeView: View {
 
         // Create an Experience Event with the built schema and send it using the Platform extension
 
-        //step-edge-start
         let event = ExperienceEvent(xdm: xdmData)
         Edge.sendEvent(experienceEvent: event)
-        //step-edge-end
         
         self.showPurchaseMessage = true
     }

@@ -9,15 +9,8 @@
 
 import UIKit
 import SwiftUI
-
-// step-config-start
 import AEPCore
-// step-config-end
-
-// step-identity-start
 import AEPIdentity
-// step-identity-end
-
 import AEPUserProfile
 
 struct CoreView: View {
@@ -76,36 +69,28 @@ struct CoreView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Change Privacy Status").bold()
             Button(action: {
-                // step-privacy-start
                 MobileCore.setPrivacyStatus(.optedIn)
-                // step-privacy-end
             }) {
                 Text("Opted In")
             }.buttonStyle(CustomButtonStyle())
             
             Button(action: {
-                // step-privacy-start
                 MobileCore.setPrivacyStatus(.optedOut)
-                // step-privacy-end
             }) {
                 Text("Opted Out")
             }.buttonStyle(CustomButtonStyle())
             
             Button(action: {
-                // step-privacy-start
                 MobileCore.setPrivacyStatus(.unknown)
-                // step-privacy-end
             }) {
                 Text("Unknown")
             }.buttonStyle(CustomButtonStyle())
             
             HStack {
                 Button(action: {
-                    // step-privacy-start
                     MobileCore.getPrivacyStatus { privacyStatus in
                         self.currentPrivacyStatus = "\(privacyStatus.rawValue)"
                     }
-                    // step-privacy-end
                 }) {
                     Text("Get Privacy")
                 }.buttonStyle(CustomButtonStyle())
@@ -122,9 +107,7 @@ struct CoreView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Collect PII").bold()
             Button(action: {
-                // step-pii-start
                 MobileCore.collectPii(["name":"Adobe Experience Platform"])
-                // step-pii-end
             }){
                 Text("Collect PII")
             }.buttonStyle(CustomButtonStyle())
@@ -136,10 +119,8 @@ struct CoreView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Update Configuration").bold()
             Button(action: {
-                // step-config-start
                 let dataDict = ["analytics.batchLimit": 3]
                 MobileCore.updateConfigurationWith(configDict: dataDict)
-                // step-config-end
             }) {
                 Text("Update Configuration")
             }.buttonStyle(CustomButtonStyle())
@@ -150,21 +131,17 @@ struct CoreView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Dispatch Events").bold()
             Button(action: {
-                // step-event-start
                 let event = Event(name: "Sample Event", type: "type", source: "source", data: ["platform" : "ios"])
                 MobileCore.dispatch(event: event)
-                // step-event-end
             }) {
                 Text("Dispatch Custom Event")
             }.buttonStyle(CustomButtonStyle())
             
             Button(action: {
-                // step-event-start
                 let event = Event(name: "Sample Event", type: "type", source: "source", data: ["platform" : "ios"])
                 MobileCore.dispatch(event: event) { event in
                     
                 }
-                // step-event-end
             }) {
                 Text("Dispatch Custom Event with response callback")
             }.buttonStyle(CustomButtonStyle())
@@ -175,67 +152,53 @@ struct CoreView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Identity APIs").bold()
             Button(action: {
-                // step-identity-start
                 MobileCore.setAdvertisingIdentifier("advertisingIdentifier")
-                // step-identity-end
             }) {
                 Text("Set Advertising Identifier")
             }.buttonStyle(CustomButtonStyle())
             
             Button(action: {
-                // step-identity-start
                 MobileCore.setPushIdentifier("9516258b6230afdd93cf0cd07b8dd845".data(using: .utf8))
-                // step-identity-end
             }) {
                 Text("Set Push Identifier")
             }.buttonStyle(CustomButtonStyle())
             
             Button(action: {
-                // step-identity-start
                 Identity.syncIdentifiers(identifiers: ["idType1":"1234567"], authenticationState: .authenticated)
-                // step-identity-end
             }) {
                 Text("Sync Identifiers")
             }.buttonStyle(CustomButtonStyle())
             
             Button(action: {
-                // step-identity-start
                 Identity.getExperienceCloudId { ecid, error in
                     print(ecid ?? "")
                 }
-                // step-identity-end
             }) {
                 Text("Get ExperienceCloudId")
             }.buttonStyle(CustomButtonStyle())
             
             
             Button(action: {
-                // step-identity-start
                 MobileCore.getSdkIdentities { identities, _ in
                     print(identities ?? "")
                 }
-                // step-identity-end
             }) {
                 Text("Get Sdk Identities")
             }.buttonStyle(CustomButtonStyle())
             
             Button(action: {
-                // step-identity-start
                 Identity.getUrlVariables { variables, error in
                     print(variables ?? "")
                 }
-                // step-identity-end
             }) {
                 Text("Get Url Variables")
             }.buttonStyle(CustomButtonStyle())
             
             Button(action: {
-                // step-identity-start
                 Identity.appendTo(url: URL(string: "https://example.com")) { url, _ in
                     
                     print(url?.absoluteString ?? "")
                 }
-                // step-identity-end
             }) {
                 Text("Append Url")
             }.buttonStyle(CustomButtonStyle())
