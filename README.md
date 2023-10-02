@@ -1,5 +1,10 @@
 # AEP SDK Sample App for iOS
 
+# Notice of deprecation
+
+Each [respective extension repository](https://developer.adobe.com/client-sdks/documentation/current-sdk-versions/#ios) now has its own test app. Please refer to those repositories for their test apps.
+
+
 ## About this Project
 
 This repository contains iOS sample apps for the AEP SDK. Examples are provided for both Objective-c and Swift implementation.
