@@ -14,8 +14,15 @@
 import Foundation
 
 enum SurfaceURI {
-    static let base = "mobileapp://com.adobe.AEPSampleApp"
+//    static let base = "mobileapp://com.adobe.AEPSampleApp"
+    
 
-    static let home  = "\(base)/home"
-    static let inbox = "\(base)/inbox"
+    static let home  = "test_cc"
+    static let inbox = "inbox"
+
+    /// The relative path the Messaging SDK expects for `Surface(path:)`
+    /// (e.g. "home" from the full "mobileapp://…/home").
+    static func path(from uri: String) -> String {
+        uri.replacingOccurrences(of: base + "/", with: "")
+    }
 }

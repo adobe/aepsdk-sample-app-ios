@@ -13,7 +13,7 @@ import AEPMessaging
 
 struct AEPMessagingService: MessagingService {
 
-    // TODO Stage 3c/3d: replace with real updatePropositionsForSurfaces.
+    // TODO Stage 3d: replace inbox with real surface fetch.
     private let contentFallback = MockMessagingService()
 
     func currentPushStatus() async -> PushStatus {
@@ -36,7 +36,21 @@ struct AEPMessagingService: MessagingService {
     }
 
     func fetchContentCards(surface: String) async -> [Proposition] {
-        await contentFallback.fetchContentCards(surface: surface)
+        let path = SurfaceURI.path(from: surface)
+        let surfaceObj = Surface(path: path)
+
+        // updatePropositions fetches async with no completion; give it a moment
+        // to populate the cache, then read it back.
+        Messaging.updatePropositionsForSurfaces([surfaceObj])
+        try? await Task.sleep(for: .seconds(1))
+        let propositions: [AEPMessaging.Proposition] = await withCheckedContinuation { continuation in
+            Messaging.getPropositionsForSurfaces([surfaceObj]) { dict, _ in
+                continuation.resume(returning: dict?[surfaceObj] ?? [])
+            }
+        }
+        let items = propositions.flatMap { $0.items }
+        Log.sdk("content cards surface=\(path) -> \(items.count) item(s)")
+        return ContentCardMapper.map(items, surface: surface)
     }
 
     func fetchInboxMessages(surface: String) async -> [InboxMessage] {
