@@ -2,14 +2,13 @@
 //  ContentCardCarouselView.swift
 //  AEPSampleApp
 //
-//  Horizontally scrollable AJO content cards. Each card carries an InfoBadge.
+//  Horizontally scrollable AJO content cards.
 //
 
 import SwiftUI
 
 struct ContentCardCarouselView: View {
     let cards: [Proposition]
-    let onInspect: (Proposition) -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -30,13 +29,9 @@ struct ContentCardCarouselView: View {
 
     private func cardView(_ card: Proposition) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                Image(systemName: card.imageSystemName)
-                    .font(.title2)
-                    .foregroundStyle(.tint)
-                Spacer()
-                InfoBadge { onInspect(card) }
-            }
+            Image(systemName: card.imageSystemName)
+                .font(.title2)
+                .foregroundStyle(.tint)
             Spacer(minLength: 0)
             Text(card.title).font(.subheadline.weight(.semibold))
             Text(card.body).font(.caption).foregroundStyle(.secondary)

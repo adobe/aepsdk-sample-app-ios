@@ -26,10 +26,6 @@ final class MockMessagingService: MessagingService {
         Log.sdk("sendTestPush (mock — no real notification)")
     }
 
-    func refreshInAppMessages() {
-        Log.sdk("refreshInAppMessages (mock)")
-    }
-
     func fetchContentCards(surface: String) async -> [Proposition] {
         // STAGE 3c: Messaging.updatePropositionsForSurfaces([Surface(path:)]) +
         // getContentCardsUI, mapping ContentCardUI -> Proposition.

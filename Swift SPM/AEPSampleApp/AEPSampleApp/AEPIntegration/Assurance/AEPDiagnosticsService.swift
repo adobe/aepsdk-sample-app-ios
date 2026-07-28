@@ -2,33 +2,14 @@
 //  AEPDiagnosticsService.swift
 //  AEPSampleApp
 //
-//  Real DiagnosticsService. Launches an Assurance session and reports the live
-//  extension versions. Assurance has no programmatic "end" — a session ends
-//  when disconnected from the web UI.
+//  Real DiagnosticsService. Launches an Assurance session. Assurance has no
+//  programmatic "end" — a session ends when disconnected from the web UI.
 //
 
 import Foundation
-import AEPCore
-import AEPEdge
-import AEPEdgeIdentity
-import AEPEdgeConsent
-import AEPLifecycle
-import AEPSignal
 import AEPAssurance
 
 struct AEPDiagnosticsService: DiagnosticsService {
-
-    var registeredExtensions: [ExtensionInfo] {
-        [
-            ExtensionInfo(name: "Mobile Core",  version: MobileCore.extensionVersion),
-            ExtensionInfo(name: "Edge",         version: Edge.extensionVersion),
-            ExtensionInfo(name: "Edge Identity", version: Identity.extensionVersion),
-            ExtensionInfo(name: "Edge Consent", version: Consent.extensionVersion),
-            ExtensionInfo(name: "Lifecycle",    version: Lifecycle.extensionVersion),
-            ExtensionInfo(name: "Signal",       version: Signal.extensionVersion),
-            ExtensionInfo(name: "Assurance",    version: Assurance.extensionVersion)
-        ]
-    }
 
     func startSession(url: URL) {
         Assurance.startSession(url: url)

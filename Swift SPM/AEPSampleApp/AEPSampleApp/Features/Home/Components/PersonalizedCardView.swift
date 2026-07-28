@@ -2,25 +2,19 @@
 //  PersonalizedCardView.swift
 //  AEPSampleApp
 //
-//  Renders one Optimize decision-scope proposition. The InfoBadge opens the
-//  InspectorSheet so the raw proposition is visible during a demo.
+//  Renders one Optimize decision-scope proposition.
 //
 
 import SwiftUI
 
 struct PersonalizedCardView: View {
     let proposition: Proposition
-    let onInspect: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Label("Personalized", systemImage: "sparkles")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(.tint)
-                Spacer()
-                InfoBadge(action: onInspect)
-            }
+            Label("Personalized", systemImage: "sparkles")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(.tint)
 
             HStack(spacing: 14) {
                 Image(systemName: proposition.imageSystemName)

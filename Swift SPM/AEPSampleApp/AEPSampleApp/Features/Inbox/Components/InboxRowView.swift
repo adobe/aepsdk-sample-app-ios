@@ -2,14 +2,13 @@
 //  InboxRowView.swift
 //  AEPSampleApp
 //
-//  One inbox/feed message. Unread rows show a filled dot; tapping inspects.
+//  One inbox/feed message. Unread rows show a filled dot.
 //
 
 import SwiftUI
 
 struct InboxRowView: View {
     let message: InboxMessage
-    let onInspect: () -> Void
 
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
@@ -30,9 +29,7 @@ struct InboxRowView: View {
             }
 
             Spacer(minLength: 0)
-            InfoBadge(action: onInspect)
         }
         .padding(.vertical, 4)
-        .contentShape(Rectangle())
     }
 }

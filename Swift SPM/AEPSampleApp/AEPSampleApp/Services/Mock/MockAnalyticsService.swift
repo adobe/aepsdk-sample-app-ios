@@ -17,4 +17,8 @@ struct MockAnalyticsService: AnalyticsService {
     func trackAction(_ action: String, data: [String: String]?) {
         Log.sdk("trackAction \(action) (mock)")
     }
+
+    func trackState(_ state: String, data: [String: String]?) {
+        Log.sdk("trackState \(state) (mock)")
+    }
 }

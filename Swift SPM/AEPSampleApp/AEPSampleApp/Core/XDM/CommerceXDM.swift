@@ -48,7 +48,7 @@ enum CommerceXDM {
         ]
     }
 
-    /// Pretty-printed JSON for the InspectorSheet.
+    /// Pretty-printed JSON of the XDM payload (debug / display helper).
     static func prettyJSON(_ xdm: [String: Any]) -> String {
         guard
             let data = try? JSONSerialization.data(withJSONObject: xdm, options: [.prettyPrinted, .sortedKeys]),

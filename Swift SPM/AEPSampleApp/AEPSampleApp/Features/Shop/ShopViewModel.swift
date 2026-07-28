@@ -16,8 +16,6 @@ final class ShopViewModel {
 
     /// Local mock cart: product id -> quantity.
     private(set) var cart: [String: Int] = [:]
-    /// Session log of commerce events fired, surfaced in the cart inspector.
-    private(set) var events: [CommerceEvent] = []
 
     var cartCount: Int { cart.values.reduce(0, +) }
 
@@ -40,6 +38,8 @@ final class ShopViewModel {
     func increment(_ product: Product, _ env: AppEnvironment) {
         cart[product.id, default: 0] += 1
         fire(.productListAdds, product: product, env: env)
+        // Named action an AJO in-app "add-to-cart nudge" campaign can trigger on.
+        env.analytics.trackAction("add-to-cart", data: ["sku": product.sku])
     }
 
     func decrement(_ product: Product, _ env: AppEnvironment) {
@@ -58,7 +58,6 @@ final class ShopViewModel {
             xdm: CommerceXDM.purchase(cart: cart, subtotal: subtotal)
         )
         env.analytics.track(event)
-        events.append(event)
         // STAGE 3b: named action AJO in-app rules can trigger on (the
         // "thank you / cross-sell" message).
         env.analytics.trackAction("order-complete", data: ["orderTotal": String(format: "%.2f", subtotal)])
@@ -73,16 +72,5 @@ final class ShopViewModel {
             xdm: CommerceXDM.productEvent(type: type, product: product)
         )
         env.analytics.track(event)
-        events.append(event)
-    }
-
-    func cartInspectorPayload() -> InspectorPayload {
-        let body = events.map { "\($0.type.rawValue) — \($0.productName ?? "order")" }.joined(separator: "\n")
-        return InspectorPayload(
-            title: "Cart events",
-            source: "session (\(events.count) events)",
-            json: body.isEmpty ? "No events yet." : body,
-            tracking: events.map { $0.type.rawValue }
-        )
     }
 }

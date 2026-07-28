@@ -16,5 +16,5 @@ struct Proposition: Identifiable, Hashable {
     let title: String
     let body: String
     let imageSystemName: String
-    let rawJSON: String          // shown verbatim in the InspectorSheet
+    let rawJSON: String          // raw proposition payload (kept for inspection/debug)
 }

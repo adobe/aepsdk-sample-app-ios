@@ -26,11 +26,6 @@ struct AEPMessagingService: MessagingService {
         Log.sdk("push delivery originates from an AJO campaign, not the app")
     }
 
-    func refreshInAppMessages() {
-        Messaging.refreshInAppMessages()
-        Log.sdk("Messaging.refreshInAppMessages")
-    }
-
     func fetchContentCards(surface: String) async -> [Proposition] {
         let items = await fetchItems(surface: surface)
         return ContentCardMapper.map(items, surface: surface)

@@ -2,9 +2,9 @@
 //  InboxView.swift
 //  AEPSampleApp
 //
-//  Inbox/feed tab: Live Activity entry point on top, then the message list
-//  with read/unread state and swipe-to-dismiss. The tab badge shows unread
-//  count (wired in RootView in a later pass; count exposed via the model).
+//  Inbox/feed tab: Live Activity entry point on top, a Custom ↔ SDK rendering
+//  toggle, then either the app's custom list (raw propositions + InboxStore)
+//  or the SDK-rendered Inbox channel container (getInboxUI).
 //
 
 import SwiftUI
@@ -12,58 +12,61 @@ import SwiftUI
 struct InboxView: View {
     @Environment(AppEnvironment.self) private var env
     @State private var model = InboxViewModel()
-    @State private var inspector: InspectorPayload?
+    @State private var mode: Mode = .custom
+
+    private enum Mode: String, CaseIterable {
+        case custom = "Custom"
+        case sdk = "SDK UI"
+    }
 
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    LiveActivityCardView(isActive: model.liveActivityActive) {
-                        Task { await model.toggleLiveActivity(env) }
-                    }
-                    .listRowInsets(EdgeInsets())
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
+            VStack(spacing: 0) {
+                LiveActivityCardView(isActive: model.liveActivityActive) {
+                    Task { await model.toggleLiveActivity(env) }
                 }
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
 
-                Section("Messages") {
-                    if model.messages.isEmpty && model.isLoading {
-                        ProgressView()
-                    } else if model.messages.isEmpty {
-                        Text("No messages yet.")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    } else {
-                        ForEach(model.messages) { message in
-                            InboxRowView(message: message) {
-                                model.markRead(message)
-                                inspector = inspectorPayload(for: message)
-                            }
-                            .onTapGesture { model.markRead(message) }
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    model.dismiss(message)
-                                } label: {
-                                    Label("Dismiss", systemImage: "trash")
-                                }
-                            }
-                        }
-                    }
+                Picker("Rendering", selection: $mode) {
+                    ForEach(Mode.allCases, id: \.self) { Text($0.rawValue).tag($0) }
+                }
+                .pickerStyle(.segmented)
+                .padding(16)
+
+                switch mode {
+                case .custom: customList
+                case .sdk:    SDKInboxView(surfacePath: SurfaceURI.inbox)
                 }
             }
             .navigationTitle("Inbox")
             .task { await model.onAppear(env) }
-            .refreshable { await model.refresh(env) }
-            .sheet(item: $inspector) { InspectorSheet(payload: $0) }
         }
     }
 
-    private func inspectorPayload(for m: InboxMessage) -> InspectorPayload {
-        InspectorPayload(
-            title: m.title,
-            source: m.surface,
-            json: m.rawJSON,
-            tracking: ["propositionDisplay", "propositionInteract (on tap)"]
-        )
+    private var customList: some View {
+        List {
+            if model.messages.isEmpty && model.isLoading {
+                ProgressView()
+            } else if model.messages.isEmpty {
+                Text("No messages yet.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            } else {
+                ForEach(model.messages) { message in
+                    InboxRowView(message: message)
+                        .contentShape(Rectangle())
+                        .onTapGesture { model.markRead(message) }
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                model.dismiss(message)
+                            } label: {
+                                Label("Dismiss", systemImage: "trash")
+                            }
+                        }
+                }
+            }
+        }
+        .refreshable { await model.refresh(env) }
     }
 }

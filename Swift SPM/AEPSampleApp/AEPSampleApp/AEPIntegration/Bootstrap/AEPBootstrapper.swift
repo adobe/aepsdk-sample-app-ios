@@ -24,6 +24,8 @@ enum AEPBootstrapper {
 
     static func start() {
         MobileCore.setLogLevel(AEPConfig.logLevel)
+        // Capture the real SDK event stream into the in-app EventLog.
+        SDKEventRecorder.start()
         /// try with MobileCore.initialize
         MobileCore.registerExtensions([
             Edge.self,

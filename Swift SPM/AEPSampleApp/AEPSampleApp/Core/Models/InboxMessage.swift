@@ -15,6 +15,6 @@ struct InboxMessage: Identifiable, Hashable {
     let body: String
     let receivedAt: Date
     var isRead: Bool
-    let surface: String          // e.g. mobileapp://<bundle>/inbox
+    let surface: String          // e.g. mobileapp://<bundle>/inbox   so 'inbox' is a surface
     let rawJSON: String
 }

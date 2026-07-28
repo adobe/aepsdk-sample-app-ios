@@ -21,4 +21,9 @@ struct AEPEdgeAnalyticsService: AnalyticsService {
         MobileCore.track(action: action, data: data)
         Log.sdk("MobileCore.track(action: \(action))")
     }
+
+    func trackState(_ state: String, data: [String: String]?) {
+        MobileCore.track(state: state, data: data)
+        Log.sdk("MobileCore.track(state: \(state))")
+    }
 }

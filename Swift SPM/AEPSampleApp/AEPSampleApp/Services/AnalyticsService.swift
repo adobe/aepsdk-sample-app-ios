@@ -16,4 +16,8 @@ protocol AnalyticsService {
     /// A named behavioral action (MobileCore.track(action:)). AJO in-app
     /// message rules can trigger on these — e.g. "order-complete".
     func trackAction(_ action: String, data: [String: String]?)
+
+    /// A screen view (MobileCore.track(state:)). AJO in-app rules can trigger
+    /// on these — e.g. show a message on the "home" or "cart" screen.
+    func trackState(_ state: String, data: [String: String]?)
 }

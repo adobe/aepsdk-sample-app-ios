@@ -14,8 +14,6 @@ enum Log {
 
     nonisolated static func sdk(_ message: String) {
         logger.info("📡 \(message, privacy: .public)")
-        // Mirror into the in-app Dev Console log.
-        Task { @MainActor in EventLog.shared.record(message) }
     }
 
     nonisolated static func ui(_ message: String) {

@@ -3,7 +3,8 @@
 //  AEPSampleApp
 //
 //  Personalization surface: status strip · personalized card (Optimize) ·
-//  content cards (AJO). Commerce moved to the Shop tab.
+//  content cards (AJO). Commerce moved to the Shop tab. Inspection now lives
+//  in the dedicated SDK Event Log screen (Profile).
 //
 
 import SwiftUI
@@ -11,7 +12,6 @@ import SwiftUI
 struct HomeView: View {
     @Environment(AppEnvironment.self) private var env
     @State private var model = HomeViewModel()
-    @State private var inspector: InspectorPayload?
 
     var body: some View {
         NavigationStack {
@@ -22,27 +22,37 @@ struct HomeView: View {
                     VStack(spacing: 20) {
                         personalizedSection
                         if !model.contentCards.isEmpty {
-                            ContentCardCarouselView(cards: model.contentCards) { card in
-                                inspector = inspectorPayload(for: card)
-                            }
+                            ContentCardCarouselView(cards: model.contentCards)
                         }
+                        sdkContentCardsSection
                     }
                     .padding(.vertical, 16)
                 }
             }
             .navigationTitle("Home")
             .task { await model.onAppear(env) }
+            .onAppear { env.analytics.trackState("home", data: nil) }
             .refreshable { await model.refresh(env) }
-            .sheet(item: $inspector) { InspectorSheet(payload: $0) }
         }
+    }
+
+    // Same surface as the custom carousel above, rendered via the SDK's
+    // templated UI (getContentCardsUI) — demonstrates both rendering APIs.
+    private var sdkContentCardsSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("SDK Content Cards")
+                .font(.headline)
+                .padding(.horizontal, 16)
+            SDKContentCardsView(surfacePath: SurfaceURI.home)
+                .padding(.horizontal, 16)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     @ViewBuilder
     private var personalizedSection: some View {
         if let proposition = model.personalized {
-            PersonalizedCardView(proposition: proposition) {
-                inspector = inspectorPayload(for: proposition)
-            }
+            PersonalizedCardView(proposition: proposition)
         } else if model.isLoading {
             ProgressView().frame(maxWidth: .infinity).padding(.vertical, 20)
         } else {
@@ -65,14 +75,5 @@ struct HomeView: View {
                 .fill(Color(.secondarySystemBackground))
         )
         .padding(.horizontal, 16)
-    }
-
-    private func inspectorPayload(for p: Proposition) -> InspectorPayload {
-        InspectorPayload(
-            title: p.title,
-            source: p.scope,
-            json: p.rawJSON,
-            tracking: ["propositionDisplay", "propositionInteract (on tap)"]
-        )
     }
 }

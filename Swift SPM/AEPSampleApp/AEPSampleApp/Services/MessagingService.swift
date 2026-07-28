@@ -32,11 +32,6 @@ protocol MessagingService {
     /// Dev-only convenience to fire a test push at this device.
     func sendTestPush()
 
-    /// Forces a re-download of AJO in-app message definitions. Needed after  (integrated in devHome)
-    /// consent flips to `yes` (the automatic launch fetch is blocked while
-    /// consent is pending).
-    func refreshInAppMessages()
-
     /// Content cards / code-based experiences for a surface (e.g. home).
     func fetchContentCards(surface: String) async -> [Proposition]
 

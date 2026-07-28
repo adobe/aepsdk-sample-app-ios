@@ -2,9 +2,8 @@
 //  ProfileView.swift
 //  AEPSampleApp
 //
-//  Identity (mock login → real updateIdentities), Consent toggle, and push
-//  controls. The app version row long-presses to reveal the hidden Dev
-//  Console — keeping it a debug tool, not a feature.
+//  Identity (mock login → real updateIdentities), Consent toggle, push
+//  controls, and Developer tools (SDK Event Log + Assurance).
 //
 
 import SwiftUI
@@ -13,7 +12,6 @@ struct ProfileView: View {
     @Environment(AppEnvironment.self) private var env
     @State private var model = ProfileViewModel()
     @State private var username = ""
-    @State private var showDevConsole = false
 
     var body: some View {
         NavigationStack {
@@ -21,11 +19,10 @@ struct ProfileView: View {
                 identitySection
                 consentSection
                 notificationsSection
-                aboutSection
+                developerSection
             }
             .navigationTitle("Profile")
             .task { await model.onAppear(env) }
-            .sheet(isPresented: $showDevConsole) { DevConsoleView() }
         }
     }
 
@@ -78,14 +75,19 @@ struct ProfileView: View {
         }
     }
 
-    private var aboutSection: some View {
-        Section {
+    private var developerSection: some View {
+        Section("Developer") {
+            NavigationLink {
+                EventLogView()
+            } label: {
+                Label("SDK Event Log", systemImage: "dot.radiowaves.left.and.right")
+            }
+            NavigationLink {
+                AssuranceView()
+            } label: {
+                Label("Assurance", systemImage: "checkmark.shield")
+            }
             LabeledContent("App version", value: "1.0")
-                // Hidden entry to the Dev Console.
-                .contentShape(Rectangle())
-                .onLongPressGesture { showDevConsole = true }
-        } footer: {
-            Text("Long-press the version row to open the Dev Console.")
         }
     }
 }

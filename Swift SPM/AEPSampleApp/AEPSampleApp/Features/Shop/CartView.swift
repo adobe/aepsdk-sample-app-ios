@@ -2,8 +2,8 @@
 //  CartView.swift
 //  AEPSampleApp
 //
-//  Shows current cart line items (adjustable), the subtotal, the session's
-//  commerce-event inspector, and checkout. Presented as a sheet from Shop.
+//  Shows current cart line items (adjustable), the subtotal, and checkout.
+//  Presented as a sheet from Shop.
 //
 
 import SwiftUI
@@ -12,8 +12,6 @@ struct CartView: View {
     @Environment(AppEnvironment.self) private var env
     @Environment(\.dismiss) private var dismiss
     let model: ShopViewModel
-
-    @State private var inspector: InspectorPayload?
 
     var body: some View {
         NavigationStack {
@@ -35,18 +33,15 @@ struct CartView: View {
                             .font(.headline)
                     }
                 }
-
-                Section {
-                    Button {
-                        inspector = model.cartInspectorPayload()
-                    } label: {
-                        Label("Inspect commerce events (\(model.events.count))",
-                              systemImage: "info.circle")
-                    }
-                }
             }
             .navigationTitle("Cart")
             .navigationBarTitleDisplayMode(.inline)
+            // Track the cart screen + suppress in-app messages during checkout.
+            .onAppear {
+                env.analytics.trackState("cart", data: nil)
+                IAMGate.shared.isSuppressed = true
+            }
+            .onDisappear { IAMGate.shared.isSuppressed = false }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Close") { dismiss() }
@@ -55,6 +50,9 @@ struct CartView: View {
             .safeAreaInset(edge: .bottom) {
                 if !model.cartLines.isEmpty {
                     Button {
+                        // Allow the order-complete confirmation IAM (suppression
+                        // only applies while browsing the cart, not at checkout).
+                        IAMGate.shared.isSuppressed = false
                         model.checkout(env)
                         dismiss()
                     } label: {
@@ -66,7 +64,6 @@ struct CartView: View {
                     .padding(16)
                 }
             }
-            .sheet(item: $inspector) { InspectorSheet(payload: $0) }
         }
     }
 

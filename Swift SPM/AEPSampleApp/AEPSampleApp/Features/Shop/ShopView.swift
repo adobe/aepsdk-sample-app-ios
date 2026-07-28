@@ -41,6 +41,7 @@ struct ShopView: View {
                 }
             }
             .navigationTitle("Shop")
+            .onAppear { env.analytics.trackState("shop", data: nil) }
             .sheet(isPresented: $showCart) { CartView(model: model) }
         }
     }
