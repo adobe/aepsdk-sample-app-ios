@@ -28,7 +28,7 @@ struct AEPMessagingService: MessagingService {
 
     func fetchContentCards(surface: String) async -> [Proposition] {
         let items = await fetchItems(surface: surface)
-        return ContentCardMapper.map(items, surface: surface)
+        return ContentCardMapper.map(items)
     }
 
     func fetchInboxMessages(surface: String) async -> [InboxMessage] {

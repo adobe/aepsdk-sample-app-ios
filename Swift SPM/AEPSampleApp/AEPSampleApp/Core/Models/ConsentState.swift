@@ -4,7 +4,7 @@
 //
 //  App-owned consent model. Intentionally NOT an SDK type — the AEP
 //  Edge Consent payload is mapped to/from this at the integration boundary
-//  (Stage 1) so the UI never imports an Adobe module.
+//  so the UI never imports an Adobe module.
 //
 
 import Foundation

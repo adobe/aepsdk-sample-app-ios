@@ -4,7 +4,7 @@
 //
 //  First-launch screen. Proves Edge Consent: the live state line flips the
 //  instant a choice is made. Writes through AppEnvironment.chooseConsent,
-//  which (Stage 1) calls Consent.update with a real XDM consent payload.
+//  which calls Consent.update with a real XDM consent payload.
 //
 
 import SwiftUI

@@ -47,13 +47,4 @@ enum CommerceXDM {
             "productListItems": items
         ]
     }
-
-    /// Pretty-printed JSON of the XDM payload (debug / display helper).
-    static func prettyJSON(_ xdm: [String: Any]) -> String {
-        guard
-            let data = try? JSONSerialization.data(withJSONObject: xdm, options: [.prettyPrinted, .sortedKeys]),
-            let string = String(data: data, encoding: .utf8)
-        else { return "\(xdm)" }
-        return string
-    }
 }

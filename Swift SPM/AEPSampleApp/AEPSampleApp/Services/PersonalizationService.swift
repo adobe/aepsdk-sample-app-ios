@@ -2,12 +2,10 @@
 //  PersonalizationService.swift
 //  AEPSampleApp
 //
-//  Seam for Optimize (Decisioning). Returns app-owned Proposition models. The
-//  mock returns canned content; Stage 4 calls Optimize.updatePropositions and
-//  maps OptimizeProposition -> Proposition at the boundary.
+//  Seam for Optimize (Decisioning). Returns app-owned Proposition models. Until
+//  Optimize is integrated the impl returns canned content; the real impl will
+//  call Optimize.updatePropositions and map OptimizeProposition -> Proposition.
 //
-
-import Foundation
 
 protocol PersonalizationService {
     /// `scopes` are decision scope names. Returns one proposition per scope

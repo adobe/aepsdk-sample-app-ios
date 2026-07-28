@@ -3,11 +3,9 @@
 //  AEPSampleApp
 //
 //  Seam for "Analytics via Edge XDM". The UI builds a CommerceEvent and hands
-//  it here; the mock just logs it, the real impl (Stage 1) dispatches it via
-//  Edge.sendEvent against the Shubham Test Schema.
+//  it here; the impl dispatches it via Edge.sendEvent against the Shubham Test
+//  Schema.
 //
-
-import Foundation
 
 protocol AnalyticsService {
     /// One call == one discrete Edge event. Never batches / accumulates.

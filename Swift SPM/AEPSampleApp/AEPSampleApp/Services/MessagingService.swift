@@ -3,8 +3,8 @@
 //  AEPSampleApp
 //
 //  Seam for the AJO Messaging suite (push, content cards, inbox feed). In-app
-//  messages and Live Activities have their own seams. The mock returns canned
-//  data; Stage 3 wires the real AEPMessaging APIs behind the same signatures.
+//  messages and Live Activities have their own seams. Backed by the real
+//  AEPMessaging APIs.
 //
 
 import Foundation

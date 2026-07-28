@@ -6,9 +6,8 @@
 //  App-layer code (AppDelegate / App scene) calls these wrappers so it never
 //  imports an Adobe module directly.
 //
-//  Stage 1 registers the foundation: Edge, Edge Identity, Edge Consent,
-//  Lifecycle, Signal. Messaging (Stage 3), Optimize (Stage 4) and Assurance
-//  (Stage 2) are added to this list as those stages land.
+//  Registers all AEP extensions the app uses: Edge, Edge Identity, Edge
+//  Consent, Lifecycle, Signal, Assurance, Messaging.
 //
 
 import AEPCore

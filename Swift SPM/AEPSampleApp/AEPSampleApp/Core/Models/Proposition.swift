@@ -8,13 +8,9 @@
 //  UI stays SDK-agnostic and version bumps don't ripple into views.
 //
 
-import Foundation
-
 struct Proposition: Identifiable, Hashable {
     let id: String
-    let scope: String            // decision scope name OR surface URI
     let title: String
     let body: String
     let imageSystemName: String
-    let rawJSON: String          // raw proposition payload (kept for inspection/debug)
 }

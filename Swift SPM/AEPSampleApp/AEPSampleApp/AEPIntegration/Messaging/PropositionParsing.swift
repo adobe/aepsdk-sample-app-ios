@@ -7,7 +7,6 @@
 //  knowledge lives in one place.
 //
 
-import Foundation
 import AEPMessaging
 
 enum PropositionParsing {
@@ -20,13 +19,5 @@ enum PropositionParsing {
     /// Content-card fields are shaped like `{ "title": { "content": "…" } }`.
     static func string(_ dict: [String: Any], _ key: String) -> String? {
         (dict[key] as? [String: Any])?["content"] as? String
-    }
-
-    static func prettyJSON(_ dict: [String: Any]) -> String {
-        guard
-            let data = try? JSONSerialization.data(withJSONObject: dict, options: [.prettyPrinted, .sortedKeys]),
-            let string = String(data: data, encoding: .utf8)
-        else { return "\(dict)" }
-        return string
     }
 }

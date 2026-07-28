@@ -12,8 +12,7 @@ struct AEPSampleAppApp: App {
     // Registers the AEP extensions at launch.
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
-    // Stage 1: real Core/Edge/Identity/Consent; other capabilities still mocked.
-    // Use AppEnvironment.mock() instead for fully-offline UI work.
+    // Live, SDK-backed services (personalization is still a stand-in).
     @State private var env = AppEnvironment.live()
 
     @Environment(\.scenePhase) private var scenePhase

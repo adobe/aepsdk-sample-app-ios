@@ -3,8 +3,8 @@
 //  AEPSampleApp
 //
 //  Owns the inbox feed + Live Activity toggle. Read/dismiss state is held in
-//  memory for Stage 0; Stage 3d moves it into a persistent InboxStore so it
-//  survives relaunch (the SDK does not persist this itself).
+//  persisted in InboxStore so it survives relaunch (the SDK does not persist
+//  read/dismiss state itself).
 //
 
 import Observation

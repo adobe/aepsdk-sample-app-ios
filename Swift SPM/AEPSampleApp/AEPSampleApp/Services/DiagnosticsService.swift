@@ -13,6 +13,4 @@ protocol DiagnosticsService {
     /// Launches an Assurance session from a session URL (QR / deep link /
     /// pasted link). The SDK then shows its PIN overlay.
     func startSession(url: URL)
-
-    func endSession()
 }

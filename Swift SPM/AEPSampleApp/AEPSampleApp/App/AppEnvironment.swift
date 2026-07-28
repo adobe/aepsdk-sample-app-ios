@@ -3,9 +3,8 @@
 //  AEPSampleApp
 //
 //  Composition root + shared observable app state, injected via SwiftUI's
-//  Environment. This is the ONLY place mock vs. real services are chosen
-//  (see `.live()` — added in Stage 1), so swapping a capability to its real
-//  SDK impl never touches a single view.
+//  Environment. `.live()` is the single place service implementations are
+//  chosen, so swapping a capability's impl never touches a view.
 //
 //  Cross-screen state (consent, identity) lives here so every screen observes
 //  it. Screen-local data (products, propositions, inbox, diagnostics) is owned
@@ -91,22 +90,8 @@ final class AppEnvironment {
 }
 
 extension AppEnvironment {
-    /// Fully mocked — no Adobe SDK. Useful for previews / offline UI work.
-    static func mock() -> AppEnvironment {
-        AppEnvironment(
-            analytics: MockAnalyticsService(),
-            identity: MockIdentityService(),
-            consentService: MockConsentService(),
-            personalization: MockPersonalizationService(),
-            messaging: MockMessagingService(),
-            liveActivity: MockLiveActivityService(),
-            diagnostics: MockDiagnosticsService()
-        )
-    }
-
-    /// Live wiring: Core/Edge/Identity/Consent/Assurance are real;
-    /// personalization and messaging stay mocked until their stages
-    /// (Messaging → Stage 3, Optimize → Stage 4).
+    /// Live wiring. All services are SDK-backed except personalization, which
+    /// stays mocked until Optimize/Decisioning is integrated.
     static func live() -> AppEnvironment {
         AppEnvironment(
             analytics: AEPEdgeAnalyticsService(),

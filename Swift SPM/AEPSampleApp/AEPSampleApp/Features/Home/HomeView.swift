@@ -57,7 +57,7 @@ struct HomeView: View {
             ProgressView().frame(maxWidth: .infinity).padding(.vertical, 20)
         } else {
             // Explicit empty state — real personalization returns nothing until
-            // consent = yes and a Decisioning activity is configured (Stage 4).
+            // consent = yes and a Decisioning activity is configured.
             emptyCard("No personalized content", "Grant consent and configure a decision scope.")
         }
     }

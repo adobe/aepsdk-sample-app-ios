@@ -21,8 +21,7 @@ enum InboxMapper {
                 body: PropositionParsing.string(content, "body") ?? "",
                 receivedAt: .now,          // AJO publish time not surfaced here; use fetch time
                 isRead: false,             // InboxStore overrides this on load
-                surface: surface,
-                rawJSON: PropositionParsing.prettyJSON(content)
+                surface: surface
             )
         }
     }

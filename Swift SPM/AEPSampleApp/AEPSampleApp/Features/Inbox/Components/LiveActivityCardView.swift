@@ -3,7 +3,7 @@
 //  AEPSampleApp
 //
 //  Entry point for the Live Activities demo. The order is mock data; the
-//  start/update/end mechanism becomes real in Stage 3e.
+//  start/update/end runs through ActivityKit + AEPMessagingLiveActivity.
 //
 
 import SwiftUI

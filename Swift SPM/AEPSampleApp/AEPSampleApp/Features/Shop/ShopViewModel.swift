@@ -5,7 +5,7 @@
 //  Owns the minimal mock cart. Each +/- tap builds one CommerceEvent and hands
 //  it to AnalyticsService — one tap, one discrete event (tapping "+" twice
 //  fires two separate events, not quantity: 2). Checkout fires the purchase
-//  event that (Stage 3b) triggers an AJO in-app message.
+//  event that triggers the AJO "order-complete" in-app message.
 //
 
 import Foundation
@@ -51,15 +51,9 @@ final class ShopViewModel {
 
     func checkout(_ env: AppEnvironment) {
         guard cartCount > 0 else { return }
-        // STAGE 3b: this purchase event is the trigger that makes AJO surface
-        // an in-app "thank you / cross-sell" message.
-        let event = CommerceEvent(
-            type: .purchases, productName: nil, timestamp: .now,
-            xdm: CommerceXDM.purchase(cart: cart, subtotal: subtotal)
-        )
+        let event = CommerceEvent(type: .purchases, xdm: CommerceXDM.purchase(cart: cart, subtotal: subtotal))
         env.analytics.track(event)
-        // STAGE 3b: named action AJO in-app rules can trigger on (the
-        // "thank you / cross-sell" message).
+        // Named action the AJO "thank you / cross-sell" in-app campaign triggers on.
         env.analytics.trackAction("order-complete", data: ["orderTotal": String(format: "%.2f", subtotal)])
         cart.removeAll()
     }
@@ -67,10 +61,7 @@ final class ShopViewModel {
     // MARK: Helpers
 
     private func fire(_ type: CommerceEventType, product: Product, env: AppEnvironment) {
-        let event = CommerceEvent(
-            type: type, productName: product.name, timestamp: .now,
-            xdm: CommerceXDM.productEvent(type: type, product: product)
-        )
+        let event = CommerceEvent(type: type, xdm: CommerceXDM.productEvent(type: type, product: product))
         env.analytics.track(event)
     }
 }
