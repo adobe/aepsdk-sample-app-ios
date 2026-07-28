@@ -40,12 +40,14 @@ struct ProfileView: View {
             } else {
                 LabeledContent("Status", value: "Anonymous")
                 LabeledContent("ECID", value: env.shortECID)
-                TextField("Test username", text: $username)
+                TextField("Email", text: $username)
                     .textInputAutocapitalization(.never)
+                    .keyboardType(.emailAddress)
+                    .autocorrectionDisabled()
                 Button("Log in") {
-                    let name = username.trimmingCharacters(in: .whitespaces)
-                    guard !name.isEmpty else { return }
-                    env.login(username: name)
+                    let email = username.trimmingCharacters(in: .whitespaces)
+                    guard !email.isEmpty else { return }
+                    env.login(username: email)
                     username = ""
                 }
                 .disabled(username.trimmingCharacters(in: .whitespaces).isEmpty)

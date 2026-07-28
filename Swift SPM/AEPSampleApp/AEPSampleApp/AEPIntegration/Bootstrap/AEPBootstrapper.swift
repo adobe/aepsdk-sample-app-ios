@@ -38,6 +38,10 @@ enum AEPBootstrapper {
         }
         // Controls AJO in-app message presentation (gating, lifecycle, deep links).
         MobileCore.messagingDelegate = InAppMessageDelegate.shared
+
+        // Register Live Activity type so the SDK collects push-to-start / update
+        // tokens and can drive the activity from AJO.
+        Messaging.registerLiveActivities([OrderActivityAttributes.self])
     }
 
     static func lifecycleStart() {

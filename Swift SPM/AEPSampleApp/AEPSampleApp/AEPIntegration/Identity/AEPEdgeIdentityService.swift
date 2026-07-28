@@ -2,16 +2,17 @@
 //  AEPEdgeIdentityService.swift
 //  AEPSampleApp
 //
-//  Real IdentityService. Reads the ECID from Edge Identity and links/unlinks a
-//  local test-user id in a custom namespace to demonstrate identity linking.
+//  Real IdentityService. Reads the ECID from Edge Identity and links/unlinks an
+//  email identity (standard "Email" namespace) so profiles are easy to target
+//  in AJO audiences.
 //
 
 import AEPEdgeIdentity
 
 final class AEPEdgeIdentityService: IdentityService {
 
-    private static let namespace = "testUserId"
-    private var lastUsername: String?
+    // Standard AEP namespace — always available, trivial to segment on.
+    private static let namespace = "Email"
 
     func experienceCloudId() async -> String? {
         await withCheckedContinuation { continuation in
@@ -22,19 +23,25 @@ final class AEPEdgeIdentityService: IdentityService {
     }
 
     func login(username: String) {
-        lastUsername = username
         let map = IdentityMap()
-        map.add(item: IdentityItem(id: username, authenticatedState: .authenticated, primary: false),
+        map.add(item: IdentityItem(id: username, authenticatedState: .authenticated, primary: true),
                 withNamespace: Self.namespace)
         Identity.updateIdentities(with: map)
         Log.sdk("updateIdentities — \(Self.namespace)=\(username)")
     }
 
     func logout() {
-        if let username = lastUsername {
-            Identity.removeIdentity(item: IdentityItem(id: username), withNamespace: Self.namespace)
-            lastUsername = nil
-            Log.sdk("removeIdentity — \(Self.namespace)")
+        // Remove every Email identity from the LOCAL identity map while keeping
+        // the same ECID. We read the current identities first (robust across
+        // relaunches) rather than remembering the last email in memory.
+        // NOTE: this only unlinks on-device; the server identity graph already
+        // stitched Email↔ECID and that link is permanent (same ECID keeps it).
+        Identity.getIdentities { identityMap, _ in
+            guard let items = identityMap?.getItems(withNamespace: Self.namespace) else { return }
+            for item in items {
+                Identity.removeIdentity(item: item, withNamespace: Self.namespace)
+            }
+            Log.sdk("removeIdentity — cleared \(items.count) \(Self.namespace) identity(ies), ECID kept")
         }
     }
 }

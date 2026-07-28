@@ -14,15 +14,9 @@
 import Foundation
 
 enum SurfaceURI {
-//    static let base = "mobileapp://com.adobe.AEPSampleApp"
-    
-
+    // Relative path segments the Messaging SDK expects for `Surface(path:)`.
+    // The SDK auto-prepends `mobileapp://<bundleId>/`, so these must match the
+    // "Location or path inside the app" configured on the AJO campaign.
     static let home  = "test_cc"
     static let inbox = "inbox"
-
-    /// The relative path the Messaging SDK expects for `Surface(path:)`
-    /// (e.g. "home" from the full "mobileapp://…/home").
-    static func path(from uri: String) -> String {
-        uri.replacingOccurrences(of: base + "/", with: "")
-    }
 }

@@ -2,19 +2,15 @@
 //  AEPMessagingService.swift
 //  AEPSampleApp
 //
-//  Real MessagingService. Stage 3a wires push (authorization + token) to the
-//  live SDK via PushManager. Content cards (3c) and inbox feed (3d) still come
-//  from the mock fallback until those stages land — so Home/Inbox stay
-//  populated in the meantime.
+//  Real MessagingService. Push (3a) via PushManager; content cards (3c) and
+//  the inbox feed (3d) fetch real propositions per surface. Read/dismiss state
+//  for the inbox is layered on locally by InboxStore in the view model.
 //
 
 import Foundation
 import AEPMessaging
 
 struct AEPMessagingService: MessagingService {
-
-    // TODO Stage 3d: replace inbox with real surface fetch.
-    private let contentFallback = MockMessagingService()
 
     func currentPushStatus() async -> PushStatus {
         await PushManager.shared.currentStatus()
@@ -36,11 +32,24 @@ struct AEPMessagingService: MessagingService {
     }
 
     func fetchContentCards(surface: String) async -> [Proposition] {
-        let path = SurfaceURI.path(from: surface)
-        let surfaceObj = Surface(path: path)
+        let items = await fetchItems(surface: surface)
+        return ContentCardMapper.map(items, surface: surface)
+    }
 
-        // updatePropositions fetches async with no completion; give it a moment
-        // to populate the cache, then read it back.
+    func fetchInboxMessages(surface: String) async -> [InboxMessage] {
+        let items = await fetchItems(surface: surface)
+        return InboxMapper.map(items, surface: surface)
+    }
+
+    // MARK: Shared surface fetch
+
+    /// updatePropositions fetches async with no completion; give it a moment to
+    /// populate the cache, then read the cached items back.
+    private func fetchItems(surface: String) async -> [PropositionItem] {
+        // `surface` is the relative path (e.g. "test_cc"); the SDK prepends
+        // mobileapp://<bundleId>/ automatically.
+        let surfaceObj = Surface(path: surface)
+
         Messaging.updatePropositionsForSurfaces([surfaceObj])
         try? await Task.sleep(for: .seconds(1))
         let propositions: [AEPMessaging.Proposition] = await withCheckedContinuation { continuation in
@@ -49,11 +58,7 @@ struct AEPMessagingService: MessagingService {
             }
         }
         let items = propositions.flatMap { $0.items }
-        Log.sdk("content cards surface=\(path) -> \(items.count) item(s)")
-        return ContentCardMapper.map(items, surface: surface)
-    }
-
-    func fetchInboxMessages(surface: String) async -> [InboxMessage] {
-        await contentFallback.fetchInboxMessages(surface: surface)
+        Log.sdk("propositions surface=\(surface) -> \(items.count) item(s)")
+        return items
     }
 }

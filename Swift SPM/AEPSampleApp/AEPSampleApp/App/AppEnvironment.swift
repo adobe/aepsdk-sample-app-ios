@@ -81,6 +81,7 @@ final class AppEnvironment {
     }
 
     func logout() {
+        // Unlinks the email locally; ECID stays the same.
         identity.logout()
         signedInUser = nil
     }
@@ -113,7 +114,7 @@ extension AppEnvironment {
             consentService: AEPEdgeConsentService(),
             personalization: MockPersonalizationService(),
             messaging: AEPMessagingService(),
-            liveActivity: MockLiveActivityService(),
+            liveActivity: LiveActivityManager(),
             diagnostics: AEPDiagnosticsService()
         )
     }
