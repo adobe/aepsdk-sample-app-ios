@@ -27,10 +27,8 @@ final class InAppMessageDelegate: NSObject, MessagingDelegate {
     }
 
     nonisolated func shouldShowMessage(message: Showable) -> Bool {
-        // Suppress in-app messages during checkout (Cart screen raises the gate).
-        let show = !IAMGate.shared.isSuppressed
-        if !show { Log.sdk("in-app message suppressed (checkout)") }
-        return show
+        // Gate for suppressing a message before it displays; always show here.
+        true
     }
 
     nonisolated func urlLoaded(_ url: URL, byMessage message: Showable) {

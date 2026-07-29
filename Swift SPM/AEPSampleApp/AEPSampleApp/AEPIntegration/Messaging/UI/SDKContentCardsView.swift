@@ -48,7 +48,9 @@ struct SDKContentCardsView: View {
         // error) when the surface isn't cached yet. So warm the cache, then poll
         // the RAW propositions (which return empty cleanly, no error) until ready,
         // and only THEN call getContentCardsUI once — so it never fails.
-        Messaging.updatePropositionsForSurfaces([surface])
+        
+        
+         Messaging.updatePropositionsForSurfaces([surface])
         for _ in 1...8 {
             try? await Task.sleep(for: .milliseconds(400))
             guard await hasPropositions(for: surface) else { continue }

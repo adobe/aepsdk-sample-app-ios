@@ -36,12 +36,7 @@ struct CartView: View {
             }
             .navigationTitle("Cart")
             .navigationBarTitleDisplayMode(.inline)
-            // Track the cart screen + suppress in-app messages during checkout.
-            .onAppear {
-                env.analytics.trackState("cart", data: nil)
-                IAMGate.shared.isSuppressed = true
-            }
-            .onDisappear { IAMGate.shared.isSuppressed = false }
+            .onAppear { env.analytics.trackState("cart", data: nil) }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Close") { dismiss() }
@@ -50,9 +45,6 @@ struct CartView: View {
             .safeAreaInset(edge: .bottom) {
                 if !model.cartLines.isEmpty {
                     Button {
-                        // Allow the order-complete confirmation IAM (suppression
-                        // only applies while browsing the cart, not at checkout).
-                        IAMGate.shared.isSuppressed = false
                         model.checkout(env)
                         dismiss()
                     } label: {
