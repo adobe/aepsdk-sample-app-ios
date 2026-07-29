@@ -36,6 +36,12 @@ enum AEPBootstrapper {
             Messaging.self
         ]) {
             MobileCore.configureWith(appId: AEPConfig.appId)
+            #if DEBUG
+            // Dev builds register an APNs *sandbox* token, so tell AJO to deliver
+            // via sandbox — otherwise APNs rejects it (BadDeviceToken bounce).
+            // Release builds use production APNs automatically.
+            MobileCore.updateConfigurationWith(configDict: ["messaging.useSandbox": true])
+            #endif
         }
         // Controls AJO in-app message presentation (gating, lifecycle, deep links).
         MobileCore.messagingDelegate = InAppMessageDelegate.shared

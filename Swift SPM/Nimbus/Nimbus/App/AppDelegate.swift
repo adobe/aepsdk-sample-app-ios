@@ -19,6 +19,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         AEPBootstrapper.start()
         UNUserNotificationCenter.current().delegate = PushManager.shared
+        // Refresh the APNs token every launch if the user already opted in.
+        Task { await PushManager.shared.registerIfAuthorized() }
         return true
     }
 

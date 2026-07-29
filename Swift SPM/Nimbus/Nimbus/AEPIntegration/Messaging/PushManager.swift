@@ -30,15 +30,28 @@ final class PushManager: NSObject, UNUserNotificationCenterDelegate {
         return Self.map(settings.authorizationStatus)
     }
 
+    /// First-run opt-in: prompt for authorization, then register with APNs if
+    /// granted.
     func request() async -> PushStatus {
         let center = UNUserNotificationCenter.current()
         let granted = (try? await center.requestAuthorization(options: [.alert, .badge, .sound])) ?? false
-        if granted {
-            // Must run on the main thread.
-            UIApplication.shared.registerForRemoteNotifications()
-        }
         Log.debug(label: "Nimbus", "push authorization requested -> granted=\(granted)")
+        if granted { registerForAPNs() }
         return await currentStatus()
+    }
+
+    /// Re-registers with APNs when the user has already opted in. Call on every
+    /// launch: `request()` only runs on first opt-in, but the APNs token can
+    /// change between launches, so it must be refreshed each time.
+    func registerIfAuthorized() async {
+        guard await currentStatus() == .granted else { return }
+        registerForAPNs()
+    }
+
+    /// `registerForRemoteNotifications()` must run on the main actor; this type
+    /// is main-actor isolated, so callers are already there.
+    private func registerForAPNs() {
+        UIApplication.shared.registerForRemoteNotifications()
     }
 
     // MARK: Token

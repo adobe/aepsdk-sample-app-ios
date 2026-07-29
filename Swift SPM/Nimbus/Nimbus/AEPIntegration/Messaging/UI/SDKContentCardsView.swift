@@ -45,34 +45,18 @@ struct SDKContentCardsView: View {
     private func load() async {
         let surface = Surface(path: surfacePath)
 
-        // getContentCardsUI only READS the cache and returns .failure (logging an
-        // error) when the surface isn't cached yet. So warm the cache, then poll
-        // the RAW propositions (which return empty cleanly, no error) until ready,
-        // and only THEN call getContentCardsUI once — so it never fails.
-        
-        
-         Messaging.updatePropositionsForSurfaces([surface])
-        for _ in 1...8 {
-            try? await Task.sleep(for: .milliseconds(400))
-            guard await hasPropositions(for: surface) else { continue }
-            cards = await fetchUI(for: surface)
-            isLoading = false
-            Log.debug(label: "Nimbus", "getContentCardsUI surface=\(surfacePath) -> \(cards.count) card(s)")
-            return
-        }
-        cards = []
-        isLoading = false
-        Log.debug(label: "Nimbus", "getContentCardsUI surface=\(surfacePath) -> 0 card(s) (no propositions)")
-    }
-
-    /// Clean readiness check — getPropositionsForSurfaces returns empty (not an
-    /// error) when the surface isn't cached yet.
-    private func hasPropositions(for surface: Surface) async -> Bool {
-        await withCheckedContinuation { continuation in
-            Messaging.getPropositionsForSurfaces([surface]) { dict, _ in
-                continuation.resume(returning: !(dict?[surface]?.isEmpty ?? true))
+        // getContentCardsUI only READS the cache, so warm it first. The
+        // completion fires once the network response has been processed — no
+        // polling needed. Only read the templated UI if the warm succeeded, so
+        // we never call getContentCardsUI on an empty cache (which logs errors).
+        let updated: Bool = await withCheckedContinuation { continuation in
+            Messaging.updatePropositionsForSurfaces([surface]) { success in
+                continuation.resume(returning: success)
             }
         }
+        cards = updated ? await fetchUI(for: surface) : []
+        isLoading = false
+        Log.debug(label: "Nimbus", "getContentCardsUI surface=\(surfacePath) -> \(cards.count) card(s)")
     }
 
     private func fetchUI(for surface: Surface) async -> [ContentCardUI] {

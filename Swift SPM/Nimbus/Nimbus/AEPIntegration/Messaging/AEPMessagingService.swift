@@ -39,15 +39,18 @@ struct AEPMessagingService: MessagingService {
 
     // MARK: Shared surface fetch
 
-    /// updatePropositions fetches async with no completion; give it a moment to
-    /// populate the cache, then read the cached items back.
+    /// Warm the surface, then read the cached items once the network response
+    /// has been processed. The completion removes the need for a fixed delay.
     private func fetchItems(surface: String) async -> [PropositionItem] {
-        // `surface` is the relative path (e.g. "test_cc"); the SDK prepends
+        // `surface` is the relative path (e.g. "home"); the SDK prepends
         // mobileapp://<bundleId>/ automatically.
         let surfaceObj = Surface(path: surface)
 
-        Messaging.updatePropositionsForSurfaces([surfaceObj])
-        try? await Task.sleep(for: .seconds(1))
+        _ = await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
+            Messaging.updatePropositionsForSurfaces([surfaceObj]) { success in
+                continuation.resume(returning: success)
+            }
+        }
         let propositions: [AEPMessaging.Proposition] = await withCheckedContinuation { continuation in
             Messaging.getPropositionsForSurfaces([surfaceObj]) { dict, _ in
                 continuation.resume(returning: dict?[surfaceObj] ?? [])
