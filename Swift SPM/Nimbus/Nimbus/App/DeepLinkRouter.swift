@@ -19,7 +19,9 @@ final class DeepLinkRouter {
 
     enum Tab: Hashable { case home, shop, inbox, profile }
 
-    static let scheme = "aepsampleapp"
+    // `nonisolated` so the SDK's nonisolated listener callbacks can read it when
+    // deciding whether a CTA URL is ours to route in-app.
+    nonisolated static let scheme = "aepsampleapp"
 
     var selectedTab: Tab = .home
 

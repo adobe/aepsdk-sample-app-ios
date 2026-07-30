@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		94105DB53010FDFB001BD1E7 /* AEPLifecycle in Frameworks */ = {isa = PBXBuildFile; productRef = 94105DB43010FDFB001BD1E7 /* AEPLifecycle */; };
 		94105DB73010FE16001BD1E7 /* AEPSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 94105DB63010FE16001BD1E7 /* AEPSignal */; };
+		9498506C301B2728006DD4BF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498506B301B2728006DD4BF /* WidgetKit.framework */; };
+		9498506E301B2728006DD4BF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498506D301B2728006DD4BF /* SwiftUI.framework */; };
+		9498507F301B2729006DD4BF /* OrderActivityWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9498508A301B297E006DD4BF /* AEPMessagingLiveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 94985089301B297E006DD4BF /* AEPMessagingLiveActivity */; };
 		949FD32A3010FA0F00C3E918 /* AEPMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD3293010FA0F00C3E918 /* AEPMessaging */; };
 		949FD32C3010FA0F00C3E918 /* AEPMessagingLiveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD32B3010FA0F00C3E918 /* AEPMessagingLiveActivity */; };
 		949FD32E3010FA0F00C3E918 /* AEPMessagingNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD32D3010FA0F00C3E918 /* AEPMessagingNotification */; };
@@ -16,19 +20,84 @@
 		94E4FAB1301134E0009D5A56 /* AEPAssurance in Frameworks */ = {isa = PBXBuildFile; productRef = 94E4FAB0301134E0009D5A56 /* AEPAssurance */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9498507D301B2729006DD4BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 949FD28E3010D55900C3E918 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94985069301B2728006DD4BF;
+			remoteInfo = OrderActivityWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94985080301B2729006DD4BF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9498507F301B2729006DD4BF /* OrderActivityWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrderActivityWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9498506B301B2728006DD4BF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		9498506D301B2728006DD4BF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		949FD2963010D55900C3E918 /* Nimbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nimbus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		94985083301B2729006DD4BF /* Exceptions for "OrderActivityWidget" folder in "OrderActivityWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 94985069301B2728006DD4BF /* OrderActivityWidgetExtension */;
+		};
+		94985088301B2930006DD4BF /* Exceptions for "Nimbus" folder in "OrderActivityWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/OrderActivityAttributes.swift,
+			);
+			target = 94985069301B2728006DD4BF /* OrderActivityWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		9498506F301B2728006DD4BF /* OrderActivityWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				94985083301B2729006DD4BF /* Exceptions for "OrderActivityWidget" folder in "OrderActivityWidgetExtension" target */,
+			);
+			path = OrderActivityWidget;
+			sourceTree = "<group>";
+		};
 		949FD2983010D55900C3E918 /* Nimbus */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				94985088301B2930006DD4BF /* Exceptions for "Nimbus" folder in "OrderActivityWidgetExtension" target */,
+			);
 			path = Nimbus;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		94985067301B2728006DD4BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9498508A301B297E006DD4BF /* AEPMessagingLiveActivity in Frameworks */,
+				9498506E301B2728006DD4BF /* SwiftUI.framework in Frameworks */,
+				9498506C301B2728006DD4BF /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		949FD2933010D55900C3E918 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,6 +118,8 @@
 		94105DB33010FDFB001BD1E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9498506B301B2728006DD4BF /* WidgetKit.framework */,
+				9498506D301B2728006DD4BF /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -57,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				949FD2983010D55900C3E918 /* Nimbus */,
+				9498506F301B2728006DD4BF /* OrderActivityWidget */,
 				94105DB33010FDFB001BD1E7 /* Frameworks */,
 				949FD2973010D55900C3E918 /* Products */,
 			);
@@ -66,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				949FD2963010D55900C3E918 /* Nimbus.app */,
+				9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +146,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		94985069301B2728006DD4BF /* OrderActivityWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94985084301B2729006DD4BF /* Build configuration list for PBXNativeTarget "OrderActivityWidgetExtension" */;
+			buildPhases = (
+				94985066301B2728006DD4BF /* Sources */,
+				94985067301B2728006DD4BF /* Frameworks */,
+				94985068301B2728006DD4BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9498506F301B2728006DD4BF /* OrderActivityWidget */,
+			);
+			name = OrderActivityWidgetExtension;
+			packageProductDependencies = (
+				94985089301B297E006DD4BF /* AEPMessagingLiveActivity */,
+			);
+			productName = OrderActivityWidgetExtension;
+			productReference = 9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		949FD2953010D55900C3E918 /* Nimbus */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949FD2A13010D55900C3E918 /* Build configuration list for PBXNativeTarget "Nimbus" */;
@@ -80,10 +176,12 @@
 				949FD2923010D55900C3E918 /* Sources */,
 				949FD2933010D55900C3E918 /* Frameworks */,
 				949FD2943010D55900C3E918 /* Resources */,
+				94985080301B2729006DD4BF /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9498507E301B2729006DD4BF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				949FD2983010D55900C3E918 /* Nimbus */,
@@ -112,6 +210,9 @@
 				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
+					94985069301B2728006DD4BF = {
+						CreatedOnToolsVersion = 26.6;
+					};
 					949FD2953010D55900C3E918 = {
 						CreatedOnToolsVersion = 26.6;
 					};
@@ -138,11 +239,19 @@
 			projectRoot = "";
 			targets = (
 				949FD2953010D55900C3E918 /* Nimbus */,
+				94985069301B2728006DD4BF /* OrderActivityWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		94985068301B2728006DD4BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		949FD2943010D55900C3E918 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,6 +262,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		94985066301B2728006DD4BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		949FD2923010D55900C3E918 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -162,7 +278,77 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9498507E301B2729006DD4BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94985069301B2728006DD4BF /* OrderActivityWidgetExtension */;
+			targetProxy = 9498507D301B2729006DD4BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		94985081301B2729006DD4BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderActivityWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OrderActivityWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.nimbus.OrderActivityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94985082301B2729006DD4BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderActivityWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OrderActivityWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.nimbus.OrderActivityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		949FD29F3010D55900C3E918 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -357,6 +543,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		94985084301B2729006DD4BF /* Build configuration list for PBXNativeTarget "OrderActivityWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94985081301B2729006DD4BF /* Debug */,
+				94985082301B2729006DD4BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		949FD2913010D55900C3E918 /* Build configuration list for PBXProject "Nimbus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -422,6 +617,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 949FD3273010FA0500C3E918 /* XCRemoteSwiftPackageReference "aepsdk-core-ios" */;
 			productName = AEPSignal;
+		};
+		94985089301B297E006DD4BF /* AEPMessagingLiveActivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949FD3283010FA0F00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */;
+			productName = AEPMessagingLiveActivity;
 		};
 		949FD3293010FA0F00C3E918 /* AEPMessaging */ = {
 			isa = XCSwiftPackageProductDependency;

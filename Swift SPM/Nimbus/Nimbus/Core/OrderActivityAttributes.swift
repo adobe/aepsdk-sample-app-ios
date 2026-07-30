@@ -28,3 +28,17 @@ struct OrderActivityAttributes: LiveActivityAttributes {
         var etaMinutes: Int
     }
 }
+
+// Lets the Assurance Live Activity plugin validate this schema and trigger test
+// start/update/end without hand-built payloads. Returns a representative sample.
+extension OrderActivityAttributes: LiveActivityAssuranceDebuggable {
+    static func getDebugInfo() -> (attributes: Self, state: ContentState) {
+        (
+            OrderActivityAttributes(
+                liveActivityData: LiveActivityData(liveActivityID: "order-debug"),
+                orderNumber: "1234"
+            ),
+            ContentState(status: "Preparing", etaMinutes: 20)
+        )
+    }
+}
