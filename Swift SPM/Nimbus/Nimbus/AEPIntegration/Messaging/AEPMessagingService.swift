@@ -13,6 +13,10 @@ import AEPServices
 
 struct AEPMessagingService: MessagingService {
 
+    // Retains CBE PropositionItems + their parent Propositions so tracking works
+    // after fetch (PropositionItem.proposition is a weak ref).
+    private let cbe = CBEStore()
+
     func currentPushStatus() async -> PushStatus {
         await PushManager.shared.currentStatus()
     }
@@ -35,6 +39,52 @@ struct AEPMessagingService: MessagingService {
     func fetchInboxMessages(surface: String) async -> [InboxMessage] {
         let items = await fetchItems(surface: surface)
         return InboxMapper.map(items, surface: surface)
+    }
+
+    // MARK: Code-Based Experiences (CBE)
+
+    func fetchCodeBasedExperiences(surface: String) async -> [Proposition] {
+        let surfaceObj = Surface(path: surface)
+        _ = await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
+            Messaging.updatePropositionsForSurfaces([surfaceObj]) { continuation.resume(returning: $0) }
+        }
+        let propositions: [AEPMessaging.Proposition] = await withCheckedContinuation { continuation in
+            Messaging.getPropositionsForSurfaces([surfaceObj]) { dict, _ in
+                continuation.resume(returning: dict?[surfaceObj] ?? [])
+            }
+        }
+        // Retain propositions so each item's weak `proposition` back-ref stays
+        // valid for later display/interact tracking.
+        cbe.propositions.append(contentsOf: propositions)
+
+        var result: [Proposition] = []
+        for proposition in propositions {
+            for item in proposition.items where item.schema == .jsonContent {
+                guard let json = item.jsonContentDictionary else { continue }
+                cbe.itemsById[item.itemId] = item
+                result.append(Self.mapCBE(id: item.itemId, json: json))
+            }
+        }
+        Log.debug(label: "Nimbus", "CBE surface=\(surface) -> \(result.count) item(s)")
+        return result
+    }
+
+    func trackCBEDisplay(_ itemId: String) {
+        cbe.itemsById[itemId]?.track(withEdgeEventType: .display)
+    }
+
+    func trackCBEInteract(_ itemId: String) {
+        cbe.itemsById[itemId]?.track("click", withEdgeEventType: .interact)
+    }
+
+    /// Maps a JSON CBE payload ({title, body, image}) to the app Proposition.
+    private static func mapCBE(id: String, json: [String: Any]) -> Proposition {
+        Proposition(
+            id: id,
+            title: json["title"] as? String ?? "Featured",
+            body: json["body"] as? String ?? "",
+            imageSystemName: json["image"] as? String ?? "sparkles"
+        )
     }
 
     // MARK: Shared surface fetch
@@ -60,4 +110,11 @@ struct AEPMessagingService: MessagingService {
         Log.debug(label: "Nimbus", "propositions surface=\(surface) -> \(items.count) item(s)")
         return items
     }
+}
+
+/// Reference cache so the value-type service can retain CBE propositions/items
+/// across calls — `PropositionItem.proposition` is weak and tracking needs it.
+private final class CBEStore {
+    var itemsById: [String: PropositionItem] = [:]
+    var propositions: [AEPMessaging.Proposition] = []
 }

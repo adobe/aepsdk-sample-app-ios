@@ -37,4 +37,13 @@ protocol MessagingService {
 
     /// Inbox/feed messages for the inbox surface.
     func fetchInboxMessages(surface: String) async -> [InboxMessage]
+
+    /// Code-Based Experiences (JSON schema) for a surface, mapped to app
+    /// Propositions for custom rendering — distinct from content cards
+    /// (which use the SDK's templated `getContentCardsUI`).
+    func fetchCodeBasedExperiences(surface: String) async -> [Proposition]
+
+    /// CBE interaction tracking, keyed by PropositionItem id.
+    func trackCBEDisplay(_ itemId: String)
+    func trackCBEInteract(_ itemId: String)
 }

@@ -18,6 +18,7 @@ import AEPLifecycle
 import AEPSignal
 import AEPAssurance
 import AEPMessaging
+import AEPOptimize
 
 enum AEPBootstrapper {
 
@@ -33,7 +34,8 @@ enum AEPBootstrapper {
             Lifecycle.self,
             Signal.self,
             Assurance.self,
-            Messaging.self
+            Messaging.self,
+            Optimize.self
         ]) {
             MobileCore.configureWith(appId: AEPConfig.appId)
             #if DEBUG

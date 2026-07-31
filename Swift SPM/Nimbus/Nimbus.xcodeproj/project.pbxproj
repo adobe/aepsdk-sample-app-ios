@@ -13,6 +13,9 @@
 		9498506E301B2728006DD4BF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498506D301B2728006DD4BF /* SwiftUI.framework */; };
 		9498507F301B2729006DD4BF /* OrderActivityWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9498508A301B297E006DD4BF /* AEPMessagingLiveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 94985089301B297E006DD4BF /* AEPMessagingLiveActivity */; };
+		94985093301CB40B006DD4BF /* AEPAssurance in Frameworks */ = {isa = PBXBuildFile; productRef = 94985092301CB40B006DD4BF /* AEPAssurance */; };
+		94985095301CB418006DD4BF /* AEPOptimize in Frameworks */ = {isa = PBXBuildFile; productRef = 94985094301CB418006DD4BF /* AEPOptimize */; };
+		94985097301CB452006DD4BF /* AEPOptimize in Frameworks */ = {isa = PBXBuildFile; productRef = 94985096301CB452006DD4BF /* AEPOptimize */; };
 		949FD32A3010FA0F00C3E918 /* AEPMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD3293010FA0F00C3E918 /* AEPMessaging */; };
 		949FD32C3010FA0F00C3E918 /* AEPMessagingLiveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD32B3010FA0F00C3E918 /* AEPMessagingLiveActivity */; };
 		949FD32E3010FA0F00C3E918 /* AEPMessagingNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD32D3010FA0F00C3E918 /* AEPMessagingNotification */; };
@@ -94,7 +97,9 @@
 			files = (
 				9498508A301B297E006DD4BF /* AEPMessagingLiveActivity in Frameworks */,
 				9498506E301B2728006DD4BF /* SwiftUI.framework in Frameworks */,
+				94985095301CB418006DD4BF /* AEPOptimize in Frameworks */,
 				9498506C301B2728006DD4BF /* WidgetKit.framework in Frameworks */,
+				94985093301CB40B006DD4BF /* AEPAssurance in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +109,7 @@
 			files = (
 				949FD32A3010FA0F00C3E918 /* AEPMessaging in Frameworks */,
 				94105DB73010FE16001BD1E7 /* AEPSignal in Frameworks */,
+				94985097301CB452006DD4BF /* AEPOptimize in Frameworks */,
 				949FD32E3010FA0F00C3E918 /* AEPMessagingNotification in Frameworks */,
 				949FD32C3010FA0F00C3E918 /* AEPMessagingLiveActivity in Frameworks */,
 				949FD3453010FC6C00C3E918 /* AEPEdgeConsent in Frameworks */,
@@ -164,6 +170,8 @@
 			name = OrderActivityWidgetExtension;
 			packageProductDependencies = (
 				94985089301B297E006DD4BF /* AEPMessagingLiveActivity */,
+				94985092301CB40B006DD4BF /* AEPAssurance */,
+				94985094301CB418006DD4BF /* AEPOptimize */,
 			);
 			productName = OrderActivityWidgetExtension;
 			productReference = 9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */;
@@ -195,6 +203,7 @@
 				94105DB43010FDFB001BD1E7 /* AEPLifecycle */,
 				94105DB63010FE16001BD1E7 /* AEPSignal */,
 				94E4FAB0301134E0009D5A56 /* AEPAssurance */,
+				94985096301CB452006DD4BF /* AEPOptimize */,
 			);
 			productName = Nimbus;
 			productReference = 949FD2963010D55900C3E918 /* Nimbus.app */;
@@ -232,6 +241,7 @@
 				949FD3283010FA0F00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */,
 				949FD3433010FC6C00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-edgeconsent-ios" */,
 				94E4FAAF301134E0009D5A56 /* XCRemoteSwiftPackageReference "aepsdk-assurance-ios" */,
+				9498508E301CABAA006DD4BF /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 949FD2973010D55900C3E918 /* Products */;
@@ -573,6 +583,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9498508E301CABAA006DD4BF /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adobe/aepsdk-optimize-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
 		949FD3273010FA0500C3E918 /* XCRemoteSwiftPackageReference "aepsdk-core-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-core-ios.git";
@@ -622,6 +640,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 949FD3283010FA0F00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */;
 			productName = AEPMessagingLiveActivity;
+		};
+		94985092301CB40B006DD4BF /* AEPAssurance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94E4FAAF301134E0009D5A56 /* XCRemoteSwiftPackageReference "aepsdk-assurance-ios" */;
+			productName = AEPAssurance;
+		};
+		94985094301CB418006DD4BF /* AEPOptimize */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9498508E301CABAA006DD4BF /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */;
+			productName = AEPOptimize;
+		};
+		94985096301CB452006DD4BF /* AEPOptimize */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9498508E301CABAA006DD4BF /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */;
+			productName = AEPOptimize;
 		};
 		949FD3293010FA0F00C3E918 /* AEPMessaging */ = {
 			isa = XCSwiftPackageProductDependency;

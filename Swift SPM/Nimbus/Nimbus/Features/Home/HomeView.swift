@@ -18,7 +18,8 @@ struct HomeView: View {
             VStack(spacing: 0) {
                 ScrollView {
                     VStack(spacing: 20) {
-                        personalizedSection
+                        personalizedOffers
+                        offersEmptyState
                         if !model.contentCards.isEmpty {
                             ContentCardCarouselView(cards: model.contentCards)
                         }
@@ -47,16 +48,53 @@ struct HomeView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
+    /// One "Recommended for you" block containing an engine-labeled group per
+    /// engine (AJO / Target), stacked one below the other.
     @ViewBuilder
-    private var personalizedSection: some View {
-        if let proposition = model.personalized {
-            PersonalizedCardView(proposition: proposition)
-        } else if model.isLoading {
-            ProgressView().frame(maxWidth: .infinity).padding(.vertical, 20)
-        } else {
-            // Explicit empty state — real personalization returns nothing until
-            // consent = yes and a Decisioning activity is configured.
-            emptyCard("No personalized content", "Grant consent and configure a decision scope.")
+    private var personalizedOffers: some View {
+        if !model.ajoOffers.isEmpty || !model.targetOffers.isEmpty {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Recommended for you")
+                    .font(.title3.weight(.semibold))
+                    .padding(.horizontal, 16)
+
+                offerGroup("Personalized · Offer Decisioning", offers: model.ajoOffers)
+                offerGroup("Personalized · Adobe Target", offers: model.targetOffers)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    /// A labeled group of offers from a single engine. Each offer reports display
+    /// on appear and tap on tap through the Optimize seam.
+    @ViewBuilder
+    private func offerGroup(_ label: String, offers: [Proposition]) -> some View {
+        if !offers.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(label)
+                    .font(.subheadline.weight(.medium))
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 16)
+
+                ForEach(offers) { offer in
+                    PersonalizedCardView(proposition: offer)
+                        .contentShape(Rectangle())
+                        .onAppear { env.personalization.trackDisplay(offer.id) }
+                        .onTapGesture { env.personalization.trackTap(offer.id) }
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var offersEmptyState: some View {
+        if model.ajoOffers.isEmpty && model.targetOffers.isEmpty {
+            if model.isLoading {
+                ProgressView().frame(maxWidth: .infinity).padding(.vertical, 20)
+            } else {
+                emptyCard("No offers to show",
+                          "Add an AJO decision scope or Target activity in Profile → Optimize Offers.")
+            }
         }
     }
 

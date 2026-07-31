@@ -31,6 +31,10 @@ struct ShopView: View {
                             .id(model.selectedCategory.surface)
                             .padding(.horizontal, 16)
 
+                        // Code-Based Experiences on the same category surface.
+                        ShopCBEView(surfacePath: model.selectedCategory.surface)
+                            .padding(.horizontal, 16)
+
                         LazyVGrid(columns: columns, spacing: 14) {
                             ForEach(model.visibleProducts) { product in
                                 ProductTileView(

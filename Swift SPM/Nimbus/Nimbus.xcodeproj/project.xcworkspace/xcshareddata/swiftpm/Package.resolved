@@ -1,5 +1,5 @@
 {
-  "originHash" : "4adc543419299c92e148fa316aea526015ab76fff70ac8405cbdf74788c79da5",
+  "originHash" : "fb38bcd72238fdb7044fce5cc133f7fb502de722aa8002ae2ef6e93de39f3a3c",
   "pins" : [
     {
       "identity" : "aepsdk-assurance-ios",
@@ -53,6 +53,15 @@
       "state" : {
         "revision" : "5dad851d309e115a63086c3041e9606cfb540510",
         "version" : "5.14.0"
+      }
+    },
+    {
+      "identity" : "aepsdk-optimize-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adobe/aepsdk-optimize-ios",
+      "state" : {
+        "revision" : "5381e43561f31539a5a66ca1833d0a65bcadc546",
+        "version" : "5.7.0"
       }
     },
     {

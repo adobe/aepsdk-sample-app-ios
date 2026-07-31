@@ -2,9 +2,9 @@
 //  HomeViewModel.swift
 //  Nimbus
 //
-//  Home now focuses purely on personalization surfaces: the Optimize
-//  decision-scope banner and the AJO content cards. Commerce lives in the
-//  Shop tab (ShopViewModel).
+//  Home personalization surfaces: Optimize offers from two engines — AJO Offer
+//  Decisioning and Adobe Target (scopes configured in the Profile lab) — plus
+//  the AJO content cards. Commerce lives in the Shop tab (ShopViewModel).
 //
 
 import Observation
@@ -12,7 +12,8 @@ import Observation
 @Observable
 final class HomeViewModel {
 
-    private(set) var personalized: Proposition?
+    private(set) var ajoOffers: [Proposition] = []
+    private(set) var targetOffers: [Proposition] = []
     private(set) var contentCards: [Proposition] = []
     private(set) var isLoading = false
 
@@ -26,10 +27,14 @@ final class HomeViewModel {
 
     func refresh(_ env: AppEnvironment) async {
         isLoading = true
-        // Two independent SDK-backed surfaces fetched concurrently.
-        async let banner = env.personalization.fetchPropositions(scopes: ["home-banner"])
+        // Offer scopes come from the locally-saved Optimize config (Profile lab).
+        let ajo = OptimizeScopeStore.ajoScope
+        let target = OptimizeScopeStore.targetActivity
+        async let ajoResult = ajo.isEmpty ? [] : env.personalization.fetchPropositions(scopes: [ajo])
+        async let targetResult = target.isEmpty ? [] : env.personalization.fetchPropositions(scopes: [target])
         async let cards = env.messaging.fetchContentCards(surface: SurfaceURI.home)
-        personalized = await banner.first
+        ajoOffers = await ajoResult
+        targetOffers = await targetResult
         contentCards = await cards
         isLoading = false
     }

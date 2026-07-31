@@ -12,7 +12,7 @@ struct NimbusApp: App {
     // Registers the AEP extensions at launch.
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
-    // Live, SDK-backed services (personalization is still a stand-in).
+    // Live, SDK-backed services (personalization via AEP Optimize).
     @State private var env = AppEnvironment.live()
 
     @Environment(\.scenePhase) private var scenePhase

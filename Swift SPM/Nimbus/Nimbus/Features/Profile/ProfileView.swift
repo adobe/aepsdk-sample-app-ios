@@ -87,6 +87,11 @@ struct ProfileView: View {
             } label: {
                 Label("Assurance", systemImage: "checkmark.shield")
             }
+            NavigationLink {
+                OptimizeOffersView()
+            } label: {
+                Label("Optimize Offers", systemImage: "wand.and.stars")
+            }
             LabeledContent("App version", value: "1.0")
         }
     }

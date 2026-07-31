@@ -90,14 +90,14 @@ final class AppEnvironment {
 }
 
 extension AppEnvironment {
-    /// Live wiring. All services are SDK-backed except personalization, which
-    /// stays mocked until Optimize/Decisioning is integrated.
+    /// Live wiring — every service is SDK-backed (personalization via AEP
+    /// Optimize).
     static func live() -> AppEnvironment {
         AppEnvironment(
             analytics: AEPEdgeAnalyticsService(),
             identity: AEPEdgeIdentityService(),
             consentService: AEPEdgeConsentService(),
-            personalization: MockPersonalizationService(),
+            personalization: AEPOptimizeService(),
             messaging: AEPMessagingService(),
             liveActivity: LiveActivityManager(),
             diagnostics: AEPDiagnosticsService()
