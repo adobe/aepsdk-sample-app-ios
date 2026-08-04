@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentCardCarouselView: View {
+    @Environment(AppEnvironment.self) private var env
     let cards: [Proposition]
 
     var body: some View {
@@ -20,6 +21,8 @@ struct ContentCardCarouselView: View {
                 HStack(spacing: 12) {
                     ForEach(cards) { card in
                         cardView(card)
+                            .onAppear { env.messaging.trackContentCardDisplay(card.id) }
+                            .onTapGesture { env.messaging.trackContentCardInteract(card.id) }
                     }
                 }
                 .padding(.horizontal, 16)

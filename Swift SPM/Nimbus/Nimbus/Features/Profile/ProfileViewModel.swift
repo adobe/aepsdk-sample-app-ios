@@ -23,8 +23,4 @@ final class ProfileViewModel {
     func requestPush(_ env: AppEnvironment) async {
         pushStatus = await env.messaging.requestPushAuthorization()
     }
-
-    func sendTestPush(_ env: AppEnvironment) {
-        env.messaging.sendTestPush()
-    }
 }

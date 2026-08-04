@@ -22,6 +22,7 @@ struct ProfileView: View {
                 developerSection
             }
             .navigationTitle("Profile")
+            .onAppear { env.analytics.trackState("profile", data: nil) }
             .task { await model.onAppear(env) }
         }
     }
@@ -70,8 +71,6 @@ struct ProfileView: View {
                     Task { await model.requestPush(env) }
                 }
             }
-            Button("Send me a test push") { model.sendTestPush(env) }
-                .disabled(model.pushStatus != .granted)
         }
     }
 

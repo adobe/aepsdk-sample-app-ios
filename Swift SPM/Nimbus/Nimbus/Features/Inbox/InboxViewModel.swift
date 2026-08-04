@@ -41,15 +41,17 @@ final class InboxViewModel {
         isLoading = false
     }
 
-    func markRead(_ message: InboxMessage) {
+    func markRead(_ message: InboxMessage, env: AppEnvironment) {
         guard let idx = messages.firstIndex(where: { $0.id == message.id }) else { return }
-        store.markRead(message.id)      // persists across relaunch
+        store.markRead(message.id)
         messages[idx].isRead = true
+        env.messaging.trackInboxInteract(message.id)
     }
 
-    func dismiss(_ message: InboxMessage) {
-        store.dismiss(message.id)       // stays gone across relaunch
+    func dismiss(_ message: InboxMessage, env: AppEnvironment) {
+        store.dismiss(message.id)
         messages.removeAll { $0.id == message.id }
+        env.messaging.trackInboxDismiss(message.id)
     }
 
     func toggleLiveActivity(_ env: AppEnvironment) async {

@@ -29,9 +29,6 @@ protocol MessagingService {
     /// Prompts for notification authorization + registers the push token.
     func requestPushAuthorization() async -> PushStatus
 
-    /// Dev-only convenience to fire a test push at this device.
-    func sendTestPush()
-
     /// Content cards / code-based experiences for a surface (e.g. home).
     func fetchContentCards(surface: String) async -> [Proposition]
 
@@ -46,4 +43,12 @@ protocol MessagingService {
     /// CBE interaction tracking, keyed by PropositionItem id.
     func trackCBEDisplay(_ itemId: String)
     func trackCBEInteract(_ itemId: String)
+
+    /// Custom content-card carousel tracking, keyed by PropositionItem id.
+    func trackContentCardDisplay(_ itemId: String)
+    func trackContentCardInteract(_ itemId: String)
+
+    /// Custom inbox tracking, keyed by PropositionItem id.
+    func trackInboxInteract(_ itemId: String)
+    func trackInboxDismiss(_ itemId: String)
 }

@@ -16,6 +16,9 @@ struct AEPMessagingService: MessagingService {
     // Retains CBE PropositionItems + their parent Propositions so tracking works
     // after fetch (PropositionItem.proposition is a weak ref).
     private let cbe = CBEStore()
+    // Retains content-card and inbox PropositionItems for carousel/custom tracking.
+    private let cardItems = ItemStore()
+    private let inboxItems = ItemStore()
 
     func currentPushStatus() async -> PushStatus {
         await PushManager.shared.currentStatus()
@@ -25,20 +28,32 @@ struct AEPMessagingService: MessagingService {
         await PushManager.shared.request()
     }
 
-    func sendTestPush() {
-        // A real push is delivered by an AJO campaign, not the client. This
-        // stays as a no-op with a log so the button remains a harmless demo cue.
-        Log.debug(label: "Nimbus", "push delivery originates from an AJO campaign, not the app")
-    }
-
     func fetchContentCards(surface: String) async -> [Proposition] {
         let items = await fetchItems(surface: surface)
+        items.forEach { cardItems.itemsById[$0.itemId] = $0 }
         return ContentCardMapper.map(items)
     }
 
     func fetchInboxMessages(surface: String) async -> [InboxMessage] {
         let items = await fetchItems(surface: surface)
+        items.forEach { inboxItems.itemsById[$0.itemId] = $0 }
         return InboxMapper.map(items, surface: surface)
+    }
+
+    func trackContentCardDisplay(_ itemId: String) {
+        cardItems.itemsById[itemId]?.track(withEdgeEventType: .display)
+    }
+
+    func trackContentCardInteract(_ itemId: String) {
+        cardItems.itemsById[itemId]?.track("click", withEdgeEventType: .interact)
+    }
+
+    func trackInboxInteract(_ itemId: String) {
+        inboxItems.itemsById[itemId]?.track("read", withEdgeEventType: .interact)
+    }
+
+    func trackInboxDismiss(_ itemId: String) {
+        inboxItems.itemsById[itemId]?.track(withEdgeEventType: .dismiss)
     }
 
     // MARK: Code-Based Experiences (CBE)
@@ -117,4 +132,9 @@ struct AEPMessagingService: MessagingService {
 private final class CBEStore {
     var itemsById: [String: PropositionItem] = [:]
     var propositions: [AEPMessaging.Proposition] = []
+}
+
+/// Generic item cache for content-card and inbox tracking.
+private final class ItemStore {
+    var itemsById: [String: PropositionItem] = [:]
 }

@@ -40,6 +40,7 @@ struct InboxView: View {
                 }
             }
             .navigationTitle("Inbox")
+            .onAppear { env.analytics.trackState("inbox", data: nil) }
             .task { await model.onAppear(env) }
         }
     }
@@ -56,10 +57,10 @@ struct InboxView: View {
                 ForEach(model.messages) { message in
                     InboxRowView(message: message)
                         .contentShape(Rectangle())
-                        .onTapGesture { model.markRead(message) }
+                        .onTapGesture { model.markRead(message, env: env) }
                         .swipeActions {
                             Button(role: .destructive) {
-                                model.dismiss(message)
+                                model.dismiss(message, env: env)
                             } label: {
                                 Label("Dismiss", systemImage: "trash")
                             }

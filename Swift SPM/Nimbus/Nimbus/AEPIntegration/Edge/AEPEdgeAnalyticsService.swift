@@ -20,11 +20,19 @@ struct AEPEdgeAnalyticsService: AnalyticsService {
 
     func trackAction(_ action: String, data: [String: String]?) {
         MobileCore.track(action: action, data: data)
-        Log.debug(label: "Nimbus", "MobileCore.track(action: \(action))")
+        let xdm: [String: Any] = ["eventType": "application.action"]
+        var freeform: [String: Any] = ["actionName": action]
+        data?.forEach { freeform[$0.key] = $0.value }
+        Edge.sendEvent(experienceEvent: ExperienceEvent(xdm: xdm, data: freeform))
+        Log.debug(label: "Nimbus", "Edge.sendEvent application.action \(action)")
     }
 
     func trackState(_ state: String, data: [String: String]?) {
         MobileCore.track(state: state, data: data)
-        Log.debug(label: "Nimbus", "MobileCore.track(state: \(state))")
+        let xdm: [String: Any] = ["eventType": "application.screenView"]
+        var freeform: [String: Any] = ["screenName": state]
+        data?.forEach { freeform[$0.key] = $0.value }
+        Edge.sendEvent(experienceEvent: ExperienceEvent(xdm: xdm, data: freeform))
+        Log.debug(label: "Nimbus", "Edge.sendEvent application.screenView \(state)")
     }
 }
