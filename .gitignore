@@ -93,3 +93,4 @@ iOSInjectionProject/
 *.DS_Store
 
 *.log
+.scout/
