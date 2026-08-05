@@ -45,8 +45,11 @@ struct CartView: View {
             .safeAreaInset(edge: .bottom) {
                 if !model.cartLines.isEmpty {
                     Button {
-                        model.checkout(env)
                         dismiss()
+                        Task {
+                            model.checkout(env)
+                            await env.startOrderTrackingForCheckout()
+                        }
                     } label: {
                         Text("Checkout · $" + String(format: "%.2f", model.subtotal))
                             .frame(maxWidth: .infinity)

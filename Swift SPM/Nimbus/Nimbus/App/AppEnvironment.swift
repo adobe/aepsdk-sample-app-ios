@@ -22,8 +22,15 @@ final class AppEnvironment {
     var consent: ConsentState = .pending
     /// Tracks whether the one-time consent primer has been answered.
     var hasChosenConsent: Bool = false
+    /// Tracks whether the login prompt has been seen (login or guest tap). Skips
+    /// the screen if the user was already logged in when the app launched.
+    var hasSeenLoginPrompt: Bool = false
     /// Authenticated test user, or nil when anonymous.
     var signedInUser: String?
+
+    /// Current order-tracking Live Activity step, or nil when no activity is running.
+    /// Single source of truth — written by checkout and inbox controls alike.
+    private(set) var activeOrderStep: OrderStep? = nil
 
     /// Anonymous device id, resolved asynchronously via `refreshIdentity()`.
     private(set) var ecid: String = "—"
@@ -58,9 +65,17 @@ final class AppEnvironment {
 
     // MARK: Intent — cross-screen actions that wrap a service + update state
 
-    /// Resolves the ECID from the identity service. Call once on launch.
+    /// Resolves the ECID, restores any authenticated email, and re-attaches to a
+    /// running Live Activity if the app was relaunched mid-order. Call once on launch.
     func refreshIdentity() async {
-        if let id = await identity.experienceCloudId() { ecid = id }
+        async let ecidResult = identity.experienceCloudId()
+        async let emailResult = identity.loggedInEmail()
+        if let id = await ecidResult { ecid = id }
+        if let email = await emailResult {
+            signedInUser = email
+            hasSeenLoginPrompt = true
+        }
+        activeOrderStep = liveActivity.currentStep()
     }
 
     func chooseConsent(_ state: ConsentState) {
@@ -77,12 +92,37 @@ final class AppEnvironment {
     func login(username: String) {
         identity.login(username: username)
         signedInUser = username
+        hasSeenLoginPrompt = true
+    }
+
+    func continueAsGuest() {
+        hasSeenLoginPrompt = true
     }
 
     func logout() {
-        // Unlinks the email locally; ECID stays the same.
         identity.logout()
         signedInUser = nil
+    }
+
+    // MARK: Live Activity intents
+
+    /// Ends any running order activity, then starts a fresh one at step `.placed`.
+    /// Called automatically after checkout.
+    func startOrderTrackingForCheckout() async {
+        await liveActivity.endOrderTracking()
+        let started = await liveActivity.startOrderTracking()
+        activeOrderStep = started ? .placed : nil
+    }
+
+    func advanceLiveActivityStep() async {
+        if let next = await liveActivity.advanceStep() {
+            activeOrderStep = next
+        }
+    }
+
+    func endLiveActivity() async {
+        await liveActivity.endOrderTracking()
+        activeOrderStep = nil
     }
 
     /// Short display form of the ECID for the status strip.

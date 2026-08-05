@@ -14,6 +14,10 @@ protocol IdentityService {
     /// returns the ECID via callback, not synchronously at init.
     func experienceCloudId() async -> String?
 
+    /// Reads the Identity Map for a persisted authenticated Email item.
+    /// Returns the email string if the user was previously logged in, nil otherwise.
+    func loggedInEmail() async -> String?
+
     func login(username: String)
     func logout()
 }
