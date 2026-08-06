@@ -17,11 +17,13 @@ final class HomeViewModel {
     private(set) var contentCards: [Proposition] = []
     private(set) var isLoading = false
 
-    private var loaded = false
+    /// The scope config we last loaded for. onAppear reloads when it changes
+    /// (e.g. a scope was set in the Optimize lab), not on every tab switch.
+    private var loadedScopes: String?
 
     func onAppear(_ env: AppEnvironment) async {
-        guard !loaded else { return }
-        loaded = true
+        let scopes = OptimizeScopeStore.ajoScope + "|" + OptimizeScopeStore.targetActivity
+        guard !isLoading, scopes != loadedScopes else { return }
         await refresh(env)
     }
 
@@ -32,10 +34,13 @@ final class HomeViewModel {
         let target = OptimizeScopeStore.targetActivity
         async let ajoResult = ajo.isEmpty ? [] : env.personalization.fetchPropositions(scopes: [ajo])
         async let targetResult = target.isEmpty ? [] : env.personalization.fetchPropositions(scopes: [target])
-        async let cards = env.messaging.fetchContentCards(surface: SurfaceURI.home)
         ajoOffers = await ajoResult
         targetOffers = await targetResult
-        contentCards = await cards
+        // Content cards are fetched once — skip if we already have them.
+        if contentCards.isEmpty {
+            contentCards = await env.messaging.fetchContentCards(surface: SurfaceURI.home)
+        }
+        loadedScopes = ajo + "|" + target
         isLoading = false
     }
 }
