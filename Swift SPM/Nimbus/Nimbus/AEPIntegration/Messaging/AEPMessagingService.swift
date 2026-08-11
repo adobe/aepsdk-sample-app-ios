@@ -29,13 +29,15 @@ struct AEPMessagingService: MessagingService {
     }
 
     func fetchContentCards(surface: String) async -> [Proposition] {
-        let items = await fetchItems(surface: surface)
+        let (propositions, items) = await fetchItems(surface: surface)
+        cardItems.propositions = propositions          // keep parents alive
         items.forEach { cardItems.itemsById[$0.itemId] = $0 }
         return ContentCardMapper.map(items)
     }
 
     func fetchInboxMessages(surface: String) async -> [InboxMessage] {
-        let items = await fetchItems(surface: surface)
+        let (propositions, items) = await fetchItems(surface: surface)
+        inboxItems.propositions = propositions         // keep parents alive
         items.forEach { inboxItems.itemsById[$0.itemId] = $0 }
         return InboxMapper.map(items, surface: surface)
     }
@@ -106,9 +108,7 @@ struct AEPMessagingService: MessagingService {
 
     /// Warm the surface, then read the cached items once the network response
     /// has been processed. The completion removes the need for a fixed delay.
-    private func fetchItems(surface: String) async -> [PropositionItem] {
-        // `surface` is the relative path (e.g. "home"); the SDK prepends
-        // mobileapp://<bundleId>/ automatically.
+    private func fetchItems(surface: String) async -> (propositions: [AEPMessaging.Proposition], items: [PropositionItem]) {
         let surfaceObj = Surface(path: surface)
 
         _ = await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
@@ -123,7 +123,7 @@ struct AEPMessagingService: MessagingService {
         }
         let items = propositions.flatMap { $0.items }
         Log.debug(label: "Nimbus", "propositions surface=\(surface) -> \(items.count) item(s)")
-        return items
+        return (propositions, items)
     }
 }
 
@@ -135,6 +135,8 @@ private final class CBEStore {
 }
 
 /// Generic item cache for content-card and inbox tracking.
+/// Must retain parent Propositions — PropositionItem.proposition is a weak ref.
 private final class ItemStore {
     var itemsById: [String: PropositionItem] = [:]
+    var propositions: [AEPMessaging.Proposition] = []
 }

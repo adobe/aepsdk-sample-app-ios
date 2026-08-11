@@ -71,7 +71,6 @@ final class ShopViewModel {
         guard cartCount > 0 else { return }
         let event = CommerceEvent(type: .purchases, xdm: CommerceXDM.purchase(cart: cart, subtotal: subtotal))
         env.analytics.track(event)
-        // Named action the AJO "thank you / cross-sell" in-app campaign triggers on.
         env.analytics.trackAction("order-complete", data: ["orderTotal": String(format: "%.2f", subtotal)])
         cart.removeAll()
     }

@@ -13,10 +13,12 @@ struct RootView: View {
     @Environment(AppEnvironment.self) private var env
 
     var body: some View {
-        if env.hasChosenConsent {
-            MainTabView()
-        } else {
+        if !env.hasChosenConsent {
             ConsentPrimerView()
+        } else if !env.hasSeenLoginPrompt {
+            LoginView()
+        } else {
+            MainTabView()
         }
     }
 }

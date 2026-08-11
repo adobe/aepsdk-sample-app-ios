@@ -2,9 +2,8 @@
 //  InboxViewModel.swift
 //  Nimbus
 //
-//  Owns the inbox feed + Live Activity toggle. Read/dismiss state is held in
-//  persisted in InboxStore so it survives relaunch (the SDK does not persist
-//  read/dismiss state itself).
+//  Owns the inbox feed only. Live Activity state lives on AppEnvironment so
+//  both CartView (starts it) and InboxView (controls it) share the same truth.
 //
 
 import Observation
@@ -14,7 +13,6 @@ final class InboxViewModel {
 
     private(set) var messages: [InboxMessage] = []
     private(set) var isLoading = false
-    private(set) var liveActivityActive = false
 
     private var loaded = false
     private let store = InboxStore()
@@ -30,7 +28,6 @@ final class InboxViewModel {
     func refresh(_ env: AppEnvironment) async {
         isLoading = true
         let fetched = await env.messaging.fetchInboxMessages(surface: SurfaceURI.inbox)
-        // Reconcile the fetched feed with locally-persisted read/dismiss state.
         messages = fetched
             .filter { !store.isDismissed($0.id) }
             .map { message in
@@ -52,14 +49,5 @@ final class InboxViewModel {
         store.dismiss(message.id)
         messages.removeAll { $0.id == message.id }
         env.messaging.trackInboxDismiss(message.id)
-    }
-
-    func toggleLiveActivity(_ env: AppEnvironment) async {
-        if liveActivityActive {
-            await env.liveActivity.endOrderTracking()
-            liveActivityActive = false
-        } else {
-            liveActivityActive = await env.liveActivity.startOrderTracking()
-        }
     }
 }

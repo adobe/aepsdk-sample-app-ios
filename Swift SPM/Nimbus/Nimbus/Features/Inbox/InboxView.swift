@@ -22,9 +22,21 @@ struct InboxView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                LiveActivityCardView(isActive: model.liveActivityActive) {
-                    Task { await model.toggleLiveActivity(env) }
-                }
+                LiveActivityCardView(
+                    isActive: env.activeOrderStep != nil,
+                    step: env.activeOrderStep,
+                    canAdvance: env.activeOrderStep?.isTerminal == false,
+                    onToggle: {
+                        Task {
+                            if env.activeOrderStep != nil {
+                                await env.endLiveActivity()
+                            } else {
+                                await env.startOrderTrackingForCheckout()
+                            }
+                        }
+                    },
+                    onAdvance: { Task { await env.advanceLiveActivityStep() } }
+                )
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
 

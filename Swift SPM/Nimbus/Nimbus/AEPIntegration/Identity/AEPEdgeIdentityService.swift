@@ -23,6 +23,16 @@ final class AEPEdgeIdentityService: IdentityService {
         }
     }
 
+    func loggedInEmail() async -> String? {
+        await withCheckedContinuation { continuation in
+            Identity.getIdentities { map, _ in
+                let email = map?.getItems(withNamespace: Self.namespace)?
+                    .first(where: { $0.authenticatedState == .authenticated })?.id
+                continuation.resume(returning: email)
+            }
+        }
+    }
+
     func login(username: String) {
         let map = IdentityMap()
         map.add(item: IdentityItem(id: username, authenticatedState: .authenticated, primary: true),

@@ -29,8 +29,10 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Home")
-            .task { await model.onAppear(env) }
-            .onAppear { env.analytics.trackState("home", data: nil) }
+            .onAppear {
+                env.analytics.trackState("home", data: nil)
+                Task { await model.onAppear(env) }
+            }
             .refreshable { await model.refresh(env) }
         }
     }
