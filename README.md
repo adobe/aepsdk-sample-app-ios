@@ -63,6 +63,9 @@ Follow the [documentation](https://developer.adobe.com/client-sdks/documentation
 ### Messaging
 Follow the [documentation](Documentation/README.md) for enabling messaging in the sample app.
 
+### Nimbus (Swift Package Manager)
+A separate, actively maintained sample app under [`Swift SPM/Nimbus`](Swift%20SPM/Nimbus/README.md), using SPM instead of CocoaPods. Covers Edge, Identity, Consent, Messaging (push, in-app, content cards, inbox), Optimize (Offer Decisioning + Target), and Live Activities. See its [README](Swift%20SPM/Nimbus/README.md) for setup and its [Docs](Swift%20SPM/Nimbus/Docs/) for identity/auth behavior, the Services API, and the surface/trigger reference.
+
 ## Contributing
 
 Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
