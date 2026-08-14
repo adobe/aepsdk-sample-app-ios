@@ -150,20 +150,20 @@ final class AppEnvironment {
     var shortECID: String { ecid == "—" ? "—" : String(ecid.prefix(6)) + "…" }
 }
 
-/// Local persistence for the launch-gate state (consent primer + login prompt)
-/// so those "one-time" screens stay one-time across cold launches. Kept in
-/// UserDefaults — the SDK remains the source of truth for consent itself; these
-/// are just the app-side flags that drive which gate screen shows.
+/// Local persistence for the consent choice so the one-time consent primer
+/// stays one-time across cold launches. Kept in UserDefaults — the SDK remains
+/// the source of truth for consent itself; these are just the app-side flags
+/// that drive whether the consent gate shows. (The login prompt is intentionally
+/// not persisted: logged-in users are restored from the SDK identity map in
+/// refreshIdentity(), and guests are re-prompted on next cold launch.)
 private enum Persisted {
     static let consentKey = "consent.value"
     static let hasChosenConsentKey = "consent.hasChosen"
-    static let hasSeenLoginPromptKey = "login.hasSeenPrompt"
 
     static var consent: ConsentState {
         ConsentState(rawValue: UserDefaults.standard.string(forKey: consentKey) ?? "") ?? .pending
     }
     static var hasChosenConsent: Bool { UserDefaults.standard.bool(forKey: hasChosenConsentKey) }
-    static var hasSeenLoginPrompt: Bool { UserDefaults.standard.bool(forKey: hasSeenLoginPromptKey) }
 }
 
 extension AppEnvironment {
