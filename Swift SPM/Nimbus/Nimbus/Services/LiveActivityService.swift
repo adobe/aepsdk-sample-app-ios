@@ -21,6 +21,13 @@ protocol LiveActivityService {
     /// Synchronously reads the current step from the running activity, if any.
     func currentStep() -> OrderStep?
 
+    /// Emits the running activity's step whenever its content state changes —
+    /// from a local update() OR a remote AJO content-state push — and nil when the
+    /// activity ends. Lets the app mirror ActivityKit into its own in-app card so
+    /// that card stays in sync with the Dynamic Island / Lock Screen (which
+    /// ActivityKit renders directly). Long-lived — the stream never finishes.
+    func stepUpdates() -> AsyncStream<OrderStep?>
+
     /// Returns a snapshot of all currently running order activities on this device.
     func activeActivities() -> [ActiveActivityInfo]
 }
