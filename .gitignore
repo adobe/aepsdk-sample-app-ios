@@ -94,3 +94,4 @@ iOSInjectionProject/
 
 *.log
 .scout/
+.claude/
