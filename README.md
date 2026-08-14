@@ -87,9 +87,6 @@ Follow the [documentation](https://developer.adobe.com/client-sdks/documentation
 ### Messaging
 Follow the [documentation](Documentation/README.md) for enabling messaging in the sample app.
 
-### Nimbus (Swift Package Manager)
-See [Installation → Nimbus](#nimbus-swift-package-manager) above for setup. Deeper docs live in the [Nimbus README](Swift%20SPM/Nimbus/README.md) and [Docs](Swift%20SPM/Nimbus/Docs/) — architecture, identity/auth behavior, the Services API, and the surface/trigger reference.
-
 ## Contributing
 
 Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
