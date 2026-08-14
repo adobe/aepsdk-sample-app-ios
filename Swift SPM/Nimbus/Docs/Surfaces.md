@@ -1,8 +1,10 @@
 # Surfaces & Triggers
 
-Single reference for every AJO surface URI and track action/state this app fires. Matches the [Surface and Channel Matrix](https://wiki.corp.adobe.com/pages/viewpage.action?pageId=3994824077) wiki page.
+The concrete surface/trigger reference for this app — every AJO surface URI it fetches and every track action/state it fires. For the *concepts* (what a surface is, how triggering works, which channel to use), read [Messaging & Personalization](Messaging-And-Personalization.md) first; this page is the lookup table that grounds it.
 
-Related: [Services API](Services-API.md) for the `MessagingService`/`AnalyticsService` methods these values are passed to.
+A **surface** is the address a campaign targets: `mobileapp://<bundleId>/<path>`. The SDK auto-prepends `mobileapp://<bundleId>/`, so a marketer enters only the `<path>` in the campaign's surface field. A **trigger** is a `trackAction`/`trackState` value the in-app message rules match on. Keeping both typed in one place (rather than stringly-typed at call sites) prevents drift between app code and campaign config.
+
+Matches the [Surface and Channel Matrix](https://wiki.corp.adobe.com/pages/viewpage.action?pageId=3994824077) wiki page. Related: [SDK API Reference](Services-API.md) for the methods these values are passed to.
 
 ## Surface URIs
 

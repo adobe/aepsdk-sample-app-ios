@@ -1,8 +1,10 @@
-# SDK Public APIs Used
+# SDK API Reference
 
-Every AEP/AJO public API this app calls, grouped by extension. Each is only ever called from inside [`AEPIntegration/`](../Nimbus/AEPIntegration/) — never from a view or view model directly.
+A reference for the AEP/AJO Mobile SDK public APIs, grouped by extension: **what each does** and **when you'd call it**. The "example" notes show where this app calls it, but the APIs themselves are general — this is a lookup for "which call does X."
 
-Related: [Identity & Auth](Identity-And-Auth.md) · [Surfaces & Triggers](Surfaces.md).
+For the *why* and the scenarios behind these calls, read [Identity, Consent & Auth](Identity-And-Auth.md) and [Messaging & Personalization](Messaging-And-Personalization.md). For surfaces and triggers, see [Surfaces & Triggers](Surfaces.md).
+
+In this app, every one of these is called only from inside [`AEPIntegration/`](../Nimbus/AEPIntegration/) — never from a view or view model — which keeps the SDK surface in one place.
 
 ## Mobile Core
 

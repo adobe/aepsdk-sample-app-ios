@@ -29,11 +29,14 @@ The app is split into three layers:
 
 ## Docs
 
+These are written as a **general AEP/AJO knowledge base** — each doc leads with how the SDK behaves in common scenarios and the questions that come up most, then grounds it in how this app demonstrates it. Useful whether or not you work on Nimbus.
+
 | Doc | Covers |
 |---|---|
-| [Identity & Auth](Docs/Identity-And-Auth.md) | ECID lifecycle, consent gate, login/guest flow, logout behavior |
-| [Services API](Docs/Services-API.md) | Every protocol in `Services/`, its real AEP SDK call, and where it's used |
-| [Surfaces & Triggers](Docs/Surfaces.md) | Every AJO surface URI and track action/state trigger this app fires |
+| [Identity, Consent & Auth](Docs/Identity-And-Auth.md) | ECID lifecycle, login/logout/guest scenarios, identity graph vs. profile attributes, namespaces, consent timing, quick-answer Q&A |
+| [Messaging & Personalization](Docs/Messaging-And-Personalization.md) | Which channel to use (IAM / content card / CBE / inbox / push / Live Activity), surfaces, proposition tracking & the weak-ref trap, Offer Decisioning vs. Target, quick-answer Q&A |
+| [Surfaces & Triggers](Docs/Surfaces.md) | The concrete surface URI + trigger + screen→channel reference for this app |
+| [SDK API Reference](Docs/Services-API.md) | Every AEP/AJO SDK API used, grouped by extension — what it does and when to call it |
 
 ## Related
 
