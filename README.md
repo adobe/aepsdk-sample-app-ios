@@ -67,7 +67,7 @@ Nimbus is a standalone SwiftUI sample app that uses Swift Package Manager (no Co
 
 3. Ensure [`Core/OrderActivityAttributes.swift`](Swift%20SPM/Nimbus/Nimbus/Core/OrderActivityAttributes.swift) is a member of **both** the `Nimbus` app target **and** the `OrderActivityWidget` extension target. It defines the shared Live Activity type used by both; select the file in Xcode, open the File Inspector, and confirm both boxes under **Target Membership** are checked. Live Activities won't build/run correctly otherwise.
 
-4. Set your development team under **Signing & Capabilities**. Push notifications require a paid Apple Developer account (APNs can't deliver to the Simulator).
+4. Set your development team under **Signing & Capabilities**. Push notifications require a paid Apple Developer account.
 
 5. Run the `Nimbus` target on a simulator or device.
 
