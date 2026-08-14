@@ -22,7 +22,12 @@ struct NimbusApp: App {
             RootView()
                 .environment(env)
                 .task { await env.refreshIdentity() }
-                // Assurance QR / deep link (assurance://... or your app scheme).
+                // Keeps the in-app order card live on remote AJO pushes, not just
+                // local advances. Long-lived subscription for the app's lifetime.
+                .task { await env.observeLiveActivityUpdates() }
+                // Assurance QR / deep link. Routes the registered `nimbus://`
+                // scheme (CFBundleURLTypes in Info.plist) — set the Assurance
+                // session's Base URL to `nimbus://` so scanning its QR opens the app.
                 .onOpenURL { url in env.diagnostics.startSession(url: url) }
         }
         .onChange(of: scenePhase) { _, phase in

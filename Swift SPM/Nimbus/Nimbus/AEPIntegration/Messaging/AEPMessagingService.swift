@@ -71,8 +71,8 @@ struct AEPMessagingService: MessagingService {
             }
         }
         // Retain propositions so each item's weak `proposition` back-ref stays
-        // valid for later display/interact tracking.
-        cbe.propositions.append(contentsOf: propositions)
+        // valid for later display/interact tracking. 
+        cbe.propositions = propositions
 
         var result: [Proposition] = []
         for proposition in propositions {
