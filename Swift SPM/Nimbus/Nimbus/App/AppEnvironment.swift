@@ -11,6 +11,7 @@
 //  by the individual view models.
 //
 
+import Foundation
 import Observation
 
 @Observable
@@ -19,9 +20,18 @@ final class AppEnvironment {
     // MARK: Shared observable state
 
     /// Default is `.pending` — the user must explicitly choose on first launch.
-    var consent: ConsentState = .pending
-    /// Tracks whether the one-time consent primer has been answered.
-    var hasChosenConsent: Bool = false
+    /// Persisted so the choice (and the UI that reflects it) survives a cold
+    /// relaunch. The SDK holds the authoritative consent; this mirror keeps the
+    /// app in sync without a per-launch read-back.
+    var consent: ConsentState = Persisted.consent {
+        didSet { UserDefaults.standard.set(consent.rawValue, forKey: Persisted.consentKey) }
+    }
+    /// Tracks whether the one-time consent primer has been answered. Persisted
+    /// so the primer stays genuinely one-time across cold launches (otherwise it
+    /// resets to false on every relaunch and re-sends consent.update).
+    var hasChosenConsent: Bool = Persisted.hasChosenConsent {
+        didSet { UserDefaults.standard.set(hasChosenConsent, forKey: Persisted.hasChosenConsentKey) }
+    }
     /// Tracks whether the login prompt has been seen (login or guest tap). Skips
     /// the screen if the user was already logged in when the app launched.
     var hasSeenLoginPrompt: Bool = false
@@ -78,6 +88,17 @@ final class AppEnvironment {
         activeOrderStep = liveActivity.currentStep()
     }
 
+    /// Mirrors Live Activity step changes (local advance OR remote AJO push) into
+    /// `activeOrderStep`, so the in-app Inbox card stays in sync with the Dynamic
+    /// Island / Lock Screen. Long-lived — call once at launch; it runs for the
+    /// app's lifetime.
+    @MainActor
+    func observeLiveActivityUpdates() async {
+        for await step in liveActivity.stepUpdates() {
+            activeOrderStep = step
+        }
+    }
+
     func chooseConsent(_ state: ConsentState) {
         consentService.update(state)
         consent = state
@@ -127,6 +148,22 @@ final class AppEnvironment {
 
     /// Short display form of the ECID for the status strip.
     var shortECID: String { ecid == "—" ? "—" : String(ecid.prefix(6)) + "…" }
+}
+
+/// Local persistence for the launch-gate state (consent primer + login prompt)
+/// so those "one-time" screens stay one-time across cold launches. Kept in
+/// UserDefaults — the SDK remains the source of truth for consent itself; these
+/// are just the app-side flags that drive which gate screen shows.
+private enum Persisted {
+    static let consentKey = "consent.value"
+    static let hasChosenConsentKey = "consent.hasChosen"
+    static let hasSeenLoginPromptKey = "login.hasSeenPrompt"
+
+    static var consent: ConsentState {
+        ConsentState(rawValue: UserDefaults.standard.string(forKey: consentKey) ?? "") ?? .pending
+    }
+    static var hasChosenConsent: Bool { UserDefaults.standard.bool(forKey: hasChosenConsentKey) }
+    static var hasSeenLoginPrompt: Bool { UserDefaults.standard.bool(forKey: hasSeenLoginPromptKey) }
 }
 
 extension AppEnvironment {

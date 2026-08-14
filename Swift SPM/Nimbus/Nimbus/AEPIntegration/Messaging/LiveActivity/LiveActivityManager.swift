@@ -32,7 +32,8 @@ final class LiveActivityManager: LiveActivityService {
         do {
             _ = try Activity.request(
                 attributes: attributes,
-                content: .init(state: initialState, staleDate: nil)
+                content: .init(state: initialState, staleDate: nil),
+                pushType: .token
             )
             Log.debug(label: "Nimbus", "Live Activity started — order #\(attributes.orderNumber)")
             return true
@@ -63,6 +64,50 @@ final class LiveActivityManager: LiveActivityService {
 
     func currentStep() -> OrderStep? {
         Activity<OrderActivityAttributes>.activities.first?.content.state.step
+    }
+
+    // Streams step changes from ActivityKit itself — so a change made by anything
+    // OTHER than our local advanceStep() (namely a remote AJO content-state push)
+    // still reaches the app. Without this, only the OS Dynamic Island / Lock
+    // Screen would update on a remote push; the in-app card would go stale.
+    func stepUpdates() -> AsyncStream<OrderStep?> {
+        AsyncStream { continuation in
+            let supervisor = Task {
+                await withTaskGroup(of: Void.self) { group in
+                    // Activities already running (e.g. app relaunched mid-order).
+                    for activity in Activity<OrderActivityAttributes>.activities {
+                        group.addTask { await Self.follow(activity, continuation) }
+                    }
+                    // Activities started after we subscribed.
+                    for await activity in Activity<OrderActivityAttributes>.activityUpdates {
+                        group.addTask { await Self.follow(activity, continuation) }
+                    }
+                }
+            }
+            continuation.onTermination = { _ in supervisor.cancel() }
+        }
+    }
+
+    /// Follows one activity: emits its current step, then every content-state
+    /// change (local or remote push), and nil once it ends.
+    private static func follow(
+        _ activity: Activity<OrderActivityAttributes>,
+        _ continuation: AsyncStream<OrderStep?>.Continuation
+    ) async {
+        continuation.yield(activity.content.state.step)
+        await withTaskGroup(of: Void.self) { group in
+            group.addTask {
+                for await content in activity.contentUpdates {
+                    continuation.yield(content.state.step)
+                }
+            }
+            group.addTask {
+                for await state in activity.activityStateUpdates
+                where state == .ended || state == .dismissed {
+                    continuation.yield(nil)
+                }
+            }
+        }
     }
 
     func activeActivities() -> [ActiveActivityInfo] {
