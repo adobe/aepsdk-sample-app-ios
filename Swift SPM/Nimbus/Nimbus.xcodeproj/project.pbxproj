@@ -1,0 +1,689 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94105DB53010FDFB001BD1E7 /* AEPLifecycle in Frameworks */ = {isa = PBXBuildFile; productRef = 94105DB43010FDFB001BD1E7 /* AEPLifecycle */; };
+		94105DB73010FE16001BD1E7 /* AEPSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 94105DB63010FE16001BD1E7 /* AEPSignal */; };
+		9498506C301B2728006DD4BF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498506B301B2728006DD4BF /* WidgetKit.framework */; };
+		9498506E301B2728006DD4BF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498506D301B2728006DD4BF /* SwiftUI.framework */; };
+		9498507F301B2729006DD4BF /* OrderActivityWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9498508A301B297E006DD4BF /* AEPMessagingLiveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 94985089301B297E006DD4BF /* AEPMessagingLiveActivity */; };
+		94985093301CB40B006DD4BF /* AEPAssurance in Frameworks */ = {isa = PBXBuildFile; productRef = 94985092301CB40B006DD4BF /* AEPAssurance */; };
+		94985095301CB418006DD4BF /* AEPOptimize in Frameworks */ = {isa = PBXBuildFile; productRef = 94985094301CB418006DD4BF /* AEPOptimize */; };
+		94985097301CB452006DD4BF /* AEPOptimize in Frameworks */ = {isa = PBXBuildFile; productRef = 94985096301CB452006DD4BF /* AEPOptimize */; };
+		949FD32A3010FA0F00C3E918 /* AEPMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD3293010FA0F00C3E918 /* AEPMessaging */; };
+		949FD32C3010FA0F00C3E918 /* AEPMessagingLiveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD32B3010FA0F00C3E918 /* AEPMessagingLiveActivity */; };
+		949FD32E3010FA0F00C3E918 /* AEPMessagingNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD32D3010FA0F00C3E918 /* AEPMessagingNotification */; };
+		949FD3453010FC6C00C3E918 /* AEPEdgeConsent in Frameworks */ = {isa = PBXBuildFile; productRef = 949FD3443010FC6C00C3E918 /* AEPEdgeConsent */; };
+		94E4FAB1301134E0009D5A56 /* AEPAssurance in Frameworks */ = {isa = PBXBuildFile; productRef = 94E4FAB0301134E0009D5A56 /* AEPAssurance */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9498507D301B2729006DD4BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 949FD28E3010D55900C3E918 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94985069301B2728006DD4BF;
+			remoteInfo = OrderActivityWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94985080301B2729006DD4BF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9498507F301B2729006DD4BF /* OrderActivityWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrderActivityWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9498506B301B2728006DD4BF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		9498506D301B2728006DD4BF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		949FD2963010D55900C3E918 /* Nimbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nimbus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		94985083301B2729006DD4BF /* Exceptions for "OrderActivityWidget" folder in "OrderActivityWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 94985069301B2728006DD4BF /* OrderActivityWidgetExtension */;
+		};
+		94985088301B2930006DD4BF /* Exceptions for "Nimbus" folder in "OrderActivityWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/OrderActivityAttributes.swift,
+			);
+			target = 94985069301B2728006DD4BF /* OrderActivityWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9498506F301B2728006DD4BF /* OrderActivityWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				94985083301B2729006DD4BF /* Exceptions for "OrderActivityWidget" folder in "OrderActivityWidgetExtension" target */,
+			);
+			path = OrderActivityWidget;
+			sourceTree = "<group>";
+		};
+		949FD2983010D55900C3E918 /* Nimbus */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				94985088301B2930006DD4BF /* Exceptions for "Nimbus" folder in "OrderActivityWidgetExtension" target */,
+			);
+			path = Nimbus;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94985067301B2728006DD4BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9498508A301B297E006DD4BF /* AEPMessagingLiveActivity in Frameworks */,
+				9498506E301B2728006DD4BF /* SwiftUI.framework in Frameworks */,
+				94985095301CB418006DD4BF /* AEPOptimize in Frameworks */,
+				9498506C301B2728006DD4BF /* WidgetKit.framework in Frameworks */,
+				94985093301CB40B006DD4BF /* AEPAssurance in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		949FD2933010D55900C3E918 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				949FD32A3010FA0F00C3E918 /* AEPMessaging in Frameworks */,
+				94105DB73010FE16001BD1E7 /* AEPSignal in Frameworks */,
+				94985097301CB452006DD4BF /* AEPOptimize in Frameworks */,
+				949FD32E3010FA0F00C3E918 /* AEPMessagingNotification in Frameworks */,
+				949FD32C3010FA0F00C3E918 /* AEPMessagingLiveActivity in Frameworks */,
+				949FD3453010FC6C00C3E918 /* AEPEdgeConsent in Frameworks */,
+				94E4FAB1301134E0009D5A56 /* AEPAssurance in Frameworks */,
+				94105DB53010FDFB001BD1E7 /* AEPLifecycle in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94105DB33010FDFB001BD1E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9498506B301B2728006DD4BF /* WidgetKit.framework */,
+				9498506D301B2728006DD4BF /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		949FD28D3010D55900C3E918 = {
+			isa = PBXGroup;
+			children = (
+				949FD2983010D55900C3E918 /* Nimbus */,
+				9498506F301B2728006DD4BF /* OrderActivityWidget */,
+				94105DB33010FDFB001BD1E7 /* Frameworks */,
+				949FD2973010D55900C3E918 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		949FD2973010D55900C3E918 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				949FD2963010D55900C3E918 /* Nimbus.app */,
+				9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94985069301B2728006DD4BF /* OrderActivityWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94985084301B2729006DD4BF /* Build configuration list for PBXNativeTarget "OrderActivityWidgetExtension" */;
+			buildPhases = (
+				94985066301B2728006DD4BF /* Sources */,
+				94985067301B2728006DD4BF /* Frameworks */,
+				94985068301B2728006DD4BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9498506F301B2728006DD4BF /* OrderActivityWidget */,
+			);
+			name = OrderActivityWidgetExtension;
+			packageProductDependencies = (
+				94985089301B297E006DD4BF /* AEPMessagingLiveActivity */,
+				94985092301CB40B006DD4BF /* AEPAssurance */,
+				94985094301CB418006DD4BF /* AEPOptimize */,
+			);
+			productName = OrderActivityWidgetExtension;
+			productReference = 9498506A301B2728006DD4BF /* OrderActivityWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		949FD2953010D55900C3E918 /* Nimbus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 949FD2A13010D55900C3E918 /* Build configuration list for PBXNativeTarget "Nimbus" */;
+			buildPhases = (
+				949FD2923010D55900C3E918 /* Sources */,
+				949FD2933010D55900C3E918 /* Frameworks */,
+				949FD2943010D55900C3E918 /* Resources */,
+				94985080301B2729006DD4BF /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9498507E301B2729006DD4BF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				949FD2983010D55900C3E918 /* Nimbus */,
+			);
+			name = Nimbus;
+			packageProductDependencies = (
+				949FD3293010FA0F00C3E918 /* AEPMessaging */,
+				949FD32B3010FA0F00C3E918 /* AEPMessagingLiveActivity */,
+				949FD32D3010FA0F00C3E918 /* AEPMessagingNotification */,
+				949FD3443010FC6C00C3E918 /* AEPEdgeConsent */,
+				94105DB43010FDFB001BD1E7 /* AEPLifecycle */,
+				94105DB63010FE16001BD1E7 /* AEPSignal */,
+				94E4FAB0301134E0009D5A56 /* AEPAssurance */,
+				94985096301CB452006DD4BF /* AEPOptimize */,
+			);
+			productName = Nimbus;
+			productReference = 949FD2963010D55900C3E918 /* Nimbus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		949FD28E3010D55900C3E918 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2660;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					94985069301B2728006DD4BF = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					949FD2953010D55900C3E918 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+				};
+			};
+			buildConfigurationList = 949FD2913010D55900C3E918 /* Build configuration list for PBXProject "Nimbus" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 949FD28D3010D55900C3E918;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				949FD3273010FA0500C3E918 /* XCRemoteSwiftPackageReference "aepsdk-core-ios" */,
+				949FD3283010FA0F00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */,
+				949FD3433010FC6C00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-edgeconsent-ios" */,
+				94E4FAAF301134E0009D5A56 /* XCRemoteSwiftPackageReference "aepsdk-assurance-ios" */,
+				9498508E301CABAA006DD4BF /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 949FD2973010D55900C3E918 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				949FD2953010D55900C3E918 /* Nimbus */,
+				94985069301B2728006DD4BF /* OrderActivityWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94985068301B2728006DD4BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		949FD2943010D55900C3E918 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94985066301B2728006DD4BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		949FD2923010D55900C3E918 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9498507E301B2729006DD4BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94985069301B2728006DD4BF /* OrderActivityWidgetExtension */;
+			targetProxy = 9498507D301B2729006DD4BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		94985081301B2729006DD4BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderActivityWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OrderActivityWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.nimbus.OrderActivityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94985082301B2729006DD4BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderActivityWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OrderActivityWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.nimbus.OrderActivityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		949FD29F3010D55900C3E918 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		949FD2A03010D55900C3E918 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		949FD2A23010D55900C3E918 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Nimbus.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.nimbus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		949FD2A33010D55900C3E918 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Nimbus.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.nimbus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94985084301B2729006DD4BF /* Build configuration list for PBXNativeTarget "OrderActivityWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94985081301B2729006DD4BF /* Debug */,
+				94985082301B2729006DD4BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		949FD2913010D55900C3E918 /* Build configuration list for PBXProject "Nimbus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				949FD29F3010D55900C3E918 /* Debug */,
+				949FD2A03010D55900C3E918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		949FD2A13010D55900C3E918 /* Build configuration list for PBXNativeTarget "Nimbus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				949FD2A23010D55900C3E918 /* Debug */,
+				949FD2A33010D55900C3E918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9498508E301CABAA006DD4BF /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adobe/aepsdk-optimize-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+		949FD3273010FA0500C3E918 /* XCRemoteSwiftPackageReference "aepsdk-core-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adobe/aepsdk-core-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.0;
+			};
+		};
+		949FD3283010FA0F00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adobe/aepsdk-messaging-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.14.0;
+			};
+		};
+		949FD3433010FC6C00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-edgeconsent-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adobe/aepsdk-edgeconsent-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+		94E4FAAF301134E0009D5A56 /* XCRemoteSwiftPackageReference "aepsdk-assurance-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adobe/aepsdk-assurance-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94105DB43010FDFB001BD1E7 /* AEPLifecycle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949FD3273010FA0500C3E918 /* XCRemoteSwiftPackageReference "aepsdk-core-ios" */;
+			productName = AEPLifecycle;
+		};
+		94105DB63010FE16001BD1E7 /* AEPSignal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949FD3273010FA0500C3E918 /* XCRemoteSwiftPackageReference "aepsdk-core-ios" */;
+			productName = AEPSignal;
+		};
+		94985089301B297E006DD4BF /* AEPMessagingLiveActivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949FD3283010FA0F00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */;
+			productName = AEPMessagingLiveActivity;
+		};
+		94985092301CB40B006DD4BF /* AEPAssurance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94E4FAAF301134E0009D5A56 /* XCRemoteSwiftPackageReference "aepsdk-assurance-ios" */;
+			productName = AEPAssurance;
+		};
+		94985094301CB418006DD4BF /* AEPOptimize */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9498508E301CABAA006DD4BF /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */;
+			productName = AEPOptimize;
+		};
+		94985096301CB452006DD4BF /* AEPOptimize */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9498508E301CABAA006DD4BF /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */;
+			productName = AEPOptimize;
+		};
+		949FD3293010FA0F00C3E918 /* AEPMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949FD3283010FA0F00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */;
+			productName = AEPMessaging;
+		};
+		949FD32B3010FA0F00C3E918 /* AEPMessagingLiveActivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949FD3283010FA0F00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */;
+			productName = AEPMessagingLiveActivity;
+		};
+		949FD32D3010FA0F00C3E918 /* AEPMessagingNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949FD3283010FA0F00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */;
+			productName = AEPMessagingNotification;
+		};
+		949FD3443010FC6C00C3E918 /* AEPEdgeConsent */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949FD3433010FC6C00C3E918 /* XCRemoteSwiftPackageReference "aepsdk-edgeconsent-ios" */;
+			productName = AEPEdgeConsent;
+		};
+		94E4FAB0301134E0009D5A56 /* AEPAssurance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94E4FAAF301134E0009D5A56 /* XCRemoteSwiftPackageReference "aepsdk-assurance-ios" */;
+			productName = AEPAssurance;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 949FD28E3010D55900C3E918 /* Project object */;
+}
